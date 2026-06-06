@@ -32,7 +32,9 @@ export const metadata = {
   publisher: 'FinanceCalcHub',
 
   other: {
-    'google-adsense-account': 'ca-pub-6350335137194766',
+    other: {
+  'google-adsense-account': 'ca-pub-4464337907348148',
+},
   },
 
   robots: {
