@@ -12,40 +12,59 @@ export default function MortgageCalculatorPage() {
   const [loanTerm, setLoanTerm] = useState(30);
   const [propertyTax, setPropertyTax] = useState(1.1);
   const [insurance, setInsurance] = useState(1200);
+  const [pmi, setPmi] = useState(0);
+  const [hoa, setHoa] = useState(0);
+  const [maintenance, setMaintenance] = useState(200);
 
-  const loanAmount = homePrice - downPayment;
+  const loanAmount = Math.max(homePrice - downPayment, 0);
   const monthlyRate = interestRate / 100 / 12;
   const totalPayments = loanTerm * 12;
 
   const principalAndInterest =
-    monthlyRate > 0
-      ? loanAmount *
-        ((monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) /
-          (Math.pow(1 + monthlyRate, totalPayments) - 1))
-      : loanAmount / totalPayments;
+    loanAmount > 0 && totalPayments > 0
+      ? monthlyRate > 0
+        ? loanAmount *
+          ((monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) /
+            (Math.pow(1 + monthlyRate, totalPayments) - 1))
+        : loanAmount / totalPayments
+      : 0;
 
   const monthlyPropertyTax = (homePrice * (propertyTax / 100)) / 12;
   const monthlyInsurance = insurance / 12;
+  const monthlyPmi = pmi;
+  const monthlyHoa = hoa;
+  const monthlyMaintenance = maintenance;
+
   const totalMonthlyPayment =
-    principalAndInterest + monthlyPropertyTax + monthlyInsurance;
+    principalAndInterest +
+    monthlyPropertyTax +
+    monthlyInsurance +
+    monthlyPmi +
+    monthlyHoa +
+    monthlyMaintenance;
+
+  const downPaymentPercent =
+    homePrice > 0 ? (downPayment / homePrice) * 100 : 0;
 
   return (
     <section className="section">
       <div className="container">
         <Breadcrumbs
-  items={[
-    { label: 'Home', href: '/' },
-    { label: 'Calculators', href: '/calculators' },
-    { label: 'Mortgage Calculator' },
-  ]}
-/>
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Calculators', href: '/calculators' },
+            { label: 'Mortgage Calculator' },
+          ]}
+        />
+
         <p className="eyebrow">US mortgage calculator</p>
 
         <h1>Mortgage Calculator</h1>
 
         <p>
           Estimate your monthly mortgage payment including principal, interest,
-          property tax and homeowners insurance.
+          property tax, homeowners insurance, PMI, HOA fees and a maintenance
+          buffer.
         </p>
 
         <AdBanner slot="mortgage-top" />
@@ -111,8 +130,35 @@ export default function MortgageCalculatorPage() {
             />
           </div>
 
+          <div className="input-group">
+            <label>Monthly PMI</label>
+            <input
+              type="number"
+              value={pmi}
+              onChange={(e) => setPmi(Number(e.target.value))}
+            />
+          </div>
+
+          <div className="input-group">
+            <label>Monthly HOA fee</label>
+            <input
+              type="number"
+              value={hoa}
+              onChange={(e) => setHoa(Number(e.target.value))}
+            />
+          </div>
+
+          <div className="input-group">
+            <label>Monthly maintenance buffer</label>
+            <input
+              type="number"
+              value={maintenance}
+              onChange={(e) => setMaintenance(Number(e.target.value))}
+            />
+          </div>
+
           <div className="result">
-            Estimated monthly payment: ${totalMonthlyPayment.toFixed(2)}
+            Estimated total monthly payment: ${totalMonthlyPayment.toFixed(2)}
           </div>
 
           <div className="result">
@@ -126,6 +172,22 @@ export default function MortgageCalculatorPage() {
           <div className="result">
             Estimated monthly insurance: ${monthlyInsurance.toFixed(2)}
           </div>
+
+          <div className="result">Monthly PMI: ${monthlyPmi.toFixed(2)}</div>
+
+          <div className="result">Monthly HOA: ${monthlyHoa.toFixed(2)}</div>
+
+          <div className="result">
+            Maintenance buffer: ${monthlyMaintenance.toFixed(2)}
+          </div>
+
+          <div className="result">
+            Loan amount: ${loanAmount.toFixed(2)}
+          </div>
+
+          <div className="result">
+            Down payment: {downPaymentPercent.toFixed(1)}%
+          </div>
         </div>
 
         <AdBanner slot="mortgage-middle" />
@@ -135,9 +197,10 @@ export default function MortgageCalculatorPage() {
 
           <p>
             This mortgage calculator estimates your monthly housing payment by
-            combining loan principal, interest, property tax and homeowners
-            insurance. It is designed to help home buyers understand how changes
-            in home price, down payment and interest rate may affect monthly cost.
+            combining loan principal, interest, property tax, homeowners
+            insurance, PMI, HOA fees and a maintenance buffer. It is designed to
+            help home buyers understand the full monthly cost of owning a home,
+            not just the loan payment.
           </p>
 
           <h3>What is principal and interest?</h3>
@@ -164,11 +227,29 @@ export default function MortgageCalculatorPage() {
             insurance provider.
           </p>
 
+          <h3>What is PMI?</h3>
+
+          <p>
+            PMI, or private mortgage insurance, may apply when the down payment is
+            less than 20% on a conventional mortgage. This calculator lets you add
+            a monthly PMI estimate so the payment is closer to the real monthly
+            cost.
+          </p>
+
+          <h3>Why HOA fees and maintenance matter</h3>
+
+          <p>
+            Some homes, condos and townhouses have monthly HOA fees. Homeowners
+            should also plan for repairs and maintenance. Adding a maintenance
+            buffer can help make the estimate more realistic.
+          </p>
+
           <h3>Important note</h3>
 
           <p>
-            This is a simplified estimate. Actual mortgage payments may include
-            PMI, HOA fees, local taxes, lender fees and other costs.
+            This calculator is a simplified educational estimate. Actual mortgage
+            payments may vary based on lender fees, escrow rules, local taxes,
+            PMI, HOA fees, insurance premiums and loan terms.
           </p>
         </div>
 
