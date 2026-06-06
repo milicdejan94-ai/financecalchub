@@ -31,6 +31,10 @@ export const metadata = {
   creator: 'FinanceCalcHub',
   publisher: 'FinanceCalcHub',
 
+  other: {
+    'google-adsense-account': 'ca-pub-6350335137194766',
+  },
+  
   robots: {
     index: true,
     follow: true,
