@@ -32,9 +32,7 @@ export const metadata = {
   publisher: 'FinanceCalcHub',
 
   other: {
-    other: {
-  'google-adsense-account': 'ca-pub-4464337907348148',
-},
+    'google-adsense-account': 'ca-pub-4464337907348148',
   },
 
   robots: {
@@ -74,6 +72,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-4464337907348148"
+        />
+      </head>
+
       <body>
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
