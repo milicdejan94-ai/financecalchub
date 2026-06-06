@@ -34,7 +34,7 @@ export const metadata = {
   other: {
     'google-adsense-account': 'ca-pub-6350335137194766',
   },
-  
+
   robots: {
     index: true,
     follow: true,
@@ -152,6 +152,7 @@ export default function RootLayout({
                 <h4>Company</h4>
                 <a href="/blog">Blog</a>
                 <a href="/about">About</a>
+                <a href="/methodology">Methodology</a>
                 <a href="/contact">Contact</a>
                 <a href="/privacy-policy">Privacy Policy</a>
                 <a href="/terms">Terms</a>
