@@ -8,8 +8,7 @@ const popularTools = [
   },
   {
   title: 'Federal Tax Calculator',
-  description:
-    'Estimate US federal income tax based on income, filing status and standard deduction assumptions.',
+  text: 'Estimate US federal income tax based on income, filing status and standard deduction assumptions.',
   href: '/calculators/federal-tax',
 },
   {
@@ -304,20 +303,27 @@ export default function HomePage() {
               knowledge.
             </p>
 
-            <h3>Designed for internal linking</h3>
+            <h3>Easy to compare related tools</h3>
 
-            <p>
-              Related calculators and category pages help users move between
-              tools, compare financial scenarios and find more useful resources.
-            </p>
+<p>
+  Related calculators and category pages help users move between
+  paycheck, mortgage, loan, savings and retirement tools so they can
+  compare different financial scenarios more easily.
+</p>
 
             <h3>Important disclaimer</h3>
 
-            <p>
-              These calculators provide educational estimates only. They are not
-              tax, legal, investment or financial advice. Always verify important
-              decisions with a qualified professional.
-            </p>
+<p>
+  These calculators provide educational estimates only. They are not
+  financial, tax, legal, mortgage, payroll, insurance or investment
+  advice. Actual results may vary based on your location, tax situation,
+  lender, employer, deductions, fees and other personal factors.
+</p>
+
+<p>
+  Before making important decisions, verify the numbers with a qualified
+  professional or official source.
+</p>
           </div>
         </div>
       </section>
@@ -339,10 +345,11 @@ export default function HomePage() {
             <h3>Are the calculator results exact?</h3>
 
             <p>
-              No. Results are estimates based on simplified assumptions. Actual
-              taxes, payments, interest, investment returns or savings results
-              may vary.
-            </p>
+  No. Results are estimates based on simplified assumptions. Actual
+  taxes, payments, interest, investment returns or savings results
+  may vary. You can read more about our assumptions on the{' '}
+  <a href="/methodology">Methodology</a> page.
+</p>
 
             <h3>Can I use these calculators for tax advice?</h3>
 
