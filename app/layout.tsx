@@ -145,6 +145,7 @@ export default function RootLayout({
                 <a href="/calculators/mortgage-affordability">
                   Mortgage Affordability
                 </a>
+                <a href="/mortgage-payment">Mortgage Payment by Amount</a>
                 <a href="/calculators/refinance">Refinance Calculator</a>
                 <a href="/calculators/debt-payoff">Debt Payoff Calculator</a>
                 <a href="/calculators/credit-card-payoff">
