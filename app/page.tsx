@@ -7,14 +7,29 @@ const popularTools = [
     href: '/calculators/paycheck',
   },
   {
-  title: 'Federal Tax Calculator',
-  text: 'Estimate US federal income tax based on income, filing status and standard deduction assumptions.',
-  href: '/calculators/federal-tax',
-},
+    title: 'Federal Tax Calculator',
+    text: 'Estimate US federal income tax based on income, filing status and standard deduction assumptions.',
+    href: '/calculators/federal-tax',
+  },
+  {
+    title: 'Salary After Tax Calculator',
+    text: 'Estimate how much common US salary amounts may be after taxes.',
+    href: '/salary-after-tax',
+  },
+  {
+    title: 'Hourly Wage to Salary Calculator',
+    text: 'Convert hourly wages into estimated annual, monthly, weekly and after-tax pay.',
+    href: '/hourly-wage',
+  },
   {
     title: 'Mortgage Calculator',
     text: 'Estimate monthly mortgage payments including taxes and insurance.',
     href: '/calculators/mortgage',
+  },
+  {
+    title: 'Mortgage Payment by Amount',
+    text: 'Estimate payments for common mortgage amounts like $300k, $400k and $500k.',
+    href: '/mortgage-payment',
   },
   {
     title: 'Debt Payoff Calculator',
@@ -26,38 +41,33 @@ const popularTools = [
     text: 'Estimate future 401k savings using salary, contribution rate, employer match and return.',
     href: '/calculators/401k',
   },
-  {
-    title: 'Compound Interest Calculator',
-    text: 'Estimate how savings or investments may grow with compound interest.',
-    href: '/calculators/compound-interest',
-  },
-  {
-    title: 'Rent vs Buy Calculator',
-    text: 'Compare estimated renting costs with home buying costs over time.',
-    href: '/calculators/rent-vs-buy',
-  },
 ];
 
 const categories = [
   {
     title: 'Paycheck & Salary',
-    text: 'Take-home pay, salary, hourly wage, overtime and state paycheck calculators.',
-    href: '/calculators',
+    text: 'Take-home pay, salary, hourly wage, overtime, after-tax pay and state paycheck calculators.',
+    href: '/salary-after-tax',
+  },
+  {
+    title: 'Hourly Wage',
+    text: 'Convert hourly wages into yearly, monthly, weekly and paycheck estimates.',
+    href: '/hourly-wage',
   },
   {
     title: 'Mortgage & Home',
     text: 'Mortgage payments, refinance, affordability, rent vs buy and down payment tools.',
-    href: '/calculators',
+    href: '/mortgage-payment',
   },
   {
     title: 'Loans & Debt',
     text: 'Loan payments, car loans, APR, debt payoff and credit card payoff tools.',
-    href: '/calculators',
+    href: '/calculators/debt-payoff',
   },
   {
     title: 'Savings & Retirement',
     text: 'Savings, compound interest, 401k and retirement planning calculators.',
-    href: '/calculators',
+    href: '/calculators/retirement',
   },
 ];
 
@@ -142,46 +152,51 @@ export default function HomePage() {
             </p>
 
             <div className="quick-links">
-              <a href="/calculators">All calculators</a>
+  <a href="/calculators">All calculators</a>
 
-              <a href="/calculators/paycheck">Paycheck calculator</a>
-              <a href="/calculators/federal-tax">Federal tax calculator</a>
-              <a href="/calculators/hourly-paycheck">Hourly paycheck calculator</a>
-              <a href="/calculators/overtime">Overtime calculator</a>
-              <a href="/calculators/salary-to-hourly">Salary to hourly calculator</a>
-              <a href="/paycheck-calculator">Paycheck by state</a>
-              <a href="/salary-calculator">Salary calculator</a>
+  <a href="/calculators/paycheck">Paycheck calculator</a>
+  <a href="/calculators/federal-tax">Federal tax calculator</a>
+  <a href="/calculators/hourly-paycheck">Hourly paycheck calculator</a>
+  <a href="/calculators/overtime">Overtime calculator</a>
+  <a href="/calculators/salary-to-hourly">Salary to hourly calculator</a>
+  <a href="/paycheck-calculator">Paycheck by state</a>
+  <a href="/salary-calculator">Salary calculator</a>
+  <a href="/salary-after-tax">Salary after tax calculators</a>
+  <a href="/hourly-wage">Hourly wage to salary calculators</a>
 
-              <a href="/calculators/mortgage">Mortgage calculator</a>
-              <a href="/calculators/refinance">Refinance calculator</a>
-              <a href="/calculators/mortgage-affordability">
-                Mortgage affordability calculator
-              </a>
-              <a href="/calculators/rent-vs-buy">Rent vs buy calculator</a>
-              <a href="/calculators/down-payment">Down payment calculator</a>
-              <a href="/calculators/amortization">Amortization calculator</a>
-              <a href="/calculators/extra-mortgage-payment">
-                Extra mortgage payment calculator
-              </a>
+  <a href="/calculators/mortgage">Mortgage calculator</a>
+  <a href="/mortgage-payment">Mortgage payment by amount</a>
+  <a href="/calculators/refinance">Refinance calculator</a>
+  <a href="/calculators/mortgage-affordability">
+    Mortgage affordability calculator
+  </a>
+  <a href="/calculators/rent-vs-buy">Rent vs buy calculator</a>
+  <a href="/calculators/down-payment">Down payment calculator</a>
+  <a href="/calculators/amortization">Amortization calculator</a>
+  <a href="/calculators/extra-mortgage-payment">
+    Extra mortgage payment calculator
+  </a>
 
-              <a href="/calculators/loan">Loan calculator</a>
-              <a href="/calculators/car-loan">Car loan calculator</a>
-              <a href="/calculators/apr">APR calculator</a>
-              <a href="/calculators/debt-payoff">Debt payoff calculator</a>
-              <a href="/calculators/credit-card-payoff">
-                Credit card payoff calculator
-              </a>
+  <a href="/calculators/loan">Loan calculator</a>
+  <a href="/calculators/car-loan">Car loan calculator</a>
+  <a href="/calculators/apr">APR calculator</a>
+  <a href="/calculators/debt-payoff">Debt payoff calculator</a>
+  <a href="/calculators/credit-card-payoff">
+    Credit card payoff calculator
+  </a>
 
-              <a href="/calculators/retirement">Retirement calculator</a>
-              <a href="/calculators/401k">401k calculator</a>
-              <a href="/calculators/compound-interest">
-                Compound interest calculator
-              </a>
-              <a href="/calculators/investment-return">Investment return calculator</a>
-              <a href="/calculators/savings">Savings calculator</a>
+  <a href="/calculators/retirement">Retirement calculator</a>
+  <a href="/calculators/401k">401k calculator</a>
+  <a href="/calculators/compound-interest">
+    Compound interest calculator
+  </a>
+  <a href="/calculators/investment-return">
+    Investment return calculator
+  </a>
+  <a href="/calculators/savings">Savings calculator</a>
 
-              <a href="/blog">Personal finance guides</a>
-            </div>
+  <a href="/blog">Personal finance guides</a>
+</div>
           </div>
         </div>
       </section>
@@ -237,6 +252,88 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <section className="section">
+  <div className="container">
+    <div className="section-heading">
+      <p className="eyebrow">Popular calculator guides</p>
+      <h2>Quick estimates for common money questions</h2>
+      <p>
+        Start with popular salary, hourly wage and mortgage estimate pages built
+        for common searches and everyday financial planning.
+      </p>
+    </div>
+
+    <div className="grid">
+      <a className="card" href="/salary-after-tax/70000">
+        <h2>$70,000 After Tax Calculator</h2>
+        <p>
+          Estimate how much a $70,000 salary may be after federal tax, payroll
+          taxes and estimated state income tax.
+        </p>
+        <span>View estimate →</span>
+      </a>
+
+      <a className="card" href="/salary-after-tax/100000">
+        <h2>$100,000 After Tax Calculator</h2>
+        <p>
+          Estimate annual, monthly, biweekly and weekly after-tax pay for a
+          $100,000 salary.
+        </p>
+        <span>View estimate →</span>
+      </a>
+
+      <a className="card" href="/hourly-wage/25">
+        <h2>$25 an Hour Is How Much a Year?</h2>
+        <p>
+          Convert $25 an hour into estimated annual, monthly, weekly and
+          after-tax pay.
+        </p>
+        <span>View estimate →</span>
+      </a>
+
+      <a className="card" href="/hourly-wage/30">
+        <h2>$30 an Hour Is How Much a Year?</h2>
+        <p>
+          Estimate how much $30 per hour may be per year and per paycheck.
+        </p>
+        <span>View estimate →</span>
+      </a>
+
+      <a className="card" href="/mortgage-payment/300000">
+        <h2>$300,000 Mortgage Payment</h2>
+        <p>
+          Estimate the monthly payment on a $300,000 mortgage including
+          principal, interest, taxes and insurance assumptions.
+        </p>
+        <span>View estimate →</span>
+      </a>
+
+      <a className="card" href="/mortgage-payment/400000">
+        <h2>$400,000 Mortgage Payment</h2>
+        <p>
+          Estimate the monthly payment on a $400,000 mortgage with common home
+          buying cost assumptions.
+        </p>
+        <span>View estimate →</span>
+      </a>
+    </div>
+
+    <div style={{ marginTop: 28, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+      <a className="primary-btn" href="/salary-after-tax">
+        View salary after tax calculators
+      </a>
+
+      <a className="secondary-btn" href="/hourly-wage">
+        View hourly wage calculators
+      </a>
+
+      <a className="secondary-btn" href="/mortgage-payment">
+        View mortgage payment calculators
+      </a>
+    </div>
+  </div>
+</section>
 
       <section className="section">
         <div className="container">
