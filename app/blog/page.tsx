@@ -65,6 +65,13 @@ const posts = [
     'Estimate how much a $70,000 salary may be after taxes and what it could mean monthly, biweekly and weekly.',
   href: '/blog/how-much-is-70000-after-taxes',
 },
+
+{
+  title: 'What Is the Monthly Payment on a $300,000 Mortgage?',
+  description:
+    'Estimate the monthly payment on a $300,000 mortgage and understand principal, interest, taxes, insurance and other costs.',
+  href: '/blog/300000-mortgage-payment',
+},
 ];
 
 export const metadata = {
