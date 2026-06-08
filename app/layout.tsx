@@ -2,7 +2,7 @@ import './globals.css';
 import Script from 'next/script';
 
 export const metadata = {
-  metadataBase: new URL('https://financecalchub.com'),
+  metadataBase: new URL('https://www.financecalchub.com'),
 
   title: {
     default: 'FinanceCalcHub | Free US Financial Calculators',
