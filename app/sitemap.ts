@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/calculators',
     '/paycheck-calculator',
     '/salary-calculator',
+    '/salary-after-tax',
 
     '/calculators/paycheck',
     '/calculators/hourly-paycheck',
