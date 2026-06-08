@@ -60,6 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/pay-off-credit-card-debt-faster',
     '/blog/rent-vs-buy-key-factors',
     '/blog/how-much-is-70000-after-taxes',
+    '/blog/25-an-hour-is-how-much-a-year',
   ];
 
   const stateRoutes = states.map(
