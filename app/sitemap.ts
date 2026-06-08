@@ -60,11 +60,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     (state) => `/paycheck-calculator/${state.slug}`
   );
 
-  const salaryRoutes = salaryAmounts.map(
+    const salaryRoutes = salaryAmounts.map(
     (amount) => `/salary-calculator/${amount}`
   );
 
-  return [...staticRoutes, ...stateRoutes, ...salaryRoutes].map((route) => ({
+    const salaryAfterTaxRoutes = salaryAmounts.map(
+    (amount) => `/salary-after-tax/${amount}`
+  );
+
+    return [
+    ...staticRoutes,
+    ...stateRoutes,
+    ...salaryRoutes,
+    ...salaryAfterTaxRoutes,
+  ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
