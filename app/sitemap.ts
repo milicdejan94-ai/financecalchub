@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { states } from '../lib/states';
 import { salaryAmounts } from '../lib/salaryAmounts';
 import { mortgageAmounts } from '../lib/mortgageAmounts';
+import { hourlyWages } from '../lib/hourlyWages';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.financecalchub.com';
@@ -13,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/paycheck-calculator',
     '/salary-calculator',
     '/salary-after-tax',
+    '/hourly-wage',
 
     '/calculators/paycheck',
     '/calculators/hourly-paycheck',
@@ -75,12 +77,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   (amount) => `/mortgage-payment/${amount}`
 );
 
+const hourlyWageRoutes = hourlyWages.map(
+  (wage) => `/hourly-wage/${wage}`
+);
+
     return [
     ...staticRoutes,
     ...stateRoutes,
     ...salaryRoutes,
     ...salaryAfterTaxRoutes,
     ...mortgagePaymentRoutes,
+    ...hourlyWageRoutes,
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
