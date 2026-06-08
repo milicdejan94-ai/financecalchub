@@ -58,6 +58,13 @@ const posts = [
       'See why time, contributions and investment returns can make a major difference in retirement planning.',
     category: 'Retirement',
   },
+
+  {
+  title: 'How Much Is $70,000 After Taxes?',
+  description:
+    'Estimate how much a $70,000 salary may be after taxes and what it could mean monthly, biweekly and weekly.',
+  href: '/blog/how-much-is-70000-after-taxes',
+},
 ];
 
 export const metadata = {

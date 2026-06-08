@@ -59,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/how-much-house-can-i-afford',
     '/blog/pay-off-credit-card-debt-faster',
     '/blog/rent-vs-buy-key-factors',
+    '/blog/how-much-is-70000-after-taxes',
   ];
 
   const stateRoutes = states.map(
