@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { states } from '../lib/states';
 import { salaryAmounts } from '../lib/salaryAmounts';
+import { mortgageAmounts } from '../lib/mortgageAmounts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.financecalchub.com';
@@ -20,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/calculators/federal-tax',
 
     '/calculators/mortgage',
+    '/mortgage-payment',
     '/calculators/refinance',
     '/calculators/mortgage-affordability',
     '/calculators/rent-vs-buy',
@@ -69,11 +71,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     (amount) => `/salary-after-tax/${amount}`
   );
 
+  const mortgagePaymentRoutes = mortgageAmounts.map(
+  (amount) => `/mortgage-payment/${amount}`
+);
+
     return [
     ...staticRoutes,
     ...stateRoutes,
     ...salaryRoutes,
     ...salaryAfterTaxRoutes,
+    ...mortgagePaymentRoutes,
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),

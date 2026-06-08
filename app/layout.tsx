@@ -135,6 +135,7 @@ export default function RootLayout({
                 <a href="/calculators/paycheck">Paycheck Calculator</a>
                 <a href="/paycheck-calculator">Paycheck by State</a>
                 <a href="/salary-calculator">Salary Calculator</a>
+                <a href="/salary-after-tax">Salary After Tax</a>
                 <a href="/calculators/mortgage">Mortgage Calculator</a>
                 <a href="/calculators/loan">Loan Calculator</a>
               </div>
