@@ -58,6 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/how-much-is-70000-after-taxes',
     '/blog/how-much-is-100000-after-taxes',
     '/blog/25-an-hour-is-how-much-a-year',
+    '/blog/30-an-hour-is-how-much-a-year',
     '/blog/300000-mortgage-payment',
     '/blog/apr-vs-interest-rate',
     '/blog/how-much-house-can-i-afford',

@@ -24,6 +24,13 @@ const posts = [
     category: 'Hourly Wage',
   },
   {
+    title: '$30 an Hour Is How Much a Year?',
+    description:
+      'Estimate how much $30 an hour is per year, month, week, biweekly paycheck and after simplified taxes.',
+    href: '/blog/30-an-hour-is-how-much-a-year',
+    category: 'Hourly Wage',
+  },
+  {
     title: 'What Is the Monthly Payment on a $300,000 Mortgage?',
     description:
       'Estimate the monthly payment on a $300,000 mortgage and understand principal, interest, taxes, insurance and other costs.',
