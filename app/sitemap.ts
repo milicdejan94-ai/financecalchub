@@ -60,6 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/25-an-hour-is-how-much-a-year',
     '/blog/30-an-hour-is-how-much-a-year',
     '/blog/300000-mortgage-payment',
+    '/blog/400000-mortgage-payment',
     '/blog/apr-vs-interest-rate',
     '/blog/how-much-house-can-i-afford',
     '/blog/pay-off-credit-card-debt-faster',

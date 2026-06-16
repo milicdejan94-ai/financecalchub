@@ -38,6 +38,13 @@ const posts = [
     category: 'Mortgage',
   },
   {
+    title: 'What Is the Monthly Payment on a $400,000 Mortgage?',
+    description:
+      'Estimate the monthly payment on a $400,000 mortgage and understand principal, interest, property taxes, insurance and PMI.',
+    href: '/blog/400000-mortgage-payment',
+    category: 'Mortgage',
+  },
+  {
     title: 'Gross Pay vs Net Pay: What Is the Difference?',
     href: '/blog/gross-pay-vs-net-pay',
     description:
