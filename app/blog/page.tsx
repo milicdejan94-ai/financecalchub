@@ -10,6 +10,13 @@ const posts = [
     category: 'Salary After Tax',
   },
   {
+    title: 'How Much Is $100,000 After Taxes?',
+    description:
+      'Estimate how much a $100,000 salary may be after taxes and what it could mean monthly, biweekly and weekly.',
+    href: '/blog/how-much-is-100000-after-taxes',
+    category: 'Salary After Tax',
+  },
+  {
     title: '$25 an Hour Is How Much a Year?',
     description:
       'Estimate how much $25 an hour is per year, month, week, biweekly paycheck and after simplified taxes.',
@@ -164,8 +171,7 @@ export default function BlogPage() {
 
           <p>
             Blog articles on FinanceCalcHub are for educational purposes only.
-            They are not tax, legal, investment, mortgage, payroll or financial
-            advice.
+            They are not tax, legal, investment or financial advice.
           </p>
         </div>
 

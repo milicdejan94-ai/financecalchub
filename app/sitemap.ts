@@ -55,36 +55,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/mortgage-payment-basics',
     '/blog/compound-growth-retirement-savings',
     '/blog/gross-pay-vs-net-pay',
+    '/blog/how-much-is-70000-after-taxes',
+    '/blog/how-much-is-100000-after-taxes',
+    '/blog/25-an-hour-is-how-much-a-year',
+    '/blog/300000-mortgage-payment',
     '/blog/apr-vs-interest-rate',
     '/blog/how-much-house-can-i-afford',
     '/blog/pay-off-credit-card-debt-faster',
     '/blog/rent-vs-buy-key-factors',
-    '/blog/how-much-is-70000-after-taxes',
-    '/blog/25-an-hour-is-how-much-a-year',
-    '/blog/300000-mortgage-payment',
   ];
 
   const stateRoutes = states.map(
     (state) => `/paycheck-calculator/${state.slug}`
   );
 
-    const salaryRoutes = salaryAmounts.map(
+  const salaryRoutes = salaryAmounts.map(
     (amount) => `/salary-calculator/${amount}`
   );
 
-    const salaryAfterTaxRoutes = salaryAmounts.map(
+  const salaryAfterTaxRoutes = salaryAmounts.map(
     (amount) => `/salary-after-tax/${amount}`
   );
 
   const mortgagePaymentRoutes = mortgageAmounts.map(
-  (amount) => `/mortgage-payment/${amount}`
-);
+    (amount) => `/mortgage-payment/${amount}`
+  );
 
-const hourlyWageRoutes = hourlyWages.map(
-  (wage) => `/hourly-wage/${wage}`
-);
+  const hourlyWageRoutes = hourlyWages.map((wage) => `/hourly-wage/${wage}`);
 
-    return [
+  return [
     ...staticRoutes,
     ...stateRoutes,
     ...salaryRoutes,
