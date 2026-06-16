@@ -3,6 +3,27 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 
 const posts = [
   {
+    title: 'How Much Is $70,000 After Taxes?',
+    description:
+      'Estimate how much a $70,000 salary may be after taxes and what it could mean monthly, biweekly and weekly.',
+    href: '/blog/how-much-is-70000-after-taxes',
+    category: 'Salary After Tax',
+  },
+  {
+    title: '$25 an Hour Is How Much a Year?',
+    description:
+      'Estimate how much $25 an hour is per year, month, week, biweekly paycheck and after simplified taxes.',
+    href: '/blog/25-an-hour-is-how-much-a-year',
+    category: 'Hourly Wage',
+  },
+  {
+    title: 'What Is the Monthly Payment on a $300,000 Mortgage?',
+    description:
+      'Estimate the monthly payment on a $300,000 mortgage and understand principal, interest, taxes, insurance and other costs.',
+    href: '/blog/300000-mortgage-payment',
+    category: 'Mortgage',
+  },
+  {
     title: 'Gross Pay vs Net Pay: What Is the Difference?',
     href: '/blog/gross-pay-vs-net-pay',
     description:
@@ -58,26 +79,12 @@ const posts = [
       'See why time, contributions and investment returns can make a major difference in retirement planning.',
     category: 'Retirement',
   },
-
-  {
-  title: 'How Much Is $70,000 After Taxes?',
-  description:
-    'Estimate how much a $70,000 salary may be after taxes and what it could mean monthly, biweekly and weekly.',
-  href: '/blog/how-much-is-70000-after-taxes',
-},
-
-{
-  title: 'What Is the Monthly Payment on a $300,000 Mortgage?',
-  description:
-    'Estimate the monthly payment on a $300,000 mortgage and understand principal, interest, taxes, insurance and other costs.',
-  href: '/blog/300000-mortgage-payment',
-},
 ];
 
 export const metadata = {
   title: 'Personal Finance Blog | FinanceCalcHub',
   description:
-    'Simple personal finance articles about paychecks, loans, mortgages, taxes and retirement planning.',
+    'Simple personal finance articles about paychecks, salary after taxes, hourly wages, loans, mortgages, debt, savings and retirement planning.',
 };
 
 export default function BlogPage() {
@@ -85,20 +92,21 @@ export default function BlogPage() {
     <section className="section">
       <div className="container">
         <Breadcrumbs
-  items={[
-    { label: 'Home', href: '/' },
-    { label: 'Blog' },
-  ]}
-/>
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Blog' },
+          ]}
+        />
+
         <div className="section-heading">
           <p className="eyebrow">Personal finance guides</p>
 
           <h1>FinanceCalcHub Blog</h1>
 
           <p>
-            Learn the basics behind paychecks, loans, mortgages, savings and
-            retirement planning. These guides explain the ideas behind our free
-            calculators.
+            Learn the basics behind paychecks, salary after taxes, hourly wages,
+            loans, mortgages, savings, debt payoff and retirement planning. These
+            guides explain the ideas behind our free calculators.
           </p>
         </div>
 
@@ -130,9 +138,9 @@ export default function BlogPage() {
 
           <p>
             Simple financial decisions can become easier when you understand the
-            basic numbers. Paychecks, mortgage payments, debt payoff and savings
-            growth all depend on inputs that can be estimated with the right
-            tools.
+            basic numbers. Paychecks, salary after taxes, mortgage payments,
+            debt payoff and savings growth all depend on inputs that can be
+            estimated with the right tools.
           </p>
 
           <h3>Use guides and calculators together</h3>
@@ -143,17 +151,39 @@ export default function BlogPage() {
             understand.
           </p>
 
+          <h3>Popular topics</h3>
+
+          <p>
+            FinanceCalcHub covers common money questions such as how much a
+            salary may be after taxes, how hourly wages convert to yearly pay,
+            how mortgage payments are estimated, how debt payoff works and how
+            savings may grow over time.
+          </p>
+
           <h3>Important note</h3>
 
           <p>
             Blog articles on FinanceCalcHub are for educational purposes only.
-            They are not tax, legal, investment or financial advice.
+            They are not tax, legal, investment, mortgage, payroll or financial
+            advice.
           </p>
         </div>
 
         <RelatedCalculators
           title="Popular calculators"
           tools={[
+            {
+              title: 'Salary After Tax Calculators',
+              href: '/salary-after-tax',
+            },
+            {
+              title: 'Hourly Wage to Salary Calculators',
+              href: '/hourly-wage',
+            },
+            {
+              title: 'Mortgage Payment by Amount',
+              href: '/mortgage-payment',
+            },
             {
               title: 'Paycheck Calculator',
               href: '/calculators/paycheck',
@@ -165,18 +195,6 @@ export default function BlogPage() {
             {
               title: 'Debt Payoff Calculator',
               href: '/calculators/debt-payoff',
-            },
-            {
-              title: '401k Calculator',
-              href: '/calculators/401k',
-            },
-            {
-              title: 'Compound Interest Calculator',
-              href: '/calculators/compound-interest',
-            },
-            {
-              title: 'All Financial Calculators',
-              href: '/calculators',
             },
           ]}
         />
