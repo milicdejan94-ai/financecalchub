@@ -104,14 +104,15 @@ export default function RootLayout({
             </a>
 
             <nav className="main-nav">
-              <a href="/calculators">All Calculators</a>
-              <a href="/calculators/paycheck">Paycheck</a>
-              <a href="/paycheck-calculator">By State</a>
-              <a href="/salary-calculator">Salary</a>
-              <a href="/calculators/mortgage">Mortgage</a>
-              <a href="/calculators/loan">Loan</a>
-              <a href="/blog">Blog</a>
-            </nav>
+  <a href="/calculators">All Calculators</a>
+  <a href="/calculators/paycheck">Paycheck</a>
+  <a href="/paycheck-calculator">By State</a>
+  <a href="/salary-calculator">Salary</a>
+  <a href="/calculators/mortgage">Mortgage</a>
+  <a href="/calculators/loan">Loan</a>
+  <a href="/investing/beginner-guide">Investing</a>
+  <a href="/blog">Blog</a>
+</nav>
           </div>
         </header>
 
@@ -130,16 +131,17 @@ export default function RootLayout({
               </div>
 
               <div>
-                <h4>Calculators</h4>
-                <a href="/calculators">All Calculators</a>
-                <a href="/calculators/paycheck">Paycheck Calculator</a>
-                <a href="/paycheck-calculator">Paycheck by State</a>
-                <a href="/salary-calculator">Salary Calculator</a>
-                <a href="/salary-after-tax">Salary After Tax</a>
-                <a href="/hourly-wage">Hourly Wage to Salary</a>
-                <a href="/calculators/mortgage">Mortgage Calculator</a>
-                <a href="/calculators/loan">Loan Calculator</a>
-              </div>
+  <h4>Calculators</h4>
+  <a href="/calculators">All Calculators</a>
+  <a href="/calculators/paycheck">Paycheck Calculator</a>
+  <a href="/paycheck-calculator">Paycheck by State</a>
+  <a href="/salary-calculator">Salary Calculator</a>
+  <a href="/salary-after-tax">Salary After Tax</a>
+  <a href="/hourly-wage">Hourly Wage to Salary</a>
+  <a href="/calculators/mortgage">Mortgage Calculator</a>
+  <a href="/calculators/loan">Loan Calculator</a>
+  <a href="/investing/beginner-guide">Investing for Beginners</a>
+</div>
 
               <div>
                 <h4>Popular Tools</h4>
