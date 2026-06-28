@@ -326,6 +326,124 @@ export default function InvestingBeginnerGuidePage() {
             simple, understand the risks and think long term.
           </p>
         </div>
+        <div className="calculator-box" style={{ marginTop: 34 }}>
+          <h2>Beginner investing checklist</h2>
+
+          <p>
+            Before putting real money into stocks, ETFs or any investment, use
+            this simple checklist. The goal is to make sure you understand the
+            basics and are not investing money you may need immediately.
+          </p>
+
+          <div className="grid">
+            <div className="card">
+              <h3>Emergency savings</h3>
+              <p>
+                Do you have money set aside for unexpected expenses before
+                investing in the market?
+              </p>
+            </div>
+
+            <div className="card">
+              <h3>High-interest debt</h3>
+              <p>
+                Do you have credit card debt or other high-interest debt that
+                may be more urgent than investing?
+              </p>
+            </div>
+
+            <div className="card">
+              <h3>Risk understanding</h3>
+              <p>
+                Do you understand that investments can go down and you can lose
+                money?
+              </p>
+            </div>
+
+            <div className="card">
+              <h3>Stocks vs ETFs</h3>
+              <p>
+                Do you understand the difference between buying one company and
+                buying a diversified fund?
+              </p>
+            </div>
+
+            <div className="card">
+              <h3>Account type</h3>
+              <p>
+                Do you know whether you are using a taxable brokerage account,
+                Roth IRA, traditional IRA or employer retirement account?
+              </p>
+            </div>
+
+            <div className="card">
+              <h3>Tax basics</h3>
+              <p>
+                Do you understand that dividends and selling investments for a
+                profit may create taxes in a taxable account?
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="content-box" style={{ marginTop: 34 }}>
+          <h2>7-day beginner action plan</h2>
+
+          <p>
+            If you are completely new to investing, do not rush to buy a stock
+            on the first day. Use the first week to learn the basics, compare
+            options and understand what kind of investor you want to be.
+          </p>
+
+          <h3>Day 1: Learn what investing means</h3>
+          <p>
+            Start with the difference between saving and investing. Saving is
+            usually for short-term safety. Investing is usually for long-term
+            growth, but it includes risk.
+          </p>
+
+          <h3>Day 2: Learn what stocks are</h3>
+          <p>
+            A stock is a small ownership share in one company. If the company
+            performs well, the stock may rise. If the company performs poorly,
+            the stock may fall.
+          </p>
+
+          <h3>Day 3: Learn what ETFs and index funds are</h3>
+          <p>
+            ETFs and index funds can hold many companies inside one investment.
+            This can help beginners understand diversification instead of
+            relying on only one company.
+          </p>
+
+          <h3>Day 4: Think about your risk tolerance</h3>
+          <p>
+            Ask yourself how you would feel if your investment dropped 10%, 20%
+            or more. If that would make you panic sell, you may need to learn
+            more before investing.
+          </p>
+
+          <h3>Day 5: Compare account types</h3>
+          <p>
+            Learn the difference between a taxable brokerage account, Roth IRA,
+            traditional IRA and employer retirement plan. Account type can
+            affect taxes, flexibility and withdrawal rules.
+          </p>
+
+          <h3>Day 6: Use a calculator</h3>
+          <p>
+            Try an investment return calculator or compound interest calculator.
+            Test different monthly contributions, years and estimated returns to
+            see how long-term growth can work.
+          </p>
+
+          <h3>Day 7: Decide your next step</h3>
+          <p>
+            After one week of learning, decide whether you need more education,
+            should focus on emergency savings, should pay down debt first or are
+            ready to start small with a long-term plan.
+          </p>
+        </div>
 
         <div className="calculator-box" style={{ marginTop: 34 }}>
           <h2>Beginner example</h2>
@@ -393,9 +511,9 @@ export default function InvestingBeginnerGuidePage() {
           title="Related finance tools"
           tools={[
             {
-              title: 'Investment Calculator',
-              href: '/calculators/investment',
-            },
+  title: 'Investment Return Calculator',
+  href: '/calculators/investment-return',
+},
             {
               title: 'Compound Interest Calculator',
               href: '/calculators/compound-interest',
