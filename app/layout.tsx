@@ -110,7 +110,7 @@ export default function RootLayout({
   <a href="/salary-calculator">Salary</a>
   <a href="/calculators/mortgage">Mortgage</a>
   <a href="/calculators/loan">Loan</a>
-  <a href="/investing/beginner-guide">Investing</a>
+  <a href="/investing">Investing</a>
   <a href="/blog">Blog</a>
 </nav>
           </div>
@@ -140,7 +140,7 @@ export default function RootLayout({
   <a href="/hourly-wage">Hourly Wage to Salary</a>
   <a href="/calculators/mortgage">Mortgage Calculator</a>
   <a href="/calculators/loan">Loan Calculator</a>
-  <a href="/investing/beginner-guide">Investing for Beginners</a>
+  <a href="/investing">Investing for Beginners</a>
 </div>
 
               <div>
