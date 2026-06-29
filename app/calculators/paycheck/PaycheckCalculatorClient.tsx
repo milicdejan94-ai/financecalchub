@@ -1,316 +1,201 @@
 'use client';
 
 import { useState } from 'react';
-import AdBanner from '../../../components/AdBanner';
-import RelatedCalculators from '../../../components/RelatedCalculators';
 import Breadcrumbs from '../../../components/Breadcrumbs';
+import RelatedCalculators from '../../../components/RelatedCalculators';
 
-export default function PaycheckCalculatorPage() {
-  const [salary, setSalary] = useState(75000);
-  const [stateTax, setStateTax] = useState(4);
-  const [filingStatus, setFilingStatus] = useState('single');
-  const [payFrequency, setPayFrequency] = useState(26);
-  const [retirementContribution, setRetirementContribution] = useState(5);
-  const [preTaxDeductions, setPreTaxDeductions] = useState(150);
-  const [postTaxDeductions, setPostTaxDeductions] = useState(0);
-  const [additionalWithholding, setAdditionalWithholding] = useState(0);
+export const metadata = {
+  title: 'Contact FinanceCalcHub | Questions, Feedback and Corrections',
+  description:
+    'Contact FinanceCalcHub for questions, suggestions, corrections, broken links or feedback about our free financial calculators and personal finance guides.',
+};
 
-  const federalRate =
-    filingStatus === 'married'
-      ? 0.1
-      : filingStatus === 'head'
-      ? 0.11
-      : 0.12;
-
-  const grossPayPerPeriod = salary / payFrequency;
-
-  const annualRetirementContribution =
-    salary * (retirementContribution / 100);
-
-  const annualPreTaxDeductions = preTaxDeductions * payFrequency;
-  const annualPostTaxDeductions = postTaxDeductions * payFrequency;
-  const annualAdditionalWithholding = additionalWithholding * payFrequency;
-
-  const taxableIncome = Math.max(
-    salary - annualRetirementContribution - annualPreTaxDeductions,
-    0
-  );
-
-  const federalTax = taxableIncome * federalRate;
-  const socialSecurity = Math.min(salary, 168600) * 0.062;
-  const medicare = salary * 0.0145;
-  const stateTaxAmount = taxableIncome * (stateTax / 100);
-
-  const totalAnnualTaxes =
-    federalTax +
-    socialSecurity +
-    medicare +
-    stateTaxAmount +
-    annualAdditionalWithholding;
-
-  const annualTakeHome =
-    salary -
-    annualRetirementContribution -
-    annualPreTaxDeductions -
-    totalAnnualTaxes -
-    annualPostTaxDeductions;
-
-  const netPayPerPeriod = annualTakeHome / payFrequency;
-
-  const monthlyTakeHome = annualTakeHome / 12;
-  const biweeklyTakeHome = annualTakeHome / 26;
-  const weeklyTakeHome = annualTakeHome / 52;
-
-  const federalTaxPerPeriod = federalTax / payFrequency;
-  const socialSecurityPerPeriod = socialSecurity / payFrequency;
-  const medicarePerPeriod = medicare / payFrequency;
-  const stateTaxPerPeriod = stateTaxAmount / payFrequency;
-  const retirementPerPeriod = annualRetirementContribution / payFrequency;
-
+export default function ContactPage() {
   return (
     <section className="section">
       <div className="container">
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Calculators', href: '/calculators' },
-            { label: 'Paycheck Calculator' },
+            { label: 'Contact' },
           ]}
         />
 
-        <p className="eyebrow">US paycheck calculator</p>
+        <div className="content-box">
+          <p className="eyebrow">Contact</p>
 
-        <h1>Paycheck Calculator</h1>
-
-        <p>
-          Estimate your take-home pay after federal income tax, Social Security,
-          Medicare, state income tax, retirement contributions and common payroll
-          deductions.
-        </p>
-
-        <AdBanner slot="paycheck-top" />
-
-        <div className="calculator-box">
-          <div className="input-group">
-            <label>Annual gross salary</label>
-            <input
-              type="number"
-              value={salary}
-              onChange={(e) => setSalary(Number(e.target.value))}
-            />
-          </div>
-
-          <div className="input-group">
-            <label>Filing status</label>
-            <select
-              value={filingStatus}
-              onChange={(e) => setFilingStatus(e.target.value)}
-            >
-              <option value="single">Single</option>
-              <option value="married">Married filing jointly</option>
-              <option value="head">Head of household</option>
-            </select>
-          </div>
-
-          <div className="input-group">
-            <label>Pay frequency</label>
-            <select
-              value={payFrequency}
-              onChange={(e) => setPayFrequency(Number(e.target.value))}
-            >
-              <option value={52}>Weekly</option>
-              <option value={26}>Biweekly</option>
-              <option value={24}>Semimonthly</option>
-              <option value={12}>Monthly</option>
-            </select>
-          </div>
-
-          <div className="input-group">
-            <label>Estimated state income tax (%)</label>
-            <input
-              type="number"
-              value={stateTax}
-              step="0.1"
-              onChange={(e) => setStateTax(Number(e.target.value))}
-            />
-          </div>
-
-          <div className="input-group">
-            <label>401(k) / retirement contribution (%)</label>
-            <input
-              type="number"
-              value={retirementContribution}
-              step="0.1"
-              onChange={(e) => setRetirementContribution(Number(e.target.value))}
-            />
-          </div>
-
-          <div className="input-group">
-            <label>Pre-tax deductions per paycheck</label>
-            <input
-              type="number"
-              value={preTaxDeductions}
-              onChange={(e) => setPreTaxDeductions(Number(e.target.value))}
-            />
-          </div>
-
-          <div className="input-group">
-            <label>Post-tax deductions per paycheck</label>
-            <input
-              type="number"
-              value={postTaxDeductions}
-              onChange={(e) => setPostTaxDeductions(Number(e.target.value))}
-            />
-          </div>
-
-          <div className="input-group">
-            <label>Additional withholding per paycheck</label>
-            <input
-              type="number"
-              value={additionalWithholding}
-              onChange={(e) => setAdditionalWithholding(Number(e.target.value))}
-            />
-          </div>
-
-          <div className="result">
-            Gross pay per paycheck: ${grossPayPerPeriod.toFixed(2)}
-          </div>
-
-          <div className="result">
-            Estimated net pay per paycheck: ${netPayPerPeriod.toFixed(2)}
-          </div>
-
-          <div className="result">
-            Estimated annual take-home pay: ${annualTakeHome.toFixed(2)}
-          </div>
-
-          <div className="result">
-            Monthly take-home pay: ${monthlyTakeHome.toFixed(2)}
-          </div>
-
-          <div className="result">
-            Biweekly take-home pay: ${biweeklyTakeHome.toFixed(2)}
-          </div>
-
-          <div className="result">
-            Weekly take-home pay: ${weeklyTakeHome.toFixed(2)}
-          </div>
-
-          <div className="result">
-            Federal tax per paycheck: ${federalTaxPerPeriod.toFixed(2)}
-          </div>
-
-          <div className="result">
-            Social Security per paycheck: ${socialSecurityPerPeriod.toFixed(2)}
-          </div>
-
-          <div className="result">
-            Medicare per paycheck: ${medicarePerPeriod.toFixed(2)}
-          </div>
-
-          <div className="result">
-            State tax per paycheck: ${stateTaxPerPeriod.toFixed(2)}
-          </div>
-
-          <div className="result">
-            Retirement contribution per paycheck: ${retirementPerPeriod.toFixed(2)}
-          </div>
-        </div>
-
-        <AdBanner slot="paycheck-middle" />
-
-        <div className="content-box" style={{ marginTop: 34 }}>
-          <h2>How this paycheck calculator works</h2>
+          <h1>Contact FinanceCalcHub</h1>
 
           <p>
-            This calculator estimates your net pay by subtracting common payroll
-            deductions from your gross annual salary. It includes estimated
-            federal income tax, Social Security, Medicare, state income tax,
-            retirement contributions, pre-tax deductions, post-tax deductions and
-            additional withholding.
+            If you have questions, suggestions, corrections or feedback about
+            FinanceCalcHub, you can contact us by email. We welcome feedback
+            about our calculators, personal finance guides, broken links,
+            confusing results and ideas for new tools.
           </p>
 
-          <h3>What is gross pay?</h3>
-
           <p>
-            Gross pay is the amount you earn before taxes and deductions. For a
-            salaried worker, this is usually the annual salary listed in the job
-            offer or employment agreement.
+            Email: <strong>contact@financecalchub.com</strong>
           </p>
 
-          <h3>What is take-home pay?</h3>
+          <h2>What you can contact us about</h2>
 
           <p>
-            Take-home pay is the amount you receive after taxes, deductions,
-            retirement contributions and other payroll withholdings are removed.
-            This is also called net pay.
+            FinanceCalcHub is built around free educational financial
+            calculators and beginner-friendly money guides. You can contact us
+            about anything that may help improve the site for users.
           </p>
 
-          <h3>Why 401(k) and pre-tax deductions matter</h3>
+          <ul>
+            <li>Suggestions for new financial calculators</li>
+            <li>Feedback about existing calculators</li>
+            <li>Possible errors or confusing calculator results</li>
+            <li>Outdated assumptions or missing cost categories</li>
+            <li>Website issues, broken links or technical problems</li>
+            <li>Questions about salary after tax calculator pages</li>
+            <li>Questions about hourly wage to salary calculator pages</li>
+            <li>Questions about mortgage payment estimate pages</li>
+            <li>Questions about beginner investing guides</li>
+            <li>General questions about FinanceCalcHub</li>
+          </ul>
+
+          <h2>What to include in your message</h2>
 
           <p>
-            Retirement contributions and some benefit deductions may reduce
-            taxable income. This can change your estimated federal and state tax
-            amounts as well as your final paycheck.
+            To help us review your message more quickly, please include the page
+            URL, the calculator or article name, the numbers you entered and a
+            short description of the issue, question or suggestion.
           </p>
 
-          <h3>What are Social Security and Medicare taxes?</h3>
-
           <p>
-            Social Security and Medicare are payroll taxes commonly called FICA
-            taxes. This calculator estimates Social Security at 6.2% and Medicare
-            at 1.45% for employees.
+            For example, if you are reporting a calculator issue, include the
+            income, hourly wage, mortgage amount, interest rate, loan term, debt
+            balance or other inputs you used. This makes it easier to understand
+            the result you saw.
           </p>
 
-          <h3>Monthly, biweekly and weekly paycheck estimates</h3>
+          <h2>Calculator feedback</h2>
 
           <p>
-            Many US workers are paid weekly, biweekly, semimonthly or monthly.
-            This calculator shows your selected paycheck estimate and also shows
-            common monthly, biweekly and weekly take-home pay estimates for easy
-            comparison.
+            We especially welcome feedback about calculator clarity. If a result
+            is confusing, a label is unclear, or a page needs a better
+            explanation, you can let us know. Our goal is to make personal
+            finance estimates easier to understand for everyday users.
           </p>
 
-          <h3>Important note</h3>
+          <h2>Content corrections</h2>
 
           <p>
-            This calculator provides a simplified educational estimate. Actual
-            payroll results may vary depending on federal tax brackets, standard
-            deductions, credits, local taxes, W-4 settings, benefit deductions,
-            retirement plans, wage limits and other payroll details.
+            Financial assumptions can change over time. Tax rules, interest
+            rates, insurance costs, property taxes, market conditions and other
+            inputs may affect estimates. If you notice outdated or unclear
+            information, please send us the page URL and a short explanation.
+          </p>
+
+          <h2>Professional advice</h2>
+
+          <p>
+            FinanceCalcHub does not provide personal financial, tax, legal,
+            mortgage, credit, payroll, insurance or investment advice. Our
+            calculators and articles are educational estimates only.
+          </p>
+
+          <p>
+            If you need advice about your specific financial situation, please
+            contact a qualified professional such as a tax advisor, financial
+            planner, mortgage lender, attorney, accountant, payroll specialist or
+            insurance professional.
+          </p>
+
+          <h2>Useful pages</h2>
+
+          <p>
+            You may also want to review our{' '}
+            <a href="/methodology">Methodology</a> page,{' '}
+            <a href="/about">About</a> page and{' '}
+            <a href="/disclaimer">Disclaimer</a> page to understand how
+            calculator results are created and what limitations apply.
+          </p>
+
+          <p>
+            For privacy-related information, please review our{' '}
+            <a href="/privacy-policy">Privacy Policy</a>.
+          </p>
+
+          <h2>Popular sections</h2>
+
+          <p>
+            You can also browse our main calculator and guide sections for quick
+            access to common tools:
+          </p>
+
+          <ul>
+            <li>
+              <a href="/calculators">All financial calculators</a>
+            </li>
+            <li>
+              <a href="/salary-after-tax">Salary after tax calculators</a>
+            </li>
+            <li>
+              <a href="/hourly-wage">Hourly wage to salary calculators</a>
+            </li>
+            <li>
+              <a href="/mortgage-payment">Mortgage payment by amount</a>
+            </li>
+            <li>
+              <a href="/investing">Investing beginner guides</a>
+            </li>
+            <li>
+              <a href="/blog">Personal finance blog</a>
+            </li>
+          </ul>
+
+          <h2>Response note</h2>
+
+          <p>
+            We review feedback and corrections as part of improving the website.
+            While we may not be able to respond to every message immediately,
+            useful reports can help us improve calculator pages, explanations
+            and related guides over time.
           </p>
         </div>
 
         <RelatedCalculators
+          title="Popular pages"
           tools={[
             {
-              title: 'Hourly Paycheck Calculator',
-              href: '/calculators/hourly-paycheck',
+              title: 'All Financial Calculators',
+              href: '/calculators',
             },
             {
-              title: 'Overtime Calculator',
-              href: '/calculators/overtime',
+              title: 'About FinanceCalcHub',
+              href: '/about',
             },
             {
-              title: 'Salary To Hourly Calculator',
-              href: '/calculators/salary-to-hourly',
+              title: 'Methodology',
+              href: '/methodology',
             },
             {
-              title: 'Salary Calculator by Income',
-              href: '/salary-calculator',
+              title: 'Disclaimer',
+              href: '/disclaimer',
             },
             {
-              title: 'Paycheck Calculators by State',
-              href: '/paycheck-calculator',
+              title: 'Salary After Tax Calculators',
+              href: '/salary-after-tax',
             },
             {
-              title: '$50,000 Salary Calculator',
-              href: '/salary-calculator/50000',
+              title: 'Hourly Wage to Salary Calculators',
+              href: '/hourly-wage',
+            },
+            {
+              title: 'Mortgage Payment by Amount',
+              href: '/mortgage-payment',
+            },
+            {
+              title: 'Investing for Beginners',
+              href: '/investing',
             },
           ]}
         />
-
-        <AdBanner slot="paycheck-bottom" />
       </div>
     </section>
   );
