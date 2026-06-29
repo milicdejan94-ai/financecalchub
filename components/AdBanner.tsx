@@ -3,9 +3,6 @@ type AdBannerProps = {
   label?: string;
 };
 
-export default function AdBanner({
-  slot = 'auto',
-  label = 'Advertisement',
-}: AdBannerProps) {
+export default function AdBanner(_props: AdBannerProps) {
   return null;
 }
