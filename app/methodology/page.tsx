@@ -1,7 +1,8 @@
+import type { Metadata } from 'next';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import RelatedCalculators from '../../components/RelatedCalculators';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Methodology | How FinanceCalcHub Calculators Work',
   description:
     'Learn how FinanceCalcHub calculators work, what assumptions they use, how estimates are calculated, and why results are educational estimates only.',
@@ -26,15 +27,15 @@ export default function MethodologyPage() {
           FinanceCalcHub provides free educational calculators designed to help
           users estimate common personal finance numbers such as paycheck
           amounts, salary after taxes, hourly wage conversions, mortgage
-          payments, loan payments, debt payoff timelines, savings growth and
-          retirement projections.
+          payments, loan payments, debt payoff timelines, savings growth,
+          investment growth and retirement projections.
         </p>
 
         <p>
           This page explains how our calculators are intended to work, what types
           of assumptions may be used, why results can differ from real-world
           outcomes, and when users should verify numbers with a qualified
-          professional.
+          professional or official source.
         </p>
 
         <div className="content-box" style={{ marginTop: 34 }}>
@@ -60,7 +61,8 @@ export default function MethodologyPage() {
             Most calculators on FinanceCalcHub use standard financial formulas,
             user-entered inputs and simplified default assumptions. The goal is
             to make the result understandable and useful for planning, not to
-            replace professional software or personalized analysis.
+            replace professional software, official tax forms, lender quotes,
+            payroll systems or personalized financial analysis.
           </p>
 
           <p>
@@ -69,6 +71,21 @@ export default function MethodologyPage() {
             contribution amount or expected return. Other pages use common
             example values to help users quickly understand popular financial
             questions.
+          </p>
+
+          <h2>Inputs, defaults and rounding</h2>
+
+          <p>
+            Calculator inputs are provided by the user or by example assumptions
+            shown on the page. Default values are used only to make quick
+            estimates easier. Users should adjust inputs when they know their own
+            numbers.
+          </p>
+
+          <p>
+            Results may be rounded to make them easier to read. Small rounding
+            differences can occur between monthly, weekly, biweekly and annual
+            estimates.
           </p>
 
           <h2>Paycheck and salary calculators</h2>
@@ -125,9 +142,9 @@ export default function MethodologyPage() {
 
           <p>
             These estimates can help users compare job offers, understand hourly
-            wage equivalents and plan around income. Actual pay may vary if hours
-            change, overtime is included, unpaid time off occurs, or taxes and
-            payroll deductions reduce take-home pay.
+            wage equivalents and plan around income. Actual pay may vary if
+            hours change, overtime is included, unpaid time off occurs, or taxes
+            and payroll deductions reduce take-home pay.
           </p>
 
           <h2>Mortgage calculators</h2>
@@ -178,15 +195,30 @@ export default function MethodologyPage() {
           <h2>Savings, investment and retirement calculators</h2>
 
           <p>
-            Savings and retirement calculators use growth assumptions entered by
-            the user, such as contribution amounts, time horizon and expected
-            return. These tools are for planning and education only.
+            Savings, investment and retirement calculators use growth
+            assumptions entered by the user, such as contribution amounts, time
+            horizon and expected return. These tools are for planning and
+            education only.
           </p>
 
           <p>
             Investment returns are not guaranteed. Future performance can be
             higher or lower than assumed, and taxes, fees, inflation, market
             volatility and withdrawal rules can affect real results.
+          </p>
+
+          <h2>Investing guides</h2>
+
+          <p>
+            Investing guides on FinanceCalcHub are intended to explain basic
+            concepts in plain language. They do not recommend specific stocks,
+            ETFs, brokers, funds, portfolios or investment strategies.
+          </p>
+
+          <p>
+            Users should research carefully, understand risk and consider
+            speaking with a qualified professional before making investment
+            decisions.
           </p>
 
           <h2>Why numbers may differ from other calculators</h2>
@@ -247,20 +279,16 @@ export default function MethodologyPage() {
               href: '/calculators',
             },
             {
-              title: 'Salary After Tax Calculators',
-              href: '/salary-after-tax',
-            },
-            {
-              title: 'Hourly Wage to Salary Calculators',
-              href: '/hourly-wage',
-            },
-            {
-              title: 'Mortgage Payment by Amount',
-              href: '/mortgage-payment',
-            },
-            {
               title: 'Paycheck Calculator',
               href: '/calculators/paycheck',
+            },
+            {
+              title: 'Federal Tax Calculator',
+              href: '/calculators/federal-tax',
+            },
+            {
+              title: 'Salary After Tax Calculators',
+              href: '/salary-after-tax',
             },
             {
               title: 'Mortgage Calculator',
@@ -269,6 +297,10 @@ export default function MethodologyPage() {
             {
               title: 'Debt Payoff Calculator',
               href: '/calculators/debt-payoff',
+            },
+            {
+              title: 'Investing for Beginners',
+              href: '/investing',
             },
             {
               title: 'Disclaimer',
