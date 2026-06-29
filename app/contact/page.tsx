@@ -51,6 +51,7 @@ export default function ContactPage() {
             <li>Questions about salary after tax calculator pages</li>
             <li>Questions about hourly wage to salary calculator pages</li>
             <li>Questions about mortgage payment estimate pages</li>
+            <li>Questions about beginner investing guides</li>
             <li>General questions about FinanceCalcHub</li>
           </ul>
 
@@ -64,9 +65,9 @@ export default function ContactPage() {
 
           <p>
             For example, if you are reporting a calculator issue, include the
-            income, hourly wage, mortgage amount, interest rate, loan term,
-            debt balance or other inputs you used. This makes it easier to
-            understand the result you saw.
+            income, hourly wage, mortgage amount, interest rate, loan term, debt
+            balance or other inputs you used. This makes it easier to understand
+            the result you saw.
           </p>
 
           <h2>Calculator feedback</h2>
@@ -106,7 +107,8 @@ export default function ContactPage() {
 
           <p>
             You may also want to review our{' '}
-            <a href="/methodology">Methodology</a> page and{' '}
+            <a href="/methodology">Methodology</a> page,{' '}
+            <a href="/about">About</a> page and{' '}
             <a href="/disclaimer">Disclaimer</a> page to understand how
             calculator results are created and what limitations apply.
           </p>
@@ -119,8 +121,8 @@ export default function ContactPage() {
           <h2>Popular sections</h2>
 
           <p>
-            You can also browse our main calculator sections for quick access to
-            common tools:
+            You can also browse our main calculator and guide sections for quick
+            access to common tools:
           </p>
 
           <ul>
@@ -135,6 +137,9 @@ export default function ContactPage() {
             </li>
             <li>
               <a href="/mortgage-payment">Mortgage payment by amount</a>
+            </li>
+            <li>
+              <a href="/investing">Investing beginner guides</a>
             </li>
             <li>
               <a href="/blog">Personal finance blog</a>
@@ -159,6 +164,18 @@ export default function ContactPage() {
               href: '/calculators',
             },
             {
+              title: 'About FinanceCalcHub',
+              href: '/about',
+            },
+            {
+              title: 'Methodology',
+              href: '/methodology',
+            },
+            {
+              title: 'Disclaimer',
+              href: '/disclaimer',
+            },
+            {
               title: 'Salary After Tax Calculators',
               href: '/salary-after-tax',
             },
@@ -171,20 +188,8 @@ export default function ContactPage() {
               href: '/mortgage-payment',
             },
             {
-              title: 'Paycheck Calculator',
-              href: '/calculators/paycheck',
-            },
-            {
-              title: 'Mortgage Calculator',
-              href: '/calculators/mortgage',
-            },
-            {
-              title: 'Debt Payoff Calculator',
-              href: '/calculators/debt-payoff',
-            },
-            {
-              title: 'Methodology',
-              href: '/methodology',
+              title: 'Investing for Beginners',
+              href: '/investing',
             },
           ]}
         />

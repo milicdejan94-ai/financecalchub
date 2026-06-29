@@ -4,7 +4,7 @@ import RelatedCalculators from '../../components/RelatedCalculators';
 export const metadata = {
   title: 'Disclaimer | FinanceCalcHub',
   description:
-    'Disclaimer for FinanceCalcHub financial calculators, salary after tax estimates, hourly wage conversions, mortgage payment estimates, educational content and informational tools.',
+    'Disclaimer for FinanceCalcHub calculators, salary after tax estimates, hourly wage conversions, mortgage payment estimates, investing education, personal finance guides and informational tools.',
 };
 
 export default function DisclaimerPage() {
@@ -35,7 +35,8 @@ export default function DisclaimerPage() {
             The calculators on FinanceCalcHub are designed to help users explore
             common personal finance questions, such as paycheck estimates,
             salary after taxes, hourly wage conversions, mortgage payments, loan
-            payments, debt payoff, savings growth and retirement planning.
+            payments, debt payoff, savings growth, investing concepts and
+            retirement planning.
           </p>
 
           <h2>Not professional advice</h2>
@@ -169,6 +170,23 @@ export default function DisclaimerPage() {
             planning.
           </p>
 
+          <h2>Investing education disclaimer</h2>
+
+          <p>
+            FinanceCalcHub investing guides are educational only. They are
+            intended to explain basic concepts such as stocks, ETFs,
+            diversification, capital gains, risk and common beginner mistakes.
+            They do not recommend specific stocks, funds, brokers, accounts,
+            products, securities or investment strategies.
+          </p>
+
+          <p>
+            Investing involves risk, including possible loss of principal.
+            Before making investment decisions, consider your financial
+            situation, goals, risk tolerance, time horizon, taxes and whether you
+            should consult a qualified financial professional.
+          </p>
+
           <h2>No financial decisions based only on this website</h2>
 
           <p>
@@ -213,7 +231,8 @@ export default function DisclaimerPage() {
           <p>
             For more information about how our calculators work, visit the{' '}
             <a href="/methodology">Methodology</a> page. For information about
-            data and privacy, visit the <a href="/privacy-policy">Privacy Policy</a>.
+            data and privacy, visit the{' '}
+            <a href="/privacy-policy">Privacy Policy</a>.
           </p>
 
           <h2>Contact</h2>
@@ -242,20 +261,20 @@ export default function DisclaimerPage() {
               href: '/contact',
             },
             {
+              title: 'About FinanceCalcHub',
+              href: '/about',
+            },
+            {
               title: 'All Financial Calculators',
               href: '/calculators',
             },
             {
+              title: 'Investing for Beginners',
+              href: '/investing',
+            },
+            {
               title: 'Salary After Tax Calculators',
               href: '/salary-after-tax',
-            },
-            {
-              title: 'Hourly Wage to Salary Calculators',
-              href: '/hourly-wage',
-            },
-            {
-              title: 'Mortgage Payment by Amount',
-              href: '/mortgage-payment',
             },
             {
               title: 'Personal Finance Blog',
