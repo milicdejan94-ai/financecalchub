@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/salary-calculator',
     '/salary-after-tax',
     '/hourly-wage',
+    '/mortgage-payment',
 
     '/calculators/paycheck',
     '/calculators/hourly-paycheck',
@@ -23,7 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/calculators/federal-tax',
 
     '/calculators/mortgage',
-    '/mortgage-payment',
     '/calculators/refinance',
     '/calculators/mortgage-affordability',
     '/calculators/rent-vs-buy',
@@ -34,7 +34,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/calculators/loan',
     '/calculators/car-loan',
     '/calculators/apr',
-
     '/calculators/debt-payoff',
     '/calculators/credit-card-payoff',
 
@@ -43,6 +42,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/calculators/compound-interest',
     '/calculators/investment-return',
     '/calculators/savings',
+
+    '/investing',
+    '/investing/beginner-guide',
+    '/investing/what-are-stocks',
+    '/investing/stocks-vs-etfs',
+    '/investing/how-much-money-to-start-investing',
+    '/investing/capital-gains-tax-for-beginners',
+    '/investing/beginner-investing-mistakes',
 
     '/about',
     '/methodology',
