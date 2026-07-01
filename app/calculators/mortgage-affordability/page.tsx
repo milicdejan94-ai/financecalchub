@@ -1,9 +1,13 @@
+import type { Metadata } from 'next';
 import MortgageAffordabilityClient from './MortgageAffordabilityClient';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Mortgage Affordability Calculator | How Much House Can I Afford?',
   description:
-    'Free mortgage affordability calculator. Estimate how much house you may be able to afford based on income, debts, down payment and interest rate.',
+    'Estimate how much house you may be able to afford using income, debts, down payment, interest rate, taxes, insurance, PMI and HOA fees.',
+  alternates: {
+    canonical: '/calculators/mortgage-affordability',
+  },
 };
 
 export default function MortgageAffordabilityPage() {

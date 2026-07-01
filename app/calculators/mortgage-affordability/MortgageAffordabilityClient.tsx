@@ -1,9 +1,25 @@
 'use client';
 
 import { useState } from 'react';
-import AdBanner from '../../../components/AdBanner';
 import RelatedCalculators from '../../../components/RelatedCalculators';
 import Breadcrumbs from '../../../components/Breadcrumbs';
+
+function formatMoney(value: number) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+  }).format(Number.isFinite(value) ? value : 0);
+}
+
+function formatMoneyExact(value: number) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(Number.isFinite(value) ? value : 0);
+}
 
 export default function MortgageAffordabilityClient() {
   const [annualIncome, setAnnualIncome] = useState(90000);
@@ -18,56 +34,31 @@ export default function MortgageAffordabilityClient() {
   const [monthlyMaintenance, setMonthlyMaintenance] = useState(200);
 
   const monthlyIncome = annualIncome / 12;
-
-  const comfortableHousingPayment = monthlyIncome * 0.25;
-  const moderateHousingPayment = monthlyIncome * 0.3;
-  const stretchHousingPayment = monthlyIncome * 0.35;
-
   const monthlyRate = interestRate / 100 / 12;
   const numberOfPayments = loanTermYears * 12;
 
-  function calculateLoanAmountFromPayment(payment: number) {
-    const nonLoanCosts =
-      monthlyPmi + monthlyHoa + monthlyMaintenance + annualInsurance / 12;
+  const housingTargets = {
+    conservative: monthlyIncome * 0.25,
+    balanced: monthlyIncome * 0.3,
+    stretch: monthlyIncome * 0.35,
+  };
 
-    const estimatedAvailableForPrincipalInterest = Math.max(
-      payment - nonLoanCosts,
-      0
-    );
+  function paymentToLoanAmount(payment: number) {
+    if (payment <= 0 || numberOfPayments <= 0) return 0;
 
     if (monthlyRate > 0) {
       return (
-        estimatedAvailableForPrincipalInterest *
+        payment *
         ((Math.pow(1 + monthlyRate, numberOfPayments) - 1) /
           (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)))
       );
     }
 
-    return estimatedAvailableForPrincipalInterest * numberOfPayments;
+    return payment * numberOfPayments;
   }
 
-  function estimateHomePriceFromPayment(payment: number) {
-    const baseLoanAmount = calculateLoanAmountFromPayment(payment);
-
-    /*
-      Property tax depends on home price, so we estimate affordability
-      by subtracting an annual tax estimate from the available payment.
-      This is still simplified, but much better than ignoring taxes.
-    */
-    const estimatedHomePriceBeforeTax = baseLoanAmount + downPayment;
-    const estimatedMonthlyPropertyTax =
-      (estimatedHomePriceBeforeTax * (propertyTaxRate / 100)) / 12;
-
-    const adjustedPayment = Math.max(payment - estimatedMonthlyPropertyTax, 0);
-    const adjustedLoanAmount = calculateLoanAmountFromPayment(adjustedPayment);
-
-    return Math.max(adjustedLoanAmount + downPayment, 0);
-  }
-
-  function calculateMonthlyPrincipalInterest(loanAmount: number) {
-    if (loanAmount <= 0 || numberOfPayments <= 0) {
-      return 0;
-    }
+  function principalAndInterest(loanAmount: number) {
+    if (loanAmount <= 0 || numberOfPayments <= 0) return 0;
 
     if (monthlyRate > 0) {
       return (
@@ -80,23 +71,40 @@ export default function MortgageAffordabilityClient() {
     return loanAmount / numberOfPayments;
   }
 
-  function calculateScenario(paymentTarget: number) {
-    const homePrice = estimateHomePriceFromPayment(paymentTarget);
-    const loanAmount = Math.max(homePrice - downPayment, 0);
-    const principalAndInterest = calculateMonthlyPrincipalInterest(loanAmount);
-    const monthlyPropertyTax = (homePrice * (propertyTaxRate / 100)) / 12;
+  function estimateScenario(targetHousingPayment: number) {
+    const recurringNonLoanCosts =
+      annualInsurance / 12 + monthlyPmi + monthlyHoa + monthlyMaintenance;
+
+    const availableBeforePropertyTax = Math.max(
+      targetHousingPayment - recurringNonLoanCosts,
+      0
+    );
+
+    let estimatedHomePrice = paymentToLoanAmount(availableBeforePropertyTax) + downPayment;
+
+    for (let i = 0; i < 6; i += 1) {
+      const monthlyPropertyTax = (estimatedHomePrice * (propertyTaxRate / 100)) / 12;
+      const availableForLoan = Math.max(
+        targetHousingPayment - recurringNonLoanCosts - monthlyPropertyTax,
+        0
+      );
+      estimatedHomePrice = paymentToLoanAmount(availableForLoan) + downPayment;
+    }
+
+    const loanAmount = Math.max(estimatedHomePrice - downPayment, 0);
+    const monthlyPrincipalInterest = principalAndInterest(loanAmount);
+    const monthlyPropertyTax = (estimatedHomePrice * (propertyTaxRate / 100)) / 12;
     const monthlyInsurance = annualInsurance / 12;
 
     const totalMonthlyHousingCost =
-      principalAndInterest +
+      monthlyPrincipalInterest +
       monthlyPropertyTax +
       monthlyInsurance +
       monthlyPmi +
       monthlyHoa +
       monthlyMaintenance;
 
-    const totalMonthlyDebtWithHousing =
-      totalMonthlyHousingCost + monthlyDebts;
+    const totalMonthlyDebtWithHousing = totalMonthlyHousingCost + monthlyDebts;
 
     const frontEndRatio =
       monthlyIncome > 0 ? (totalMonthlyHousingCost / monthlyIncome) * 100 : 0;
@@ -105,9 +113,10 @@ export default function MortgageAffordabilityClient() {
       monthlyIncome > 0 ? (totalMonthlyDebtWithHousing / monthlyIncome) * 100 : 0;
 
     return {
-      homePrice,
+      targetHousingPayment,
+      homePrice: Math.max(estimatedHomePrice, 0),
       loanAmount,
-      principalAndInterest,
+      monthlyPrincipalInterest,
       monthlyPropertyTax,
       monthlyInsurance,
       totalMonthlyHousingCost,
@@ -116,16 +125,22 @@ export default function MortgageAffordabilityClient() {
     };
   }
 
-  const comfortableScenario = calculateScenario(comfortableHousingPayment);
-  const moderateScenario = calculateScenario(moderateHousingPayment);
-  const stretchScenario = calculateScenario(stretchHousingPayment);
+  const conservativeScenario = estimateScenario(housingTargets.conservative);
+  const balancedScenario = estimateScenario(housingTargets.balanced);
+  const stretchScenario = estimateScenario(housingTargets.stretch);
 
-  const warningText =
+  const scenarios = [
+    { label: 'Conservative', note: 'About 25% of gross income', data: conservativeScenario },
+    { label: 'Balanced', note: 'About 30% of gross income', data: balancedScenario },
+    { label: 'Stretch', note: 'About 35% of gross income', data: stretchScenario },
+  ];
+
+  const dtiMessage =
     stretchScenario.backEndRatio > 43
-      ? 'Your stretch scenario may be risky because total debt-to-income is above 43%.'
-      : moderateScenario.backEndRatio > 36
-      ? 'Your moderate scenario may feel tight because total debt-to-income is above 36%.'
-      : 'Your estimated ranges appear reasonable based on the numbers entered, but your real budget matters more than lender approval.';
+      ? 'Your stretch scenario may be risky because estimated total debt-to-income is above 43%.'
+      : balancedScenario.backEndRatio > 36
+      ? 'Your balanced scenario may feel tight because estimated total debt-to-income is above 36%.'
+      : 'Your estimated ranges appear reasonable based on the numbers entered, but your real monthly budget matters more than a calculator estimate.';
 
   return (
     <section className="section">
@@ -143,12 +158,11 @@ export default function MortgageAffordabilityClient() {
         <h1>Mortgage Affordability Calculator</h1>
 
         <p>
-          Estimate how much house you may be able to afford using income, monthly
-          debts, down payment, interest rate, property taxes, insurance, PMI, HOA
-          fees and a maintenance buffer.
+          Estimate how much house you may be able to afford based on household income,
+          monthly debts, down payment, interest rate, property taxes, insurance, PMI,
+          HOA fees and a maintenance buffer. The calculator shows conservative,
+          balanced and stretch scenarios so you can compare affordability ranges.
         </p>
-
-        <AdBanner slot="mortgage-affordability-top" />
 
         <div className="calculator-box">
           <div className="input-group">
@@ -248,111 +262,191 @@ export default function MortgageAffordabilityClient() {
           </div>
 
           <div className="result">
-            Monthly gross income: ${monthlyIncome.toFixed(2)}
+            Balanced estimated home price: {formatMoney(balancedScenario.homePrice)}
           </div>
 
           <div className="result">
-            Comfortable range, about 25% of gross income:{' '}
-            ${comfortableScenario.homePrice.toFixed(2)} home price
+            Balanced estimated loan amount: {formatMoney(balancedScenario.loanAmount)}
           </div>
 
           <div className="result">
-            Moderate range, about 30% of gross income:{' '}
-            ${moderateScenario.homePrice.toFixed(2)} home price
+            Balanced monthly housing cost: {formatMoneyExact(balancedScenario.totalMonthlyHousingCost)}
           </div>
 
           <div className="result">
-            Stretch range, about 35% of gross income:{' '}
-            ${stretchScenario.homePrice.toFixed(2)} home price
+            Balanced total debt-to-income ratio: {balancedScenario.backEndRatio.toFixed(1)}%
           </div>
 
-          <div className="result">
-            Comfortable monthly housing cost:{' '}
-            ${comfortableScenario.totalMonthlyHousingCost.toFixed(2)}
-          </div>
-
-          <div className="result">
-            Moderate monthly housing cost:{' '}
-            ${moderateScenario.totalMonthlyHousingCost.toFixed(2)}
-          </div>
-
-          <div className="result">
-            Stretch monthly housing cost:{' '}
-            ${stretchScenario.totalMonthlyHousingCost.toFixed(2)}
-          </div>
-
-          <div className="result">
-            Estimated DTI at comfortable range:{' '}
-            {comfortableScenario.backEndRatio.toFixed(1)}%
-          </div>
-
-          <div className="result">
-            Estimated DTI at moderate range:{' '}
-            {moderateScenario.backEndRatio.toFixed(1)}%
-          </div>
-
-          <div className="result">
-            Estimated DTI at stretch range:{' '}
-            {stretchScenario.backEndRatio.toFixed(1)}%
-          </div>
-
-          <div className="result">{warningText}</div>
+          <div className="result">{dtiMessage}</div>
         </div>
 
-        <AdBanner slot="mortgage-affordability-middle" />
-
         <div className="content-box" style={{ marginTop: 34 }}>
+          <h2>Mortgage affordability estimate</h2>
+
+          <p>
+            These ranges are based on how much of your gross monthly income goes toward
+            housing. A lower percentage may leave more room for savings, emergencies,
+            retirement contributions and normal living expenses.
+          </p>
+
+          <div className="table-wrap">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Scenario</th>
+                  <th>Estimated home price</th>
+                  <th>Loan amount</th>
+                  <th>Monthly housing cost</th>
+                  <th>Total DTI</th>
+                </tr>
+              </thead>
+              <tbody>
+                {scenarios.map((scenario) => (
+                  <tr key={scenario.label}>
+                    <td>
+                      <strong>{scenario.label}</strong>
+                      <br />
+                      {scenario.note}
+                    </td>
+                    <td>{formatMoney(scenario.data.homePrice)}</td>
+                    <td>{formatMoney(scenario.data.loanAmount)}</td>
+                    <td>{formatMoneyExact(scenario.data.totalMonthlyHousingCost)}</td>
+                    <td>{scenario.data.backEndRatio.toFixed(1)}%</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Monthly cost breakdown</h2>
+
+          <p>
+            Mortgage affordability is not only the principal and interest payment. Taxes,
+            insurance, PMI, HOA fees and maintenance can change the real monthly cost of
+            owning a home.
+          </p>
+
+          <div className="table-wrap">
+            <table className="data-table">
+              <tbody>
+                <tr>
+                  <th>Monthly gross income</th>
+                  <td>{formatMoneyExact(monthlyIncome)}</td>
+                </tr>
+                <tr>
+                  <th>Existing monthly debt payments</th>
+                  <td>{formatMoneyExact(monthlyDebts)}</td>
+                </tr>
+                <tr>
+                  <th>Principal and interest</th>
+                  <td>{formatMoneyExact(balancedScenario.monthlyPrincipalInterest)}</td>
+                </tr>
+                <tr>
+                  <th>Estimated property tax</th>
+                  <td>{formatMoneyExact(balancedScenario.monthlyPropertyTax)}</td>
+                </tr>
+                <tr>
+                  <th>Homeowners insurance</th>
+                  <td>{formatMoneyExact(balancedScenario.monthlyInsurance)}</td>
+                </tr>
+                <tr>
+                  <th>PMI, HOA and maintenance</th>
+                  <td>{formatMoneyExact(monthlyPmi + monthlyHoa + monthlyMaintenance)}</td>
+                </tr>
+                <tr>
+                  <th>Balanced monthly housing cost</th>
+                  <td>{formatMoneyExact(balancedScenario.totalMonthlyHousingCost)}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
           <h2>How this mortgage affordability calculator works</h2>
 
           <p>
-            This calculator estimates a comfortable, moderate and stretch home
-            price range based on your income, existing debts, down payment,
-            mortgage rate and estimated ownership costs.
-          </p>
-
-          <h3>Why monthly payment matters more than purchase price</h3>
-
-          <p>
-            The home price alone does not show whether a mortgage is affordable.
-            Property taxes, homeowners insurance, PMI, HOA fees and maintenance
-            can make two homes with the same purchase price feel very different
-            in a monthly budget.
-          </p>
-
-          <h3>Comfortable vs stretch affordability</h3>
-
-          <p>
-            A comfortable estimate uses about 25% of gross monthly income for
-            housing. A moderate estimate uses about 30%. A stretch estimate uses
-            about 35%. These are general planning ranges and may not match lender
-            approval rules.
+            The calculator starts with gross monthly income and tests three housing
+            payment targets: 25%, 30% and 35% of gross income. It then estimates how
+            much mortgage principal and interest can fit after property tax, insurance,
+            PMI, HOA and maintenance assumptions are included.
           </p>
 
           <h3>What is debt-to-income ratio?</h3>
 
           <p>
-            Debt-to-income ratio compares monthly debt payments with monthly
-            income. This calculator includes your existing monthly debts plus the
-            estimated housing cost to show an approximate back-end DTI.
+            Debt-to-income ratio compares monthly debt payments with monthly gross
+            income. The front-end ratio looks at housing costs only. The back-end ratio
+            includes housing plus other debts such as car loans, student loans, personal
+            loans and credit card payments.
           </p>
 
-          <h3>Why taxes, insurance, PMI and HOA fees matter</h3>
+          <h3>Why the monthly payment matters more than the home price</h3>
 
           <p>
-            Many buyers focus only on principal and interest, but the full
-            monthly cost of homeownership can include property taxes, insurance,
-            PMI, HOA fees and ongoing repairs. This calculator includes those
-            costs to create a more realistic estimate.
+            Two homes with the same purchase price can have different monthly costs if
+            taxes, insurance, HOA fees or required repairs are different. A home that is
+            approved by a lender can still feel expensive if it leaves too little room
+            for savings and daily expenses.
           </p>
 
-          <h3>Important note</h3>
+          <h3>Example</h3>
 
           <p>
-            This calculator provides simplified educational estimates only. It is
-            not mortgage, financial, tax, legal or investment advice. Actual
-            affordability depends on your lender, credit profile, location,
-            interest rate, taxes, insurance, savings, emergency fund and personal
-            budget.
+            If a household earns $90,000 per year, has $500 in monthly debt payments,
+            uses a $60,000 down payment and estimates a 6.5% mortgage rate, the balanced
+            scenario targets about 30% of gross monthly income for housing before checking
+            the total DTI ratio. Changing the rate, down payment, insurance or monthly
+            debts can move the affordable home price significantly.
+          </p>
+
+          <h3>Comfortable vs stretch affordability</h3>
+
+          <p>
+            A conservative scenario may be easier to handle during slower months or after
+            unexpected expenses. A stretch scenario may help estimate the upper edge of
+            affordability, but it can reduce flexibility and increase the risk of becoming
+            house poor.
+          </p>
+
+          <h3>Limitations</h3>
+
+          <p>
+            This calculator provides simplified educational estimates only. It does not
+            determine mortgage approval, final loan eligibility or the exact amount a lender
+            may offer. Actual affordability depends on credit profile, lender rules, rate
+            lock, taxes, insurance, cash reserves, employment history, property type,
+            location and your personal budget.
+          </p>
+        </div>
+
+        <div className="content-box" style={{ marginTop: 24 }}>
+          <h2>Mortgage affordability FAQ</h2>
+
+          <h3>How much house can I afford?</h3>
+          <p>
+            A practical estimate starts with income, debts, down payment and the monthly
+            housing payment you can comfortably handle. The calculator shows conservative,
+            balanced and stretch ranges, but your real budget should decide the final limit.
+          </p>
+
+          <h3>What is a good debt-to-income ratio?</h3>
+          <p>
+            Lower debt-to-income ratios usually provide more budget flexibility. Many buyers
+            compare scenarios around the low-to-mid 30% range for total debt, while higher
+            ratios may feel tighter and may depend more heavily on lender rules.
+          </p>
+
+          <h3>Does the down payment change affordability?</h3>
+          <p>
+            Yes. A larger down payment can reduce the loan amount, monthly principal and
+            interest, and possibly PMI. However, keeping emergency savings after buying a
+            home is also important.
+          </p>
+
+          <h3>Why include maintenance?</h3>
+          <p>
+            Homeownership includes repairs and ongoing upkeep. A maintenance buffer helps
+            keep the estimate closer to real monthly ownership costs instead of focusing only
+            on the mortgage payment.
           </p>
         </div>
 
@@ -363,29 +457,27 @@ export default function MortgageAffordabilityClient() {
               href: '/calculators/mortgage',
             },
             {
-              title: 'Refinance Calculator',
-              href: '/calculators/refinance',
+              title: 'Down Payment Calculator',
+              href: '/calculators/down-payment',
             },
             {
               title: 'Rent vs Buy Calculator',
               href: '/calculators/rent-vs-buy',
             },
             {
-              title: 'Down Payment Calculator',
-              href: '/calculators/down-payment',
+              title: 'Loan Calculator',
+              href: '/calculators/loan',
             },
             {
               title: 'Amortization Calculator',
               href: '/calculators/amortization',
             },
             {
-              title: 'Extra Mortgage Payment Calculator',
-              href: '/calculators/extra-mortgage-payment',
+              title: 'Methodology',
+              href: '/methodology',
             },
           ]}
         />
-
-        <AdBanner slot="mortgage-affordability-bottom" />
       </div>
     </section>
   );
