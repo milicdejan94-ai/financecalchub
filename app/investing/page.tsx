@@ -4,111 +4,68 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 export const metadata = {
   title: 'Investing for Beginners | FinanceCalcHub',
   description:
-    'Learn beginner investing basics including stocks, ETFs, index funds, brokerage accounts, risk, diversification, compound growth, taxes and long-term planning.',
+    'Learn the basics of investing, stocks, ETFs, index funds, brokerage accounts, risk, taxes and long-term investing with beginner-friendly educational guides.',
 };
 
 const lessons = [
   {
     title: 'How to Start Investing in Stocks',
     href: '/investing/beginner-guide',
-    text: 'A step-by-step beginner guide to stocks, ETFs, brokerage accounts, risk, taxes and long-term investing habits.',
     category: 'Start here',
+    text: 'A step-by-step beginner guide to stocks, ETFs, brokerage accounts, risk, taxes and long-term investing.',
   },
   {
     title: 'What Are Stocks?',
     href: '/investing/what-are-stocks',
-    text: 'Learn what stocks are, what ownership shares represent, why prices move and what beginners should know before buying individual companies.',
     category: 'Stocks',
+    text: 'Learn what stocks are, how shares work, why stock prices move and what beginners should understand before buying individual companies.',
   },
   {
     title: 'Stocks vs ETFs',
     href: '/investing/stocks-vs-etfs',
-    text: 'Compare individual stocks and ETFs, including diversification, risk, simplicity and long-term investing considerations.',
     category: 'ETFs',
+    text: 'Compare individual stocks and ETFs so beginners can understand diversification, risk and simple long-term investing options.',
   },
   {
     title: 'How Much Money Do You Need to Start Investing?',
     href: '/investing/how-much-money-to-start-investing',
+    category: 'Starting amount',
     text: 'Learn how beginners can start small, build consistency and think about monthly investing without taking unnecessary risk.',
-    category: 'Getting started',
   },
   {
     title: 'Capital Gains Tax for Beginners',
     href: '/investing/capital-gains-tax-for-beginners',
-    text: 'Understand the basics of capital gains, dividends, taxable accounts and why taxes matter when selling investments.',
     category: 'Taxes',
+    text: 'Understand the basics of capital gains, dividends and investment taxes in a simple educational format.',
   },
   {
     title: 'Common Beginner Investing Mistakes',
     href: '/investing/beginner-investing-mistakes',
-    text: 'Learn common mistakes beginners make, including chasing hot stocks, panic selling, ignoring fees, overlooking taxes and investing without a plan.',
-    category: 'Risk management',
+    category: 'Mistakes',
+    text: 'Learn common mistakes beginners make, including chasing hot stocks, panic selling, ignoring taxes and investing without a plan.',
   },
 ];
 
 const learningPath = [
   {
     step: '1',
-    topic: 'Build a foundation',
-    whatToLearn:
-      'Understand emergency savings, high-interest debt, cash flow and why investing is usually a long-term decision.',
+    title: 'Understand the difference between saving and investing',
+    text: 'Saving is usually for short-term safety and emergency money. Investing is usually for long-term goals and includes risk of loss.',
   },
   {
     step: '2',
-    topic: 'Learn the assets',
-    whatToLearn:
-      'Compare stocks, ETFs, index funds, bonds and cash so you know what type of risk you are taking.',
+    title: 'Learn the basic investment types',
+    text: 'Beginners should understand stocks, ETFs, index funds, mutual funds, bonds and cash before choosing where to put money.',
   },
   {
     step: '3',
-    topic: 'Choose an account type',
-    whatToLearn:
-      'Understand the difference between taxable brokerage accounts and retirement accounts before investing money.',
+    title: 'Think about risk before returns',
+    text: 'A high potential return usually comes with higher uncertainty. Beginners should understand volatility before investing large amounts.',
   },
   {
     step: '4',
-    topic: 'Estimate growth',
-    whatToLearn:
-      'Use calculators to test contributions, time horizon and assumed returns without treating the estimate as a guarantee.',
-  },
-  {
-    step: '5',
-    topic: 'Create a simple plan',
-    whatToLearn:
-      'Decide how much to invest, how often to contribute, how diversified to be and when to review the plan.',
-  },
-];
-
-const beginnerTerms = [
-  {
-    term: 'Stock',
-    meaning:
-      'A share of ownership in a company. Stock prices can rise or fall based on business results, expectations and market conditions.',
-  },
-  {
-    term: 'ETF',
-    meaning:
-      'An exchange-traded fund that can hold many stocks, bonds or other assets inside one investment.',
-  },
-  {
-    term: 'Index fund',
-    meaning:
-      'A fund designed to track a market index rather than trying to pick individual winners.',
-  },
-  {
-    term: 'Diversification',
-    meaning:
-      'Spreading money across different investments so one company or sector does not control the entire outcome.',
-  },
-  {
-    term: 'Compound growth',
-    meaning:
-      'Growth that can build on previous growth over time. Compounding can help, but it does not remove investment risk.',
-  },
-  {
-    term: 'Capital gain',
-    meaning:
-      'A profit that may occur when an investment is sold for more than its purchase price. Tax treatment depends on the account and situation.',
+    title: 'Use calculators for planning, not predictions',
+    text: 'Investment calculators can show hypothetical long-term growth, but they cannot predict actual market performance.',
   },
 ];
 
@@ -121,7 +78,7 @@ const faqSchema = {
       name: 'What should a beginner learn before investing?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'A beginner should learn the difference between saving and investing, how stocks and ETFs work, how diversification works, how brokerage accounts work, what fees and taxes may apply and why risk matters.',
+        text: 'A beginner should learn what stocks are, how ETFs and index funds work, how risk and diversification work, how brokerage accounts work and how investment taxes may apply.',
       },
     },
     {
@@ -129,20 +86,12 @@ const faqSchema = {
       name: 'Is investing the same as saving?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No. Saving usually means keeping money relatively safe and available for short-term needs. Investing means buying assets that may grow over time but can also lose value.',
+        text: 'No. Saving usually means keeping money safe and available for short-term needs. Investing means putting money into assets that may grow over time but can also lose value.',
       },
     },
     {
       '@type': 'Question',
-      name: 'How much money do you need to start investing?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The amount needed depends on the brokerage, account type and investment chosen. Many beginners focus first on emergency savings, debt and a consistent contribution habit rather than a large starting amount.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is FinanceCalcHub investing content financial advice?',
+      name: 'Is this investing content financial advice?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'No. FinanceCalcHub investing content is educational only and is not financial, investment, tax or legal advice.',
@@ -173,31 +122,30 @@ export default function InvestingPage() {
           <h1>Investing for Beginners</h1>
 
           <p>
-            Learn the basics of investing in plain language before putting real
-            money at risk. These guides explain stocks, ETFs, index funds,
-            brokerage accounts, diversification, compound growth, investment
-            taxes and common beginner mistakes.
+            Learn the basics of investing in simple language. These beginner
+            guides explain stocks, ETFs, index funds, brokerage accounts, risk,
+            diversification, taxes and long-term investing before you put real
+            money into the market.
           </p>
         </div>
 
-        <div className="calculator-box">
+        <div className="calculator-box" style={{ marginTop: 28 }}>
           <h2>Start here</h2>
 
           <p>
-            Investing can be useful for long-term goals, but it is different
-            from keeping cash for short-term needs. Beginners should understand
-            risk, time horizon and diversification before choosing individual
-            investments.
+            If you are completely new to investing, start with the beginner
+            guide, then learn what stocks are, how ETFs work and how investment
+            taxes can affect your results. The goal is education first, not
+            guessing which stock will go up next.
           </p>
 
           <div className="grid">
             <a className="card" href="/investing/beginner-guide">
-              <p className="eyebrow">Step-by-step guide</p>
+              <p className="eyebrow">Step-by-step</p>
               <h3>How to Start Investing in Stocks</h3>
               <p>
-                Learn the basic process: prepare your finances, understand the
-                risks, choose an account, compare investment types and build a
-                simple long-term plan.
+                A beginner-friendly guide to stocks, ETFs, brokerage accounts,
+                risk, taxes and long-term investing.
               </p>
             </a>
 
@@ -205,17 +153,17 @@ export default function InvestingPage() {
               <p className="eyebrow">Planning tool</p>
               <h3>Investment Return Calculator</h3>
               <p>
-                Estimate how starting balance, recurring contributions, time and
-                assumed return can affect a long-term investment projection.
+                Estimate how an investment may grow over time using starting
+                amount, contributions, years and an estimated return.
               </p>
             </a>
 
             <a className="card" href="/calculators/compound-interest">
-              <p className="eyebrow">Growth concept</p>
+              <p className="eyebrow">Growth tool</p>
               <h3>Compound Interest Calculator</h3>
               <p>
-                See how growth can build on previous growth over time, while
-                remembering that investment returns are not guaranteed.
+                See how money can grow over time when returns or interest
+                compound over many years.
               </p>
             </a>
           </div>
@@ -225,9 +173,9 @@ export default function InvestingPage() {
           <h2>Beginner investing lessons</h2>
 
           <p>
-            These lessons are designed for people who are new to investing. The
-            goal is not to predict the next winning stock. The goal is to
-            understand the basic decisions, risks and tradeoffs before you act.
+            These lessons are designed for complete beginners. They explain core
+            investing concepts without recommending specific stocks, funds or
+            strategies.
           </p>
 
           <div className="grid">
@@ -243,12 +191,13 @@ export default function InvestingPage() {
         </div>
 
         <div className="content-box" style={{ marginTop: 34 }}>
-          <h2>A simple investing learning path</h2>
+          <h2>Beginner learning path</h2>
 
           <p>
-            New investors often jump straight to buying stocks. A more careful
-            approach is to learn the foundation first, then use calculators and
-            guides to understand possible outcomes.
+            A good beginner investing path starts with understanding risk and
+            account types before comparing possible returns. Calculators can help
+            you test hypothetical scenarios, but they should not be treated as a
+            guarantee.
           </p>
 
           <div className="table-wrap">
@@ -257,15 +206,15 @@ export default function InvestingPage() {
                 <tr>
                   <th>Step</th>
                   <th>Topic</th>
-                  <th>What to learn</th>
+                  <th>Why it matters</th>
                 </tr>
               </thead>
               <tbody>
                 {learningPath.map((item) => (
                   <tr key={item.step}>
                     <td>{item.step}</td>
-                    <td>{item.topic}</td>
-                    <td>{item.whatToLearn}</td>
+                    <td>{item.title}</td>
+                    <td>{item.text}</td>
                   </tr>
                 ))}
               </tbody>
@@ -274,130 +223,38 @@ export default function InvestingPage() {
         </div>
 
         <div className="content-box" style={{ marginTop: 34 }}>
-          <h2>Key investing terms for beginners</h2>
+          <h2>What beginners should understand first</h2>
 
           <p>
-            Understanding a few common terms can make investing content easier
-            to follow. These definitions are simplified and educational.
+            Investing involves risk. Stocks and funds can rise, but they can
+            also fall. Beginners should understand emergency savings, high-
+            interest debt, diversification, account types, fees and tax basics
+            before investing large amounts.
           </p>
-
-          <div className="table-wrap">
-            <table className="data-table">
-              <thead>
-                <tr>
-                  <th>Term</th>
-                  <th>Beginner meaning</th>
-                </tr>
-              </thead>
-              <tbody>
-                {beginnerTerms.map((item) => (
-                  <tr key={item.term}>
-                    <td>{item.term}</td>
-                    <td>{item.meaning}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div className="content-box" style={{ marginTop: 34 }}>
-          <h2>What beginners should understand before investing</h2>
-
-          <h3>Saving and investing are different</h3>
-          <p>
-            Money needed soon is usually different from money invested for a
-            long-term goal. Cash savings may be more appropriate for emergency
-            funds and near-term expenses. Investments can fluctuate and may lose
-            value, especially over shorter periods.
-          </p>
-
-          <h3>Diversification matters</h3>
-          <p>
-            Buying one stock means depending heavily on one company. Diversified
-            funds can spread exposure across many companies or assets. This does
-            not eliminate risk, but it can reduce the impact of a single company
-            performing poorly.
-          </p>
-
-          <h3>Fees and taxes can affect results</h3>
-          <p>
-            Investment returns are not the only number that matters. Account
-            fees, fund expense ratios, trading costs and taxes can all affect
-            what an investor keeps. Tax treatment can also differ between taxable
-            brokerage accounts and retirement accounts.
-          </p>
-
-          <h3>Time horizon changes the decision</h3>
-          <p>
-            A person investing for decades may think differently from someone
-            who needs money next year. Longer time horizons may allow more time
-            to recover from market declines, but they still do not guarantee a
-            positive result.
-          </p>
-        </div>
-
-        <div className="content-box" style={{ marginTop: 34 }}>
-          <h2>Use investing calculators carefully</h2>
 
           <p>
-            Calculators can help you compare assumptions, but they cannot
-            predict the market. Treat estimated returns as planning examples,
-            not promises.
+            Many new investors start by learning about diversified ETFs or index
+            funds because they can provide exposure to many companies instead of
+            relying on one company. This does not remove risk, but it can help
+            reduce company-specific risk.
           </p>
 
-          <div className="table-wrap">
-            <table className="data-table">
-              <thead>
-                <tr>
-                  <th>Calculator</th>
-                  <th>Useful for</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <a href="/calculators/investment-return">
-                      Investment Return Calculator
-                    </a>
-                  </td>
-                  <td>
-                    Testing starting balance, contribution amount, years and an
-                    assumed annual return.
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="/calculators/compound-interest">
-                      Compound Interest Calculator
-                    </a>
-                  </td>
-                  <td>
-                    Understanding how compounding may work over time in a
-                    simplified scenario.
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="/calculators/401k">401(k) Calculator</a>
-                  </td>
-                  <td>
-                    Estimating retirement contributions, employer match and
-                    long-term savings projections.
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a href="/calculators/savings">Savings Calculator</a>
-                  </td>
-                  <td>
-                    Comparing cash savings growth for short-term or lower-risk
-                    goals.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <h3>Saving vs investing</h3>
+
+          <p>
+            Saving usually means keeping money available for short-term needs.
+            Investing means putting money into assets that may grow over time,
+            but the value can move up and down. Money needed soon is usually not
+            a good fit for risky investments.
+          </p>
+
+          <h3>Risk and diversification</h3>
+
+          <p>
+            Diversification means spreading money across different investments.
+            It does not guarantee profit or prevent loss, but it can reduce the
+            impact of one company or one investment performing poorly.
+          </p>
         </div>
 
         <div className="content-box" style={{ marginTop: 34 }}>
@@ -405,36 +262,25 @@ export default function InvestingPage() {
 
           <h3>What should a beginner learn before investing?</h3>
           <p>
-            A beginner should understand the difference between saving and
-            investing, how stocks and ETFs work, how diversification works, how
-            brokerage accounts work, what fees and taxes may apply and why risk
-            matters.
+            A beginner should learn what stocks are, how ETFs and index funds
+            work, how risk and diversification work, how brokerage accounts work
+            and how investment taxes may apply.
           </p>
 
           <h3>Is investing the same as saving?</h3>
           <p>
-            No. Saving usually means keeping money relatively safe and available
-            for short-term needs. Investing means buying assets that may grow
-            over time but can also lose value.
+            No. Saving usually means keeping money safe and available for
+            short-term needs. Investing means putting money into assets that may
+            grow over time but can also lose value.
           </p>
 
-          <h3>How much money do you need to start investing?</h3>
+          <h3>Can an investment calculator predict returns?</h3>
           <p>
-            The amount needed depends on the brokerage, account type and
-            investment chosen. Many beginners focus first on emergency savings,
-            high-interest debt and a consistent contribution habit rather than a
-            large starting amount.
+            No. An investment calculator can show hypothetical scenarios using
+            assumptions you enter. It cannot predict future market performance.
           </p>
 
-          <h3>Should beginners buy individual stocks?</h3>
-          <p>
-            Individual stocks can be risky because one company can perform
-            poorly. Some beginners prefer to learn about diversified funds first,
-            but the right choice depends on goals, risk tolerance and financial
-            situation.
-          </p>
-
-          <h3>Is FinanceCalcHub investing content financial advice?</h3>
+          <h3>Is this investing content financial advice?</h3>
           <p>
             No. FinanceCalcHub investing content is educational only and is not
             financial, investment, tax or legal advice.
@@ -442,20 +288,15 @@ export default function InvestingPage() {
         </div>
 
         <div className="content-box" style={{ marginTop: 34 }}>
-          <h2>Important limitations</h2>
+          <h2>Important note</h2>
 
           <p>
-            FinanceCalcHub does not recommend specific stocks, ETFs, funds,
-            brokers or investment strategies. The investing section is designed
-            for general education and planning. Investing involves risk,
-            including possible loss of principal.
-          </p>
-
-          <p>
-            Before making financial decisions, consider your own goals, time
-            horizon, income, debt, emergency fund, tax situation and risk
-            tolerance. For personalized guidance, speak with a qualified
-            financial, tax or legal professional.
+            This content is for educational purposes only and is not financial,
+            investment, tax or legal advice. Investing involves risk, including
+            possible loss of principal. FinanceCalcHub does not recommend
+            specific stocks, funds, brokers or investment strategies. Always do
+            your own research or consult a qualified financial advisor before
+            making financial decisions.
           </p>
         </div>
 
@@ -475,12 +316,12 @@ export default function InvestingPage() {
               href: '/calculators/401k',
             },
             {
-              title: 'Retirement Calculator',
-              href: '/calculators/retirement',
-            },
-            {
               title: 'Savings Calculator',
               href: '/calculators/savings',
+            },
+            {
+              title: 'Retirement Calculator',
+              href: '/calculators/retirement',
             },
             {
               title: 'Paycheck Calculator',
