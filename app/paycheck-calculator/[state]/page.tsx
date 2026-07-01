@@ -18,11 +18,11 @@ export function generateMetadata({ params }: PageProps) {
 
   return {
     title: state
-      ? `${state.name} Paycheck Calculator | Estimate Take-Home Pay`
-      : 'State Paycheck Calculator',
+      ? `${state.name} Paycheck Calculator | Estimate Take-Home Pay | FinanceCalcHub`
+      : 'State Paycheck Calculator | FinanceCalcHub',
     description: state
-      ? `Free ${state.name} paycheck calculator. Estimate take-home pay after federal payroll taxes and state income tax.`
-      : 'Free state paycheck calculator for US workers.',
+      ? `Free ${state.name} paycheck calculator. Estimate monthly, biweekly and weekly take-home pay after simplified federal payroll taxes and estimated ${state.name} state income tax.`
+      : 'Free state paycheck calculator for US workers. Estimate take-home pay after simplified federal, payroll and state income taxes.',
   };
 }
 
