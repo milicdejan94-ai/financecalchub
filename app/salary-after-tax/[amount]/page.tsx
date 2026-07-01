@@ -1,4 +1,3 @@
-import AdBanner from '../../../components/AdBanner';
 import RelatedCalculators from '../../../components/RelatedCalculators';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import { salaryAmounts } from '../../../lib/salaryAmounts';
@@ -93,8 +92,6 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
           income tax.
         </p>
 
-        <AdBanner slot={`salary-after-tax-${amount}-top`} />
-
         <div className="calculator-box">
           <h2>Estimated after-tax income</h2>
 
@@ -124,8 +121,6 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
             Estimated effective tax rate: {effectiveTaxRate.toFixed(1)}%
           </div>
         </div>
-
-        <AdBanner slot={`salary-after-tax-${amount}-middle`} />
 
         <div className="content-box" style={{ marginTop: 34 }}>
           <h2>
@@ -215,8 +210,6 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
             },
           ]}
         />
-
-        <AdBanner slot={`salary-after-tax-${amount}-bottom`} />
       </div>
     </section>
   );

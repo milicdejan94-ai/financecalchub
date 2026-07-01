@@ -1,4 +1,3 @@
-import AdBanner from '../../../components/AdBanner';
 import RelatedCalculators from '../../../components/RelatedCalculators';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import { salaryAmounts } from '../../../lib/salaryAmounts';
@@ -78,8 +77,6 @@ export default function SalaryAmountPage({ params }: PageProps) {
           salary using simplified federal payroll tax and state tax assumptions.
         </p>
 
-        <AdBanner slot={`salary-${amount}-top`} />
-
         <div className="calculator-box">
           <h2>Estimated take-home pay</h2>
 
@@ -101,8 +98,6 @@ export default function SalaryAmountPage({ params }: PageProps) {
             Estimated hourly equivalent: ${hourlyEquivalent.toFixed(2)}
           </div>
         </div>
-
-        <AdBanner slot={`salary-${amount}-middle`} />
 
         <div className="content-box" style={{ marginTop: 34 }}>
           <h2>How much is ${amount.toLocaleString('en-US')} after taxes?</h2>
@@ -191,8 +186,6 @@ export default function SalaryAmountPage({ params }: PageProps) {
             },
           ]}
         />
-
-        <AdBanner slot={`salary-${amount}-bottom`} />
       </div>
     </section>
   );

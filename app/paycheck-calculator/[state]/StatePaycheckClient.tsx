@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import AdBanner from '../../../components/AdBanner';
 import RelatedCalculators from '../../../components/RelatedCalculators';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import { states } from '../../../lib/states';
@@ -65,8 +64,6 @@ export default function StatePaycheckClient({
           Social Security, Medicare and state income tax.
         </p>
 
-        <AdBanner slot={`${state.slug}-top`} />
-
         <div className="calculator-box">
           <div className="input-group">
             <label>Annual salary</label>
@@ -105,8 +102,6 @@ export default function StatePaycheckClient({
             Weekly take-home pay: ${weeklyTakeHome.toFixed(2)}
           </div>
         </div>
-
-        <AdBanner slot={`${state.slug}-middle`} />
 
         <div className="content-box" style={{ marginTop: 34 }}>
           <h2>About paychecks in {state.name}</h2>
@@ -189,8 +184,6 @@ export default function StatePaycheckClient({
             },
           ]}
         />
-
-        <AdBanner slot={`${state.slug}-bottom`} />
       </div>
     </section>
   );

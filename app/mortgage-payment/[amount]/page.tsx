@@ -1,4 +1,3 @@
-import AdBanner from '../../../components/AdBanner';
 import RelatedCalculators from '../../../components/RelatedCalculators';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import { mortgageAmounts } from '../../../lib/mortgageAmounts';
@@ -104,8 +103,6 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
           homeowners insurance and maintenance assumptions.
         </p>
 
-        <AdBanner slot={`mortgage-payment-${amount}-top`} />
-
         <div className="calculator-box">
           <h2>Estimated monthly payment</h2>
 
@@ -138,8 +135,6 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
 
           <div className="result">Loan term: {loanTermYears} years</div>
         </div>
-
-        <AdBanner slot={`mortgage-payment-${amount}-middle`} />
 
         <div className="content-box" style={{ marginTop: 34 }}>
           <h2>
@@ -225,8 +220,6 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
             },
           ]}
         />
-
-        <AdBanner slot={`mortgage-payment-${amount}-bottom`} />
       </div>
     </section>
   );

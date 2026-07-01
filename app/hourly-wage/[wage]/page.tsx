@@ -1,4 +1,3 @@
-import AdBanner from '../../../components/AdBanner';
 import RelatedCalculators from '../../../components/RelatedCalculators';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import { hourlyWages } from '../../../lib/hourlyWages';
@@ -91,8 +90,6 @@ export default function HourlyWagePage({ params }: PageProps) {
           paycheck before taxes and after simplified estimated taxes.
         </p>
 
-        <AdBanner slot={`hourly-wage-${wage}-top`} />
-
         <div className="calculator-box">
           <h2>${wage}/hour salary estimate</h2>
 
@@ -137,8 +134,6 @@ export default function HourlyWagePage({ params }: PageProps) {
             Estimated weekly after-tax pay: ${weeklyAfterTax.toFixed(2)}
           </div>
         </div>
-
-        <AdBanner slot={`hourly-wage-${wage}-middle`} />
 
         <div className="content-box" style={{ marginTop: 34 }}>
           <h2>
@@ -222,8 +217,6 @@ export default function HourlyWagePage({ params }: PageProps) {
             },
           ]}
         />
-
-        <AdBanner slot={`hourly-wage-${wage}-bottom`} />
       </div>
     </section>
   );
