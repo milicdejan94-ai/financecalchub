@@ -523,8 +523,8 @@ export default function InvestingBeginnerGuidePage() {
               href: '/calculators/401k',
             },
             {
-              title: 'IRA Calculator',
-              href: '/calculators/ira',
+              title: 'Retirement Calculator',
+              href: '/calculators/retirement',
             },
             {
               title: 'Savings Calculator',
