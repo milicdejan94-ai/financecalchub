@@ -1317,3 +1317,7 @@ button:hover {
     color: var(--fch-teal);
   }
 }
+/* Accessibility contrast fix for small uppercase eyebrow labels */
+.eyebrow {
+  color: #0f766e;
+}
