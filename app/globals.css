@@ -1321,3 +1321,8 @@ button:hover {
 .eyebrow {
   color: #0f766e;
 }
+
+/* Accessibility contrast fix for small uppercase eyebrow labels */
+.eyebrow {
+  color: #0f766e;
+}
