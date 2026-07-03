@@ -54,7 +54,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://financecalchub.com',
+    url: 'https://www.financecalchub.com',
     siteName: 'FinanceCalcHub',
     title: 'FinanceCalcHub | Free US Financial Calculators',
     description:
