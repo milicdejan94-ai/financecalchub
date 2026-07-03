@@ -4,6 +4,10 @@ import Script from 'next/script';
 export const metadata = {
   metadataBase: new URL('https://www.financecalchub.com'),
 
+  alternates: {
+    canonical: './',
+  },
+
   title: {
     default: 'FinanceCalcHub | Free US Financial Calculators',
     template: '%s | FinanceCalcHub',
