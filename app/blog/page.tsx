@@ -4,6 +4,15 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 const posts = [
   {
     title:
+      'His Former Employer Reported $30,000 More Income Than He Expected — Then the IRS Letter Arrived',
+    description:
+      'A taxpayer said his W-2 showed about $100,000, but an IRS notice appeared to reference roughly $130,000 in wages.',
+    href:
+      '/blog/real-money-stories/employer-reported-30000-more-income',
+    category: 'Real Money Stories',
+  },
+  {
+    title:
       'The IRS Said He Owed $20,000 — But He Says He Was Still in High School',
     description:
       'A publicly shared taxpayer experience began with an IRS notice for roughly $20,000 and a tax year the taxpayer said made almost no sense.',
@@ -117,6 +126,10 @@ const categoryGroups = [
     description:
       'Read publicly shared tax and money experiences explained with educational context and official sources.',
     links: [
+      {
+        title: 'His Former Employer Reported $30,000 More Income Than He Expected',
+        href: '/blog/real-money-stories/employer-reported-30000-more-income',
+      },
       {
         title: 'The IRS Said He Owed $20,000 — But He Says He Was Still in High School',
         href: '/blog/real-money-stories/irs-said-he-owed-20000-high-school',
