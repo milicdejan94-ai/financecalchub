@@ -10,6 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     '',
     '/blog',
+    '/blog/real-money-stories',
+    '/blog/real-money-stories/irs-said-he-owed-20000-high-school',
     '/calculators',
     '/paycheck-calculator',
     '/salary-calculator',

@@ -3,6 +3,15 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 
 const posts = [
   {
+    title:
+      'The IRS Said He Owed $20,000 — But He Says He Was Still in High School',
+    description:
+      'A publicly shared taxpayer experience began with an IRS notice for roughly $20,000 and a tax year the taxpayer said made almost no sense.',
+    href:
+      '/blog/real-money-stories/irs-said-he-owed-20000-high-school',
+    category: 'Real Money Stories',
+  },
+  {
     title: 'How Much Is $70,000 After Taxes?',
     description:
       'Estimate how much a $70,000 salary may be after taxes and what it could mean monthly, biweekly and weekly.',
@@ -103,6 +112,21 @@ const posts = [
 ];
 
 const categoryGroups = [
+  {
+    name: 'Real Money Stories',
+    description:
+      'Read publicly shared tax and money experiences explained with educational context and official sources.',
+    links: [
+      {
+        title: 'The IRS Said He Owed $20,000 — But He Says He Was Still in High School',
+        href: '/blog/real-money-stories/irs-said-he-owed-20000-high-school',
+      },
+      {
+        title: 'Browse Real Money Stories',
+        href: '/blog/real-money-stories',
+      },
+    ],
+  },
   {
     name: 'Paycheck and salary guides',
     description:
