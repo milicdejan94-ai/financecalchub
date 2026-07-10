@@ -4,6 +4,14 @@ import RelatedCalculators from '../../../components/RelatedCalculators';
 const stories = [
   {
     title:
+      'She Made About $55,000 as a 1099 Contractor — Then She Saw an $8,000 Tax Bill',
+    description:
+      'A 1099 contractor said she earned about $55,000 and panicked after tax software showed an approximately $8,000 tax bill.',
+    href: '/blog/real-money-stories/55000-1099-8000-tax-bill',
+    category: 'Self-Employment Tax Story',
+  },
+  {
+    title:
       'His Tax Return Was Accepted — Then He Realized He Left Out a W-2',
     description:
       'A taxpayer realized that one W-2 had been omitted after the return was already accepted. What does the IRS say about correcting the return?',
