@@ -4,6 +4,14 @@ import RelatedCalculators from '../../../components/RelatedCalculators';
 const stories = [
   {
     title:
+      'His Tax Return Was Accepted — Then He Realized He Left Out a W-2',
+    description:
+      'A taxpayer realized that one W-2 had been omitted after the return was already accepted. What does the IRS say about correcting the return?',
+    href: '/blog/real-money-stories/return-accepted-forgot-w2',
+    category: 'Tax Story',
+  },
+  {
+    title:
       "She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem",
     description:
       'A state payroll problem appeared to connect an employee with the wrong work location. The withholding and W-2 questions became more complicated than expected.',

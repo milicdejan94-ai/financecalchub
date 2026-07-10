@@ -4,6 +4,14 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 const posts = [
   {
     title:
+      'His Tax Return Was Accepted — Then He Realized He Left Out a W-2',
+    description:
+      'A taxpayer discovered that one W-2 had been omitted after the tax return was already accepted.',
+    href: '/blog/real-money-stories/return-accepted-forgot-w2',
+    category: 'Real Money Stories',
+  },
+  {
+    title:
       "She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem",
     description:
       'A payroll work-location problem appeared to affect state tax withholding and created complicated W-2 questions.',
@@ -135,6 +143,10 @@ const categoryGroups = [
     description:
       'Read publicly shared tax and money experiences explained with educational context and official sources.',
     links: [
+      {
+        title: 'His Tax Return Was Accepted — Then He Realized He Left Out a W-2',
+        href: '/blog/real-money-stories/return-accepted-forgot-w2',
+      },
       {
         title: "She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem",
         href: '/blog/real-money-stories/taxed-in-wrong-state-payroll-problem',
