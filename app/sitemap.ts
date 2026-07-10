@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/blog',
     '/blog/real-money-stories',
+    '/blog/real-money-stories/wrong-w2-employer-not-correcting',
     '/blog/real-money-stories/not-filed-taxes-nearly-eight-years',
     '/blog/real-money-stories/55000-1099-8000-tax-bill',
     '/blog/real-money-stories/return-accepted-forgot-w2',
