@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/blog',
     '/blog/real-money-stories',
+    '/blog/real-money-stories/taxed-in-wrong-state-payroll-problem',
     '/blog/real-money-stories/employer-reported-30000-more-income',
     '/blog/real-money-stories/irs-said-he-owed-20000-high-school',
     '/calculators',

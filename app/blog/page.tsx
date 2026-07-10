@@ -4,6 +4,15 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 const posts = [
   {
     title:
+      "She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem",
+    description:
+      'A payroll work-location problem appeared to affect state tax withholding and created complicated W-2 questions.',
+    href:
+      '/blog/real-money-stories/taxed-in-wrong-state-payroll-problem',
+    category: 'Real Money Stories',
+  },
+  {
+    title:
       'His Former Employer Reported $30,000 More Income Than He Expected — Then the IRS Letter Arrived',
     description:
       'A taxpayer said his W-2 showed about $100,000, but an IRS notice appeared to reference roughly $130,000 in wages.',
@@ -126,6 +135,10 @@ const categoryGroups = [
     description:
       'Read publicly shared tax and money experiences explained with educational context and official sources.',
     links: [
+      {
+        title: "She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem",
+        href: '/blog/real-money-stories/taxed-in-wrong-state-payroll-problem',
+      },
       {
         title: 'His Former Employer Reported $30,000 More Income Than He Expected',
         href: '/blog/real-money-stories/employer-reported-30000-more-income',
