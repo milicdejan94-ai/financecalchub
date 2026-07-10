@@ -4,6 +4,14 @@ import RelatedCalculators from '../../../components/RelatedCalculators';
 const stories = [
   {
     title:
+      "He Hadn't Filed Taxes in Nearly Eight Years — and Was Afraid to Find Out What He Owed",
+    description:
+      'A taxpayer said he had not filed tax returns in nearly eight years and had become increasingly afraid of the penalties and consequences.',
+    href: '/blog/real-money-stories/not-filed-taxes-nearly-eight-years',
+    category: 'Tax Story',
+  },
+  {
+    title:
       'She Made About $55,000 as a 1099 Contractor — Then She Saw an $8,000 Tax Bill',
     description:
       'A 1099 contractor said she earned about $55,000 and panicked after tax software showed an approximately $8,000 tax bill.',

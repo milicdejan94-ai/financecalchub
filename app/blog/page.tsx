@@ -4,6 +4,14 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 const posts = [
   {
     title:
+      "He Hadn't Filed Taxes in Nearly Eight Years — and Was Afraid to Find Out What He Owed",
+    description:
+      'A taxpayer publicly described nearly eight years of unfiled returns and the fear of finally discovering what he might owe.',
+    href: '/blog/real-money-stories/not-filed-taxes-nearly-eight-years',
+    category: 'Real Money Stories',
+  },
+  {
+    title:
       'She Made About $55,000 as a 1099 Contractor — Then She Saw an $8,000 Tax Bill',
     description:
       'A 1099 contractor was shocked when approximately $55,000 of contractor income led to an estimated $8,000 tax bill.',
@@ -151,6 +159,10 @@ const categoryGroups = [
     description:
       'Read publicly shared tax and money experiences explained with educational context and official sources.',
     links: [
+      {
+        title: "He Hadn't Filed Taxes in Nearly Eight Years — and Was Afraid to Find Out What He Owed",
+        href: '/blog/real-money-stories/not-filed-taxes-nearly-eight-years',
+      },
       {
         title: 'She Made About $55,000 as a 1099 Contractor — Then She Saw an $8,000 Tax Bill',
         href: '/blog/real-money-stories/55000-1099-8000-tax-bill',
