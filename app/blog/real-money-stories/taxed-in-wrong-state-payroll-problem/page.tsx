@@ -2,10 +2,8 @@ import Breadcrumbs from '../../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../../components/RelatedCalculators';
 
 export const metadata = {
-  title:
-    "She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem",
-  description:
-    'A publicly discussed payroll problem involved state tax withholding connected with the wrong work location. What happens when payroll and W-2 state information do not match the employee’s understanding of where they worked?',
+  title: 'Payroll Taxed Her in the Wrong State | Tax Story',
+  description: 'An employee discovered state withholding that appeared connected with the wrong work location. See which payroll and W-2 records may be worth checking.',
 };
 
 export default function TaxedInWrongStatePayrollProblemPage() {

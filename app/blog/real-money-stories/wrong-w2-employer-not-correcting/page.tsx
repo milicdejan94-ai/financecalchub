@@ -2,10 +2,8 @@ import Breadcrumbs from '../../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../../components/RelatedCalculators';
 
 export const metadata = {
-  title:
-    "Her W-2 Was Wrong — Her Employer Still Hadn't Fixed It as Tax Day Got Closer",
-  description:
-    'A taxpayer publicly described repeatedly asking an employer to correct a W-2 while the tax filing deadline was getting closer. What does IRS guidance say when a corrected W-2 does not arrive?',
+  title: "Wrong W-2 and Employer Won't Fix It? What IRS Says",
+  description: 'An employee said her W-2 was still wrong after repeated employer follow-ups. See what IRS guidance says about corrected W-2s and Form 4852.',
 };
 
 export default function WrongW2EmployerNotCorrectingPage() {

@@ -2,10 +2,8 @@ import Breadcrumbs from '../../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../../components/RelatedCalculators';
 
 export const metadata = {
-  title:
-    "He Hadn't Filed Taxes in Nearly Eight Years — and Was Afraid to Find Out What He Owed",
-  description:
-    'A taxpayer publicly described going nearly eight years without filing tax returns and becoming increasingly afraid of the penalties and consequences. What does IRS guidance say about past-due returns?',
+  title: 'Nearly 8 Years of Unfiled Tax Returns | Real Tax Story',
+  description: 'A taxpayer said he had not filed tax returns in nearly eight years. See what IRS guidance says about past-due returns, records and payment options.',
 };
 
 export default function NotFiledTaxesNearlyEightYearsPage() {

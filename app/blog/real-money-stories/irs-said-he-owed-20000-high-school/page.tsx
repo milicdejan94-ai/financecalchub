@@ -2,10 +2,8 @@ import Breadcrumbs from '../../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../../components/RelatedCalculators';
 
 export const metadata = {
-  title:
-    'The IRS Said He Owed $20,000 — But He Says He Was Still in High School',
-  description:
-    'A publicly shared taxpayer experience began with an IRS notice for roughly $20,000 and a tax year the taxpayer said made almost no sense.',
+  title: "IRS Said He Owed $20,000 for Income He Didn't Recognize",
+  description: 'A taxpayer said the IRS claimed he owed about $20,000 for a year when he was still in high school. See which income records may be worth checking.',
 };
 
 export default function IrsSaidHeOwed20000HighSchoolPage() {

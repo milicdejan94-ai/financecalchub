@@ -2,10 +2,8 @@ import Breadcrumbs from '../../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../../components/RelatedCalculators';
 
 export const metadata = {
-  title:
-    'His Former Employer Reported $30,000 More Income Than He Expected — Then the IRS Letter Arrived',
-  description:
-    'A taxpayer said his W-2 showed about $100,000 in wages, but an IRS notice appeared to reference roughly $130,000. What happens when reported income does not match your records?',
+  title: 'Employer Reported $30,000 More Income | Tax Story',
+  description: 'A taxpayer said his W-2 showed about $100,000 while an IRS notice appeared to reference roughly $130,000 in wages. See what may explain the mismatch.',
 };
 
 export default function EmployerReported30000MoreIncomePage() {

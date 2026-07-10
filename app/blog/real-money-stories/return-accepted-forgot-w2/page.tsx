@@ -2,10 +2,8 @@ import Breadcrumbs from '../../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../../components/RelatedCalculators';
 
 export const metadata = {
-  title:
-    'His Tax Return Was Accepted — Then He Realized He Left Out a W-2',
-  description:
-    'A taxpayer publicly described realizing that one W-2 had been left out after a tax return was already accepted. What does IRS guidance say about correcting the return?',
+  title: 'Forgot a W-2 After Filing Taxes? A Real Tax Story',
+  description: 'A taxpayer realized one W-2 had been left out after his return was accepted. See what IRS guidance says about correcting an already filed return.',
 };
 
 export default function ReturnAcceptedForgotW2Page() {

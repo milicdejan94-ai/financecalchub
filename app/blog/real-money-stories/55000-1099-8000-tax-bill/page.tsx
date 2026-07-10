@@ -2,10 +2,8 @@ import Breadcrumbs from '../../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../../components/RelatedCalculators';
 
 export const metadata = {
-  title:
-    'She Made About $55,000 as a 1099 Contractor — Then She Saw an $8,000 Tax Bill',
-  description:
-    'A 1099 contractor publicly described earning about $55,000 and being shocked when tax software showed an approximately $8,000 tax bill. What can self-employed workers learn from her story?',
+  title: '$55,000 in 1099 Income and an $8,000 Tax Bill',
+  description: 'A contractor said she earned about $55,000 and saw an estimated $8,000 tax bill. Learn why 1099 income can create a surprising tax balance.',
 };
 
 export default function Contractor55000TaxBillPage() {
