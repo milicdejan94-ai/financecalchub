@@ -172,6 +172,62 @@ export default function AboutPage() {
             specific investments, brokers or strategies.
           </p>
 
+          <h2>How our editorial content is created</h2>
+
+          <p>
+            FinanceCalcHub publishes calculators, educational guides and Real
+            Money Stories. These content types are created differently, but all
+            are intended to help readers understand financial questions more
+            clearly.
+          </p>
+
+          <p>
+            Calculator content explains assumptions, formulas and limitations.
+            Educational guides provide broader context around common financial
+            questions. Real Money Stories examine publicly shared financial
+            experiences and explain the practical issues behind them.
+          </p>
+
+          <h2>How we handle Real Money Stories</h2>
+
+          <p>
+            Real Money Stories may be based on publicly accessible accounts from
+            forums or other public discussions. A person's public account is not
+            automatically treated as independently verified fact.
+          </p>
+
+          <p>
+            When a story describes what a person said happened, FinanceCalcHub
+            uses wording such as “the taxpayer said,” “according to the public
+            account” or similar language to distinguish personal claims from
+            independently confirmed facts.
+          </p>
+
+          <p>
+            Practical explanations may be supported with official sources such as
+            the IRS, Social Security Administration or other government and
+            primary-source resources where appropriate.
+          </p>
+
+          <h2>Sources, corrections and transparency</h2>
+
+          <p>
+            FinanceCalcHub aims to use official or primary sources for important
+            procedural and factual claims when practical. We also aim to correct
+            material errors, broken references or misleading explanations when
+            they are identified.
+          </p>
+
+          <p>
+            More information about our standards is available in the{' '}
+            <a href="/editorial-policy">Editorial Policy</a>.
+          </p>
+
+          <p>
+            Possible errors or source concerns can be reported to{' '}
+            <strong>contact@financecalchub.com</strong>.
+          </p>
+
           <h2>What FinanceCalcHub does not do</h2>
 
           <p>

@@ -187,6 +187,33 @@ export default function DisclaimerPage() {
             should consult a qualified financial professional.
           </p>
 
+          <h2>Real Money Stories and public accounts</h2>
+
+          <p>
+            Some FinanceCalcHub articles discuss publicly shared financial
+            experiences. These public accounts are used for educational and
+            editorial purposes.
+          </p>
+
+          <p>
+            Personal statements in a public account are not automatically treated
+            as independently verified facts. FinanceCalcHub may not have access
+            to the person's private tax records, payroll records, bank records,
+            IRS account or other supporting documents unless explicitly stated.
+          </p>
+
+          <p>
+            Practical explanations in Real Money Stories may reference official
+            sources, but the article does not provide individualized tax, legal,
+            accounting or financial advice for the person in the story or for the
+            reader.
+          </p>
+
+          <p>
+            More information is available in our{' '}
+            <a href="/editorial-policy">Editorial Policy</a>.
+          </p>
+
           <h2>No financial decisions based only on this website</h2>
 
           <p>

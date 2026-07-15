@@ -60,6 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     '/about',
     '/methodology',
+    '/editorial-policy',
     '/contact',
     '/privacy-policy',
     '/terms',

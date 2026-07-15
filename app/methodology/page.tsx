@@ -221,6 +221,66 @@ export default function MethodologyPage() {
             decisions.
           </p>
 
+          <h2>How Real Money Stories are researched</h2>
+
+          <p>
+            Real Money Stories are designed to explain practical financial
+            problems through publicly shared experiences.
+          </p>
+
+          <p>
+            The public story provides the situation and the questions raised by
+            that situation. FinanceCalcHub does not assume that every statement
+            in a public account has been independently verified.
+          </p>
+
+          <p>Where appropriate, articles separate:</p>
+
+          <ul>
+            <li>what the person publicly said happened</li>
+            <li>what FinanceCalcHub could not independently verify</li>
+            <li>what official guidance says about the broader issue</li>
+          </ul>
+
+          <p>
+            Public comments from forum users are not treated as official tax,
+            legal, financial or government guidance.
+          </p>
+
+          <h2>Official sources and fact checking</h2>
+
+          <p>
+            Depending on the topic, FinanceCalcHub may use official sources such
+            as the Internal Revenue Service, Social Security Administration,
+            other government agencies, official forms, instructions and
+            primary-source documentation.
+          </p>
+
+          <p>
+            Important procedural claims should be supported by stronger sources
+            when practical, especially for tax, payroll, mortgage and investment
+            topics.
+          </p>
+
+          <h2>Corrections and updates</h2>
+
+          <p>
+            Financial rules, official procedures and calculator assumptions can
+            change. Content may be updated when an official source changes, a
+            material error is identified, a calculation is improved or a page
+            needs clearer explanation.
+          </p>
+
+          <p>
+            Readers can report possible errors by emailing{' '}
+            <strong>contact@financecalchub.com</strong>.
+          </p>
+
+          <p>
+            Additional editorial standards are explained in the{' '}
+            <a href="/editorial-policy">Editorial Policy</a>.
+          </p>
+
           <h2>Why numbers may differ from other calculators</h2>
 
           <p>

@@ -163,6 +163,7 @@ export default function RootLayout({
                 <a href="/blog">Blog</a>
                 <a href="/about">About</a>
                 <a href="/methodology">Methodology</a>
+                <a href="/editorial-policy">Editorial Policy</a>
                 <a href="/contact">Contact</a>
                 <a href="/privacy-policy">Privacy Policy</a>
                 <a href="/terms">Terms</a>
