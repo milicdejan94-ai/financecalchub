@@ -44,6 +44,10 @@ export function generateMetadata({ params }: PageProps) {
     description: Number.isFinite(amount)
       ? `Estimate monthly, biweekly and weekly pay for a $${formattedAmount} annual salary. See gross pay, simplified take-home pay and hourly equivalent.`
       : 'Estimate salary take-home pay, gross pay breakdowns and hourly equivalent pay.',
+    robots: {
+      index: false,
+      follow: true,
+    },
   };
 }
 

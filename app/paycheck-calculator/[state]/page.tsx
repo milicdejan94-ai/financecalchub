@@ -23,6 +23,10 @@ export function generateMetadata({ params }: PageProps) {
     description: state
       ? `Free ${state.name} paycheck calculator. Estimate monthly, biweekly and weekly take-home pay after simplified federal payroll taxes and estimated ${state.name} state income tax.`
       : 'Free state paycheck calculator for US workers. Estimate take-home pay after simplified federal, payroll and state income taxes.',
+    robots: {
+      index: false,
+      follow: true,
+    },
   };
 }
 
