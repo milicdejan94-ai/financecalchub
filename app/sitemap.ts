@@ -1,5 +1,4 @@
 import type { MetadataRoute } from 'next';
-import { states } from '../lib/states';
 import { salaryAmounts } from '../lib/salaryAmounts';
 import { mortgageAmounts } from '../lib/mortgageAmounts';
 import { hourlyWages } from '../lib/hourlyWages';
@@ -82,14 +81,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/rent-vs-buy-key-factors',
   ];
 
-  const stateRoutes = states.map(
-    (state) => `/paycheck-calculator/${state.slug}`
-  );
-
-  const salaryRoutes = salaryAmounts.map(
-    (amount) => `/salary-calculator/${amount}`
-  );
-
   const salaryAfterTaxRoutes = salaryAmounts.map(
     (amount) => `/salary-after-tax/${amount}`
   );
@@ -102,8 +93,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes,
-    ...stateRoutes,
-    ...salaryRoutes,
     ...salaryAfterTaxRoutes,
     ...mortgagePaymentRoutes,
     ...hourlyWageRoutes,
