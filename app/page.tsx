@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'FinanceCalcHub | Free US Financial Calculators and Money Guides',
+  title: 'FinanceCalcHub | Financial Calculators, Guides and Real Money Stories',
   description:
-    'Free US financial calculators and educational guides for paychecks, taxes, salary after tax, hourly wages, mortgages, loans, debt payoff, savings, investing and retirement planning.',
+    'Free US financial calculators, researched money guides and real-world financial stories covering paychecks, taxes, mortgages, debt, savings, investing and retirement.',
 };
 
 const popularTools = [
@@ -84,34 +84,34 @@ const categories = [
 
 const popularGuides = [
   {
-    title: '$70,000 After Tax Calculator',
-    text: 'Estimate how much a $70,000 salary may be after federal tax, payroll taxes and estimated state income tax.',
-    href: '/salary-after-tax/70000',
+    title: 'How Much Is $70,000 After Taxes?',
+    text: 'Explore annual, monthly, biweekly and weekly take-home pay estimates and the assumptions that can change the result.',
+    href: '/blog/how-much-is-70000-after-taxes',
   },
   {
-    title: '$100,000 After Tax Calculator',
-    text: 'Estimate annual, monthly, biweekly and weekly after-tax pay for a $100,000 salary.',
-    href: '/salary-after-tax/100000',
+    title: 'How Much Is $100,000 After Taxes?',
+    text: 'See how taxes and payroll deductions may affect the take-home value of a $100,000 salary.',
+    href: '/blog/how-much-is-100000-after-taxes',
   },
   {
     title: '$25 an Hour Is How Much a Year?',
-    text: 'Convert $25 an hour into estimated annual, monthly, weekly and after-tax pay.',
-    href: '/hourly-wage/25',
+    text: 'Learn how $25 per hour converts into annual, monthly, biweekly and weekly gross pay.',
+    href: '/blog/25-an-hour-is-how-much-a-year',
   },
   {
     title: '$30 an Hour Is How Much a Year?',
-    text: 'Estimate how much $30 per hour may be per year and per paycheck.',
-    href: '/hourly-wage/30',
+    text: 'See how a $30 hourly wage translates into common annual and paycheck estimates.',
+    href: '/blog/30-an-hour-is-how-much-a-year',
   },
   {
-    title: '$300,000 Mortgage Payment',
-    text: 'Estimate the monthly payment on a $300,000 mortgage including principal, interest, taxes and insurance assumptions.',
-    href: '/mortgage-payment/300000',
+    title: 'What Is the Payment on a $300,000 Mortgage?',
+    text: 'Understand how principal, interest, property taxes and insurance may affect the monthly housing cost.',
+    href: '/blog/300000-mortgage-payment',
   },
   {
-    title: '$400,000 Mortgage Payment',
-    text: 'Estimate the monthly payment on a $400,000 mortgage with common home buying cost assumptions.',
-    href: '/mortgage-payment/400000',
+    title: 'What Is the Payment on a $400,000 Mortgage?',
+    text: 'Explore a $400,000 mortgage payment example and the assumptions that can change the total monthly cost.',
+    href: '/blog/400000-mortgage-payment',
   },
 ];
 
@@ -133,6 +133,51 @@ const latestGuides = [
     text: 'Understand estimated principal, interest, taxes, insurance and other housing costs.',
     href: '/blog/300000-mortgage-payment',
     category: 'Mortgage',
+  },
+];
+
+const realMoneyStories = [
+  {
+    title:
+      "He Hadn't Filed Taxes in Nearly Eight Years — and Was Afraid to Find Out What He Owed",
+    text:
+      'A taxpayer described years of avoidance and growing fear before deciding to finally face his unfiled tax returns.',
+    href: '/blog/real-money-stories/not-filed-taxes-nearly-eight-years',
+  },
+  {
+    title:
+      'She Made About $55,000 as a 1099 Contractor — Then She Saw an $8,000 Tax Bill',
+    text:
+      'A contractor expected a smaller tax bill and was shocked by the estimate she saw at tax time.',
+    href: '/blog/real-money-stories/55000-1099-8000-tax-bill',
+  },
+  {
+    title:
+      "Her W-2 Was Wrong — Her Employer Still Hadn't Fixed It as Tax Day Got Closer",
+    text:
+      'An employee repeatedly asked for a correction while the tax filing deadline continued getting closer.',
+    href: '/blog/real-money-stories/wrong-w2-employer-not-correcting',
+  },
+  {
+    title:
+      'His Tax Return Was Accepted — Then He Realized He Left Out a W-2',
+    text:
+      'A taxpayer discovered another W-2 after filing and had to understand what correcting an accepted return could involve.',
+    href: '/blog/real-money-stories/return-accepted-forgot-w2',
+  },
+  {
+    title:
+      "She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem",
+    text:
+      'A payroll location problem created confusing questions about state withholding and W-2 information.',
+    href: '/blog/real-money-stories/taxed-in-wrong-state-payroll-problem',
+  },
+  {
+    title:
+      'His Former Employer Reported $30,000 More Income Than He Expected',
+    text:
+      'A taxpayer said the income figure connected with an IRS notice appeared much higher than the W-2 in his records.',
+    href: '/blog/real-money-stories/employer-reported-30000-more-income',
   },
 ];
 
@@ -218,16 +263,18 @@ export default function HomePage() {
 
       <section className="hero">
         <div className="container">
-          <p className="eyebrow">Free financial calculators for US users</p>
+          <p className="eyebrow">
+            Financial tools, researched guides and real money stories
+          </p>
 
           <h1>
-            Simple financial calculators and money guides for everyday planning.
+            Understand the numbers — and the real financial problems behind them.
           </h1>
 
           <p>
-            FinanceCalcHub helps you estimate common money questions with free
-            educational calculators for paychecks, taxes, mortgages, loans,
-            savings, retirement and beginner investing.
+            FinanceCalcHub combines free financial calculators with researched
+            educational guides and real-world money stories covering paychecks,
+            taxes, mortgages, debt, savings, investing and retirement.
           </p>
 
           <div className="hero-actions">
@@ -235,8 +282,11 @@ export default function HomePage() {
               View all calculators
             </a>
 
-            <a className="secondary-btn" href="/calculators/paycheck">
-              Start with Paycheck Calculator
+            <a
+              className="secondary-btn"
+              href="/blog/real-money-stories"
+            >
+              Read Real Money Stories
             </a>
           </div>
         </div>
@@ -315,6 +365,41 @@ export default function HomePage() {
               <a href="/investing">Investing beginner guides</a>
               <a href="/blog">Personal finance guides</a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-heading">
+            <p className="eyebrow">Real Money Stories</p>
+            <h2>Real financial problems, carefully explained</h2>
+            <p>
+              FinanceCalcHub reviews publicly shared financial experiences and
+              explains the practical questions behind them using official
+              sources where appropriate. Personal claims are presented as
+              claims, not independently verified facts.
+            </p>
+          </div>
+
+          <div className="grid">
+            {realMoneyStories.map((story) => (
+              <a className="card" href={story.href} key={story.href}>
+                <p className="eyebrow">Real Money Story</p>
+                <h2>{story.title}</h2>
+                <p>{story.text}</p>
+                <span>Read the story →</span>
+              </a>
+            ))}
+          </div>
+
+          <div style={{ marginTop: 28 }}>
+            <a
+              className="primary-btn"
+              href="/blog/real-money-stories"
+            >
+              View all Real Money Stories
+            </a>
           </div>
         </div>
       </section>
@@ -404,11 +489,12 @@ export default function HomePage() {
       <section className="section">
         <div className="container">
           <div className="section-heading">
-            <p className="eyebrow">Popular calculator guides</p>
-            <h2>Quick estimates for common money questions</h2>
+            <p className="eyebrow">Popular money guides</p>
+            <h2>Understand common financial questions in more detail</h2>
             <p>
-              Start with popular salary, hourly wage and mortgage estimate pages
-              built for common real-life planning questions.
+              Read educational guides that explain the assumptions, calculations
+              and practical factors behind common salary, hourly wage and
+              mortgage questions.
             </p>
           </div>
 
@@ -417,7 +503,7 @@ export default function HomePage() {
               <a className="card" href={guide.href} key={guide.href}>
                 <h2>{guide.title}</h2>
                 <p>{guide.text}</p>
-                <span>View estimate →</span>
+                <span>Read guide →</span>
               </a>
             ))}
           </div>
@@ -470,51 +556,6 @@ export default function HomePage() {
           <div style={{ marginTop: 28 }}>
             <a className="primary-btn" href="/blog">
               View all personal finance guides
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="section-heading">
-            <p className="eyebrow">State paycheck calculators</p>
-            <h2>Estimate take-home pay by state</h2>
-            <p>
-              Start with popular state paycheck calculator pages or browse all
-              50 states.
-            </p>
-          </div>
-
-          <div className="grid">
-            <a className="card" href="/paycheck-calculator/texas">
-              <h2>Texas Paycheck Calculator</h2>
-              <p>Estimate take-home pay in Texas with no state income tax.</p>
-              <span>Open calculator →</span>
-            </a>
-
-            <a className="card" href="/paycheck-calculator/florida">
-              <h2>Florida Paycheck Calculator</h2>
-              <p>Estimate take-home pay in Florida with no state income tax.</p>
-              <span>Open calculator →</span>
-            </a>
-
-            <a className="card" href="/paycheck-calculator/california">
-              <h2>California Paycheck Calculator</h2>
-              <p>Estimate take-home pay in California with state income tax.</p>
-              <span>Open calculator →</span>
-            </a>
-
-            <a className="card" href="/paycheck-calculator/new-york">
-              <h2>New York Paycheck Calculator</h2>
-              <p>Estimate take-home pay in New York with state income tax.</p>
-              <span>Open calculator →</span>
-            </a>
-          </div>
-
-          <div style={{ marginTop: 28 }}>
-            <a className="primary-btn" href="/paycheck-calculator">
-              View all 50 state paycheck calculators
             </a>
           </div>
         </div>
