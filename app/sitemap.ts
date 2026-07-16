@@ -1,5 +1,4 @@
 import type { MetadataRoute } from 'next';
-import { salaryAmounts } from '../lib/salaryAmounts';
 import { mortgageAmounts } from '../lib/mortgageAmounts';
 import { hourlyWages } from '../lib/hourlyWages';
 
@@ -82,10 +81,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/rent-vs-buy-key-factors',
   ];
 
-  const salaryAfterTaxRoutes = salaryAmounts.map(
-    (amount) => `/salary-after-tax/${amount}`
-  );
-
   const mortgagePaymentRoutes = mortgageAmounts.map(
     (amount) => `/mortgage-payment/${amount}`
   );
@@ -94,7 +89,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes,
-    ...salaryAfterTaxRoutes,
     ...mortgagePaymentRoutes,
     ...hourlyWageRoutes,
   ].map((route) => ({

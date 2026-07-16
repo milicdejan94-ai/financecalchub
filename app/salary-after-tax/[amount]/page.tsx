@@ -35,6 +35,10 @@ export function generateMetadata({ params }: PageProps) {
   return {
     title: `$${formattedAmount} After Tax Calculator | Salary After Taxes`,
     description: `Estimate how much a $${formattedAmount} salary may be after simplified federal tax, payroll taxes, estimated state tax and common paycheck deductions.`,
+    robots: {
+      index: false,
+      follow: true,
+    },
   };
 }
 
