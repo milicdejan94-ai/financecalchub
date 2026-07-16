@@ -3,51 +3,12 @@
 import { useState } from 'react';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
-
-type FilingStatus = 'single' | 'married';
-
-type TaxBracket = {
-  limit: number;
-  rate: number;
-};
-
-const TAX_YEAR = 2026;
-
-const FEDERAL_TAX_DATA: Record<
-  FilingStatus,
-  {
-    label: string;
-    standardDeduction: number;
-    brackets: TaxBracket[];
-  }
-> = {
-  single: {
-    label: 'Single',
-    standardDeduction: 16100,
-    brackets: [
-      { limit: 12400, rate: 0.1 },
-      { limit: 50400, rate: 0.12 },
-      { limit: 105700, rate: 0.22 },
-      { limit: 201775, rate: 0.24 },
-      { limit: 256225, rate: 0.32 },
-      { limit: 640600, rate: 0.35 },
-      { limit: Infinity, rate: 0.37 },
-    ],
-  },
-  married: {
-    label: 'Married filing jointly',
-    standardDeduction: 32200,
-    brackets: [
-      { limit: 24800, rate: 0.1 },
-      { limit: 100800, rate: 0.12 },
-      { limit: 211400, rate: 0.22 },
-      { limit: 403550, rate: 0.24 },
-      { limit: 512450, rate: 0.32 },
-      { limit: 768700, rate: 0.35 },
-      { limit: Infinity, rate: 0.37 },
-    ],
-  },
-};
+import {
+  calculateFederalTax,
+  FEDERAL_TAX_DATA,
+  TAX_YEAR,
+  type FilingStatus,
+} from '../../../lib/tax2026';
 
 function formatCurrency(value: number) {
   return value.toLocaleString('en-US', {
@@ -59,22 +20,6 @@ function formatCurrency(value: number) {
 
 function formatPercent(value: number) {
   return `${value.toFixed(2)}%`;
-}
-
-function calculateFederalTax(amount: number, status: FilingStatus) {
-  const brackets = FEDERAL_TAX_DATA[status].brackets;
-  let tax = 0;
-  let previousLimit = 0;
-
-  for (const bracket of brackets) {
-    if (amount > previousLimit) {
-      const taxableAtThisRate = Math.min(amount, bracket.limit) - previousLimit;
-      tax += taxableAtThisRate * bracket.rate;
-      previousLimit = bracket.limit;
-    }
-  }
-
-  return tax;
 }
 
 function getBracketRows(taxableIncome: number, status: FilingStatus) {

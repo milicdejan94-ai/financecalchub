@@ -3,6 +3,12 @@
 import { useState } from 'react';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import {
+  calculateFederalIncomeTaxFromGross,
+  calculateMedicareTax,
+  calculateSocialSecurityTax,
+  type FilingStatus,
+} from '../../../lib/tax2026';
 
 function formatCurrency(value: number) {
   return new Intl.NumberFormat('en-US', {
@@ -20,16 +26,26 @@ export default function HourlyPaycheckClient() {
   const [hourlyRate, setHourlyRate] = useState(25);
   const [hoursPerWeek, setHoursPerWeek] = useState(40);
   const [stateTax, setStateTax] = useState(4);
+  const [filingStatus, setFilingStatus] =
+    useState<FilingStatus>('single');
 
   const annualGross = Math.max(hourlyRate, 0) * Math.max(hoursPerWeek, 0) * 52;
   const weeklyGross = annualGross / 52;
   const biweeklyGross = annualGross / 26;
   const monthlyGross = annualGross / 12;
 
-  const federalTax = annualGross * 0.12;
-  const socialSecurity = annualGross * 0.062;
-  const medicare = annualGross * 0.0145;
-  const stateTaxAmount = annualGross * (Math.max(stateTax, 0) / 100);
+  const federalCalculation =
+    calculateFederalIncomeTaxFromGross(annualGross, filingStatus);
+
+  const federalTax = federalCalculation.federalTax;
+  const socialSecurity = calculateSocialSecurityTax(annualGross);
+
+  const medicareCalculation =
+    calculateMedicareTax(annualGross, filingStatus);
+
+  const medicare = medicareCalculation.totalMedicare;
+  const stateTaxAmount =
+    annualGross * (Math.max(stateTax, 0) / 100);
   const totalEstimatedTaxes =
     federalTax + socialSecurity + medicare + stateTaxAmount;
 
@@ -87,6 +103,20 @@ export default function HourlyPaycheckClient() {
               step="0.5"
               onChange={(e) => setHoursPerWeek(Number(e.target.value))}
             />
+          </div>
+
+          <div className="input-group">
+            <label>Filing status</label>
+            <select
+              value={filingStatus}
+              onChange={(e) =>
+                setFilingStatus(e.target.value as FilingStatus)
+              }
+            >
+              <option value="single">Single</option>
+              <option value="married">Married filing jointly</option>
+              <option value="head">Head of household</option>
+            </select>
           </div>
 
           <div className="input-group">

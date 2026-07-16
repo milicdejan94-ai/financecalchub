@@ -3,10 +3,12 @@
 import { useMemo, useState } from 'react';
 import RelatedCalculators from '../../../components/RelatedCalculators';
 import Breadcrumbs from '../../../components/Breadcrumbs';
-
-const SOCIAL_SECURITY_RATE = 0.062;
-const SOCIAL_SECURITY_WAGE_BASE_2026 = 184500;
-const MEDICARE_RATE = 0.0145;
+import {
+  calculateFederalIncomeTaxFromGross,
+  calculateMedicareTax,
+  calculateSocialSecurityTax,
+  type FilingStatus,
+} from '../../../lib/tax2026';
 
 function formatMoney(value: number) {
   return value.toLocaleString('en-US', {
@@ -19,7 +21,8 @@ function formatMoney(value: number) {
 export default function PaycheckCalculatorPage() {
   const [salary, setSalary] = useState(75000);
   const [stateTax, setStateTax] = useState(4);
-  const [filingStatus, setFilingStatus] = useState('single');
+  const [filingStatus, setFilingStatus] =
+    useState<FilingStatus>('single');
   const [payFrequency, setPayFrequency] = useState(26);
   const [retirementContribution, setRetirementContribution] = useState(5);
   const [preTaxDeductions, setPreTaxDeductions] = useState(150);
@@ -27,13 +30,6 @@ export default function PaycheckCalculatorPage() {
   const [additionalWithholding, setAdditionalWithholding] = useState(0);
 
   const calculation = useMemo(() => {
-    const federalRate =
-      filingStatus === 'married'
-        ? 0.1
-        : filingStatus === 'head'
-        ? 0.11
-        : 0.12;
-
     const grossPayPerPeriod = salary / payFrequency;
 
     const annualRetirementContribution =
@@ -48,10 +44,20 @@ export default function PaycheckCalculatorPage() {
       0
     );
 
-    const federalTax = taxableIncome * federalRate;
-    const socialSecurity =
-      Math.min(salary, SOCIAL_SECURITY_WAGE_BASE_2026) * SOCIAL_SECURITY_RATE;
-    const medicare = salary * MEDICARE_RATE;
+    const federalCalculation =
+      calculateFederalIncomeTaxFromGross(
+        salary,
+        filingStatus,
+        annualRetirementContribution + annualPreTaxDeductions
+      );
+
+    const federalTax = federalCalculation.federalTax;
+    const socialSecurity = calculateSocialSecurityTax(salary);
+
+    const medicareCalculation =
+      calculateMedicareTax(salary, filingStatus);
+
+    const medicare = medicareCalculation.totalMedicare;
     const stateTaxAmount = taxableIncome * (stateTax / 100);
 
     const totalAnnualTaxes =
@@ -71,7 +77,6 @@ export default function PaycheckCalculatorPage() {
     const netPayPerPeriod = annualTakeHome / payFrequency;
 
     return {
-      federalRate,
       grossPayPerPeriod,
       annualRetirementContribution,
       annualPreTaxDeductions,
@@ -163,7 +168,9 @@ export default function PaycheckCalculatorPage() {
             <label>Filing status</label>
             <select
               value={filingStatus}
-              onChange={(e) => setFilingStatus(e.target.value)}
+              onChange={(e) =>
+                setFilingStatus(e.target.value as FilingStatus)
+              }
             >
               <option value="single">Single</option>
               <option value="married">Married filing jointly</option>
