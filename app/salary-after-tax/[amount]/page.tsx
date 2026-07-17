@@ -1,6 +1,13 @@
+import { notFound } from 'next/navigation';
 import RelatedCalculators from '../../../components/RelatedCalculators';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import { salaryAmounts } from '../../../lib/salaryAmounts';
+import {
+  calculateFederalIncomeTaxFromGross,
+  calculateMedicareTax,
+  calculateSocialSecurityTax,
+  TAX_YEAR,
+} from '../../../lib/tax2026';
 
 type PageProps = {
   params: {
@@ -34,7 +41,7 @@ export function generateMetadata({ params }: PageProps) {
 
   return {
     title: `$${formattedAmount} After Tax Calculator | Salary After Taxes`,
-    description: `Estimate how much a $${formattedAmount} salary may be after simplified federal tax, payroll taxes, estimated state tax and common paycheck deductions.`,
+    description: `Estimate how much a $${formattedAmount} salary may be after estimated 2026 federal income tax, payroll taxes, illustrative state tax and sample paycheck deductions.`,
     robots: {
       index: false,
       follow: true,
@@ -45,33 +52,29 @@ export function generateMetadata({ params }: PageProps) {
 export default function SalaryAfterTaxPage({ params }: PageProps) {
   const amount = Number(params.amount);
 
-  if (!salaryAmounts.includes(amount)) {
-    return (
-      <section className="section">
-        <div className="container">
-          <Breadcrumbs
-            items={[
-              { label: 'Home', href: '/' },
-              { label: 'Salary After Tax', href: '/salary-after-tax' },
-              { label: `$${amount.toLocaleString('en-US')} After Tax` },
-            ]}
-          />
-
-          <div className="content-box">
-            <h1>Salary after tax page not found</h1>
-            <p>This salary after tax estimate page does not exist yet.</p>
-          </div>
-        </div>
-      </section>
-    );
+  if (!Number.isFinite(amount) || !salaryAmounts.includes(amount)) {
+    notFound();
   }
 
-  const federalTax = amount * 0.12;
-  const socialSecurity = amount * 0.062;
-  const medicare = amount * 0.0145;
-  const estimatedStateTax = amount * 0.04;
-  const estimatedBenefits = amount * 0.03;
-  const estimatedRetirementContribution = amount * 0.05;
+  const filingStatus = 'single' as const;
+  const estimatedStateTaxRate = 0.04;
+  const estimatedBenefitsRate = 0.03;
+  const estimatedRetirementRate = 0.05;
+
+  const federalCalculation =
+    calculateFederalIncomeTaxFromGross(amount, filingStatus);
+
+  const federalTax = federalCalculation.federalTax;
+  const socialSecurity = calculateSocialSecurityTax(amount);
+
+  const medicareCalculation =
+    calculateMedicareTax(amount, filingStatus);
+
+  const medicare = medicareCalculation.totalMedicare;
+  const estimatedStateTax = amount * estimatedStateTaxRate;
+  const estimatedBenefits = amount * estimatedBenefitsRate;
+  const estimatedRetirementContribution =
+    amount * estimatedRetirementRate;
 
   const totalEstimatedTaxes =
     federalTax + socialSecurity + medicare + estimatedStateTax;
@@ -116,16 +119,17 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
 
           <p>
             Estimate how much a {formatWholeMoney(amount)} salary may be after
-            simplified federal income tax, Social Security, Medicare and
-            estimated state income tax. This page also shows monthly, biweekly,
-            semi-monthly and weekly pay estimates so you can compare common
-            payroll schedules.
+            {` ${TAX_YEAR} `}federal income tax for a single filer, Social
+            Security, Medicare and an illustrative 4% state income-tax
+            assumption. This page also shows monthly, biweekly, semi-monthly and
+            weekly pay estimates so you can compare common payroll schedules.
           </p>
 
           <p>
-            The numbers below are simplified planning estimates. Your real
-            paycheck can be different because tax withholding, state rules,
-            employer benefits and personal deductions vary from worker to worker.
+            The numbers below are planning estimates based on specific
+            assumptions. Your real paycheck can be different because filing
+            status, tax credits, state and local rules, employer benefits and
+            personal deductions vary from worker to worker.
           </p>
         </article>
 
@@ -162,7 +166,8 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
           <h2>How much is {formatWholeMoney(amount)} after taxes?</h2>
 
           <p>
-            Based on the simplified assumptions used on this page, a{' '}
+            Based on the {TAX_YEAR} single-filer assumptions used on this page,
+            a{' '}
             {formatWholeMoney(amount)} annual salary may result in estimated
             after-tax income of {formatMoney(annualAfterTax)} per year. That is
             about {formatMoney(monthlyAfterTax)} per month,{' '}
@@ -171,10 +176,10 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
           </p>
 
           <p>
-            This estimate includes federal income tax, Social Security, Medicare
-            and an estimated state income tax rate. It does not replace a payroll
-            system, tax return, official withholding worksheet or professional
-            advice.
+            This estimate includes progressive federal income tax, Social
+            Security, Medicare and an illustrative 4% state income-tax rate. It
+            does not include local tax, tax credits, itemized deductions or
+            employer-specific withholding rules.
           </p>
 
           <div className="table-wrap">
@@ -238,7 +243,7 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
                 <tr>
                   <td>Federal income tax estimate</td>
                   <td>{formatMoney(federalTax)}</td>
-                  <td>Simplified federal withholding estimate</td>
+                  <td>{TAX_YEAR} federal income-tax estimate</td>
                 </tr>
                 <tr>
                   <td>Social Security estimate</td>
@@ -253,7 +258,7 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
                 <tr>
                   <td>State income tax estimate</td>
                   <td>{formatMoney(estimatedStateTax)}</td>
-                  <td>Simplified state tax assumption</td>
+                  <td>Illustrative 4% state-tax assumption</td>
                 </tr>
                 <tr>
                   <td>Total estimated taxes</td>
@@ -359,9 +364,11 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
 
           <h3>Is this the exact take-home pay for {formatWholeMoney(amount)}?</h3>
           <p>
-            No. It is a simplified educational estimate. Exact take-home pay
-            depends on payroll withholding, state and local taxes, deductions,
-            benefits and personal tax situation.
+            No. It is an educational estimate based on a single filer, the
+            {` ${TAX_YEAR} `}federal standard deduction and tax brackets, federal
+            payroll taxes and a 4% illustrative state income-tax rate. Exact
+            take-home pay depends on withholding, credits, deductions, benefits
+            and your location.
           </p>
 
           <h3>Does after-tax pay include health insurance?</h3>
@@ -395,10 +402,12 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
           <h2>Important limitations</h2>
 
           <p>
-            This page provides simplified educational estimates only. It is not
+            This page provides educational estimates only. The main after-tax
+            calculation assumes a single filer, the {TAX_YEAR} federal standard
+            deduction and tax brackets, federal payroll taxes and a 4%
+            illustrative state income-tax rate. The sample deduction comparison
+            additionally assumes 3% for benefits and 5% for retirement. It is not
             tax, legal, payroll, accounting, financial or investment advice.
-            Always verify important tax and payroll decisions with a qualified
-            professional, employer payroll department or official source.
           </p>
 
           <p>
