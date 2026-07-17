@@ -1,6 +1,13 @@
+import { notFound } from 'next/navigation';
 import RelatedCalculators from '../../../components/RelatedCalculators';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import { salaryAmounts } from '../../../lib/salaryAmounts';
+import {
+  calculateFederalIncomeTaxFromGross,
+  calculateMedicareTax,
+  calculateSocialSecurityTax,
+  TAX_YEAR,
+} from '../../../lib/tax2026';
 
 type PageProps = {
   params: {
@@ -42,7 +49,7 @@ export function generateMetadata({ params }: PageProps) {
       ? `$${formattedAmount} Salary Calculator | Monthly, Biweekly & Weekly Pay`
       : 'Salary Calculator | Monthly, Biweekly & Weekly Pay',
     description: Number.isFinite(amount)
-      ? `Estimate monthly, biweekly and weekly pay for a $${formattedAmount} annual salary. See gross pay, simplified take-home pay and hourly equivalent.`
+      ? `Estimate monthly, biweekly and weekly pay for a $${formattedAmount} annual salary using 2026 federal tax rules, payroll taxes and an illustrative state tax assumption.`
       : 'Estimate salary take-home pay, gross pay breakdowns and hourly equivalent pay.',
     robots: {
       index: false,
@@ -54,41 +61,24 @@ export function generateMetadata({ params }: PageProps) {
 export default function SalaryAmountPage({ params }: PageProps) {
   const amount = Number(params.amount);
 
-  if (!salaryAmounts.includes(amount)) {
-    return (
-      <section className="section">
-        <div className="container">
-          <Breadcrumbs
-            items={[
-              { label: 'Home', href: '/' },
-              { label: 'Salary Calculator', href: '/salary-calculator' },
-              { label: 'Salary page not found' },
-            ]}
-          />
-
-          <article className="content-box">
-            <p className="eyebrow">Salary calculator</p>
-            <h1>Salary page not found</h1>
-            <p>
-              This preset salary calculator page does not exist yet. You can use
-              the main salary calculator directory to choose another income
-              amount.
-            </p>
-            <p>
-              Go to the <a href="/salary-calculator">Salary Calculator</a> or
-              use the <a href="/calculators/paycheck">Paycheck Calculator</a>{' '}
-              for a custom estimate.
-            </p>
-          </article>
-        </div>
-      </section>
-    );
+  if (!Number.isFinite(amount) || !salaryAmounts.includes(amount)) {
+    notFound();
   }
 
-  const federalTax = amount * 0.12;
-  const socialSecurity = amount * 0.062;
-  const medicare = amount * 0.0145;
-  const estimatedStateTax = amount * 0.04;
+  const filingStatus = 'single' as const;
+  const estimatedStateTaxRate = 0.04;
+
+  const federalCalculation =
+    calculateFederalIncomeTaxFromGross(amount, filingStatus);
+
+  const federalTax = federalCalculation.federalTax;
+  const socialSecurity = calculateSocialSecurityTax(amount);
+
+  const medicareCalculation =
+    calculateMedicareTax(amount, filingStatus);
+
+  const medicare = medicareCalculation.totalMedicare;
+  const estimatedStateTax = amount * estimatedStateTaxRate;
 
   const annualTakeHome =
     amount - federalTax - socialSecurity - medicare - estimatedStateTax;
@@ -126,9 +116,10 @@ export default function SalaryAmountPage({ params }: PageProps) {
 
           <p>
             Use this {formatCurrency(amount)} salary calculator to estimate gross
-            pay, simplified take-home pay, common paycheck amounts and hourly
-            equivalent pay. The figures below are educational estimates for US
-            workers and are not a substitute for payroll or tax advice.
+            pay, take-home pay, common paycheck amounts and hourly equivalent pay.
+            The calculation uses {TAX_YEAR} federal income-tax rules for a single
+            filer, federal payroll taxes and an illustrative 4% state income-tax
+            rate.
           </p>
 
           <p>
@@ -143,9 +134,10 @@ export default function SalaryAmountPage({ params }: PageProps) {
           <h2>Estimated take-home pay</h2>
 
           <p>
-            This simplified estimate uses a flat federal income tax assumption,
-            Social Security, Medicare and an estimated state tax assumption. Your
-            real paycheck may be different.
+            This estimate uses progressive {TAX_YEAR} federal income-tax
+            brackets for a single filer, Social Security, Medicare and an
+            illustrative 4% state income-tax assumption. Your real paycheck may
+            be different.
           </p>
 
           <div className="result">
@@ -232,7 +224,7 @@ export default function SalaryAmountPage({ params }: PageProps) {
           <p>
             Take-home pay depends on filing status, state income tax, local tax,
             benefit deductions, retirement contributions, tax credits and W-4
-            withholding settings. This page uses simplified assumptions so the
+            withholding settings. This page uses stated assumptions so the
             estimate is easy to understand.
           </p>
 
@@ -254,17 +246,17 @@ export default function SalaryAmountPage({ params }: PageProps) {
                 <tr>
                   <td>Estimated federal income tax</td>
                   <td>{formatCurrencyWithCents(federalTax)}</td>
-                  <td>Simplified flat estimate used by this page</td>
+                  <td>{TAX_YEAR} single-filer federal tax estimate</td>
                 </tr>
                 <tr>
                   <td>Estimated Social Security</td>
                   <td>{formatCurrencyWithCents(socialSecurity)}</td>
-                  <td>Simplified payroll tax estimate</td>
+                  <td>Federal payroll tax estimate</td>
                 </tr>
                 <tr>
                   <td>Estimated Medicare</td>
                   <td>{formatCurrencyWithCents(medicare)}</td>
-                  <td>Simplified payroll tax estimate</td>
+                  <td>Federal payroll tax estimate</td>
                 </tr>
                 <tr>
                   <td>Estimated state tax</td>
@@ -281,9 +273,10 @@ export default function SalaryAmountPage({ params }: PageProps) {
           </div>
 
           <p>
-            Under these simplified assumptions, the estimated effective tax and
-            payroll withholding rate is about {effectiveEstimatedRate.toFixed(1)}%.
-            Your real effective rate may be higher or lower.
+            Under these {TAX_YEAR} single-filer and illustrative state-tax
+            assumptions, the estimated effective tax rate is about{' '}
+            {effectiveEstimatedRate.toFixed(1)}%. Your real effective rate may be
+            higher or lower.
           </p>
 
           <h2>Monthly, biweekly and weekly take-home pay</h2>
@@ -385,9 +378,10 @@ export default function SalaryAmountPage({ params }: PageProps) {
 
           <h3>Is this calculator exact?</h3>
           <p>
-            No. This page uses simplified assumptions for education and planning.
-            Actual payroll can vary based on tax rules, deductions, credits,
-            state tax, local tax and employer withholding.
+            No. This page uses {TAX_YEAR} federal rules for a single filer and
+            an illustrative 4% state income-tax rate. Actual payroll can vary
+            based on deductions, credits, state and local tax, benefits and
+            employer withholding.
           </p>
 
           <h3>Should I budget from gross pay or net pay?</h3>
@@ -406,10 +400,12 @@ export default function SalaryAmountPage({ params }: PageProps) {
           <h2>Important limitations</h2>
 
           <p>
-            This calculator provides simplified educational estimates only. It is
-            not tax, payroll, legal, investment or financial advice. Verify your
-            real paycheck with your employer payroll system, tax software or a
-            qualified professional before making financial decisions.
+            This calculator provides educational estimates only. The calculation
+            assumes a single filer, the {TAX_YEAR} federal standard deduction and
+            progressive tax brackets, federal payroll taxes and a 4% illustrative
+            state income-tax rate. It does not include local taxes, tax credits,
+            itemized deductions, benefits or employer-specific withholding. It is
+            not tax, payroll, legal, investment or financial advice.
           </p>
         </article>
 
