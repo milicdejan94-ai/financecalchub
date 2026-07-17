@@ -1,6 +1,13 @@
+import { notFound } from 'next/navigation';
 import RelatedCalculators from '../../../components/RelatedCalculators';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import { hourlyWages } from '../../../lib/hourlyWages';
+import {
+  calculateFederalIncomeTaxFromGross,
+  calculateMedicareTax,
+  calculateSocialSecurityTax,
+  TAX_YEAR,
+} from '../../../lib/tax2026';
 
 type PageProps = {
   params: {
@@ -36,7 +43,7 @@ export function generateMetadata({ params }: PageProps) {
 
   return {
     title: `$${wage} an Hour Is How Much a Year? | Hourly Wage Calculator`,
-    description: `See how much $${wage} an hour is per year, month, week and paycheck before taxes and after simplified estimated taxes.`,
+    description: `See how much $${wage} an hour is per year, month, week and paycheck before taxes and after estimated 2026 federal, payroll and state taxes.`,
     alternates: {
       canonical: `/hourly-wage/${wage}`,
     },
@@ -54,25 +61,8 @@ export function generateMetadata({ params }: PageProps) {
 export default function HourlyWagePage({ params }: PageProps) {
   const wage = Number(params.wage);
 
-  if (!hourlyWages.includes(wage)) {
-    return (
-      <section className="section">
-        <div className="container">
-          <Breadcrumbs
-            items={[
-              { label: 'Home', href: '/' },
-              { label: 'Hourly Wage', href: '/hourly-wage' },
-              { label: `$${wage} an Hour` },
-            ]}
-          />
-
-          <div className="content-box">
-            <h1>Hourly wage page not found</h1>
-            <p>This hourly wage calculator page does not exist yet.</p>
-          </div>
-        </div>
-      </section>
-    );
+  if (!Number.isFinite(wage) || !hourlyWages.includes(wage)) {
+    notFound();
   }
 
   const hoursPerWeek = 40;
@@ -91,10 +81,21 @@ export default function HourlyWagePage({ params }: PageProps) {
   const weeklyWithOvertime = weeklyGross + overtimeRate * overtimeHours;
   const annualWithOvertime = weeklyWithOvertime * weeksPerYear;
 
-  const federalTax = annualGross * 0.12;
-  const socialSecurity = annualGross * 0.062;
-  const medicare = annualGross * 0.0145;
-  const estimatedStateTax = annualGross * 0.04;
+  const filingStatus = 'single' as const;
+  const estimatedStateTaxRate = 0.04;
+
+  const federalCalculation =
+    calculateFederalIncomeTaxFromGross(annualGross, filingStatus);
+
+  const federalTax = federalCalculation.federalTax;
+  const socialSecurity = calculateSocialSecurityTax(annualGross);
+
+  const medicareCalculation =
+    calculateMedicareTax(annualGross, filingStatus);
+
+  const medicare = medicareCalculation.totalMedicare;
+  const estimatedStateTax = annualGross * estimatedStateTaxRate;
+
   const totalEstimatedTaxes =
     federalTax + socialSecurity + medicare + estimatedStateTax;
   const annualAfterTax = annualGross - totalEstimatedTaxes;
@@ -130,10 +131,11 @@ export default function HourlyWagePage({ params }: PageProps) {
           </p>
 
           <p>
-            The after-tax numbers below are simplified educational estimates.
-            Real take-home pay can change based on your state, filing status,
-            payroll deductions, benefits, overtime, unpaid time off and employer
-            withholding settings.
+            The after-tax numbers below use {TAX_YEAR} federal income-tax
+            brackets for a single filer, Social Security, Medicare and an
+            illustrative 4% state income-tax assumption. Real take-home pay can
+            change based on your state, filing status, deductions, benefits,
+            overtime, unpaid time off and employer withholding settings.
           </p>
 
           <div className="calculator-box">
@@ -178,7 +180,7 @@ export default function HourlyWagePage({ params }: PageProps) {
                 <tr>
                   <th>Pay period</th>
                   <th>Gross estimate</th>
-                  <th>After simplified estimated taxes</th>
+                  <th>After estimated {TAX_YEAR} taxes</th>
                 </tr>
               </thead>
               <tbody>
@@ -283,9 +285,10 @@ export default function HourlyWagePage({ params }: PageProps) {
 
           <p>
             At a full-time schedule, ${wage} an hour is about{' '}
-            {formatCurrency(monthlyGross)} per month before taxes. After the
-            simplified tax assumptions used here, the estimated monthly take-home
-            pay is about {formatCurrency(monthlyAfterTax)}.
+            {formatCurrency(monthlyGross)} per month before taxes. Under the
+            {` ${TAX_YEAR} `}single-filer and 4% illustrative state-tax
+            assumptions used here, estimated monthly take-home pay is about{' '}
+            {formatCurrency(monthlyAfterTax)}.
           </p>
 
           <p>
@@ -300,8 +303,9 @@ export default function HourlyWagePage({ params }: PageProps) {
           <p>
             If you are paid every two weeks, ${wage} an hour at 40 hours per
             week is about {formatCurrency(biweeklyGross)} before taxes per
-            paycheck. After simplified estimated taxes, the biweekly take-home
-            estimate is about {formatCurrency(biweeklyAfterTax)}.
+            paycheck. Under the {TAX_YEAR} assumptions used on this page, the
+            estimated biweekly take-home amount is about{' '}
+            {formatCurrency(biweeklyAfterTax)}.
           </p>
 
           <p>
@@ -313,9 +317,10 @@ export default function HourlyWagePage({ params }: PageProps) {
           <h2>How much is ${wage} an hour after taxes?</h2>
 
           <p>
-            This page uses a simplified federal income tax estimate, Social
-            Security, Medicare and an estimated state tax assumption. Based on
-            those assumptions, the estimated annual after-tax pay is{' '}
+            This page uses {TAX_YEAR} progressive federal income-tax brackets
+            for a single filer, Social Security, Medicare and an illustrative 4%
+            state income-tax assumption. Based on those assumptions, estimated
+            annual after-tax pay is{' '}
             {formatCurrency(annualAfterTax)}, with an estimated effective tax
             rate of {effectiveTaxRate.toFixed(1)}%.
           </p>
@@ -437,10 +442,12 @@ export default function HourlyWagePage({ params }: PageProps) {
           <h2>Important limitations</h2>
 
           <p>
-            This page provides simplified educational estimates only. It is not
-            tax, payroll, legal, financial or investment advice. Actual paychecks
-            may vary based on taxes, deductions, benefits, payroll frequency,
-            employer rules and your personal situation.
+            This page provides educational estimates only. The after-tax
+            calculation assumes a single filer, the {TAX_YEAR} federal standard
+            deduction and tax brackets, federal payroll taxes and a 4%
+            illustrative state income-tax rate. It does not include local tax,
+            tax credits, itemized deductions or employer-specific deductions.
+            It is not tax, payroll, legal, financial or investment advice.
           </p>
         </article>
 
