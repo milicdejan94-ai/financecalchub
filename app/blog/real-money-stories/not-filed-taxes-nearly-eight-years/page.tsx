@@ -783,7 +783,7 @@ export default function NotFiledTaxesNearlyEightYearsPage() {
           <h2>Related FinanceCalcHub tools</h2>
 
           <p>
-            To create a simplified federal income tax estimate, use the{' '}
+            To create an educational federal income tax estimate using current calculator assumptions, use the{' '}
             <a href="/calculators/federal-tax">Federal Tax Calculator</a>.
           </p>
 

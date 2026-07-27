@@ -543,7 +543,7 @@ export default function ReturnAcceptedForgotW2Page() {
           <h2>Related FinanceCalcHub tools</h2>
 
           <p>
-            To compare simplified federal income tax estimates, use the{' '}
+            To compare educational federal income tax estimates using current calculator assumptions, use the{' '}
             <a href="/calculators/federal-tax">Federal Tax Calculator</a>.
           </p>
 

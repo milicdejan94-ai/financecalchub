@@ -348,7 +348,7 @@ export default function TakeHomePayArticle() {
             </li>
             <li>
               Use the <a href="/calculators/federal-tax">Federal Tax Calculator</a>{' '}
-              to estimate simplified federal income tax.
+              to estimate federal income tax using the calculator's stated assumptions.
             </li>
             <li>
               Use <a href="/salary-after-tax/70000">$70,000 after taxes</a> or{' '}
