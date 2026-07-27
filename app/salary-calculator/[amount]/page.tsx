@@ -52,7 +52,7 @@ export function generateMetadata({ params }: PageProps) {
       ? `Estimate monthly, biweekly and weekly pay for a $${formattedAmount} annual salary using 2026 federal tax rules, payroll taxes and an illustrative state tax assumption.`
       : 'Estimate salary take-home pay, gross pay breakdowns and hourly equivalent pay.',
     robots: {
-      index: false,
+      index: true,
       follow: true,
     },
   };

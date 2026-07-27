@@ -43,7 +43,7 @@ export function generateMetadata({ params }: PageProps) {
     title: `$${formattedAmount} After Tax Calculator | Salary After Taxes`,
     description: `Estimate how much a $${formattedAmount} salary may be after estimated 2026 federal income tax, payroll taxes, illustrative state tax and sample paycheck deductions.`,
     robots: {
-      index: false,
+      index: true,
       follow: true,
     },
   };
