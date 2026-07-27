@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { states } from '../../../lib/states';
 import StatePaycheckClient from './StatePaycheckClient';
 
@@ -21,8 +22,8 @@ export function generateMetadata({ params }: PageProps) {
       ? `${state.name} Paycheck Calculator | Estimate Take-Home Pay | FinanceCalcHub`
       : 'State Paycheck Calculator | FinanceCalcHub',
     description: state
-      ? `Free ${state.name} paycheck calculator. Estimate monthly, biweekly and weekly take-home pay after simplified federal payroll taxes and estimated ${state.name} state income tax.`
-      : 'Free state paycheck calculator for US workers. Estimate take-home pay after simplified federal, payroll and state income taxes.',
+      ? `Free ${state.name} paycheck calculator. Estimate monthly, biweekly and weekly take-home pay using 2026 federal income-tax rules, payroll taxes and an illustrative ${state.name} state income-tax rate.`
+      : 'Free state paycheck calculator for US workers. Estimate take-home pay using federal, payroll and illustrative state income taxes.',
     robots: {
       index: false,
       follow: true,
@@ -31,5 +32,11 @@ export function generateMetadata({ params }: PageProps) {
 }
 
 export default function StatePaycheckPage({ params }: PageProps) {
-  return <StatePaycheckClient stateSlug={params.state} />;
+  const state = states.find((item) => item.slug === params.state);
+
+  if (!state) {
+    notFound();
+  }
+
+  return <StatePaycheckClient stateSlug={state.slug} />;
 }

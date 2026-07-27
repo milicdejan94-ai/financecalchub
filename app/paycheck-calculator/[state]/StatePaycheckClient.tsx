@@ -4,6 +4,12 @@ import { useState } from 'react';
 import RelatedCalculators from '../../../components/RelatedCalculators';
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import { states } from '../../../lib/states';
+import {
+  calculateFederalIncomeTaxFromGross,
+  calculateMedicareTax,
+  calculateSocialSecurityTax,
+  TAX_YEAR,
+} from '../../../lib/tax2026';
 
 type StatePaycheckClientProps = {
   stateSlug: string;
@@ -59,10 +65,19 @@ export default function StatePaycheckClient({
   const safePostTaxDeductions = Math.max(0, postTaxDeductions || 0);
   const taxableIncome = Math.max(0, safeSalary - safePreTaxDeductions);
 
-  const federalRate = filingStatus === 'married' ? 0.1 : 0.12;
-  const federalTax = taxableIncome * federalRate;
-  const socialSecurity = safeSalary * 0.062;
-  const medicare = safeSalary * 0.0145;
+  const taxFilingStatus =
+    filingStatus === 'married' ? ('married' as const) : ('single' as const);
+
+  const federalCalculation =
+    calculateFederalIncomeTaxFromGross(taxableIncome, taxFilingStatus);
+
+  const federalTax = federalCalculation.federalTax;
+  const socialSecurity = calculateSocialSecurityTax(safeSalary);
+
+  const medicareCalculation =
+    calculateMedicareTax(safeSalary, taxFilingStatus);
+
+  const medicare = medicareCalculation.totalMedicare;
   const stateTax = taxableIncome * (state.stateTaxRate / 100);
   const totalEstimatedTaxes = federalTax + socialSecurity + medicare + stateTax;
 
@@ -97,8 +112,9 @@ export default function StatePaycheckClient({
         <h1>{state.name} Paycheck Calculator</h1>
 
         <p>
-          Estimate take-home pay in {state.name} after simplified federal income
-          tax, Social Security, Medicare, estimated state income tax and common
+          Estimate take-home pay in {state.name} using {TAX_YEAR} progressive
+          federal income tax, Social Security, Medicare, an illustrative state
+          income-tax rate and common
           paycheck deductions. Use this page to compare annual, monthly,
           semi-monthly, biweekly and weekly paycheck estimates before taxes and
           deductions are finalized by payroll.
@@ -231,7 +247,7 @@ export default function StatePaycheckClient({
           </div>
 
           <p>
-            Based on the numbers entered, the simplified estimated tax rate is
+            Based on the numbers entered, the estimated combined tax rate is
             about {effectiveTaxRate.toFixed(1)}% of gross salary before optional
             deductions, and estimated net pay is about {estimatedNetRate.toFixed(1)}%
             of gross salary after the deductions entered.
@@ -290,10 +306,11 @@ export default function StatePaycheckClient({
           </p>
 
           <p>
-            This page uses a simplified federal income tax estimate, Social
-            Security, Medicare and the estimated {state.name} state tax rate in
-            the calculator. It does not calculate every bracket, credit, local
-            rule, wage base change or payroll-specific adjustment.
+            This page uses {TAX_YEAR} progressive federal income-tax rules for
+            the selected filing status, Social Security, Medicare and the
+            illustrative {state.name} state tax rate shown in the calculator.
+            It does not calculate state brackets, credits, local rules or
+            payroll-specific adjustments.
           </p>
 
           <h2>Federal payroll taxes included in the estimate</h2>
@@ -454,9 +471,10 @@ export default function StatePaycheckClient({
 
           <h3>Is this {state.name} paycheck calculator exact?</h3>
           <p>
-            No. It is a simplified educational estimate. Actual payroll can vary
-            based on official tax tables, W-4 details, state withholding rules,
-            local taxes, benefits and employer payroll settings.
+            No. It is an educational estimate using {TAX_YEAR} federal tax
+            assumptions and an illustrative state-level tax rate. Actual payroll
+            can vary based on W-4 details, state withholding rules, local taxes,
+            credits, benefits and employer payroll settings.
           </p>
 
           <h3>Does this calculator include local taxes?</h3>
