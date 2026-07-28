@@ -41,13 +41,11 @@ export default function BlogPostingSchema({
       name: 'FinanceCalcHub',
       url: baseUrl,
     },
-    ...(image
-      ? {
-          image: image.startsWith('http')
-            ? image
-            : `${baseUrl}${image}`,
-        }
-      : {}),
+    image: image
+      ? image.startsWith('http')
+        ? image
+        : `${baseUrl}${image}`
+      : `${url}/opengraph-image`,
     ...(datePublished ? { datePublished } : {}),
     ...(dateModified ? { dateModified } : {}),
     ...(articleSection ? { articleSection } : {}),
