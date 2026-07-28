@@ -1326,3 +1326,105 @@ button:hover {
 .eyebrow {
   color: #0f766e;
 }
+
+/* Real Money Story system */
+
+.story-header {
+  margin-bottom: 32px;
+}
+
+.story-header .story-summary {
+  max-width: 820px;
+  margin-top: 18px;
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.story-quick-facts {
+  margin: 32px 0;
+  padding: 24px;
+  border: 1px solid rgba(15, 45, 65, 0.12);
+  border-radius: 18px;
+  background: rgba(243, 248, 251, 0.75);
+}
+
+.story-quick-facts h2 {
+  margin-top: 0;
+}
+
+.story-quick-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(180px, 1fr)
+  );
+  gap: 16px;
+  margin: 0;
+}
+
+.story-quick-fact {
+  padding: 16px;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.story-quick-fact dt {
+  margin-bottom: 7px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.story-quick-fact dd {
+  margin: 0;
+  font-size: 1.04rem;
+  font-weight: 700;
+}
+
+.story-timeline {
+  margin: 38px 0;
+}
+
+.story-timeline-list {
+  margin: 22px 0 0;
+  padding-left: 26px;
+}
+
+.story-timeline-list li {
+  margin-bottom: 22px;
+  padding-left: 8px;
+}
+
+.story-timeline-list h3 {
+  margin: 0 0 8px;
+}
+
+.story-timeline-list p {
+  margin: 0;
+}
+
+.story-content {
+  margin-top: 28px;
+}
+
+.story-official-sources {
+  margin-top: 42px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(15, 45, 65, 0.14);
+}
+
+.story-official-sources ul {
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .story-quick-facts {
+    padding: 18px;
+  }
+
+  .story-quick-facts-grid {
+    grid-template-columns: 1fr;
+  }
+}
