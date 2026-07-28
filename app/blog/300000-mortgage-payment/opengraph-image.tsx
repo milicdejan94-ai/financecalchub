@@ -4,7 +4,7 @@ import { financeCalcHubBrand } from '../../../lib/branding/constants';
 
 export const runtime = 'edge';
 
-export const alt = 'Real Money Stories | Tax, Paycheck & Finance Experiences';
+export const alt = 'What Is the Monthly Payment on a $300,000 Mortgage?';
 
 export const size = {
   width: financeCalcHubBrand.ogWidth,
@@ -16,8 +16,8 @@ export const contentType = 'image/png';
 export default function Image() {
   return new ImageResponse(
     <OpenGraphCard
-      title={'Real Money Stories | Tax, Paycheck & Finance Experiences'}
-      category={'Tax Story'}
+      title={'What Is the Monthly Payment on a $300,000 Mortgage?'}
+      category={'Mortgage Guide'}
     />,
     size
   );

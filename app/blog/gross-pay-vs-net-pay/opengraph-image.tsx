@@ -4,7 +4,7 @@ import { financeCalcHubBrand } from '../../../lib/branding/constants';
 
 export const runtime = 'edge';
 
-export const alt = 'Real Money Stories | Tax, Paycheck & Finance Experiences';
+export const alt = 'Gross Pay vs Net Pay: What Is the Difference?';
 
 export const size = {
   width: financeCalcHubBrand.ogWidth,
@@ -16,8 +16,8 @@ export const contentType = 'image/png';
 export default function Image() {
   return new ImageResponse(
     <OpenGraphCard
-      title={'Real Money Stories | Tax, Paycheck & Finance Experiences'}
-      category={'Tax Story'}
+      title={'Gross Pay vs Net Pay: What Is the Difference?'}
+      category={'Paycheck'}
     />,
     size
   );

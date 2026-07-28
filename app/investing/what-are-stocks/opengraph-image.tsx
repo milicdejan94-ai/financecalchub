@@ -4,7 +4,7 @@ import { financeCalcHubBrand } from '../../../lib/branding/constants';
 
 export const runtime = 'edge';
 
-export const alt = 'Real Money Stories | Tax, Paycheck & Finance Experiences';
+export const alt = 'What Are Stocks? Beginner Guide';
 
 export const size = {
   width: financeCalcHubBrand.ogWidth,
@@ -16,8 +16,8 @@ export const contentType = 'image/png';
 export default function Image() {
   return new ImageResponse(
     <OpenGraphCard
-      title={'Real Money Stories | Tax, Paycheck & Finance Experiences'}
-      category={'Tax Story'}
+      title={'What Are Stocks? Beginner Guide'}
+      category={'Investing Guide'}
     />,
     size
   );

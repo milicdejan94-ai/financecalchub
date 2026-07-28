@@ -4,7 +4,7 @@ import { financeCalcHubBrand } from '../../../lib/branding/constants';
 
 export const runtime = 'edge';
 
-export const alt = 'Real Money Stories | Tax, Paycheck & Finance Experiences';
+export const alt = 'How Much Is $70,000 After Taxes?';
 
 export const size = {
   width: financeCalcHubBrand.ogWidth,
@@ -16,8 +16,8 @@ export const contentType = 'image/png';
 export default function Image() {
   return new ImageResponse(
     <OpenGraphCard
-      title={'Real Money Stories | Tax, Paycheck & Finance Experiences'}
-      category={'Tax Story'}
+      title={'How Much Is $70,000 After Taxes?'}
+      category={'Paycheck'}
     />,
     size
   );
