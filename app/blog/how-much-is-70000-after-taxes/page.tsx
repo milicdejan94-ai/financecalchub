@@ -1,85 +1,130 @@
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import BlogPostingSchema from '../../../components/BlogPostingSchema';
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import BlogPostingSchema from "../../../components/BlogPostingSchema";
+import { AboutArticle, ArticleHero } from "../../../components/article";
+import {
+  editorialReviewDesk,
+  editorialTeam,
+} from "../../../lib/content/authors";
+import type { ArticleMetadata } from "../../../lib/content/article-metadata";
 
 export const metadata = {
-  title: 'How Much Is $70,000 After Taxes? | FinanceCalcHub',
+  title: "How Much Is $70,000 After Taxes? | FinanceCalcHub",
   description:
-    'Estimate how much a $70,000 salary may be after taxes, including monthly, biweekly and weekly take-home pay examples, common deductions and budgeting notes.',
+    "Estimate how much a $70,000 salary may be after taxes, including monthly, biweekly and weekly take-home pay examples, common deductions and budgeting notes.",
   openGraph: {
-    title: 'How Much Is $70,000 After Taxes? | FinanceCalcHub',
-    description: 'Estimate how much a $70,000 salary may be after taxes, including monthly, biweekly and weekly take-home pay examples, common deductions and budgeting notes.',
-    url: '/blog/how-much-is-70000-after-taxes',
-    type: 'article',
-    siteName: 'FinanceCalcHub',
+    title: "How Much Is $70,000 After Taxes? | FinanceCalcHub",
+    description:
+      "Estimate how much a $70,000 salary may be after taxes, including monthly, biweekly and weekly take-home pay examples, common deductions and budgeting notes.",
+    url: "/blog/how-much-is-70000-after-taxes",
+    type: "article",
+    siteName: "FinanceCalcHub",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'How Much Is $70,000 After Taxes? | FinanceCalcHub',
-    description: 'Estimate how much a $70,000 salary may be after taxes, including monthly, biweekly and weekly take-home pay examples, common deductions and budgeting notes.',
+    card: "summary_large_image",
+    title: "How Much Is $70,000 After Taxes? | FinanceCalcHub",
+    description:
+      "Estimate how much a $70,000 salary may be after taxes, including monthly, biweekly and weekly take-home pay examples, common deductions and budgeting notes.",
   },
 };
 
+const articleMetadata: ArticleMetadata = {
+  title: "How Much Is $70,000 After Taxes?",
+  description:
+    "Estimate how much a $70,000 salary may be after taxes, including monthly, biweekly and weekly take-home pay examples, common deductions and budgeting notes.",
+  category: "Salary after tax guide",
+  readingTime: "7 min read",
+  difficulty: "Beginner",
+  datePublished: "2026-06-08",
+  dateModified: "2026-07-28",
+  author: editorialTeam,
+  reviewer: editorialReviewDesk,
+  relatedCalculator: {
+    title: "$70,000 After Tax Calculator",
+    href: "/salary-after-tax/70000",
+  },
+  sourceOrganizations: ["IRS", "Social Security Administration"],
+};
+
 const grossPayRows = [
-  { period: 'Annual gross pay', amount: '$70,000.00' },
-  { period: 'Monthly gross pay', amount: '$5,833.33' },
-  { period: 'Biweekly gross pay', amount: '$2,692.31' },
-  { period: 'Weekly gross pay', amount: '$1,346.15' },
+  { period: "Annual gross pay", amount: "$70,000.00" },
+  { period: "Monthly gross pay", amount: "$5,833.33" },
+  { period: "Biweekly gross pay", amount: "$2,692.31" },
+  { period: "Weekly gross pay", amount: "$1,346.15" },
 ];
 
 const estimateRows = [
   {
-    scenario: 'Lower-tax estimate',
-    annual: '$56,000',
-    monthly: '$4,667',
-    biweekly: '$2,154',
-    weekly: '$1,077',
+    scenario: "Lower-tax estimate",
+    annual: "$56,000",
+    monthly: "$4,667",
+    biweekly: "$2,154",
+    weekly: "$1,077",
   },
   {
-    scenario: 'Middle estimate',
-    annual: '$53,500',
-    monthly: '$4,458',
-    biweekly: '$2,058',
-    weekly: '$1,029',
+    scenario: "Middle estimate",
+    annual: "$53,500",
+    monthly: "$4,458",
+    biweekly: "$2,058",
+    weekly: "$1,029",
   },
   {
-    scenario: 'Higher-tax / higher-deduction estimate',
-    annual: '$50,000',
-    monthly: '$4,167',
-    biweekly: '$1,923',
-    weekly: '$962',
+    scenario: "Higher-tax / higher-deduction estimate",
+    annual: "$50,000",
+    monthly: "$4,167",
+    biweekly: "$1,923",
+    weekly: "$962",
   },
 ];
 
 const deductionRows = [
   {
-    item: 'Federal income tax',
-    why: 'Depends on taxable income, filing status, deductions, credits and withholding settings.',
+    item: "Federal income tax",
+    why: "Depends on taxable income, filing status, deductions, credits and withholding settings.",
   },
   {
-    item: 'Social Security and Medicare',
-    why: 'Payroll taxes are usually withheld from employee paychecks in addition to income tax.',
+    item: "Social Security and Medicare",
+    why: "Payroll taxes are usually withheld from employee paychecks in addition to income tax.",
   },
   {
-    item: 'State and local tax',
-    why: 'State rules vary widely, and some cities or counties may also have local taxes.',
+    item: "State and local tax",
+    why: "State rules vary widely, and some cities or counties may also have local taxes.",
   },
   {
-    item: 'Health insurance and benefits',
-    why: 'Employer benefit elections can reduce the amount deposited into your bank account.',
+    item: "Health insurance and benefits",
+    why: "Employer benefit elections can reduce the amount deposited into your bank account.",
   },
   {
-    item: 'Retirement contributions',
-    why: '401(k), 403(b), HSA or similar contributions may reduce take-home pay while building savings.',
+    item: "Retirement contributions",
+    why: "401(k), 403(b), HSA or similar contributions may reduce take-home pay while building savings.",
   },
 ];
 
 const budgetRows = [
-  { category: 'Housing', example: 'Rent, mortgage payment, property taxes, insurance, HOA fees or utilities' },
-  { category: 'Transportation', example: 'Car payment, gas, insurance, public transit, parking or maintenance' },
-  { category: 'Debt payments', example: 'Credit cards, student loans, personal loans or medical debt' },
-  { category: 'Savings', example: 'Emergency fund, short-term goals, retirement or investment contributions' },
-  { category: 'Living costs', example: 'Groceries, phone, internet, childcare, subscriptions and personal spending' },
+  {
+    category: "Housing",
+    example:
+      "Rent, mortgage payment, property taxes, insurance, HOA fees or utilities",
+  },
+  {
+    category: "Transportation",
+    example:
+      "Car payment, gas, insurance, public transit, parking or maintenance",
+  },
+  {
+    category: "Debt payments",
+    example: "Credit cards, student loans, personal loans or medical debt",
+  },
+  {
+    category: "Savings",
+    example:
+      "Emergency fund, short-term goals, retirement or investment contributions",
+  },
+  {
+    category: "Living costs",
+    example:
+      "Groceries, phone, internet, childcare, subscriptions and personal spending",
+  },
 ];
 
 export default function HowMuchIs70000AfterTaxesPage() {
@@ -91,20 +136,24 @@ export default function HowMuchIs70000AfterTaxesPage() {
           description="Estimate how much a $70,000 salary may be after taxes, including monthly, biweekly and weekly take-home pay examples, common deductions and budgeting notes."
           path="/blog/how-much-is-70000-after-taxes"
           articleSection="Salary After Tax Guides"
+          datePublished={articleMetadata.datePublished}
+          dateModified={articleMetadata.dateModified}
+          authorName={articleMetadata.author.name}
+          authorUrl={articleMetadata.author.href}
+          reviewerName={articleMetadata.reviewer?.name}
+          reviewerUrl={articleMetadata.reviewer?.href}
         />
 
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/blog' },
-            { label: 'How Much Is $70,000 After Taxes?' },
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: "How Much Is $70,000 After Taxes?" },
           ]}
         />
 
         <article className="content-box">
-          <p className="eyebrow">Salary after tax guide</p>
-
-          <h1>How Much Is $70,000 After Taxes?</h1>
+          <ArticleHero metadata={articleMetadata} />
 
           <p>
             A $70,000 salary is not the same as $70,000 of spending money. Your
@@ -121,9 +170,9 @@ export default function HowMuchIs70000AfterTaxesPage() {
           </p>
 
           <p>
-            For a faster estimate, use the{' '}
-            <a href="/salary-after-tax/70000">$70,000 after tax calculator</a>{' '}
-            or compare more details in the{' '}
+            For a faster estimate, use the{" "}
+            <a href="/salary-after-tax/70000">$70,000 after tax calculator</a>{" "}
+            or compare more details in the{" "}
             <a href="/calculators/paycheck">paycheck calculator</a>.
           </p>
 
@@ -213,9 +262,10 @@ export default function HowMuchIs70000AfterTaxesPage() {
 
           <p>
             Before taxes, a $70,000 salary is about $2,692 every two weeks.
-            After taxes and deductions, a simplified biweekly take-home range may
-            be roughly $1,923 to $2,154. The exact amount depends on withholding,
-            state taxes, benefit deductions and retirement contributions.
+            After taxes and deductions, a simplified biweekly take-home range
+            may be roughly $1,923 to $2,154. The exact amount depends on
+            withholding, state taxes, benefit deductions and retirement
+            contributions.
           </p>
 
           <h2>Weekly pay on a $70,000 salary</h2>
@@ -230,9 +280,9 @@ export default function HowMuchIs70000AfterTaxesPage() {
 
           <p>
             Paycheck deductions can be different from person to person. Two
-            employees earning the same salary can have different take-home pay if
-            they live in different states, choose different benefits or set up
-            retirement contributions differently.
+            employees earning the same salary can have different take-home pay
+            if they live in different states, choose different benefits or set
+            up retirement contributions differently.
           </p>
 
           <div className="table-wrap">
@@ -257,9 +307,10 @@ export default function HowMuchIs70000AfterTaxesPage() {
           <h2>Federal income tax on $70,000</h2>
 
           <p>
-            Federal income tax is based on taxable income, not just gross salary.
-            Filing status, pre-tax deductions, credits and withholding choices
-            can all affect how much federal tax is withheld during the year.
+            Federal income tax is based on taxable income, not just gross
+            salary. Filing status, pre-tax deductions, credits and withholding
+            choices can all affect how much federal tax is withheld during the
+            year.
           </p>
 
           <p>
@@ -274,8 +325,8 @@ export default function HowMuchIs70000AfterTaxesPage() {
           <p>
             Employees usually have Social Security and Medicare taxes withheld
             from each paycheck. These payroll taxes are separate from federal
-            income tax, so they can reduce take-home pay even before state tax or
-            benefit deductions are considered.
+            income tax, so they can reduce take-home pay even before state tax
+            or benefit deductions are considered.
           </p>
 
           <h2>State taxes can change the result</h2>
@@ -283,12 +334,12 @@ export default function HowMuchIs70000AfterTaxesPage() {
           <p>
             State income tax can make a major difference. A $70,000 salary in a
             state with no state income tax may have a different take-home result
-            than the same salary in a state with higher income taxes. Local taxes
-            can also apply in some areas.
+            than the same salary in a state with higher income taxes. Local
+            taxes can also apply in some areas.
           </p>
 
           <p>
-            To compare location-based estimates, use the{' '}
+            To compare location-based estimates, use the{" "}
             <a href="/paycheck-calculator">paycheck calculators by state</a>.
           </p>
 
@@ -311,10 +362,10 @@ export default function HowMuchIs70000AfterTaxesPage() {
 
           <p>
             A $70,000 salary can feel different depending on housing costs,
-            transportation, debt payments and local cost of living. For planning,
-            start with estimated take-home pay and then subtract fixed expenses
-            before deciding how much is available for savings or discretionary
-            spending.
+            transportation, debt payments and local cost of living. For
+            planning, start with estimated take-home pay and then subtract fixed
+            expenses before deciding how much is available for savings or
+            discretionary spending.
           </p>
 
           <div className="table-wrap">
@@ -342,8 +393,8 @@ export default function HowMuchIs70000AfterTaxesPage() {
             Whether $70,000 is a good salary depends on your location, family
             size, housing cost, debt, savings goals and lifestyle. It may feel
             comfortable in one area and tight in another. The most useful
-            question is not only “Is $70,000 good?” but “What is my take-home pay
-            and does it cover my actual monthly budget?”
+            question is not only “Is $70,000 good?” but “What is my take-home
+            pay and does it cover my actual monthly budget?”
           </p>
 
           <h2>How to estimate your own $70,000 paycheck</h2>
@@ -356,11 +407,11 @@ export default function HowMuchIs70000AfterTaxesPage() {
           </p>
 
           <p>
-            Use the{' '}
+            Use the{" "}
             <a href="/salary-after-tax/70000">$70,000 after tax calculator</a>,
-            the <a href="/calculators/paycheck">paycheck calculator</a> or the{' '}
-            <a href="/calculators/federal-tax">federal tax calculator</a> to test
-            different assumptions.
+            the <a href="/calculators/paycheck">paycheck calculator</a> or the{" "}
+            <a href="/calculators/federal-tax">federal tax calculator</a> to
+            test different assumptions.
           </p>
 
           <h2>Example: planning with estimated take-home pay</h2>
@@ -368,15 +419,16 @@ export default function HowMuchIs70000AfterTaxesPage() {
           <p>
             Suppose a $70,000 salary produces a simplified take-home estimate of
             about $4,458 per month. That monthly net pay is the starting point
-            for rent, transportation, groceries, debt payments, savings and other
-            obligations.
+            for rent, transportation, groceries, debt payments, savings and
+            other obligations.
           </p>
 
           <p>
-            If rent is $1,500, transportation is $500, debt payments are $300 and
-            basic living expenses are $1,200, that leaves about $958 before extra
-            savings, investing, travel or discretionary spending. Changing any
-            major expense can quickly change how comfortable the salary feels.
+            If rent is $1,500, transportation is $500, debt payments are $300
+            and basic living expenses are $1,200, that leaves about $958 before
+            extra savings, investing, travel or discretionary spending. Changing
+            any major expense can quickly change how comfortable the salary
+            feels.
           </p>
 
           <h2>Frequently asked questions</h2>
@@ -404,15 +456,15 @@ export default function HowMuchIs70000AfterTaxesPage() {
 
           <h3>Why is my take-home pay lower than online examples?</h3>
           <p>
-            Common reasons include state income tax, local tax, health insurance,
-            retirement contributions, HSA or FSA contributions, wage garnishment,
-            additional withholding or employer-specific deductions.
+            Common reasons include state income tax, local tax, health
+            insurance, retirement contributions, HSA or FSA contributions, wage
+            garnishment, additional withholding or employer-specific deductions.
           </p>
 
           <h3>Should I budget from gross pay or net pay?</h3>
           <p>
-            Net pay is usually better for budgeting because it is the amount that
-            actually reaches your bank account. Gross pay can be useful for
+            Net pay is usually better for budgeting because it is the amount
+            that actually reaches your bank account. Gross pay can be useful for
             salary comparisons, but it is not the same as spendable income.
           </p>
 
@@ -420,9 +472,9 @@ export default function HowMuchIs70000AfterTaxesPage() {
 
           <p>
             This article provides simplified educational estimates only. It is
-            not tax, payroll, legal, credit, investment or financial advice. Real
-            results can vary based on federal tax rules, state and local taxes,
-            deductions, credits, filing status, benefits, retirement
+            not tax, payroll, legal, credit, investment or financial advice.
+            Real results can vary based on federal tax rules, state and local
+            taxes, deductions, credits, filing status, benefits, retirement
             contributions and employer payroll settings.
           </p>
 
@@ -442,48 +494,49 @@ export default function HowMuchIs70000AfterTaxesPage() {
           </p>
 
           <p>
-            Start with the{' '}
-            <a href="/salary-after-tax/70000">$70,000 after tax calculator</a>{' '}
-            and compare it with the{' '}
+            Start with the{" "}
+            <a href="/salary-after-tax/70000">$70,000 after tax calculator</a>{" "}
+            and compare it with the{" "}
             <a href="/paycheck-calculator">state paycheck calculators</a> for a
             more practical planning view.
           </p>
+          <AboutArticle metadata={articleMetadata} />
         </article>
 
         <RelatedCalculators
           title="Related salary and paycheck tools"
           tools={[
             {
-              title: '$70,000 After Tax Calculator',
-              href: '/salary-after-tax/70000',
+              title: "$70,000 After Tax Calculator",
+              href: "/salary-after-tax/70000",
             },
             {
-              title: 'Salary After Tax Calculators',
-              href: '/salary-after-tax',
+              title: "Salary After Tax Calculators",
+              href: "/salary-after-tax",
             },
             {
-              title: 'Paycheck Calculator',
-              href: '/calculators/paycheck',
+              title: "Paycheck Calculator",
+              href: "/calculators/paycheck",
             },
             {
-              title: 'Federal Tax Calculator',
-              href: '/calculators/federal-tax',
+              title: "Federal Tax Calculator",
+              href: "/calculators/federal-tax",
             },
             {
-              title: '$70,000 Salary Calculator',
-              href: '/salary-calculator/70000',
+              title: "$70,000 Salary Calculator",
+              href: "/salary-calculator/70000",
             },
             {
-              title: 'Paycheck Calculators by State',
-              href: '/paycheck-calculator',
+              title: "Paycheck Calculators by State",
+              href: "/paycheck-calculator",
             },
             {
-              title: 'How to Estimate Take-Home Pay',
-              href: '/blog/how-to-estimate-take-home-pay',
+              title: "How to Estimate Take-Home Pay",
+              href: "/blog/how-to-estimate-take-home-pay",
             },
             {
-              title: 'Gross Pay vs Net Pay',
-              href: '/blog/gross-pay-vs-net-pay',
+              title: "Gross Pay vs Net Pay",
+              href: "/blog/gross-pay-vs-net-pay",
             },
           ]}
         />

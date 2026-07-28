@@ -14,6 +14,10 @@ const story = {
   breadcrumbLabel: "Nearly Eight Years Without Filing",
   category: "Tax",
   categoryLabel: "Tax Story",
+  datePublished: "2026-07-10",
+  dateModified: "2026-07-28",
+  readingTime: "8 min read",
+  difficulty: "Beginner",
   officialSources: [
     {
       title: "Filing past due tax returns",

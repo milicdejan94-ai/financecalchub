@@ -1,10 +1,13 @@
 import Breadcrumbs from "../Breadcrumbs";
 import RelatedCalculators from "../RelatedCalculators";
 import BlogPostingSchema from "../BlogPostingSchema";
+import { AboutArticle, ArticleHero } from "../article";
 import StoryQuickFacts from "./StoryQuickFacts";
 import StoryTimeline from "./StoryTimeline";
 import StoryOfficialSources from "./StoryOfficialSources";
 import type { RealMoneyStoryTemplateProps } from "../../lib/real-money-stories/types";
+import { editorialReviewDesk, editorialTeam } from "../../lib/content/authors";
+import type { ArticleMetadata } from "../../lib/content/article-metadata";
 
 const storyBasePath = "/blog/real-money-stories";
 
@@ -14,6 +17,29 @@ export default function RealMoneyStoryTemplate({
 }: RealMoneyStoryTemplateProps) {
   const path = `${storyBasePath}/${story.slug}`;
 
+  const articleMetadata: ArticleMetadata = {
+    title: story.title,
+    description: story.description,
+    category: `Real Money Stories · ${
+      story.categoryLabel || `${story.category} Story`
+    }`,
+    readingTime: story.readingTime || "7 min read",
+    difficulty: story.difficulty || "Beginner",
+    datePublished: story.datePublished || "2026-01-01",
+    dateModified: story.dateModified || story.datePublished || "2026-01-01",
+    author: editorialTeam,
+    reviewer: editorialReviewDesk,
+    sourceOrganizations: Array.from(
+      new Set(
+        story.officialSources
+          ?.map((source) => source.organization)
+          .filter((organization): organization is string =>
+            Boolean(organization),
+          ) || [],
+      ),
+    ),
+  };
+
   return (
     <section className="section">
       <div className="container">
@@ -22,8 +48,12 @@ export default function RealMoneyStoryTemplate({
           description={story.description}
           path={path}
           articleSection="Real Money Stories"
-          datePublished={story.datePublished}
-          dateModified={story.dateModified}
+          datePublished={articleMetadata.datePublished}
+          dateModified={articleMetadata.dateModified}
+          authorName={articleMetadata.author.name}
+          authorUrl={articleMetadata.author.href}
+          reviewerName={articleMetadata.reviewer?.name}
+          reviewerUrl={articleMetadata.reviewer?.href}
         />
 
         <Breadcrumbs
@@ -39,16 +69,7 @@ export default function RealMoneyStoryTemplate({
         />
 
         <article className="content-box">
-          <header className="story-header">
-            <p className="eyebrow">
-              Real Money Stories ·{" "}
-              {story.categoryLabel || `${story.category} Story`}
-            </p>
-
-            <h1>{story.title}</h1>
-
-            <p className="story-summary">{story.description}</p>
-          </header>
+          <ArticleHero metadata={articleMetadata} />
 
           {story.quickFacts?.length ? (
             <StoryQuickFacts facts={story.quickFacts} />
@@ -63,6 +84,8 @@ export default function RealMoneyStoryTemplate({
           {story.officialSources?.length ? (
             <StoryOfficialSources sources={story.officialSources} />
           ) : null}
+
+          <AboutArticle metadata={articleMetadata} />
         </article>
 
         {story.relatedTools?.length ? (

@@ -3089,3 +3089,138 @@ body.portal-menu-open {
 }
 
 /* ===== FINANCECALCHUB PREMIUM HEADER END ===== */
+
+/* Editorial article metadata system */
+.article-hero {
+  padding-bottom: 1.75rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.article-hero-summary {
+  max-width: 760px;
+  margin-top: 1rem;
+  font-size: 1.08rem;
+  color: var(--muted);
+}
+
+.article-byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin-top: 1.5rem;
+}
+
+.article-byline div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.article-byline span,
+.article-meta-list dt,
+.about-article-details dt {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.article-byline a,
+.about-article a {
+  font-weight: 700;
+}
+
+.article-meta-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin: 1.5rem 0 0;
+}
+
+.article-meta-list div,
+.about-article-details div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.article-meta-list dd,
+.about-article-details dd {
+  margin: 0;
+}
+
+.about-article {
+  margin-top: 3rem;
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface-soft);
+}
+
+.about-article > h2 {
+  margin-top: 0.35rem;
+}
+
+.about-article-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.about-article-grid section {
+  min-width: 0;
+}
+
+.about-article-grid h3 {
+  margin-bottom: 0.5rem;
+}
+
+.about-article-grid p {
+  margin: 0.4rem 0;
+}
+
+.about-article-details {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.about-article-tool {
+  margin-top: 1.5rem;
+}
+
+.about-article-disclaimer {
+  margin: 1.25rem 0 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .article-byline,
+  .article-meta-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-article-grid,
+  .about-article-details {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .article-byline,
+  .article-meta-list,
+  .about-article-grid,
+  .about-article-details {
+    grid-template-columns: 1fr;
+  }
+
+  .about-article {
+    padding: 1.25rem;
+  }
+}

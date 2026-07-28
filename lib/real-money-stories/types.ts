@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { ArticleDifficulty } from "../content/article-metadata";
 
 export type RealMoneyStoryCategory =
   | "IRS"
@@ -43,6 +44,8 @@ export type RealMoneyStoryDefinition = {
   categoryLabel?: string;
   datePublished?: string;
   dateModified?: string;
+  readingTime?: string;
+  difficulty?: ArticleDifficulty;
   quickFacts?: RealMoneyStoryQuickFact[];
   timeline?: RealMoneyStoryTimelineItem[];
   officialSources?: RealMoneyStorySource[];
