@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: '$30 an Hour Is How Much a Year? | Monthly, Weekly & Take-Home Pay',
@@ -11,6 +12,13 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="$30 an Hour Is How Much a Year?"
+          description="See how much $30 an hour is per year, month, week and biweekly paycheck before taxes, plus factors that affect take-home pay."
+          path="/blog/30-an-hour-is-how-much-a-year"
+          articleSection="Hourly Wage Guides"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

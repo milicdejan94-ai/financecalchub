@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: 'Mortgage Payment Basics for First-Time Buyers | FinanceCalcHub',
@@ -11,6 +12,13 @@ export default function MortgageBasicsArticle() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="Mortgage Payment Basics for First-Time Buyers"
+          description="Learn what makes up a mortgage payment, including principal, interest, taxes, insurance, PMI, escrow and common first-time buyer costs."
+          path="/blog/mortgage-payment-basics"
+          articleSection="Mortgage Guides"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: "Wrong W-2 and Employer Won't Fix It? What IRS Says",
@@ -10,6 +11,13 @@ export default function WrongW2EmployerNotCorrectingPage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="Her W-2 Was Wrong — Her Employer Still Hadn't Fixed It as Tax Day Got Closer"
+          description="An employee said her W-2 was still wrong after repeated employer follow-ups. See what IRS guidance says about corrected W-2s and Form 4852."
+          path="/blog/real-money-stories/wrong-w2-employer-not-correcting"
+          articleSection="Real Money Stories"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

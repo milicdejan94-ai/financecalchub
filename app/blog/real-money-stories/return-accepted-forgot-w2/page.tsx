@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: 'Forgot a W-2 After Filing Taxes? A Real Tax Story',
@@ -10,6 +11,13 @@ export default function ReturnAcceptedForgotW2Page() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="His Tax Return Was Accepted — Then He Realized He Left Out a W-2"
+          description="A taxpayer realized one W-2 had been left out after his return was accepted. See what IRS guidance says about correcting an already filed return."
+          path="/blog/real-money-stories/return-accepted-forgot-w2"
+          articleSection="Real Money Stories"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

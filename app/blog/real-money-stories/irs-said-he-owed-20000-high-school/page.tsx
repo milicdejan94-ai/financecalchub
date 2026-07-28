@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: "IRS Said He Owed $20,000 for Income He Didn't Recognize",
@@ -10,6 +11,13 @@ export default function IrsSaidHeOwed20000HighSchoolPage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="The IRS Said He Owed $20,000 — But He Says He Was Still in High School"
+          description="A taxpayer said the IRS claimed he owed about $20,000 for a year when he was still in high school. See which income records may be worth checking."
+          path="/blog/real-money-stories/irs-said-he-owed-20000-high-school"
+          articleSection="Real Money Stories"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: 'Employer Reported $30,000 More Income | Tax Story',
@@ -10,6 +11,13 @@ export default function EmployerReported30000MoreIncomePage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="His Former Employer Reported $30,000 More Income Than He Expected — Then the IRS Letter Arrived"
+          description="A taxpayer said his W-2 showed about $100,000 while an IRS notice appeared to reference roughly $130,000 in wages. See what may explain the mismatch."
+          path="/blog/real-money-stories/employer-reported-30000-more-income"
+          articleSection="Real Money Stories"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

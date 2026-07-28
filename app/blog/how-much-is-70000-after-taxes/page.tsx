@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: 'How Much Is $70,000 After Taxes? | FinanceCalcHub',
@@ -73,6 +74,13 @@ export default function HowMuchIs70000AfterTaxesPage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="How Much Is $70,000 After Taxes?"
+          description="Estimate how much a $70,000 salary may be after taxes, including monthly, biweekly and weekly take-home pay examples, common deductions and budgeting notes."
+          path="/blog/how-much-is-70000-after-taxes"
+          articleSection="Salary After Tax Guides"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

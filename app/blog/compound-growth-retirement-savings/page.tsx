@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: 'How Compound Growth Affects Retirement Savings | FinanceCalcHub',
@@ -11,6 +12,13 @@ export default function CompoundGrowthArticle() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="How Compound Growth Affects Retirement Savings"
+          description="Learn how compound growth, time, contribution rate, investment returns and fees can affect long-term retirement savings."
+          path="/blog/compound-growth-retirement-savings"
+          articleSection="Retirement Guides"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

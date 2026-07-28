@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: 'How to Estimate Your Take-Home Pay | FinanceCalcHub',
@@ -11,6 +12,13 @@ export default function TakeHomePayArticle() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="How to Estimate Your Take-Home Pay"
+          description="Learn how to estimate take-home pay from gross income, payroll taxes, federal tax, state tax, benefits and paycheck deductions."
+          path="/blog/how-to-estimate-take-home-pay"
+          articleSection="Paycheck Guides"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

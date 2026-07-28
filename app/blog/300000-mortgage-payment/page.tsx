@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: '$300,000 Mortgage Payment: Monthly Cost Examples | FinanceCalcHub',
@@ -11,6 +12,13 @@ export default function ThreeHundredThousandMortgagePaymentPage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="What Is the Monthly Payment on a $300,000 Mortgage?"
+          description="Estimate a $300,000 mortgage payment with examples for different rates and terms, plus taxes, insurance, PMI, HOA fees and affordability factors."
+          path="/blog/300000-mortgage-payment"
+          articleSection="Mortgage Guides"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

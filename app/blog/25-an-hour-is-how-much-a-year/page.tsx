@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: '$25 an Hour Is How Much a Year? | Monthly, Weekly & Paycheck Guide',
@@ -11,6 +12,13 @@ export default function TwentyFiveAnHourPage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="$25 an Hour Is How Much a Year?"
+          description="See how $25 an hour converts to yearly, monthly, biweekly, weekly and daily gross pay, plus what can affect take-home pay after taxes and deductions."
+          path="/blog/25-an-hour-is-how-much-a-year"
+          articleSection="Hourly Wage Guides"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

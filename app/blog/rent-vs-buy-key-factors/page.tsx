@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: 'Rent vs Buy: Key Factors to Consider | FinanceCalcHub',
@@ -11,6 +12,13 @@ export default function RentVsBuyKeyFactorsPage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="Rent vs Buy: Key Factors to Consider"
+          description="Compare renting and buying a home using key factors such as monthly cost, upfront cash, time horizon, maintenance, flexibility and long-term risk."
+          path="/blog/rent-vs-buy-key-factors"
+          articleSection="Housing Guides"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

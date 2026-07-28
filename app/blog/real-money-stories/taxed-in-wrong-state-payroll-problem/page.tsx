@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: 'Payroll Taxed Her in the Wrong State | Tax Story',
@@ -10,6 +11,13 @@ export default function TaxedInWrongStatePayrollProblemPage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem"
+          description="An employee discovered state withholding that appeared connected with the wrong work location. See which payroll and W-2 records may be worth checking."
+          path="/blog/real-money-stories/taxed-in-wrong-state-payroll-problem"
+          articleSection="Real Money Stories"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

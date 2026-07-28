@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: 'How Much House Can I Afford? | Home Affordability Guide',
@@ -11,6 +12,13 @@ export default function HowMuchHouseCanIAffordPage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="How Much House Can I Afford?"
+          description="Learn how income, debts, down payment, mortgage rate, taxes, insurance and debt-to-income ratio affect how much house you may be able to afford."
+          path="/blog/how-much-house-can-i-afford"
+          articleSection="Mortgage Guides"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

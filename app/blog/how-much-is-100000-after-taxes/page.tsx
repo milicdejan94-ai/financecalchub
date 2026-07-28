@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: 'How Much Is $100,000 After Taxes? | FinanceCalcHub',
@@ -95,26 +96,17 @@ function formatCurrency(value: number) {
 }
 
 export default function HowMuchIs100000AfterTaxesPage() {
-  const structuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: 'How Much Is $100,000 After Taxes?',
-    description:
-      'A practical guide to estimating monthly, biweekly and weekly take-home pay from a $100,000 salary.',
-    author: {
-      '@type': 'Organization',
-      name: 'FinanceCalcHub',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'FinanceCalcHub',
-    },
-    mainEntityOfPage: 'https://www.financecalchub.com/blog/how-much-is-100000-after-taxes',
-  };
 
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="How Much Is $100,000 After Taxes?"
+          description="Estimate how much a $100,000 salary may be after taxes, including monthly, biweekly and weekly take-home pay examples."
+          path="/blog/how-much-is-100000-after-taxes"
+          articleSection="Salary After Tax Guides"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
@@ -485,10 +477,6 @@ export default function HowMuchIs100000AfterTaxesPage() {
           ]}
         />
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
       </div>
     </section>
   );

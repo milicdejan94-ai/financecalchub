@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: 'What Is the Monthly Payment on a $400,000 Mortgage? | FinanceCalcHub',
@@ -11,6 +12,13 @@ export default function FourHundredThousandMortgagePaymentPage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="What Is the Monthly Payment on a $400,000 Mortgage?"
+          description="Estimate the monthly payment on a $400,000 mortgage and understand how interest rate, term, taxes, insurance, PMI and HOA fees affect total housing cost."
+          path="/blog/400000-mortgage-payment"
+          articleSection="Mortgage Guides"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

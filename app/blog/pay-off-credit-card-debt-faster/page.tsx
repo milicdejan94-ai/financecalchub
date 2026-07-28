@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: 'How to Pay Off Credit Card Debt Faster | FinanceCalcHub',
@@ -11,6 +12,13 @@ export default function PayOffCreditCardDebtFasterPage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="How to Pay Off Credit Card Debt Faster"
+          description="Learn how APR, monthly payment size, payoff strategy and new spending affect credit card debt payoff time."
+          path="/blog/pay-off-credit-card-debt-faster"
+          articleSection="Debt Guides"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: 'APR vs Interest Rate: What Borrowers Should Know | FinanceCalcHub',
@@ -11,6 +12,13 @@ export default function AprVsInterestRatePage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="APR vs Interest Rate: What Borrowers Should Know"
+          description="Learn the difference between APR and interest rate, why APR can be higher, and how to compare loans, credit cards, auto loans and mortgages more clearly."
+          path="/blog/apr-vs-interest-rate"
+          articleSection="Loan Guides"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

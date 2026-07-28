@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: 'Gross Pay vs Net Pay: What Is the Difference? | FinanceCalcHub',
@@ -11,6 +12,13 @@ export default function GrossPayVsNetPayPage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="Gross Pay vs Net Pay: What Is the Difference?"
+          description="Understand gross pay vs net pay, common paycheck deductions, take-home pay examples and how to estimate your real monthly budget."
+          path="/blog/gross-pay-vs-net-pay"
+          articleSection="Paycheck Guides"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },

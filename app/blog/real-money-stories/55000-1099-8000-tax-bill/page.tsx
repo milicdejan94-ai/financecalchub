@@ -1,5 +1,6 @@
 import Breadcrumbs from '../../../../components/Breadcrumbs';
 import RelatedCalculators from '../../../../components/RelatedCalculators';
+import BlogPostingSchema from '../../../../components/BlogPostingSchema';
 
 export const metadata = {
   title: '$55,000 in 1099 Income and an $8,000 Tax Bill',
@@ -10,6 +11,13 @@ export default function Contractor55000TaxBillPage() {
   return (
     <section className="section">
       <div className="container">
+        <BlogPostingSchema
+          headline="She Made About $55,000 as a 1099 Contractor — Then She Saw an $8,000 Tax Bill"
+          description="A contractor said she earned about $55,000 and saw an estimated $8,000 tax bill. Learn why 1099 income can create a surprising tax balance."
+          path="/blog/real-money-stories/55000-1099-8000-tax-bill"
+          articleSection="Real Money Stories"
+        />
+
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
