@@ -1,14 +1,10 @@
-import type {
-  RealMoneyStoryTimelineItem,
-} from '../../lib/real-money-stories/types';
+import type { RealMoneyStoryTimelineItem } from "../../lib/real-money-stories/types";
 
 type StoryTimelineProps = {
   items: RealMoneyStoryTimelineItem[];
 };
 
-export default function StoryTimeline({
-  items,
-}: StoryTimelineProps) {
+export default function StoryTimeline({ items }: StoryTimelineProps) {
   if (!items.length) {
     return null;
   }

@@ -1,16 +1,16 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
 export type RealMoneyStoryCategory =
-  | 'IRS'
-  | 'Payroll'
-  | 'Mortgage'
-  | 'Credit'
-  | 'Investing'
-  | 'Retirement'
-  | 'Refunds'
-  | 'Identity Theft'
-  | 'Student Loans'
-  | 'Tax';
+  | "IRS"
+  | "Payroll"
+  | "Mortgage"
+  | "Credit"
+  | "Investing"
+  | "Retirement"
+  | "Refunds"
+  | "Identity Theft"
+  | "Student Loans"
+  | "Tax";
 
 export type RealMoneyStorySource = {
   title: string;

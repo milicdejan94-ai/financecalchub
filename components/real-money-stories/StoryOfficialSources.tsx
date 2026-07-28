@@ -1,6 +1,4 @@
-import type {
-  RealMoneyStorySource,
-} from '../../lib/real-money-stories/types';
+import type { RealMoneyStorySource } from "../../lib/real-money-stories/types";
 
 type StoryOfficialSourcesProps = {
   sources: RealMoneyStorySource[];
@@ -20,17 +18,11 @@ export default function StoryOfficialSources({
       <ul>
         {sources.map((source) => (
           <li key={source.href}>
-            <a
-              href={source.href}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <a href={source.href} rel="noopener noreferrer" target="_blank">
               {source.title}
             </a>
 
-            {source.organization
-              ? ` — ${source.organization}`
-              : ''}
+            {source.organization ? ` — ${source.organization}` : ""}
           </li>
         ))}
       </ul>

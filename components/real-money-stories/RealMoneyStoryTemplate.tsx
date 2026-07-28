@@ -1,14 +1,12 @@
-import Breadcrumbs from '../Breadcrumbs';
-import RelatedCalculators from '../RelatedCalculators';
-import BlogPostingSchema from '../BlogPostingSchema';
-import StoryQuickFacts from './StoryQuickFacts';
-import StoryTimeline from './StoryTimeline';
-import StoryOfficialSources from './StoryOfficialSources';
-import type {
-  RealMoneyStoryTemplateProps,
-} from '../../lib/real-money-stories/types';
+import Breadcrumbs from "../Breadcrumbs";
+import RelatedCalculators from "../RelatedCalculators";
+import BlogPostingSchema from "../BlogPostingSchema";
+import StoryQuickFacts from "./StoryQuickFacts";
+import StoryTimeline from "./StoryTimeline";
+import StoryOfficialSources from "./StoryOfficialSources";
+import type { RealMoneyStoryTemplateProps } from "../../lib/real-money-stories/types";
 
-const storyBasePath = '/blog/real-money-stories';
+const storyBasePath = "/blog/real-money-stories";
 
 export default function RealMoneyStoryTemplate({
   story,
@@ -30,10 +28,10 @@ export default function RealMoneyStoryTemplate({
 
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/blog' },
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
             {
-              label: 'Real Money Stories',
+              label: "Real Money Stories",
               href: storyBasePath,
             },
             { label: story.breadcrumbLabel },
@@ -43,16 +41,13 @@ export default function RealMoneyStoryTemplate({
         <article className="content-box">
           <header className="story-header">
             <p className="eyebrow">
-              Real Money Stories ·{' '}
-              {story.categoryLabel ||
-                `${story.category} Story`}
+              Real Money Stories ·{" "}
+              {story.categoryLabel || `${story.category} Story`}
             </p>
 
             <h1>{story.title}</h1>
 
-            <p className="story-summary">
-              {story.description}
-            </p>
+            <p className="story-summary">{story.description}</p>
           </header>
 
           {story.quickFacts?.length ? (
@@ -63,14 +58,10 @@ export default function RealMoneyStoryTemplate({
             <StoryTimeline items={story.timeline} />
           ) : null}
 
-          <div className="story-content">
-            {children}
-          </div>
+          <div className="story-content">{children}</div>
 
           {story.officialSources?.length ? (
-            <StoryOfficialSources
-              sources={story.officialSources}
-            />
+            <StoryOfficialSources sources={story.officialSources} />
           ) : null}
         </article>
 
