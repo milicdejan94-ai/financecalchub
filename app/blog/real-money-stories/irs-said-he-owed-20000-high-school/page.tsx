@@ -454,24 +454,6 @@ export default function IrsSaidHeOwed20000HighSchoolPage() {
         resources.
       </p>
 
-      <h2>Related FinanceCalcHub tools</h2>
-
-      <p>
-        Trying to understand the relationship between income and estimated
-        federal income tax? Use the{" "}
-        <a href="/calculators/federal-tax">Federal Tax Calculator</a>.
-      </p>
-
-      <p>
-        To compare gross pay with estimated take-home pay, use the{" "}
-        <a href="/calculators/paycheck">Paycheck Calculator</a>.
-      </p>
-
-      <p>
-        These tools provide simplified educational estimates only. They cannot
-        determine whether an IRS notice is correct or resolve a tax dispute.
-      </p>
-
       <h2>Source and editorial note</h2>
 
       <p>
