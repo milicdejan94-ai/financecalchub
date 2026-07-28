@@ -1,244 +1,120 @@
-import RelatedCalculators from '../../components/RelatedCalculators';
-import Breadcrumbs from '../../components/Breadcrumbs';
-
-const posts = [
-  {
-    title:
-      "Her W-2 Was Wrong — Her Employer Still Hadn't Fixed It as Tax Day Got Closer",
-    description:
-      'An employee repeatedly asked for a W-2 correction while the tax filing deadline continued getting closer.',
-    href: '/blog/real-money-stories/wrong-w2-employer-not-correcting',
-    category: 'Real Money Stories',
-  },
-  {
-    title:
-      "He Hadn't Filed Taxes in Nearly Eight Years — and Was Afraid to Find Out What He Owed",
-    description:
-      'A taxpayer publicly described nearly eight years of unfiled returns and the fear of finally discovering what he might owe.',
-    href: '/blog/real-money-stories/not-filed-taxes-nearly-eight-years',
-    category: 'Real Money Stories',
-  },
-  {
-    title:
-      'She Made About $55,000 as a 1099 Contractor — Then She Saw an $8,000 Tax Bill',
-    description:
-      'A 1099 contractor was shocked when approximately $55,000 of contractor income led to an estimated $8,000 tax bill.',
-    href: '/blog/real-money-stories/55000-1099-8000-tax-bill',
-    category: 'Real Money Stories',
-  },
-  {
-    title:
-      'His Tax Return Was Accepted — Then He Realized He Left Out a W-2',
-    description:
-      'A taxpayer discovered that one W-2 had been omitted after the tax return was already accepted.',
-    href: '/blog/real-money-stories/return-accepted-forgot-w2',
-    category: 'Real Money Stories',
-  },
-  {
-    title:
-      "She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem",
-    description:
-      'A payroll work-location problem appeared to affect state tax withholding and created complicated W-2 questions.',
-    href:
-      '/blog/real-money-stories/taxed-in-wrong-state-payroll-problem',
-    category: 'Real Money Stories',
-  },
-  {
-    title:
-      'His Former Employer Reported $30,000 More Income Than He Expected — Then the IRS Letter Arrived',
-    description:
-      'A taxpayer said his W-2 showed about $100,000, but an IRS notice appeared to reference roughly $130,000 in wages.',
-    href:
-      '/blog/real-money-stories/employer-reported-30000-more-income',
-    category: 'Real Money Stories',
-  },
-  {
-    title:
-      'The IRS Said He Owed $20,000 — But He Says He Was Still in High School',
-    description:
-      'A publicly shared taxpayer experience began with an IRS notice for roughly $20,000 and a tax year the taxpayer said made almost no sense.',
-    href:
-      '/blog/real-money-stories/irs-said-he-owed-20000-high-school',
-    category: 'Real Money Stories',
-  },
-  {
-    title: 'How Much Is $70,000 After Taxes?',
-    description:
-      'Estimate how much a $70,000 salary may be after taxes and what it could mean monthly, biweekly and weekly.',
-    href: '/blog/how-much-is-70000-after-taxes',
-    category: 'Salary After Tax',
-  },
-  {
-    title: 'How Much Is $100,000 After Taxes?',
-    description:
-      'Estimate how much a $100,000 salary may be after taxes and what it could mean monthly, biweekly and weekly.',
-    href: '/blog/how-much-is-100000-after-taxes',
-    category: 'Salary After Tax',
-  },
-  {
-    title: '$25 an Hour Is How Much a Year?',
-    description:
-      'Estimate how much $25 an hour is per year, month, week, biweekly paycheck and after simplified taxes.',
-    href: '/blog/25-an-hour-is-how-much-a-year',
-    category: 'Hourly Wage',
-  },
-  {
-    title: '$30 an Hour Is How Much a Year?',
-    description:
-      'Estimate how much $30 an hour is per year, month, week, biweekly paycheck and after simplified taxes.',
-    href: '/blog/30-an-hour-is-how-much-a-year',
-    category: 'Hourly Wage',
-  },
-  {
-    title: 'What Is the Monthly Payment on a $300,000 Mortgage?',
-    description:
-      'Estimate the monthly payment on a $300,000 mortgage and understand principal, interest, taxes, insurance and other costs.',
-    href: '/blog/300000-mortgage-payment',
-    category: 'Mortgage',
-  },
-  {
-    title: 'What Is the Monthly Payment on a $400,000 Mortgage?',
-    description:
-      'Estimate the monthly payment on a $400,000 mortgage and understand principal, interest, property taxes, insurance and PMI.',
-    href: '/blog/400000-mortgage-payment',
-    category: 'Mortgage',
-  },
-  {
-    title: 'Gross Pay vs Net Pay: What Is the Difference?',
-    href: '/blog/gross-pay-vs-net-pay',
-    description:
-      'Learn the difference between gross pay and net pay, and how taxes and deductions affect take-home pay.',
-    category: 'Paycheck',
-  },
-  {
-    title: 'How to Estimate Your Take-Home Pay',
-    href: '/blog/how-to-estimate-take-home-pay',
-    description:
-      'Learn what affects your paycheck and how to estimate net pay after taxes and deductions.',
-    category: 'Paycheck',
-  },
-  {
-    title: 'APR vs Interest Rate: What Borrowers Should Know',
-    href: '/blog/apr-vs-interest-rate',
-    description:
-      'Learn the difference between APR and interest rate when comparing loans and borrowing costs.',
-    category: 'Loans',
-  },
-  {
-    title: 'How Much House Can I Afford?',
-    href: '/blog/how-much-house-can-i-afford',
-    description:
-      'Learn what affects home affordability, including income, debt, down payment and mortgage rate.',
-    category: 'Mortgage',
-  },
-  {
-    title: 'Mortgage Payment Basics for First-Time Buyers',
-    href: '/blog/mortgage-payment-basics',
-    description:
-      'Understand principal, interest, property tax, insurance and other common mortgage costs.',
-    category: 'Mortgage',
-  },
-  {
-    title: 'How to Pay Off Credit Card Debt Faster',
-    href: '/blog/pay-off-credit-card-debt-faster',
-    description:
-      'Learn practical factors that affect credit card payoff time, APR and monthly payments.',
-    category: 'Debt',
-  },
-  {
-    title: 'Rent vs Buy: Key Factors to Consider',
-    href: '/blog/rent-vs-buy-key-factors',
-    description:
-      'Learn key factors to consider when comparing renting and buying a home.',
-    category: 'Home Buying',
-  },
-  {
-    title: 'How Compound Growth Affects Retirement Savings',
-    href: '/blog/compound-growth-retirement-savings',
-    description:
-      'See why time, contributions and investment returns can make a major difference in retirement planning.',
-    category: 'Retirement',
-  },
-];
+import Link from "next/link";
+import RelatedCalculators from "../../components/RelatedCalculators";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import { allBlogContent } from "../../lib/content/catalog";
 
 const categoryGroups = [
   {
-    name: 'Real Money Stories',
+    name: "Real Money Stories",
     description:
-      'Read publicly shared tax and money experiences explained with educational context and official sources.',
+      "Read publicly shared tax and money experiences explained with educational context and official sources.",
     links: [
       {
-        title: "Her W-2 Was Wrong — Her Employer Still Hadn't Fixed It as Tax Day Got Closer",
-        href: '/blog/real-money-stories/wrong-w2-employer-not-correcting',
+        title:
+          "Her W-2 Was Wrong — Her Employer Still Hadn't Fixed It as Tax Day Got Closer",
+        href: "/blog/real-money-stories/wrong-w2-employer-not-correcting",
       },
       {
-        title: "He Hadn't Filed Taxes in Nearly Eight Years — and Was Afraid to Find Out What He Owed",
-        href: '/blog/real-money-stories/not-filed-taxes-nearly-eight-years',
+        title:
+          "He Hadn't Filed Taxes in Nearly Eight Years — and Was Afraid to Find Out What He Owed",
+        href: "/blog/real-money-stories/not-filed-taxes-nearly-eight-years",
       },
       {
-        title: 'She Made About $55,000 as a 1099 Contractor — Then She Saw an $8,000 Tax Bill',
-        href: '/blog/real-money-stories/55000-1099-8000-tax-bill',
+        title:
+          "She Made About $55,000 as a 1099 Contractor — Then She Saw an $8,000 Tax Bill",
+        href: "/blog/real-money-stories/55000-1099-8000-tax-bill",
       },
       {
-        title: 'His Tax Return Was Accepted — Then He Realized He Left Out a W-2',
-        href: '/blog/real-money-stories/return-accepted-forgot-w2',
+        title:
+          "His Tax Return Was Accepted — Then He Realized He Left Out a W-2",
+        href: "/blog/real-money-stories/return-accepted-forgot-w2",
       },
       {
-        title: "She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem",
-        href: '/blog/real-money-stories/taxed-in-wrong-state-payroll-problem',
+        title:
+          "She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem",
+        href: "/blog/real-money-stories/taxed-in-wrong-state-payroll-problem",
       },
       {
-        title: 'His Former Employer Reported $30,000 More Income Than He Expected',
-        href: '/blog/real-money-stories/employer-reported-30000-more-income',
+        title:
+          "His Former Employer Reported $30,000 More Income Than He Expected",
+        href: "/blog/real-money-stories/employer-reported-30000-more-income",
       },
       {
-        title: 'The IRS Said He Owed $20,000 — But He Says He Was Still in High School',
-        href: '/blog/real-money-stories/irs-said-he-owed-20000-high-school',
+        title:
+          "The IRS Said He Owed $20,000 — But He Says He Was Still in High School",
+        href: "/blog/real-money-stories/irs-said-he-owed-20000-high-school",
       },
       {
-        title: 'Browse Real Money Stories',
-        href: '/blog/real-money-stories',
+        title: "Browse Real Money Stories",
+        href: "/blog/real-money-stories",
       },
     ],
   },
   {
-    name: 'Paycheck and salary guides',
+    name: "Paycheck and salary guides",
     description:
-      'Use these articles when you want to understand gross pay, net pay, salary after tax, hourly wages and paycheck timing.',
+      "Use these articles when you want to understand gross pay, net pay, salary after tax, hourly wages and paycheck timing.",
     links: [
-      { title: 'How to Estimate Your Take-Home Pay', href: '/blog/how-to-estimate-take-home-pay' },
-      { title: 'Gross Pay vs Net Pay', href: '/blog/gross-pay-vs-net-pay' },
-      { title: '$25 an Hour Is How Much a Year?', href: '/blog/25-an-hour-is-how-much-a-year' },
-      { title: '$30 an Hour Is How Much a Year?', href: '/blog/30-an-hour-is-how-much-a-year' },
+      {
+        title: "How to Estimate Your Take-Home Pay",
+        href: "/blog/how-to-estimate-take-home-pay",
+      },
+      { title: "Gross Pay vs Net Pay", href: "/blog/gross-pay-vs-net-pay" },
+      {
+        title: "$25 an Hour Is How Much a Year?",
+        href: "/blog/25-an-hour-is-how-much-a-year",
+      },
+      {
+        title: "$30 an Hour Is How Much a Year?",
+        href: "/blog/30-an-hour-is-how-much-a-year",
+      },
     ],
   },
   {
-    name: 'Mortgage and home buying guides',
+    name: "Mortgage and home buying guides",
     description:
-      'Use these guides to understand mortgage payments, affordability, rent vs buy decisions and common ownership costs.',
+      "Use these guides to understand mortgage payments, affordability, rent vs buy decisions and common ownership costs.",
     links: [
-      { title: 'Mortgage Payment Basics', href: '/blog/mortgage-payment-basics' },
-      { title: 'How Much House Can I Afford?', href: '/blog/how-much-house-can-i-afford' },
-      { title: '$300,000 Mortgage Payment', href: '/blog/300000-mortgage-payment' },
-      { title: 'Rent vs Buy Key Factors', href: '/blog/rent-vs-buy-key-factors' },
+      {
+        title: "Mortgage Payment Basics",
+        href: "/blog/mortgage-payment-basics",
+      },
+      {
+        title: "How Much House Can I Afford?",
+        href: "/blog/how-much-house-can-i-afford",
+      },
+      {
+        title: "$300,000 Mortgage Payment",
+        href: "/blog/300000-mortgage-payment",
+      },
+      {
+        title: "Rent vs Buy Key Factors",
+        href: "/blog/rent-vs-buy-key-factors",
+      },
     ],
   },
   {
-    name: 'Debt, loans and retirement guides',
+    name: "Debt, loans and retirement guides",
     description:
-      'Use these articles to compare borrowing costs, plan debt payoff and learn how savings can compound over time.',
+      "Use these articles to compare borrowing costs, plan debt payoff and learn how savings can compound over time.",
     links: [
-      { title: 'APR vs Interest Rate', href: '/blog/apr-vs-interest-rate' },
-      { title: 'How to Pay Off Credit Card Debt Faster', href: '/blog/pay-off-credit-card-debt-faster' },
-      { title: 'How Compound Growth Affects Retirement Savings', href: '/blog/compound-growth-retirement-savings' },
+      { title: "APR vs Interest Rate", href: "/blog/apr-vs-interest-rate" },
+      {
+        title: "How to Pay Off Credit Card Debt Faster",
+        href: "/blog/pay-off-credit-card-debt-faster",
+      },
+      {
+        title: "How Compound Growth Affects Retirement Savings",
+        href: "/blog/compound-growth-retirement-savings",
+      },
     ],
   },
 ];
 
 export const metadata = {
-  title: 'Personal Finance Blog | Paycheck, Mortgage, Debt & Savings Guides',
+  title: "Personal Finance Blog | Paycheck, Mortgage, Debt & Savings Guides",
   description:
-    'Read beginner-friendly personal finance guides about paychecks, salary after taxes, hourly wages, loans, mortgages, debt payoff, savings and retirement planning.',
+    "Read beginner-friendly personal finance guides about paychecks, salary after taxes, hourly wages, loans, mortgages, debt payoff, savings and retirement planning.",
 };
 
 export default function BlogPage() {
@@ -246,10 +122,7 @@ export default function BlogPage() {
     <section className="section">
       <div className="container">
         <Breadcrumbs
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog' },
-          ]}
+          items={[{ label: "Home", href: "/" }, { label: "Blog" }]}
         />
 
         <div className="section-heading">
@@ -260,8 +133,8 @@ export default function BlogPage() {
           <p>
             Learn the basic math behind paychecks, salary after taxes, hourly
             wages, loans, mortgages, debt payoff, savings and retirement
-            planning. These guides are written to support the free calculators on
-            FinanceCalcHub, so you can understand both the concept and the
+            planning. These guides are written to support the free calculators
+            on FinanceCalcHub, so you can understand both the concept and the
             numbers behind it.
           </p>
         </div>
@@ -295,16 +168,16 @@ export default function BlogPage() {
           </p>
 
           <div className="grid">
-            {posts.map((post) => (
-              <a className="card" href={post.href} key={post.href}>
+            {allBlogContent.map((post) => (
+              <Link className="card" href={post.href} key={post.href}>
                 <p className="eyebrow">{post.category}</p>
 
                 <h3>{post.title}</h3>
 
                 <p>{post.description}</p>
 
-                <span>Read article →</span>
-              </a>
+                <span>Read article · {post.readTime} →</span>
+              </Link>
             ))}
           </div>
         </div>
@@ -350,23 +223,40 @@ export default function BlogPage() {
               <tbody>
                 <tr>
                   <td>1</td>
-                  <td>Read the guide to understand the concept and common terms.</td>
+                  <td>
+                    Read the guide to understand the concept and common terms.
+                  </td>
                   <td>Blog articles</td>
                 </tr>
                 <tr>
                   <td>2</td>
-                  <td>Use a calculator to test income, loan, mortgage or savings assumptions.</td>
-                  <td><a href="/calculators">Calculator directory</a></td>
+                  <td>
+                    Use a calculator to test income, loan, mortgage or savings
+                    assumptions.
+                  </td>
+                  <td>
+                    <a href="/calculators">Calculator directory</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>3</td>
-                  <td>Compare results with your real paystub, lender quote or monthly budget.</td>
-                  <td><a href="/methodology">Methodology</a></td>
+                  <td>
+                    Compare results with your real paystub, lender quote or
+                    monthly budget.
+                  </td>
+                  <td>
+                    <a href="/methodology">Methodology</a>
+                  </td>
                 </tr>
                 <tr>
                   <td>4</td>
-                  <td>Verify important decisions with a qualified professional or official source.</td>
-                  <td><a href="/disclaimer">Disclaimer</a></td>
+                  <td>
+                    Verify important decisions with a qualified professional or
+                    official source.
+                  </td>
+                  <td>
+                    <a href="/disclaimer">Disclaimer</a>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -378,30 +268,53 @@ export default function BlogPage() {
 
           <h3>Paycheck planning path</h3>
           <p>
-            Start with <a href="/blog/gross-pay-vs-net-pay">gross pay vs net pay</a>,
-            then read <a href="/blog/how-to-estimate-take-home-pay">how to estimate take-home pay</a>.
-            After that, use the <a href="/calculators/paycheck">Paycheck Calculator</a>,
-            <a href="/calculators/hourly-paycheck"> Hourly Paycheck Calculator</a> or
-            <a href="/paycheck-calculator"> state paycheck calculators</a> to compare scenarios.
+            Start with{" "}
+            <a href="/blog/gross-pay-vs-net-pay">gross pay vs net pay</a>, then
+            read{" "}
+            <a href="/blog/how-to-estimate-take-home-pay">
+              how to estimate take-home pay
+            </a>
+            . After that, use the{" "}
+            <a href="/calculators/paycheck">Paycheck Calculator</a>,
+            <a href="/calculators/hourly-paycheck">
+              {" "}
+              Hourly Paycheck Calculator
+            </a>{" "}
+            or
+            <a href="/paycheck-calculator"> state paycheck calculators</a> to
+            compare scenarios.
           </p>
 
           <h3>Home buying path</h3>
           <p>
-            Start with <a href="/blog/mortgage-payment-basics">mortgage payment basics</a>,
-            then review <a href="/blog/how-much-house-can-i-afford">how much house you can afford</a>
-            and <a href="/blog/rent-vs-buy-key-factors">rent vs buy factors</a>. Use the
+            Start with{" "}
+            <a href="/blog/mortgage-payment-basics">mortgage payment basics</a>,
+            then review{" "}
+            <a href="/blog/how-much-house-can-i-afford">
+              how much house you can afford
+            </a>
+            and <a href="/blog/rent-vs-buy-key-factors">rent vs buy factors</a>.
+            Use the
             <a href="/calculators/mortgage"> Mortgage Calculator</a> and
-            <a href="/calculators/mortgage-affordability"> Mortgage Affordability Calculator</a>
+            <a href="/calculators/mortgage-affordability">
+              {" "}
+              Mortgage Affordability Calculator
+            </a>
             for estimates.
           </p>
 
           <h3>Debt and borrowing path</h3>
           <p>
-            Start with <a href="/blog/apr-vs-interest-rate">APR vs interest rate</a>,
-            then read <a href="/blog/pay-off-credit-card-debt-faster">how to pay off credit card debt faster</a>.
-            Use the <a href="/calculators/apr">APR Calculator</a>,
+            Start with{" "}
+            <a href="/blog/apr-vs-interest-rate">APR vs interest rate</a>, then
+            read{" "}
+            <a href="/blog/pay-off-credit-card-debt-faster">
+              how to pay off credit card debt faster
+            </a>
+            . Use the <a href="/calculators/apr">APR Calculator</a>,
             <a href="/calculators/loan"> Loan Calculator</a> and
-            <a href="/calculators/debt-payoff"> Debt Payoff Calculator</a> to compare options.
+            <a href="/calculators/debt-payoff"> Debt Payoff Calculator</a> to
+            compare options.
           </p>
         </div>
 
@@ -427,28 +340,28 @@ export default function BlogPage() {
           title="Popular calculators"
           tools={[
             {
-              title: 'Salary After Tax Calculators',
-              href: '/salary-after-tax',
+              title: "Salary After Tax Calculators",
+              href: "/salary-after-tax",
             },
             {
-              title: 'Hourly Wage to Salary Calculators',
-              href: '/hourly-wage',
+              title: "Hourly Wage to Salary Calculators",
+              href: "/hourly-wage",
             },
             {
-              title: 'Mortgage Payment by Amount',
-              href: '/mortgage-payment',
+              title: "Mortgage Payment by Amount",
+              href: "/mortgage-payment",
             },
             {
-              title: 'Paycheck Calculator',
-              href: '/calculators/paycheck',
+              title: "Paycheck Calculator",
+              href: "/calculators/paycheck",
             },
             {
-              title: 'Mortgage Calculator',
-              href: '/calculators/mortgage',
+              title: "Mortgage Calculator",
+              href: "/calculators/mortgage",
             },
             {
-              title: 'Debt Payoff Calculator',
-              href: '/calculators/debt-payoff',
+              title: "Debt Payoff Calculator",
+              href: "/calculators/debt-payoff",
             },
           ]}
         />

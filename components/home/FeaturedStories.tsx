@@ -1,49 +1,13 @@
 import Link from "next/link";
 
-const stories = [
-  {
-    category: "Tax filing",
-    title:
-      "He Hadn't Filed Taxes in Nearly Eight Years — and Was Afraid to Find Out What He Owed",
-    description:
-      "Years of avoidance created growing fear before one taxpayer decided to confront his unfiled returns.",
-    href: "/blog/real-money-stories/not-filed-taxes-nearly-eight-years",
-    featured: true,
-  },
-  {
-    category: "Incorrect W-2",
-    title:
-      "Her W-2 Was Wrong — Her Employer Still Hadn't Fixed It as Tax Day Got Closer",
-    description:
-      "An employee repeatedly requested a correction while the filing deadline continued approaching.",
-    href: "/blog/real-money-stories/wrong-w2-employer-not-correcting",
-  },
-  {
-    category: "Payroll and state tax",
-    title:
-      "She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem",
-    description:
-      "A payroll-location problem created questions about withholding, state returns and W-2 information.",
-    href: "/blog/real-money-stories/taxed-in-wrong-state-payroll-problem",
-  },
-  {
-    category: "Amended tax return",
-    title: "His Tax Return Was Accepted — Then He Realized He Left Out a W-2",
-    description:
-      "After discovering another W-2, a taxpayer needed to understand how an accepted return could be corrected.",
-    href: "/blog/real-money-stories/return-accepted-forgot-w2",
-  },
-  {
-    category: "Income reporting",
-    title: "His Former Employer Reported $30,000 More Income Than He Expected",
-    description:
-      "The income connected with an IRS notice appeared much higher than the W-2 in his records.",
-    href: "/blog/real-money-stories/employer-reported-30000-more-income",
-  },
-];
+import { homepageStories } from "../../lib/content/catalog";
 
 export default function FeaturedStories() {
-  const [featuredStory, ...otherStories] = stories;
+  const [featuredStory, ...otherStories] = homepageStories;
+
+  if (!featuredStory) {
+    return null;
+  }
 
   return (
     <section className="portal-section portal-stories-section">
@@ -78,7 +42,9 @@ export default function FeaturedStories() {
 
               <h3>{featuredStory.title}</h3>
               <p>{featuredStory.description}</p>
-              <strong className="portal-read-link">Read the story →</strong>
+              <strong className="portal-read-link">
+                Read the story · {featuredStory.readTime} →
+              </strong>
             </div>
           </Link>
 
@@ -94,7 +60,9 @@ export default function FeaturedStories() {
                 </span>
 
                 <span className="portal-story-row-content">
-                  <small>{story.category}</small>
+                  <small>
+                    {story.category} · {story.readTime}
+                  </small>
                   <strong>{story.title}</strong>
                   <span>{story.description}</span>
                 </span>

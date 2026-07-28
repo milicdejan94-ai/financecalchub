@@ -1,28 +1,6 @@
 import Link from "next/link";
 
-const explainers = [
-  {
-    category: "Taxes",
-    title: "How Much Is $70,000 After Taxes?",
-    description:
-      "See how federal taxes and payroll deductions may affect annual and paycheck-level take-home pay.",
-    href: "/blog/how-much-is-70000-after-taxes",
-  },
-  {
-    category: "Income",
-    title: "$25 an Hour Is How Much a Year?",
-    description:
-      "Convert an hourly wage into annual, monthly, biweekly and weekly gross income.",
-    href: "/blog/25-an-hour-is-how-much-a-year",
-  },
-  {
-    category: "Housing",
-    title: "What Is the Payment on a $300,000 Mortgage?",
-    description:
-      "Understand how interest, property taxes and insurance may affect the full monthly payment.",
-    href: "/blog/300000-mortgage-payment",
-  },
-];
+import { homepageGuides } from "../../lib/content/catalog";
 
 export default function EducationalExplainers() {
   return (
@@ -38,13 +16,15 @@ export default function EducationalExplainers() {
         </div>
 
         <div className="portal-explainer-grid">
-          {explainers.map((article) => (
+          {homepageGuides.map((article) => (
             <Link
               className="portal-explainer-card"
               href={article.href}
               key={article.href}
             >
-              <span>{article.category}</span>
+              <span>
+                {article.category} · {article.readTime}
+              </span>
               <h3>{article.title}</h3>
               <p>{article.description}</p>
               <strong>Read the guide →</strong>

@@ -1,72 +1,12 @@
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-
-const stories = [
-  {
-    title:
-      "Her W-2 Was Wrong — Her Employer Still Hadn't Fixed It as Tax Day Got Closer",
-    description:
-      'A taxpayer said her W-2 still appeared wrong after repeated follow-ups with an employer while the filing deadline was getting closer.',
-    href: '/blog/real-money-stories/wrong-w2-employer-not-correcting',
-    category: 'W-2 Tax Story',
-  },
-  {
-    title:
-      "He Hadn't Filed Taxes in Nearly Eight Years — and Was Afraid to Find Out What He Owed",
-    description:
-      'A taxpayer said he had not filed tax returns in nearly eight years and had become increasingly afraid of the penalties and consequences.',
-    href: '/blog/real-money-stories/not-filed-taxes-nearly-eight-years',
-    category: 'Tax Story',
-  },
-  {
-    title:
-      'She Made About $55,000 as a 1099 Contractor — Then She Saw an $8,000 Tax Bill',
-    description:
-      'A 1099 contractor said she earned about $55,000 and panicked after tax software showed an approximately $8,000 tax bill.',
-    href: '/blog/real-money-stories/55000-1099-8000-tax-bill',
-    category: 'Self-Employment Tax Story',
-  },
-  {
-    title:
-      'His Tax Return Was Accepted — Then He Realized He Left Out a W-2',
-    description:
-      'A taxpayer realized that one W-2 had been omitted after the return was already accepted. What does the IRS say about correcting the return?',
-    href: '/blog/real-money-stories/return-accepted-forgot-w2',
-    category: 'Tax Story',
-  },
-  {
-    title:
-      "She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem",
-    description:
-      'A state payroll problem appeared to connect an employee with the wrong work location. The withholding and W-2 questions became more complicated than expected.',
-    href:
-      '/blog/real-money-stories/taxed-in-wrong-state-payroll-problem',
-    category: 'Tax Story',
-  },
-  {
-    title:
-      'His Former Employer Reported $30,000 More Income Than He Expected — Then the IRS Letter Arrived',
-    description:
-      'He said his W-2 showed about $100,000, but an IRS notice appeared to reference roughly $130,000 in wages and more than $5,000 in proposed tax.',
-    href:
-      '/blog/real-money-stories/employer-reported-30000-more-income',
-    category: 'Tax Story',
-  },
-  {
-    title:
-      'The IRS Said He Owed $20,000 — But He Says He Was Still in High School',
-    description:
-      'A publicly shared taxpayer experience began with an IRS notice for roughly $20,000 and a tax year the taxpayer said made almost no sense.',
-    href:
-      '/blog/real-money-stories/irs-said-he-owed-20000-high-school',
-    category: 'Tax Story',
-  },
-];
+import Link from "next/link";
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import { realMoneyStories } from "../../../lib/content/catalog";
 
 export const metadata = {
-  title: 'Real Money Stories | Tax, Paycheck & Finance Experiences',
+  title: "Real Money Stories | Tax, Paycheck & Finance Experiences",
   description:
-    'Read real-world money stories and educational case studies about tax notices, paycheck confusion, mortgage costs, debt and other personal finance problems.',
+    "Read real-world money stories and educational case studies about tax notices, paycheck confusion, mortgage costs, debt and other personal finance problems.",
 };
 
 export default function RealMoneyStoriesPage() {
@@ -75,9 +15,9 @@ export default function RealMoneyStoriesPage() {
       <div className="container">
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/blog' },
-            { label: 'Real Money Stories' },
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: "Real Money Stories" },
           ]}
         />
 
@@ -105,10 +45,10 @@ export default function RealMoneyStoriesPage() {
           </p>
 
           <p>
-            Some stories are based on publicly shared experiences. FinanceCalcHub
-            does not independently verify every claim made by the original
-            individual. Identifying details are omitted, and each story clearly
-            explains its source and editorial context.
+            Some stories are based on publicly shared experiences.
+            FinanceCalcHub does not independently verify every claim made by the
+            original individual. Identifying details are omitted, and each story
+            clearly explains its source and editorial context.
           </p>
 
           <p>
@@ -128,16 +68,16 @@ export default function RealMoneyStoriesPage() {
           </p>
 
           <div className="grid">
-            {stories.map((story) => (
-              <a className="card" href={story.href} key={story.href}>
+            {realMoneyStories.map((story) => (
+              <Link className="card" href={story.href} key={story.href}>
                 <p className="eyebrow">{story.category}</p>
 
                 <h3>{story.title}</h3>
 
                 <p>{story.description}</p>
 
-                <span>Read story →</span>
-              </a>
+                <span>Read story · {story.readTime} →</span>
+              </Link>
             ))}
           </div>
         </div>
@@ -155,8 +95,8 @@ export default function RealMoneyStoriesPage() {
           <h3>Paycheck stories</h3>
 
           <p>
-            Situations where take-home pay, withholding or payroll deductions did
-            not match what someone expected.
+            Situations where take-home pay, withholding or payroll deductions
+            did not match what someone expected.
           </p>
 
           <h3>Mortgage and home cost stories</h3>
@@ -169,9 +109,9 @@ export default function RealMoneyStoriesPage() {
           <h3>Debt and investing stories</h3>
 
           <p>
-            Stories about credit card interest, debt payoff, investment taxes and
-            financial assumptions that looked very different once real numbers
-            were involved.
+            Stories about credit card interest, debt payoff, investment taxes
+            and financial assumptions that looked very different once real
+            numbers were involved.
           </p>
         </div>
 
@@ -202,36 +142,36 @@ export default function RealMoneyStoriesPage() {
           title="Explore FinanceCalcHub"
           tools={[
             {
-              title: 'Personal Finance Blog',
-              href: '/blog',
+              title: "Personal Finance Blog",
+              href: "/blog",
             },
             {
-              title: 'Federal Tax Calculator',
-              href: '/calculators/federal-tax',
+              title: "Federal Tax Calculator",
+              href: "/calculators/federal-tax",
             },
             {
-              title: 'Paycheck Calculator',
-              href: '/calculators/paycheck',
+              title: "Paycheck Calculator",
+              href: "/calculators/paycheck",
             },
             {
-              title: 'Paycheck Calculators by State',
-              href: '/paycheck-calculator',
+              title: "Paycheck Calculators by State",
+              href: "/paycheck-calculator",
             },
             {
-              title: 'Mortgage Calculator',
-              href: '/calculators/mortgage',
+              title: "Mortgage Calculator",
+              href: "/calculators/mortgage",
             },
             {
-              title: 'Debt Payoff Calculator',
-              href: '/calculators/debt-payoff',
+              title: "Debt Payoff Calculator",
+              href: "/calculators/debt-payoff",
             },
             {
-              title: 'Methodology',
-              href: '/methodology',
+              title: "Methodology",
+              href: "/methodology",
             },
             {
-              title: 'Disclaimer',
-              href: '/disclaimer',
+              title: "Disclaimer",
+              href: "/disclaimer",
             },
           ]}
         />
