@@ -1,43 +1,44 @@
-import './globals.css';
-import Script from 'next/script';
+import "./globals.css";
+import Script from "next/script";
+import SiteHeader from "../components/layout/SiteHeader";
 
 export const metadata = {
-  metadataBase: new URL('https://www.financecalchub.com'),
+  metadataBase: new URL("https://www.financecalchub.com"),
 
   alternates: {
-    canonical: './',
+    canonical: "./",
   },
 
   title: {
-    default: 'FinanceCalcHub | Free US Financial Calculators',
-    template: '%s | FinanceCalcHub',
+    default: "FinanceCalcHub | Free US Financial Calculators",
+    template: "%s | FinanceCalcHub",
   },
 
   description:
-    'Free financial calculators for US users. Estimate paychecks, salary, mortgage payments, loans, debt payoff, savings, compound interest and retirement planning.',
+    "Free financial calculators for US users. Estimate paychecks, salary, mortgage payments, loans, debt payoff, savings, compound interest and retirement planning.",
 
   keywords: [
-    'finance calculator',
-    'paycheck calculator',
-    'salary calculator',
-    'mortgage calculator',
-    'loan calculator',
-    'debt payoff calculator',
-    'credit card payoff calculator',
-    'retirement calculator',
-    '401k calculator',
-    'compound interest calculator',
-    'US financial calculators',
+    "finance calculator",
+    "paycheck calculator",
+    "salary calculator",
+    "mortgage calculator",
+    "loan calculator",
+    "debt payoff calculator",
+    "credit card payoff calculator",
+    "retirement calculator",
+    "401k calculator",
+    "compound interest calculator",
+    "US financial calculators",
   ],
 
-  authors: [{ name: 'FinanceCalcHub' }],
+  authors: [{ name: "FinanceCalcHub" }],
 
-  creator: 'FinanceCalcHub',
-  publisher: 'FinanceCalcHub',
+  creator: "FinanceCalcHub",
+  publisher: "FinanceCalcHub",
 
   other: {
-    'google-adsense-account': 'ca-pub-4464337907348148',
-    'p:domain_verify': 'fc764f87b843fe886a7e317fed37af25',
+    "google-adsense-account": "ca-pub-4464337907348148",
+    "p:domain_verify": "fc764f87b843fe886a7e317fed37af25",
   },
 
   robots: {
@@ -46,27 +47,27 @@ export const metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
 
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://www.financecalchub.com',
-    siteName: 'FinanceCalcHub',
-    title: 'FinanceCalcHub | Free US Financial Calculators',
+    type: "website",
+    locale: "en_US",
+    url: "https://www.financecalchub.com",
+    siteName: "FinanceCalcHub",
+    title: "FinanceCalcHub | Free US Financial Calculators",
     description:
-      'Free calculators for paychecks, salary, mortgage payments, loans, debt payoff, savings, compound interest and retirement planning.',
+      "Free calculators for paychecks, salary, mortgage payments, loans, debt payoff, savings, compound interest and retirement planning.",
   },
 
   twitter: {
-    card: 'summary_large_image',
-    title: 'FinanceCalcHub | Free US Financial Calculators',
+    card: "summary_large_image",
+    title: "FinanceCalcHub | Free US Financial Calculators",
     description:
-      'Free US financial calculators for paychecks, mortgages, loans, debt payoff, savings and retirement planning.',
+      "Free US financial calculators for paychecks, mortgages, loans, debt payoff, savings and retirement planning.",
   },
 };
 
@@ -95,24 +96,7 @@ export default function RootLayout({
           </>
         )}
 
-        <header className="site-header">
-          <div className="container header-inner">
-            <a href="/" className="logo">
-              FinanceCalcHub
-            </a>
-
-            <nav className="main-nav">
-  <a href="/calculators">All Calculators</a>
-  <a href="/calculators/paycheck">Paycheck</a>
-  <a href="/paycheck-calculator">By State</a>
-  <a href="/salary-calculator">Salary</a>
-  <a href="/calculators/mortgage">Mortgage</a>
-  <a href="/calculators/loan">Loan</a>
-  <a href="/investing">Investing</a>
-  <a href="/blog">Blog</a>
-</nav>
-          </div>
-        </header>
+        <SiteHeader />
 
         <main>{children}</main>
 
@@ -129,17 +113,17 @@ export default function RootLayout({
               </div>
 
               <div>
-  <h4>Calculators</h4>
-  <a href="/calculators">All Calculators</a>
-  <a href="/calculators/paycheck">Paycheck Calculator</a>
-  <a href="/paycheck-calculator">Paycheck by State</a>
-  <a href="/salary-calculator">Salary Calculator</a>
-  <a href="/salary-after-tax">Salary After Tax</a>
-  <a href="/hourly-wage">Hourly Wage to Salary</a>
-  <a href="/calculators/mortgage">Mortgage Calculator</a>
-  <a href="/calculators/loan">Loan Calculator</a>
-  <a href="/investing">Investing for Beginners</a>
-</div>
+                <h4>Calculators</h4>
+                <a href="/calculators">All Calculators</a>
+                <a href="/calculators/paycheck">Paycheck Calculator</a>
+                <a href="/paycheck-calculator">Paycheck by State</a>
+                <a href="/salary-calculator">Salary Calculator</a>
+                <a href="/salary-after-tax">Salary After Tax</a>
+                <a href="/hourly-wage">Hourly Wage to Salary</a>
+                <a href="/calculators/mortgage">Mortgage Calculator</a>
+                <a href="/calculators/loan">Loan Calculator</a>
+                <a href="/investing">Investing for Beginners</a>
+              </div>
 
               <div>
                 <h4>Popular Tools</h4>
@@ -149,13 +133,9 @@ export default function RootLayout({
                 <a href="/mortgage-payment">Mortgage Payment by Amount</a>
                 <a href="/calculators/refinance">Refinance Calculator</a>
                 <a href="/calculators/debt-payoff">Debt Payoff Calculator</a>
-                <a href="/calculators/credit-card-payoff">
-                  Credit Card Payoff
-                </a>
+                <a href="/calculators/credit-card-payoff">Credit Card Payoff</a>
                 <a href="/calculators/401k">401k Calculator</a>
-                <a href="/calculators/compound-interest">
-                  Compound Interest
-                </a>
+                <a href="/calculators/compound-interest">Compound Interest</a>
               </div>
 
               <div>
@@ -173,8 +153,8 @@ export default function RootLayout({
 
             <div className="footer-bottom">
               <p>
-                © 2026 FinanceCalcHub. Educational estimates only. Not financial,
-                tax, legal, mortgage or investment advice.
+                © 2026 FinanceCalcHub. Educational estimates only. Not
+                financial, tax, legal, mortgage or investment advice.
               </p>
             </div>
           </div>
