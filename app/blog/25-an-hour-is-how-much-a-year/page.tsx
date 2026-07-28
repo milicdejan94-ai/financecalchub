@@ -6,6 +6,18 @@ export const metadata = {
   title: '$25 an Hour Is How Much a Year? | Monthly, Weekly & Paycheck Guide',
   description:
     'See how $25 an hour converts to yearly, monthly, biweekly, weekly and daily gross pay, plus what can affect take-home pay after taxes and deductions.',
+  openGraph: {
+    title: '$25 an Hour Is How Much a Year? | Monthly, Weekly & Paycheck Guide',
+    description: 'See how $25 an hour converts to yearly, monthly, biweekly, weekly and daily gross pay, plus what can affect take-home pay after taxes and deductions.',
+    url: '/blog/25-an-hour-is-how-much-a-year',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '$25 an Hour Is How Much a Year? | Monthly, Weekly & Paycheck Guide',
+    description: 'See how $25 an hour converts to yearly, monthly, biweekly, weekly and daily gross pay, plus what can affect take-home pay after taxes and deductions.',
+  },
 };
 
 export default function TwentyFiveAnHourPage() {

@@ -5,6 +5,18 @@ import BlogPostingSchema from '../../../../components/BlogPostingSchema';
 export const metadata = {
   title: "Wrong W-2 and Employer Won't Fix It? What IRS Says",
   description: 'An employee said her W-2 was still wrong after repeated employer follow-ups. See what IRS guidance says about corrected W-2s and Form 4852.',
+  openGraph: {
+    title: 'Wrong W-2 and Employer Won\'t Fix It? What IRS Says',
+    description: 'An employee said her W-2 was still wrong after repeated employer follow-ups. See what IRS guidance says about corrected W-2s and Form 4852.',
+    url: '/blog/real-money-stories/wrong-w2-employer-not-correcting',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Wrong W-2 and Employer Won\'t Fix It? What IRS Says',
+    description: 'An employee said her W-2 was still wrong after repeated employer follow-ups. See what IRS guidance says about corrected W-2s and Form 4852.',
+  },
 };
 
 export default function WrongW2EmployerNotCorrectingPage() {

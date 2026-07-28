@@ -6,6 +6,18 @@ export const metadata = {
   title: 'Rent vs Buy: Key Factors to Consider | FinanceCalcHub',
   description:
     'Compare renting and buying a home using key factors such as monthly cost, upfront cash, time horizon, maintenance, flexibility and long-term risk.',
+  openGraph: {
+    title: 'Rent vs Buy: Key Factors to Consider | FinanceCalcHub',
+    description: 'Compare renting and buying a home using key factors such as monthly cost, upfront cash, time horizon, maintenance, flexibility and long-term risk.',
+    url: '/blog/rent-vs-buy-key-factors',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Rent vs Buy: Key Factors to Consider | FinanceCalcHub',
+    description: 'Compare renting and buying a home using key factors such as monthly cost, upfront cash, time horizon, maintenance, flexibility and long-term risk.',
+  },
 };
 
 export default function RentVsBuyKeyFactorsPage() {

@@ -6,6 +6,18 @@ export const metadata = {
   title: 'How Much House Can I Afford? | Home Affordability Guide',
   description:
     'Learn how income, debts, down payment, mortgage rate, taxes, insurance and debt-to-income ratio affect how much house you may be able to afford.',
+  openGraph: {
+    title: 'How Much House Can I Afford? | Home Affordability Guide',
+    description: 'Learn how income, debts, down payment, mortgage rate, taxes, insurance and debt-to-income ratio affect how much house you may be able to afford.',
+    url: '/blog/how-much-house-can-i-afford',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How Much House Can I Afford? | Home Affordability Guide',
+    description: 'Learn how income, debts, down payment, mortgage rate, taxes, insurance and debt-to-income ratio affect how much house you may be able to afford.',
+  },
 };
 
 export default function HowMuchHouseCanIAffordPage() {

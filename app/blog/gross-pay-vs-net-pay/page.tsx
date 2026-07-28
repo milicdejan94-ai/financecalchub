@@ -6,6 +6,18 @@ export const metadata = {
   title: 'Gross Pay vs Net Pay: What Is the Difference? | FinanceCalcHub',
   description:
     'Understand gross pay vs net pay, common paycheck deductions, take-home pay examples and how to estimate your real monthly budget.',
+  openGraph: {
+    title: 'Gross Pay vs Net Pay: What Is the Difference? | FinanceCalcHub',
+    description: 'Understand gross pay vs net pay, common paycheck deductions, take-home pay examples and how to estimate your real monthly budget.',
+    url: '/blog/gross-pay-vs-net-pay',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Gross Pay vs Net Pay: What Is the Difference? | FinanceCalcHub',
+    description: 'Understand gross pay vs net pay, common paycheck deductions, take-home pay examples and how to estimate your real monthly budget.',
+  },
 };
 
 export default function GrossPayVsNetPayPage() {

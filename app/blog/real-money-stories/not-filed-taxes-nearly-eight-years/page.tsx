@@ -5,6 +5,18 @@ import BlogPostingSchema from '../../../../components/BlogPostingSchema';
 export const metadata = {
   title: 'Nearly 8 Years of Unfiled Tax Returns | Real Tax Story',
   description: 'A taxpayer said he had not filed tax returns in nearly eight years. See what IRS guidance says about past-due returns, records and payment options.',
+  openGraph: {
+    title: 'Nearly 8 Years of Unfiled Tax Returns | Real Tax Story',
+    description: 'A taxpayer said he had not filed tax returns in nearly eight years. See what IRS guidance says about past-due returns, records and payment options.',
+    url: '/blog/real-money-stories/not-filed-taxes-nearly-eight-years',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Nearly 8 Years of Unfiled Tax Returns | Real Tax Story',
+    description: 'A taxpayer said he had not filed tax returns in nearly eight years. See what IRS guidance says about past-due returns, records and payment options.',
+  },
 };
 
 export default function NotFiledTaxesNearlyEightYearsPage() {

@@ -6,6 +6,18 @@ export const metadata = {
   title: '$30 an Hour Is How Much a Year? | Monthly, Weekly & Take-Home Pay',
   description:
     'See how much $30 an hour is per year, month, week and biweekly paycheck before taxes, plus factors that affect take-home pay.',
+  openGraph: {
+    title: '$30 an Hour Is How Much a Year? | Monthly, Weekly & Take-Home Pay',
+    description: 'See how much $30 an hour is per year, month, week and biweekly paycheck before taxes, plus factors that affect take-home pay.',
+    url: '/blog/30-an-hour-is-how-much-a-year',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '$30 an Hour Is How Much a Year? | Monthly, Weekly & Take-Home Pay',
+    description: 'See how much $30 an hour is per year, month, week and biweekly paycheck before taxes, plus factors that affect take-home pay.',
+  },
 };
 
 export default function ThirtyAnHourIsHowMuchAYearPage() {

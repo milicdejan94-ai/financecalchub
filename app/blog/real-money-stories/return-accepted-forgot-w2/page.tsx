@@ -5,6 +5,18 @@ import BlogPostingSchema from '../../../../components/BlogPostingSchema';
 export const metadata = {
   title: 'Forgot a W-2 After Filing Taxes? A Real Tax Story',
   description: 'A taxpayer realized one W-2 had been left out after his return was accepted. See what IRS guidance says about correcting an already filed return.',
+  openGraph: {
+    title: 'Forgot a W-2 After Filing Taxes? A Real Tax Story',
+    description: 'A taxpayer realized one W-2 had been left out after his return was accepted. See what IRS guidance says about correcting an already filed return.',
+    url: '/blog/real-money-stories/return-accepted-forgot-w2',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Forgot a W-2 After Filing Taxes? A Real Tax Story',
+    description: 'A taxpayer realized one W-2 had been left out after his return was accepted. See what IRS guidance says about correcting an already filed return.',
+  },
 };
 
 export default function ReturnAcceptedForgotW2Page() {

@@ -6,6 +6,18 @@ export const metadata = {
   title: 'Mortgage Payment Basics for First-Time Buyers | FinanceCalcHub',
   description:
     'Learn what makes up a mortgage payment, including principal, interest, taxes, insurance, PMI, escrow and common first-time buyer costs.',
+  openGraph: {
+    title: 'Mortgage Payment Basics for First-Time Buyers | FinanceCalcHub',
+    description: 'Learn what makes up a mortgage payment, including principal, interest, taxes, insurance, PMI, escrow and common first-time buyer costs.',
+    url: '/blog/mortgage-payment-basics',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mortgage Payment Basics for First-Time Buyers | FinanceCalcHub',
+    description: 'Learn what makes up a mortgage payment, including principal, interest, taxes, insurance, PMI, escrow and common first-time buyer costs.',
+  },
 };
 
 export default function MortgageBasicsArticle() {

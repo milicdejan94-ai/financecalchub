@@ -6,6 +6,18 @@ export const metadata = {
   title: '$300,000 Mortgage Payment: Monthly Cost Examples | FinanceCalcHub',
   description:
     'Estimate a $300,000 mortgage payment with examples for different rates and terms, plus taxes, insurance, PMI, HOA fees and affordability factors.',
+  openGraph: {
+    title: '$300,000 Mortgage Payment: Monthly Cost Examples | FinanceCalcHub',
+    description: 'Estimate a $300,000 mortgage payment with examples for different rates and terms, plus taxes, insurance, PMI, HOA fees and affordability factors.',
+    url: '/blog/300000-mortgage-payment',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '$300,000 Mortgage Payment: Monthly Cost Examples | FinanceCalcHub',
+    description: 'Estimate a $300,000 mortgage payment with examples for different rates and terms, plus taxes, insurance, PMI, HOA fees and affordability factors.',
+  },
 };
 
 export default function ThreeHundredThousandMortgagePaymentPage() {

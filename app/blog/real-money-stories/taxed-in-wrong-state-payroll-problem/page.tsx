@@ -5,6 +5,18 @@ import BlogPostingSchema from '../../../../components/BlogPostingSchema';
 export const metadata = {
   title: 'Payroll Taxed Her in the Wrong State | Tax Story',
   description: 'An employee discovered state withholding that appeared connected with the wrong work location. See which payroll and W-2 records may be worth checking.',
+  openGraph: {
+    title: 'Payroll Taxed Her in the Wrong State | Tax Story',
+    description: 'An employee discovered state withholding that appeared connected with the wrong work location. See which payroll and W-2 records may be worth checking.',
+    url: '/blog/real-money-stories/taxed-in-wrong-state-payroll-problem',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Payroll Taxed Her in the Wrong State | Tax Story',
+    description: 'An employee discovered state withholding that appeared connected with the wrong work location. See which payroll and W-2 records may be worth checking.',
+  },
 };
 
 export default function TaxedInWrongStatePayrollProblemPage() {

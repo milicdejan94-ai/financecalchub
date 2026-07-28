@@ -6,6 +6,18 @@ export const metadata = {
   title: 'How to Estimate Your Take-Home Pay | FinanceCalcHub',
   description:
     'Learn how to estimate take-home pay from gross income, payroll taxes, federal tax, state tax, benefits and paycheck deductions.',
+  openGraph: {
+    title: 'How to Estimate Your Take-Home Pay | FinanceCalcHub',
+    description: 'Learn how to estimate take-home pay from gross income, payroll taxes, federal tax, state tax, benefits and paycheck deductions.',
+    url: '/blog/how-to-estimate-take-home-pay',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How to Estimate Your Take-Home Pay | FinanceCalcHub',
+    description: 'Learn how to estimate take-home pay from gross income, payroll taxes, federal tax, state tax, benefits and paycheck deductions.',
+  },
 };
 
 export default function TakeHomePayArticle() {

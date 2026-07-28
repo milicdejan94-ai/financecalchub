@@ -6,6 +6,18 @@ export const metadata = {
   title: 'What Is the Monthly Payment on a $400,000 Mortgage? | FinanceCalcHub',
   description:
     'Estimate the monthly payment on a $400,000 mortgage and understand how interest rate, term, taxes, insurance, PMI and HOA fees affect total housing cost.',
+  openGraph: {
+    title: 'What Is the Monthly Payment on a $400,000 Mortgage? | FinanceCalcHub',
+    description: 'Estimate the monthly payment on a $400,000 mortgage and understand how interest rate, term, taxes, insurance, PMI and HOA fees affect total housing cost.',
+    url: '/blog/400000-mortgage-payment',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'What Is the Monthly Payment on a $400,000 Mortgage? | FinanceCalcHub',
+    description: 'Estimate the monthly payment on a $400,000 mortgage and understand how interest rate, term, taxes, insurance, PMI and HOA fees affect total housing cost.',
+  },
 };
 
 export default function FourHundredThousandMortgagePaymentPage() {

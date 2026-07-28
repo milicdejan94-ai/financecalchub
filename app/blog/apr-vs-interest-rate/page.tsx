@@ -6,6 +6,18 @@ export const metadata = {
   title: 'APR vs Interest Rate: What Borrowers Should Know | FinanceCalcHub',
   description:
     'Learn the difference between APR and interest rate, why APR can be higher, and how to compare loans, credit cards, auto loans and mortgages more clearly.',
+  openGraph: {
+    title: 'APR vs Interest Rate: What Borrowers Should Know | FinanceCalcHub',
+    description: 'Learn the difference between APR and interest rate, why APR can be higher, and how to compare loans, credit cards, auto loans and mortgages more clearly.',
+    url: '/blog/apr-vs-interest-rate',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'APR vs Interest Rate: What Borrowers Should Know | FinanceCalcHub',
+    description: 'Learn the difference between APR and interest rate, why APR can be higher, and how to compare loans, credit cards, auto loans and mortgages more clearly.',
+  },
 };
 
 export default function AprVsInterestRatePage() {

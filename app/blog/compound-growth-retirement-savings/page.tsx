@@ -6,6 +6,18 @@ export const metadata = {
   title: 'How Compound Growth Affects Retirement Savings | FinanceCalcHub',
   description:
     'Learn how compound growth, time, contribution rate, investment returns and fees can affect long-term retirement savings.',
+  openGraph: {
+    title: 'How Compound Growth Affects Retirement Savings | FinanceCalcHub',
+    description: 'Learn how compound growth, time, contribution rate, investment returns and fees can affect long-term retirement savings.',
+    url: '/blog/compound-growth-retirement-savings',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How Compound Growth Affects Retirement Savings | FinanceCalcHub',
+    description: 'Learn how compound growth, time, contribution rate, investment returns and fees can affect long-term retirement savings.',
+  },
 };
 
 export default function CompoundGrowthArticle() {

@@ -5,6 +5,18 @@ import BlogPostingSchema from '../../../../components/BlogPostingSchema';
 export const metadata = {
   title: '$55,000 in 1099 Income and an $8,000 Tax Bill',
   description: 'A contractor said she earned about $55,000 and saw an estimated $8,000 tax bill. Learn why 1099 income can create a surprising tax balance.',
+  openGraph: {
+    title: '$55,000 in 1099 Income and an $8,000 Tax Bill',
+    description: 'A contractor said she earned about $55,000 and saw an estimated $8,000 tax bill. Learn why 1099 income can create a surprising tax balance.',
+    url: '/blog/real-money-stories/55000-1099-8000-tax-bill',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '$55,000 in 1099 Income and an $8,000 Tax Bill',
+    description: 'A contractor said she earned about $55,000 and saw an estimated $8,000 tax bill. Learn why 1099 income can create a surprising tax balance.',
+  },
 };
 
 export default function Contractor55000TaxBillPage() {

@@ -6,6 +6,18 @@ export const metadata = {
   title: 'How Much Is $100,000 After Taxes? | FinanceCalcHub',
   description:
     'Estimate how much a $100,000 salary may be after taxes, including monthly, biweekly and weekly take-home pay examples.',
+  openGraph: {
+    title: 'How Much Is $100,000 After Taxes? | FinanceCalcHub',
+    description: 'Estimate how much a $100,000 salary may be after taxes, including monthly, biweekly and weekly take-home pay examples.',
+    url: '/blog/how-much-is-100000-after-taxes',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How Much Is $100,000 After Taxes? | FinanceCalcHub',
+    description: 'Estimate how much a $100,000 salary may be after taxes, including monthly, biweekly and weekly take-home pay examples.',
+  },
 };
 
 const annualSalary = 100000;

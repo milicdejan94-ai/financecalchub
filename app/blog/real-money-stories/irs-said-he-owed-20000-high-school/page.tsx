@@ -5,6 +5,18 @@ import BlogPostingSchema from '../../../../components/BlogPostingSchema';
 export const metadata = {
   title: "IRS Said He Owed $20,000 for Income He Didn't Recognize",
   description: 'A taxpayer said the IRS claimed he owed about $20,000 for a year when he was still in high school. See which income records may be worth checking.',
+  openGraph: {
+    title: 'IRS Said He Owed $20,000 for Income He Didn\'t Recognize',
+    description: 'A taxpayer said the IRS claimed he owed about $20,000 for a year when he was still in high school. See which income records may be worth checking.',
+    url: '/blog/real-money-stories/irs-said-he-owed-20000-high-school',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'IRS Said He Owed $20,000 for Income He Didn\'t Recognize',
+    description: 'A taxpayer said the IRS claimed he owed about $20,000 for a year when he was still in high school. See which income records may be worth checking.',
+  },
 };
 
 export default function IrsSaidHeOwed20000HighSchoolPage() {

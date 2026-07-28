@@ -6,6 +6,18 @@ export const metadata = {
   title: 'How to Pay Off Credit Card Debt Faster | FinanceCalcHub',
   description:
     'Learn how APR, monthly payment size, payoff strategy and new spending affect credit card debt payoff time.',
+  openGraph: {
+    title: 'How to Pay Off Credit Card Debt Faster | FinanceCalcHub',
+    description: 'Learn how APR, monthly payment size, payoff strategy and new spending affect credit card debt payoff time.',
+    url: '/blog/pay-off-credit-card-debt-faster',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How to Pay Off Credit Card Debt Faster | FinanceCalcHub',
+    description: 'Learn how APR, monthly payment size, payoff strategy and new spending affect credit card debt payoff time.',
+  },
 };
 
 export default function PayOffCreditCardDebtFasterPage() {

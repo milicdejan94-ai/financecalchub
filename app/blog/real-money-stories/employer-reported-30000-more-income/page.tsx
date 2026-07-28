@@ -5,6 +5,18 @@ import BlogPostingSchema from '../../../../components/BlogPostingSchema';
 export const metadata = {
   title: 'Employer Reported $30,000 More Income | Tax Story',
   description: 'A taxpayer said his W-2 showed about $100,000 while an IRS notice appeared to reference roughly $130,000 in wages. See what may explain the mismatch.',
+  openGraph: {
+    title: 'Employer Reported $30,000 More Income | Tax Story',
+    description: 'A taxpayer said his W-2 showed about $100,000 while an IRS notice appeared to reference roughly $130,000 in wages. See what may explain the mismatch.',
+    url: '/blog/real-money-stories/employer-reported-30000-more-income',
+    type: 'article',
+    siteName: 'FinanceCalcHub',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Employer Reported $30,000 More Income | Tax Story',
+    description: 'A taxpayer said his W-2 showed about $100,000 while an IRS notice appeared to reference roughly $130,000 in wages. See what may explain the mismatch.',
+  },
 };
 
 export default function EmployerReported30000MoreIncomePage() {
