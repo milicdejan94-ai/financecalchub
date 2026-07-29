@@ -1,22 +1,47 @@
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import BlogPostingSchema from '../../../components/BlogPostingSchema';
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import BlogPostingSchema from "../../../components/BlogPostingSchema";
 
+import { AboutArticle, ArticleHero } from "../../../components/article";
+import {
+  editorialReviewDesk,
+  editorialTeam,
+} from "../../../lib/content/authors";
+import type { ArticleMetadata } from "../../../lib/content/article-metadata";
 export const metadata = {
-  title: '$25 an Hour Is How Much a Year? | Monthly, Weekly & Paycheck Guide',
+  title: "$25 an Hour Is How Much a Year? | Monthly, Weekly & Paycheck Guide",
   description:
-    'See how $25 an hour converts to yearly, monthly, biweekly, weekly and daily gross pay, plus what can affect take-home pay after taxes and deductions.',
+    "See how $25 an hour converts to yearly, monthly, biweekly, weekly and daily gross pay, plus what can affect take-home pay after taxes and deductions.",
   openGraph: {
-    title: '$25 an Hour Is How Much a Year? | Monthly, Weekly & Paycheck Guide',
-    description: 'See how $25 an hour converts to yearly, monthly, biweekly, weekly and daily gross pay, plus what can affect take-home pay after taxes and deductions.',
-    url: '/blog/25-an-hour-is-how-much-a-year',
-    type: 'article',
-    siteName: 'FinanceCalcHub',
+    title: "$25 an Hour Is How Much a Year? | Monthly, Weekly & Paycheck Guide",
+    description:
+      "See how $25 an hour converts to yearly, monthly, biweekly, weekly and daily gross pay, plus what can affect take-home pay after taxes and deductions.",
+    url: "/blog/25-an-hour-is-how-much-a-year",
+    type: "article",
+    siteName: "FinanceCalcHub",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: '$25 an Hour Is How Much a Year? | Monthly, Weekly & Paycheck Guide',
-    description: 'See how $25 an hour converts to yearly, monthly, biweekly, weekly and daily gross pay, plus what can affect take-home pay after taxes and deductions.',
+    card: "summary_large_image",
+    title: "$25 an Hour Is How Much a Year? | Monthly, Weekly & Paycheck Guide",
+    description:
+      "See how $25 an hour converts to yearly, monthly, biweekly, weekly and daily gross pay, plus what can affect take-home pay after taxes and deductions.",
+  },
+};
+
+const articleMetadata: ArticleMetadata = {
+  title: "$25 an Hour Is How Much a Year?",
+  description:
+    "See how $25 an hour converts to yearly, monthly, biweekly, weekly and daily gross pay, plus what can affect take-home pay after taxes and deductions.",
+  category: "Hourly wage guide",
+  readingTime: "6 min read",
+  difficulty: "Beginner",
+  datePublished: "2026-06-08",
+  dateModified: "2026-07-28",
+  author: editorialTeam,
+  reviewer: editorialReviewDesk,
+  relatedCalculator: {
+    title: "$25 an Hour Calculator",
+    href: "/hourly-wage/25",
   },
 };
 
@@ -29,30 +54,34 @@ export default function TwentyFiveAnHourPage() {
           description="See how $25 an hour converts to yearly, monthly, biweekly, weekly and daily gross pay, plus what can affect take-home pay after taxes and deductions."
           path="/blog/25-an-hour-is-how-much-a-year"
           articleSection="Hourly Wage Guides"
+          datePublished={articleMetadata.datePublished}
+          dateModified={articleMetadata.dateModified}
+          authorName={articleMetadata.author.name}
+          authorUrl={articleMetadata.author.href}
+          reviewerName={articleMetadata.reviewer?.name}
+          reviewerUrl={articleMetadata.reviewer?.href}
         />
 
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/blog' },
-            { label: '$25 an Hour Is How Much a Year?' },
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: "$25 an Hour Is How Much a Year?" },
           ]}
         />
 
         <article className="content-box">
-          <p className="eyebrow">Hourly wage guide</p>
-
-          <h1>$25 an Hour Is How Much a Year?</h1>
+          <ArticleHero metadata={articleMetadata} />
 
           <p>
-            If you make $25 an hour, your annual income depends on how many hours
-            you work each week and how many weeks you work during the year. The
-            most common full-time estimate uses 40 hours per week and 52 weeks
-            per year.
+            If you make $25 an hour, your annual income depends on how many
+            hours you work each week and how many weeks you work during the
+            year. The most common full-time estimate uses 40 hours per week and
+            52 weeks per year.
           </p>
 
           <p>
-            Using that full-time assumption, $25 an hour equals{' '}
+            Using that full-time assumption, $25 an hour equals{" "}
             <strong>$52,000 per year before taxes</strong>. That number is gross
             pay, not take-home pay. Your real paycheck can be lower after income
             tax, payroll taxes, state tax, insurance, retirement contributions
@@ -60,11 +89,11 @@ export default function TwentyFiveAnHourPage() {
           </p>
 
           <p>
-            You can also compare the numbers in our{' '}
-            <a href="/hourly-wage/25">$25 an Hour Calculator</a>,{' '}
+            You can also compare the numbers in our{" "}
+            <a href="/hourly-wage/25">$25 an Hour Calculator</a>,{" "}
             <a href="/calculators/hourly-paycheck">
               Hourly Paycheck Calculator
-            </a>{' '}
+            </a>{" "}
             and <a href="/calculators/paycheck">Paycheck Calculator</a>.
           </p>
 
@@ -207,8 +236,8 @@ export default function TwentyFiveAnHourPage() {
           <p>
             Your net biweekly paycheck can be lower because of federal income
             tax withholding, Social Security, Medicare, state or local tax,
-            health insurance, retirement contributions, HSA or FSA deductions and
-            other employer deductions.
+            health insurance, retirement contributions, HSA or FSA deductions
+            and other employer deductions.
           </p>
 
           <h2>$25 an hour weekly and daily pay</h2>
@@ -231,9 +260,9 @@ export default function TwentyFiveAnHourPage() {
 
           <p>
             There is no single after-tax answer for $25 an hour because tax
-            withholding depends on filing status, location, deductions, benefits,
-            W-4 settings and other income. Two workers earning the same hourly
-            wage can have different take-home pay.
+            withholding depends on filing status, location, deductions,
+            benefits, W-4 settings and other income. Two workers earning the
+            same hourly wage can have different take-home pay.
           </p>
 
           <p>
@@ -246,15 +275,17 @@ export default function TwentyFiveAnHourPage() {
             <li>State and local income taxes where applicable</li>
             <li>Health, dental and vision insurance premiums</li>
             <li>401k, HSA, FSA or other pre-tax contributions</li>
-            <li>Post-tax deductions such as certain benefits or garnishments</li>
+            <li>
+              Post-tax deductions such as certain benefits or garnishments
+            </li>
           </ul>
 
           <p>
-            To estimate your own take-home pay, use the{' '}
+            To estimate your own take-home pay, use the{" "}
             <a href="/calculators/hourly-paycheck">
               Hourly Paycheck Calculator
-            </a>{' '}
-            and compare the result with the broader{' '}
+            </a>{" "}
+            and compare the result with the broader{" "}
             <a href="/calculators/paycheck">Paycheck Calculator</a>.
           </p>
 
@@ -262,9 +293,9 @@ export default function TwentyFiveAnHourPage() {
 
           <p>
             Gross pay is your pay before taxes and deductions. Net pay is the
-            amount that reaches your bank account. When comparing jobs, gross pay
-            tells you the wage level, while net pay helps you understand your
-            actual budget.
+            amount that reaches your bank account. When comparing jobs, gross
+            pay tells you the wage level, while net pay helps you understand
+            your actual budget.
           </p>
 
           <div className="table-wrap">
@@ -346,11 +377,11 @@ export default function TwentyFiveAnHourPage() {
           <h2>Example budget thinking for $25 an hour</h2>
 
           <p>
-            A good way to use this wage estimate is to start with gross pay, then
-            move toward a realistic monthly budget. First estimate your after-tax
-            paycheck. Then subtract fixed expenses such as rent, utilities,
-            transportation, debt payments and insurance. What remains can be
-            divided between groceries, savings, emergencies and flexible
+            A good way to use this wage estimate is to start with gross pay,
+            then move toward a realistic monthly budget. First estimate your
+            after-tax paycheck. Then subtract fixed expenses such as rent,
+            utilities, transportation, debt payments and insurance. What remains
+            can be divided between groceries, savings, emergencies and flexible
             spending.
           </p>
 
@@ -398,15 +429,14 @@ export default function TwentyFiveAnHourPage() {
           <h2>Helpful calculators</h2>
 
           <p>
-            Start with the{' '}
-            <a href="/hourly-wage/25">$25 an Hour Calculator</a>. Then compare
-            your wage with the{' '}
-            <a href="/hourly-wage">Hourly Wage Calculators</a>,{' '}
-            <a href="/salary-calculator">Salary Calculator</a>,{' '}
-            <a href="/salary-after-tax">Salary After Tax Calculators</a>,{' '}
+            Start with the <a href="/hourly-wage/25">$25 an Hour Calculator</a>.
+            Then compare your wage with the{" "}
+            <a href="/hourly-wage">Hourly Wage Calculators</a>,{" "}
+            <a href="/salary-calculator">Salary Calculator</a>,{" "}
+            <a href="/salary-after-tax">Salary After Tax Calculators</a>,{" "}
             <a href="/calculators/hourly-paycheck">
               Hourly Paycheck Calculator
-            </a>{' '}
+            </a>{" "}
             and <a href="/calculators/overtime">Overtime Calculator</a>.
           </p>
 
@@ -417,37 +447,38 @@ export default function TwentyFiveAnHourPage() {
             not calculate your actual tax liability, paycheck withholding,
             benefits, overtime eligibility or legal rights. Actual pay can vary
             based on your employer, location, filing status, deductions and work
-            schedule. Read our <a href="/methodology">methodology</a> and{' '}
+            schedule. Read our <a href="/methodology">methodology</a> and{" "}
             <a href="/disclaimer">disclaimer</a> for more details.
           </p>
+          <AboutArticle metadata={articleMetadata} />
         </article>
 
         <RelatedCalculators
           title="Related hourly and paycheck tools"
           tools={[
             {
-              title: '$25 an Hour Calculator',
-              href: '/hourly-wage/25',
+              title: "$25 an Hour Calculator",
+              href: "/hourly-wage/25",
             },
             {
-              title: 'Hourly Wage Calculators',
-              href: '/hourly-wage',
+              title: "Hourly Wage Calculators",
+              href: "/hourly-wage",
             },
             {
-              title: 'Hourly Paycheck Calculator',
-              href: '/calculators/hourly-paycheck',
+              title: "Hourly Paycheck Calculator",
+              href: "/calculators/hourly-paycheck",
             },
             {
-              title: 'Paycheck Calculator',
-              href: '/calculators/paycheck',
+              title: "Paycheck Calculator",
+              href: "/calculators/paycheck",
             },
             {
-              title: 'Salary Calculator',
-              href: '/salary-calculator',
+              title: "Salary Calculator",
+              href: "/salary-calculator",
             },
             {
-              title: 'Overtime Calculator',
-              href: '/calculators/overtime',
+              title: "Overtime Calculator",
+              href: "/calculators/overtime",
             },
           ]}
         />

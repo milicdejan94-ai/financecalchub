@@ -1,22 +1,47 @@
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import BlogPostingSchema from '../../../components/BlogPostingSchema';
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import BlogPostingSchema from "../../../components/BlogPostingSchema";
 
+import { AboutArticle, ArticleHero } from "../../../components/article";
+import {
+  editorialReviewDesk,
+  editorialTeam,
+} from "../../../lib/content/authors";
+import type { ArticleMetadata } from "../../../lib/content/article-metadata";
 export const metadata = {
-  title: 'Mortgage Payment Basics for First-Time Buyers | FinanceCalcHub',
+  title: "Mortgage Payment Basics for First-Time Buyers | FinanceCalcHub",
   description:
-    'Learn what makes up a mortgage payment, including principal, interest, taxes, insurance, PMI, escrow and common first-time buyer costs.',
+    "Learn what makes up a mortgage payment, including principal, interest, taxes, insurance, PMI, escrow and common first-time buyer costs.",
   openGraph: {
-    title: 'Mortgage Payment Basics for First-Time Buyers | FinanceCalcHub',
-    description: 'Learn what makes up a mortgage payment, including principal, interest, taxes, insurance, PMI, escrow and common first-time buyer costs.',
-    url: '/blog/mortgage-payment-basics',
-    type: 'article',
-    siteName: 'FinanceCalcHub',
+    title: "Mortgage Payment Basics for First-Time Buyers | FinanceCalcHub",
+    description:
+      "Learn what makes up a mortgage payment, including principal, interest, taxes, insurance, PMI, escrow and common first-time buyer costs.",
+    url: "/blog/mortgage-payment-basics",
+    type: "article",
+    siteName: "FinanceCalcHub",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Mortgage Payment Basics for First-Time Buyers | FinanceCalcHub',
-    description: 'Learn what makes up a mortgage payment, including principal, interest, taxes, insurance, PMI, escrow and common first-time buyer costs.',
+    card: "summary_large_image",
+    title: "Mortgage Payment Basics for First-Time Buyers | FinanceCalcHub",
+    description:
+      "Learn what makes up a mortgage payment, including principal, interest, taxes, insurance, PMI, escrow and common first-time buyer costs.",
+  },
+};
+
+const articleMetadata: ArticleMetadata = {
+  title: "Mortgage Payment Basics for First-Time Buyers",
+  description:
+    "Learn what makes up a mortgage payment, including principal, interest, taxes, insurance, PMI, escrow and common first-time buyer costs.",
+  category: "Mortgage guide",
+  readingTime: "8 min read",
+  difficulty: "Beginner",
+  datePublished: "2026-06-05",
+  dateModified: "2026-07-28",
+  author: editorialTeam,
+  reviewer: editorialReviewDesk,
+  relatedCalculator: {
+    title: "Mortgage Calculator",
+    href: "/calculators/mortgage",
   },
 };
 
@@ -29,33 +54,37 @@ export default function MortgageBasicsArticle() {
           description="Learn what makes up a mortgage payment, including principal, interest, taxes, insurance, PMI, escrow and common first-time buyer costs."
           path="/blog/mortgage-payment-basics"
           articleSection="Mortgage Guides"
+          datePublished={articleMetadata.datePublished}
+          dateModified={articleMetadata.dateModified}
+          authorName={articleMetadata.author.name}
+          authorUrl={articleMetadata.author.href}
+          reviewerName={articleMetadata.reviewer?.name}
+          reviewerUrl={articleMetadata.reviewer?.href}
         />
 
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/blog' },
-            { label: 'Mortgage Payment Basics' },
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: "Mortgage Payment Basics" },
           ]}
         />
 
         <article className="content-box">
-          <p className="eyebrow">Mortgage guide</p>
-
-          <h1>Mortgage Payment Basics for First-Time Buyers</h1>
+          <ArticleHero metadata={articleMetadata} />
 
           <p>
             A mortgage payment is usually more than just the loan payment. For
             many homeowners, the total monthly housing cost includes principal,
-            interest, property taxes, homeowners insurance, and sometimes private
-            mortgage insurance, HOA dues or other ownership costs.
+            interest, property taxes, homeowners insurance, and sometimes
+            private mortgage insurance, HOA dues or other ownership costs.
           </p>
 
           <p>
             This guide explains the main parts of a mortgage payment, why the
             same home price can produce different monthly payments, and how to
-            use mortgage calculators to test realistic home-buying scenarios.
-            It is educational information only, not mortgage, legal, tax or
+            use mortgage calculators to test realistic home-buying scenarios. It
+            is educational information only, not mortgage, legal, tax or
             financial advice.
           </p>
 
@@ -80,33 +109,52 @@ export default function MortgageBasicsArticle() {
               <tbody>
                 <tr>
                   <td>Principal</td>
-                  <td>The part of the payment that reduces the loan balance.</td>
+                  <td>
+                    The part of the payment that reduces the loan balance.
+                  </td>
                   <td>Builds equity over time as the balance goes down.</td>
                 </tr>
                 <tr>
                   <td>Interest</td>
                   <td>The cost of borrowing money from the lender.</td>
-                  <td>Higher rates usually mean higher payments and more total cost.</td>
+                  <td>
+                    Higher rates usually mean higher payments and more total
+                    cost.
+                  </td>
                 </tr>
                 <tr>
                   <td>Property taxes</td>
-                  <td>Local taxes based on property value and local tax rules.</td>
+                  <td>
+                    Local taxes based on property value and local tax rules.
+                  </td>
                   <td>Can add a large amount to the monthly housing budget.</td>
                 </tr>
                 <tr>
                   <td>Homeowners insurance</td>
-                  <td>Insurance coverage for the property and certain risks.</td>
-                  <td>Often required by lenders and varies by location and coverage.</td>
+                  <td>
+                    Insurance coverage for the property and certain risks.
+                  </td>
+                  <td>
+                    Often required by lenders and varies by location and
+                    coverage.
+                  </td>
                 </tr>
                 <tr>
                   <td>PMI</td>
-                  <td>Private mortgage insurance on some low-down-payment loans.</td>
-                  <td>Can increase the payment when the down payment is below 20%.</td>
+                  <td>
+                    Private mortgage insurance on some low-down-payment loans.
+                  </td>
+                  <td>
+                    Can increase the payment when the down payment is below 20%.
+                  </td>
                 </tr>
                 <tr>
                   <td>HOA fees</td>
                   <td>Fees paid to a homeowners association, if applicable.</td>
-                  <td>Can materially change affordability for condos or planned communities.</td>
+                  <td>
+                    Can materially change affordability for condos or planned
+                    communities.
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -117,8 +165,8 @@ export default function MortgageBasicsArticle() {
           <p>
             Principal is the amount you borrowed. Interest is the cost of
             borrowing that money. A fixed-rate mortgage uses the same
-            principal-and-interest payment each month, but the split changes over
-            time.
+            principal-and-interest payment each month, but the split changes
+            over time.
           </p>
 
           <p>
@@ -169,8 +217,8 @@ export default function MortgageBasicsArticle() {
           <p>
             Lower down payments can make buying a home possible sooner, but they
             usually mean a larger loan balance and may create additional monthly
-            costs. Compare both the upfront cash needed and the long-term monthly
-            payment.
+            costs. Compare both the upfront cash needed and the long-term
+            monthly payment.
           </p>
 
           <h2>Example mortgage payment breakdown</h2>
@@ -210,8 +258,12 @@ export default function MortgageBasicsArticle() {
                   <td>$100</td>
                 </tr>
                 <tr>
-                  <td><strong>Estimated total monthly housing cost</strong></td>
-                  <td><strong>$2,725</strong></td>
+                  <td>
+                    <strong>Estimated total monthly housing cost</strong>
+                  </td>
+                  <td>
+                    <strong>$2,725</strong>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -235,10 +287,11 @@ export default function MortgageBasicsArticle() {
           <h2>Why affordability is more than lender approval</h2>
 
           <p>
-            A lender may approve a payment that is technically possible, but that
-            does not always mean it is comfortable. A practical budget should
-            leave room for emergency savings, repairs, utilities, transportation,
-            food, insurance, debt payments and retirement contributions.
+            A lender may approve a payment that is technically possible, but
+            that does not always mean it is comfortable. A practical budget
+            should leave room for emergency savings, repairs, utilities,
+            transportation, food, insurance, debt payments and retirement
+            contributions.
           </p>
 
           <p>
@@ -252,16 +305,16 @@ export default function MortgageBasicsArticle() {
           <p>
             Start with the home price, down payment, loan term and interest
             rate. Then add property taxes, homeowners insurance, PMI, HOA fees
-            and a maintenance buffer. This gives a more realistic monthly housing
-            estimate than principal and interest alone.
+            and a maintenance buffer. This gives a more realistic monthly
+            housing estimate than principal and interest alone.
           </p>
 
           <p>
-            You can compare scenarios with our{' '}
-            <a href="/calculators/mortgage">Mortgage Calculator</a>,{' '}
+            You can compare scenarios with our{" "}
+            <a href="/calculators/mortgage">Mortgage Calculator</a>,{" "}
             <a href="/calculators/mortgage-affordability">
               Mortgage Affordability Calculator
-            </a>{' '}
+            </a>{" "}
             and <a href="/calculators/down-payment">Down Payment Calculator</a>.
           </p>
 
@@ -285,7 +338,9 @@ export default function MortgageBasicsArticle() {
             budget.
           </p>
 
-          <h3>Is a 30-year mortgage always better because the payment is lower?</h3>
+          <h3>
+            Is a 30-year mortgage always better because the payment is lower?
+          </h3>
           <p>
             Not necessarily. A 30-year term can reduce the monthly payment, but
             it may increase total interest. A shorter term may cost more monthly
@@ -294,54 +349,56 @@ export default function MortgageBasicsArticle() {
 
           <h3>Why does down payment affect the mortgage payment?</h3>
           <p>
-            A larger down payment reduces the amount borrowed. That can lower the
-            principal-and-interest payment and may also reduce or avoid PMI in
-            some situations.
+            A larger down payment reduces the amount borrowed. That can lower
+            the principal-and-interest payment and may also reduce or avoid PMI
+            in some situations.
           </p>
 
           <h3>Should I use gross income or take-home pay for affordability?</h3>
           <p>
             Lenders often evaluate gross income, but personal budgeting should
-            also consider take-home pay. Your real budget depends on what is left
-            after taxes, benefits, debts and savings needs.
+            also consider take-home pay. Your real budget depends on what is
+            left after taxes, benefits, debts and savings needs.
           </p>
 
           <h2>Important note</h2>
 
           <p>
-            This article is for educational purposes only and does not constitute
-            mortgage, lending, tax, legal, investment or financial advice.
-            Mortgage payments can vary based on lender rules, credit profile,
-            loan type, taxes, insurance, market rates and personal circumstances.
+            This article is for educational purposes only and does not
+            constitute mortgage, lending, tax, legal, investment or financial
+            advice. Mortgage payments can vary based on lender rules, credit
+            profile, loan type, taxes, insurance, market rates and personal
+            circumstances.
           </p>
+          <AboutArticle metadata={articleMetadata} />
         </article>
 
         <RelatedCalculators
           title="Related mortgage calculators"
           tools={[
             {
-              title: 'Mortgage Calculator',
-              href: '/calculators/mortgage',
+              title: "Mortgage Calculator",
+              href: "/calculators/mortgage",
             },
             {
-              title: 'Mortgage Affordability Calculator',
-              href: '/calculators/mortgage-affordability',
+              title: "Mortgage Affordability Calculator",
+              href: "/calculators/mortgage-affordability",
             },
             {
-              title: 'Down Payment Calculator',
-              href: '/calculators/down-payment',
+              title: "Down Payment Calculator",
+              href: "/calculators/down-payment",
             },
             {
-              title: 'Amortization Calculator',
-              href: '/calculators/amortization',
+              title: "Amortization Calculator",
+              href: "/calculators/amortization",
             },
             {
-              title: 'Extra Mortgage Payment Calculator',
-              href: '/calculators/extra-mortgage-payment',
+              title: "Extra Mortgage Payment Calculator",
+              href: "/calculators/extra-mortgage-payment",
             },
             {
-              title: 'Rent vs Buy Calculator',
-              href: '/calculators/rent-vs-buy',
+              title: "Rent vs Buy Calculator",
+              href: "/calculators/rent-vs-buy",
             },
           ]}
         />

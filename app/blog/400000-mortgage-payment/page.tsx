@@ -1,22 +1,49 @@
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import BlogPostingSchema from '../../../components/BlogPostingSchema';
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import BlogPostingSchema from "../../../components/BlogPostingSchema";
 
+import { AboutArticle, ArticleHero } from "../../../components/article";
+import {
+  editorialReviewDesk,
+  editorialTeam,
+} from "../../../lib/content/authors";
+import type { ArticleMetadata } from "../../../lib/content/article-metadata";
 export const metadata = {
-  title: 'What Is the Monthly Payment on a $400,000 Mortgage? | FinanceCalcHub',
+  title: "What Is the Monthly Payment on a $400,000 Mortgage? | FinanceCalcHub",
   description:
-    'Estimate the monthly payment on a $400,000 mortgage and understand how interest rate, term, taxes, insurance, PMI and HOA fees affect total housing cost.',
+    "Estimate the monthly payment on a $400,000 mortgage and understand how interest rate, term, taxes, insurance, PMI and HOA fees affect total housing cost.",
   openGraph: {
-    title: 'What Is the Monthly Payment on a $400,000 Mortgage? | FinanceCalcHub',
-    description: 'Estimate the monthly payment on a $400,000 mortgage and understand how interest rate, term, taxes, insurance, PMI and HOA fees affect total housing cost.',
-    url: '/blog/400000-mortgage-payment',
-    type: 'article',
-    siteName: 'FinanceCalcHub',
+    title:
+      "What Is the Monthly Payment on a $400,000 Mortgage? | FinanceCalcHub",
+    description:
+      "Estimate the monthly payment on a $400,000 mortgage and understand how interest rate, term, taxes, insurance, PMI and HOA fees affect total housing cost.",
+    url: "/blog/400000-mortgage-payment",
+    type: "article",
+    siteName: "FinanceCalcHub",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'What Is the Monthly Payment on a $400,000 Mortgage? | FinanceCalcHub',
-    description: 'Estimate the monthly payment on a $400,000 mortgage and understand how interest rate, term, taxes, insurance, PMI and HOA fees affect total housing cost.',
+    card: "summary_large_image",
+    title:
+      "What Is the Monthly Payment on a $400,000 Mortgage? | FinanceCalcHub",
+    description:
+      "Estimate the monthly payment on a $400,000 mortgage and understand how interest rate, term, taxes, insurance, PMI and HOA fees affect total housing cost.",
+  },
+};
+
+const articleMetadata: ArticleMetadata = {
+  title: "What Is the Monthly Payment on a $400,000 Mortgage?",
+  description:
+    "Estimate the monthly payment on a $400,000 mortgage and understand how interest rate, term, taxes, insurance, PMI and HOA fees affect total housing cost.",
+  category: "Mortgage guide",
+  readingTime: "7 min read",
+  difficulty: "Beginner",
+  datePublished: "2026-06-16",
+  dateModified: "2026-07-28",
+  author: editorialTeam,
+  reviewer: editorialReviewDesk,
+  relatedCalculator: {
+    title: "$400,000 Mortgage Payment Calculator",
+    href: "/mortgage-payment/400000",
   },
 };
 
@@ -29,20 +56,24 @@ export default function FourHundredThousandMortgagePaymentPage() {
           description="Estimate the monthly payment on a $400,000 mortgage and understand how interest rate, term, taxes, insurance, PMI and HOA fees affect total housing cost."
           path="/blog/400000-mortgage-payment"
           articleSection="Mortgage Guides"
+          datePublished={articleMetadata.datePublished}
+          dateModified={articleMetadata.dateModified}
+          authorName={articleMetadata.author.name}
+          authorUrl={articleMetadata.author.href}
+          reviewerName={articleMetadata.reviewer?.name}
+          reviewerUrl={articleMetadata.reviewer?.href}
         />
 
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/blog' },
-            { label: '$400,000 Mortgage Payment' },
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: "$400,000 Mortgage Payment" },
           ]}
         />
 
         <article className="content-box">
-          <p className="eyebrow">Mortgage guide</p>
-
-          <h1>What Is the Monthly Payment on a $400,000 Mortgage?</h1>
+          <ArticleHero metadata={articleMetadata} />
 
           <p>
             The monthly payment on a $400,000 mortgage depends on the interest
@@ -59,11 +90,11 @@ export default function FourHundredThousandMortgagePaymentPage() {
           </p>
 
           <p>
-            Use our{' '}
+            Use our{" "}
             <a href="/mortgage-payment/400000">
               $400,000 mortgage payment calculator
-            </a>{' '}
-            for a quick amount-based estimate, or use the full{' '}
+            </a>{" "}
+            for a quick amount-based estimate, or use the full{" "}
             <a href="/calculators/mortgage">mortgage calculator</a> to change
             rate, term, taxes and insurance assumptions.
           </p>
@@ -142,17 +173,23 @@ export default function FourHundredThousandMortgagePaymentPage() {
               <tbody>
                 <tr>
                   <td>Principal</td>
-                  <td>The part of the payment that reduces the loan balance.</td>
+                  <td>
+                    The part of the payment that reduces the loan balance.
+                  </td>
                   <td>Builds equity over time as the balance goes down.</td>
                 </tr>
                 <tr>
                   <td>Interest</td>
                   <td>The cost of borrowing money from the lender.</td>
-                  <td>Usually a large part of the payment early in the loan.</td>
+                  <td>
+                    Usually a large part of the payment early in the loan.
+                  </td>
                 </tr>
                 <tr>
                   <td>Property taxes</td>
-                  <td>Local taxes based on the property and tax jurisdiction.</td>
+                  <td>
+                    Local taxes based on the property and tax jurisdiction.
+                  </td>
                   <td>Can add hundreds of dollars per month in some areas.</td>
                 </tr>
                 <tr>
@@ -162,13 +199,20 @@ export default function FourHundredThousandMortgagePaymentPage() {
                 </tr>
                 <tr>
                   <td>PMI</td>
-                  <td>Private mortgage insurance on some low-down-payment loans.</td>
-                  <td>Can increase the monthly payment until removed or refinanced.</td>
+                  <td>
+                    Private mortgage insurance on some low-down-payment loans.
+                  </td>
+                  <td>
+                    Can increase the monthly payment until removed or
+                    refinanced.
+                  </td>
                 </tr>
                 <tr>
                   <td>HOA fees</td>
                   <td>Community or condo association charges.</td>
-                  <td>May not be paid through the lender but still affects budget.</td>
+                  <td>
+                    May not be paid through the lender but still affects budget.
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -185,9 +229,9 @@ export default function FourHundredThousandMortgagePaymentPage() {
           </p>
 
           <p>
-            Early in the loan, more of each payment usually goes toward interest.
-            Later, more of the payment goes toward reducing the loan balance.
-            This is why an{' '}
+            Early in the loan, more of each payment usually goes toward
+            interest. Later, more of the payment goes toward reducing the loan
+            balance. This is why an{" "}
             <a href="/calculators/amortization">amortization calculator</a> can
             be useful when you want to see how the balance changes over time.
           </p>
@@ -210,9 +254,9 @@ export default function FourHundredThousandMortgagePaymentPage() {
 
           <p>
             A 30-year mortgage normally has a lower monthly payment because the
-            loan is spread across more payments. A 15-year mortgage usually has a
-            higher monthly payment, but it can reduce total interest because the
-            loan is repaid faster.
+            loan is spread across more payments. A 15-year mortgage usually has
+            a higher monthly payment, but it can reduce total interest because
+            the loan is repaid faster.
           </p>
 
           <div className="table-wrap">
@@ -245,7 +289,8 @@ export default function FourHundredThousandMortgagePaymentPage() {
             Property taxes and homeowners insurance can make the full monthly
             payment much higher than the loan payment alone. A $400,000 mortgage
             in one county may have a very different total monthly cost than the
-            same mortgage in another county because tax and insurance costs vary.
+            same mortgage in another county because tax and insurance costs
+            vary.
           </p>
 
           <p>
@@ -289,19 +334,19 @@ export default function FourHundredThousandMortgagePaymentPage() {
 
           <p>
             Affordability depends on income, debts, savings, credit profile,
-            down payment, taxes, insurance and personal comfort level. A lender’s
-            approval amount is not always the same as the payment that feels safe
-            in your monthly budget.
+            down payment, taxes, insurance and personal comfort level. A
+            lender’s approval amount is not always the same as the payment that
+            feels safe in your monthly budget.
           </p>
 
           <p>
             A practical affordability check compares the full housing payment
             against take-home pay, emergency savings, retirement contributions,
             debt payments, transportation, childcare, food and other recurring
-            expenses. The{' '}
+            expenses. The{" "}
             <a href="/calculators/mortgage-affordability">
               mortgage affordability calculator
-            </a>{' '}
+            </a>{" "}
             can help test these scenarios.
           </p>
 
@@ -314,7 +359,9 @@ export default function FourHundredThousandMortgagePaymentPage() {
             <li>Add homeowners insurance.</li>
             <li>Add PMI if your loan structure may require it.</li>
             <li>Add HOA fees and maintenance planning.</li>
-            <li>Compare the total cost with your take-home pay and other bills.</li>
+            <li>
+              Compare the total cost with your take-home pay and other bills.
+            </li>
           </ol>
 
           <h2>Common mistakes when estimating mortgage payment</h2>
@@ -324,22 +371,24 @@ export default function FourHundredThousandMortgagePaymentPage() {
             <li>Forgetting property taxes and insurance.</li>
             <li>Ignoring HOA fees or condo fees.</li>
             <li>Not planning for repairs and maintenance.</li>
-            <li>Using a rate estimate without testing higher-rate scenarios.</li>
+            <li>
+              Using a rate estimate without testing higher-rate scenarios.
+            </li>
             <li>Comparing lender approval with true personal affordability.</li>
           </ul>
 
           <h2>Helpful calculators for a $400,000 mortgage</h2>
 
           <p>
-            Start with the{' '}
+            Start with the{" "}
             <a href="/mortgage-payment/400000">
               $400,000 mortgage payment calculator
-            </a>{' '}
-            for a fast estimate. Then use the{' '}
+            </a>{" "}
+            for a fast estimate. Then use the{" "}
             <a href="/calculators/mortgage">mortgage calculator</a> to adjust
-            taxes, insurance and term assumptions. The{' '}
+            taxes, insurance and term assumptions. The{" "}
             <a href="/calculators/down-payment">down payment calculator</a> can
-            help compare upfront cash scenarios, while the{' '}
+            help compare upfront cash scenarios, while the{" "}
             <a href="/calculators/rent-vs-buy">rent vs buy calculator</a> can
             help compare renting with buying.
           </p>
@@ -403,39 +452,40 @@ export default function FourHundredThousandMortgagePaymentPage() {
 
           <p>
             A $400,000 mortgage can have a principal-and-interest payment in the
-            mid-$2,000s in many simplified 30-year examples, but the full monthly
-            housing cost may be higher after taxes, insurance, PMI, HOA fees and
-            maintenance. The safest estimate is the full housing cost, not only
-            the loan payment.
+            mid-$2,000s in many simplified 30-year examples, but the full
+            monthly housing cost may be higher after taxes, insurance, PMI, HOA
+            fees and maintenance. The safest estimate is the full housing cost,
+            not only the loan payment.
           </p>
+          <AboutArticle metadata={articleMetadata} />
         </article>
 
         <RelatedCalculators
           title="Related mortgage calculators"
           tools={[
             {
-              title: '$400,000 Mortgage Payment Calculator',
-              href: '/mortgage-payment/400000',
+              title: "$400,000 Mortgage Payment Calculator",
+              href: "/mortgage-payment/400000",
             },
             {
-              title: '$300,000 Mortgage Payment Calculator',
-              href: '/mortgage-payment/300000',
+              title: "$300,000 Mortgage Payment Calculator",
+              href: "/mortgage-payment/300000",
             },
             {
-              title: 'Mortgage Payment by Amount',
-              href: '/mortgage-payment',
+              title: "Mortgage Payment by Amount",
+              href: "/mortgage-payment",
             },
             {
-              title: 'Mortgage Calculator',
-              href: '/calculators/mortgage',
+              title: "Mortgage Calculator",
+              href: "/calculators/mortgage",
             },
             {
-              title: 'Mortgage Affordability Calculator',
-              href: '/calculators/mortgage-affordability',
+              title: "Mortgage Affordability Calculator",
+              href: "/calculators/mortgage-affordability",
             },
             {
-              title: 'Down Payment Calculator',
-              href: '/calculators/down-payment',
+              title: "Down Payment Calculator",
+              href: "/calculators/down-payment",
             },
           ]}
         />

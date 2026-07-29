@@ -1,22 +1,47 @@
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import BlogPostingSchema from '../../../components/BlogPostingSchema';
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import BlogPostingSchema from "../../../components/BlogPostingSchema";
 
+import { AboutArticle, ArticleHero } from "../../../components/article";
+import {
+  editorialReviewDesk,
+  editorialTeam,
+} from "../../../lib/content/authors";
+import type { ArticleMetadata } from "../../../lib/content/article-metadata";
 export const metadata = {
-  title: 'How Much House Can I Afford? | Home Affordability Guide',
+  title: "How Much House Can I Afford? | Home Affordability Guide",
   description:
-    'Learn how income, debts, down payment, mortgage rate, taxes, insurance and debt-to-income ratio affect how much house you may be able to afford.',
+    "Learn how income, debts, down payment, mortgage rate, taxes, insurance and debt-to-income ratio affect how much house you may be able to afford.",
   openGraph: {
-    title: 'How Much House Can I Afford? | Home Affordability Guide',
-    description: 'Learn how income, debts, down payment, mortgage rate, taxes, insurance and debt-to-income ratio affect how much house you may be able to afford.',
-    url: '/blog/how-much-house-can-i-afford',
-    type: 'article',
-    siteName: 'FinanceCalcHub',
+    title: "How Much House Can I Afford? | Home Affordability Guide",
+    description:
+      "Learn how income, debts, down payment, mortgage rate, taxes, insurance and debt-to-income ratio affect how much house you may be able to afford.",
+    url: "/blog/how-much-house-can-i-afford",
+    type: "article",
+    siteName: "FinanceCalcHub",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'How Much House Can I Afford? | Home Affordability Guide',
-    description: 'Learn how income, debts, down payment, mortgage rate, taxes, insurance and debt-to-income ratio affect how much house you may be able to afford.',
+    card: "summary_large_image",
+    title: "How Much House Can I Afford? | Home Affordability Guide",
+    description:
+      "Learn how income, debts, down payment, mortgage rate, taxes, insurance and debt-to-income ratio affect how much house you may be able to afford.",
+  },
+};
+
+const articleMetadata: ArticleMetadata = {
+  title: "How Much House Can I Afford?",
+  description:
+    "Learn how income, debts, down payment, mortgage rate, taxes, insurance and debt-to-income ratio affect how much house you may be able to afford.",
+  category: "Mortgage affordability guide",
+  readingTime: "8 min read",
+  difficulty: "Beginner",
+  datePublished: "2026-06-05",
+  dateModified: "2026-07-28",
+  author: editorialTeam,
+  reviewer: editorialReviewDesk,
+  relatedCalculator: {
+    title: "Mortgage Affordability Calculator",
+    href: "/calculators/mortgage-affordability",
   },
 };
 
@@ -29,20 +54,24 @@ export default function HowMuchHouseCanIAffordPage() {
           description="Learn how income, debts, down payment, mortgage rate, taxes, insurance and debt-to-income ratio affect how much house you may be able to afford."
           path="/blog/how-much-house-can-i-afford"
           articleSection="Mortgage Guides"
+          datePublished={articleMetadata.datePublished}
+          dateModified={articleMetadata.dateModified}
+          authorName={articleMetadata.author.name}
+          authorUrl={articleMetadata.author.href}
+          reviewerName={articleMetadata.reviewer?.name}
+          reviewerUrl={articleMetadata.reviewer?.href}
         />
 
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/blog' },
-            { label: 'How Much House Can I Afford?' },
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: "How Much House Can I Afford?" },
           ]}
         />
 
         <article className="content-box">
-          <p className="eyebrow">Mortgage affordability guide</p>
-
-          <h1>How Much House Can I Afford?</h1>
+          <ArticleHero metadata={articleMetadata} />
 
           <p>
             How much house you can afford depends on more than the home price. A
@@ -55,8 +84,8 @@ export default function HowMuchHouseCanIAffordPage() {
           <p>
             This guide explains the main factors that affect home affordability
             and how to think about a mortgage payment before you start shopping.
-            The examples are simplified educational estimates only, not mortgage,
-            lending, tax or financial advice.
+            The examples are simplified educational estimates only, not
+            mortgage, lending, tax or financial advice.
           </p>
 
           <h2>Quick answer: what determines how much house you can afford?</h2>
@@ -64,8 +93,8 @@ export default function HowMuchHouseCanIAffordPage() {
           <p>
             A common starting point is to look at the monthly housing payment,
             not only the purchase price. The same $400,000 home can feel very
-            different depending on the down payment, interest rate, property tax,
-            insurance and other monthly costs.
+            different depending on the down payment, interest rate, property
+            tax, insurance and other monthly costs.
           </p>
 
           <div className="table-wrap">
@@ -83,7 +112,10 @@ export default function HowMuchHouseCanIAffordPage() {
                 </tr>
                 <tr>
                   <td>Existing debts</td>
-                  <td>Car loans, student loans and credit cards reduce room in the budget.</td>
+                  <td>
+                    Car loans, student loans and credit cards reduce room in the
+                    budget.
+                  </td>
                 </tr>
                 <tr>
                   <td>Down payment</td>
@@ -95,11 +127,16 @@ export default function HowMuchHouseCanIAffordPage() {
                 </tr>
                 <tr>
                   <td>Taxes and insurance</td>
-                  <td>These can add hundreds of dollars to monthly housing cost.</td>
+                  <td>
+                    These can add hundreds of dollars to monthly housing cost.
+                  </td>
                 </tr>
                 <tr>
                   <td>PMI, HOA and maintenance</td>
-                  <td>These costs can change affordability even when the mortgage is approved.</td>
+                  <td>
+                    These costs can change affordability even when the mortgage
+                    is approved.
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -108,17 +145,17 @@ export default function HowMuchHouseCanIAffordPage() {
           <h2>Start with monthly payment, not only home price</h2>
 
           <p>
-            The purchase price is important, but monthly affordability is usually
-            the bigger practical question. A mortgage payment can include
-            principal, interest, property taxes, homeowners insurance and
-            sometimes private mortgage insurance or HOA fees.
+            The purchase price is important, but monthly affordability is
+            usually the bigger practical question. A mortgage payment can
+            include principal, interest, property taxes, homeowners insurance
+            and sometimes private mortgage insurance or HOA fees.
           </p>
 
           <p>
-            For a quick estimate, use the{' '}
+            For a quick estimate, use the{" "}
             <a href="/calculators/mortgage-affordability">
               Mortgage Affordability Calculator
-            </a>{' '}
+            </a>{" "}
             to test income, debts, down payment and monthly housing costs.
           </p>
 
@@ -144,17 +181,23 @@ export default function HowMuchHouseCanIAffordPage() {
                 <tr>
                   <td>About 25% of gross income</td>
                   <td>More conservative</td>
-                  <td>Useful when you want more room for savings and emergencies.</td>
+                  <td>
+                    Useful when you want more room for savings and emergencies.
+                  </td>
                 </tr>
                 <tr>
                   <td>About 30% of gross income</td>
                   <td>Moderate</td>
-                  <td>Can be a reasonable planning estimate for many budgets.</td>
+                  <td>
+                    Can be a reasonable planning estimate for many budgets.
+                  </td>
                 </tr>
                 <tr>
                   <td>About 35% of gross income</td>
                   <td>Stretch</td>
-                  <td>May feel tight if other debts or variable expenses are high.</td>
+                  <td>
+                    May feel tight if other debts or variable expenses are high.
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -187,7 +230,7 @@ export default function HowMuchHouseCanIAffordPage() {
           </p>
 
           <p>
-            Compare different down payment levels with the{' '}
+            Compare different down payment levels with the{" "}
             <a href="/calculators/down-payment">Down Payment Calculator</a>.
           </p>
 
@@ -202,7 +245,7 @@ export default function HowMuchHouseCanIAffordPage() {
           </p>
 
           <p>
-            Use the <a href="/calculators/mortgage">Mortgage Calculator</a> and{' '}
+            Use the <a href="/calculators/mortgage">Mortgage Calculator</a> and{" "}
             <a href="/calculators/amortization">Amortization Calculator</a> to
             compare payments and long-term interest.
           </p>
@@ -231,19 +274,31 @@ export default function HowMuchHouseCanIAffordPage() {
                 </tr>
                 <tr>
                   <td>Homeowners insurance</td>
-                  <td>Often required by lenders and can change by location and coverage.</td>
+                  <td>
+                    Often required by lenders and can change by location and
+                    coverage.
+                  </td>
                 </tr>
                 <tr>
                   <td>PMI</td>
-                  <td>May apply when the down payment is below certain lender thresholds.</td>
+                  <td>
+                    May apply when the down payment is below certain lender
+                    thresholds.
+                  </td>
                 </tr>
                 <tr>
                   <td>HOA fees</td>
-                  <td>Can be significant for condos, townhomes and planned communities.</td>
+                  <td>
+                    Can be significant for condos, townhomes and planned
+                    communities.
+                  </td>
                 </tr>
                 <tr>
                   <td>Maintenance</td>
-                  <td>Repairs and upkeep are real costs even if they are not part of the loan.</td>
+                  <td>
+                    Repairs and upkeep are real costs even if they are not part
+                    of the loan.
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -255,8 +310,8 @@ export default function HowMuchHouseCanIAffordPage() {
             Suppose two buyers both earn $90,000 per year. One has no car loan,
             a larger down payment and low property taxes. The other has student
             loans, a car payment, a smaller down payment and higher property
-            taxes. Even with the same income, the second buyer may have less room
-            for a mortgage payment.
+            taxes. Even with the same income, the second buyer may have less
+            room for a mortgage payment.
           </p>
 
           <p>
@@ -276,14 +331,14 @@ export default function HowMuchHouseCanIAffordPage() {
           <h2>Rent vs buy comparison</h2>
 
           <p>
-            Affordability is not only about whether you can buy. It is also about
-            whether buying makes sense compared with renting. If you plan to move
-            soon, need flexibility or would use most of your cash on closing, a
-            rental may be more practical for a period of time.
+            Affordability is not only about whether you can buy. It is also
+            about whether buying makes sense compared with renting. If you plan
+            to move soon, need flexibility or would use most of your cash on
+            closing, a rental may be more practical for a period of time.
           </p>
 
           <p>
-            Compare scenarios with the{' '}
+            Compare scenarios with the{" "}
             <a href="/calculators/rent-vs-buy">Rent vs Buy Calculator</a>.
           </p>
 
@@ -335,28 +390,29 @@ export default function HowMuchHouseCanIAffordPage() {
             debts, down payment, mortgage rate, taxes, insurance and ongoing
             ownership costs before deciding what price range feels comfortable.
           </p>
+          <AboutArticle metadata={articleMetadata} />
         </article>
 
         <RelatedCalculators
           title="Related mortgage tools"
           tools={[
             {
-              title: 'Mortgage Affordability Calculator',
-              href: '/calculators/mortgage-affordability',
+              title: "Mortgage Affordability Calculator",
+              href: "/calculators/mortgage-affordability",
             },
-            { title: 'Mortgage Calculator', href: '/calculators/mortgage' },
+            { title: "Mortgage Calculator", href: "/calculators/mortgage" },
             {
-              title: 'Down Payment Calculator',
-              href: '/calculators/down-payment',
+              title: "Down Payment Calculator",
+              href: "/calculators/down-payment",
             },
             {
-              title: 'Rent vs Buy Calculator',
-              href: '/calculators/rent-vs-buy',
+              title: "Rent vs Buy Calculator",
+              href: "/calculators/rent-vs-buy",
             },
-            { title: 'Refinance Calculator', href: '/calculators/refinance' },
+            { title: "Refinance Calculator", href: "/calculators/refinance" },
             {
-              title: 'Amortization Calculator',
-              href: '/calculators/amortization',
+              title: "Amortization Calculator",
+              href: "/calculators/amortization",
             },
           ]}
         />

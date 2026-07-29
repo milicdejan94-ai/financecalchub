@@ -1,22 +1,47 @@
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import BlogPostingSchema from '../../../components/BlogPostingSchema';
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import BlogPostingSchema from "../../../components/BlogPostingSchema";
 
+import { AboutArticle, ArticleHero } from "../../../components/article";
+import {
+  editorialReviewDesk,
+  editorialTeam,
+} from "../../../lib/content/authors";
+import type { ArticleMetadata } from "../../../lib/content/article-metadata";
 export const metadata = {
-  title: 'How to Pay Off Credit Card Debt Faster | FinanceCalcHub',
+  title: "How to Pay Off Credit Card Debt Faster | FinanceCalcHub",
   description:
-    'Learn how APR, monthly payment size, payoff strategy and new spending affect credit card debt payoff time.',
+    "Learn how APR, monthly payment size, payoff strategy and new spending affect credit card debt payoff time.",
   openGraph: {
-    title: 'How to Pay Off Credit Card Debt Faster | FinanceCalcHub',
-    description: 'Learn how APR, monthly payment size, payoff strategy and new spending affect credit card debt payoff time.',
-    url: '/blog/pay-off-credit-card-debt-faster',
-    type: 'article',
-    siteName: 'FinanceCalcHub',
+    title: "How to Pay Off Credit Card Debt Faster | FinanceCalcHub",
+    description:
+      "Learn how APR, monthly payment size, payoff strategy and new spending affect credit card debt payoff time.",
+    url: "/blog/pay-off-credit-card-debt-faster",
+    type: "article",
+    siteName: "FinanceCalcHub",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'How to Pay Off Credit Card Debt Faster | FinanceCalcHub',
-    description: 'Learn how APR, monthly payment size, payoff strategy and new spending affect credit card debt payoff time.',
+    card: "summary_large_image",
+    title: "How to Pay Off Credit Card Debt Faster | FinanceCalcHub",
+    description:
+      "Learn how APR, monthly payment size, payoff strategy and new spending affect credit card debt payoff time.",
+  },
+};
+
+const articleMetadata: ArticleMetadata = {
+  title: "How to Pay Off Credit Card Debt Faster",
+  description:
+    "Learn how APR, monthly payment size, payoff strategy and new spending affect credit card debt payoff time.",
+  category: "Debt payoff guide",
+  readingTime: "7 min read",
+  difficulty: "Beginner",
+  datePublished: "2026-06-05",
+  dateModified: "2026-07-28",
+  author: editorialTeam,
+  reviewer: editorialReviewDesk,
+  relatedCalculator: {
+    title: "Credit Card Payoff Calculator",
+    href: "/calculators/credit-card-payoff",
   },
 };
 
@@ -29,26 +54,30 @@ export default function PayOffCreditCardDebtFasterPage() {
           description="Learn how APR, monthly payment size, payoff strategy and new spending affect credit card debt payoff time."
           path="/blog/pay-off-credit-card-debt-faster"
           articleSection="Debt Guides"
+          datePublished={articleMetadata.datePublished}
+          dateModified={articleMetadata.dateModified}
+          authorName={articleMetadata.author.name}
+          authorUrl={articleMetadata.author.href}
+          reviewerName={articleMetadata.reviewer?.name}
+          reviewerUrl={articleMetadata.reviewer?.href}
         />
 
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/blog' },
-            { label: 'Pay Off Credit Card Debt Faster' },
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: "Pay Off Credit Card Debt Faster" },
           ]}
         />
 
         <article className="content-box">
-          <p className="eyebrow">Debt payoff guide</p>
-
-          <h1>How to Pay Off Credit Card Debt Faster</h1>
+          <ArticleHero metadata={articleMetadata} />
 
           <p>
-            Credit card debt can be expensive because interest is usually charged
-            on balances that are not paid in full. The longer a balance remains
-            unpaid, the more interest can accumulate, especially when the APR is
-            high and the monthly payment is close to the minimum.
+            Credit card debt can be expensive because interest is usually
+            charged on balances that are not paid in full. The longer a balance
+            remains unpaid, the more interest can accumulate, especially when
+            the APR is high and the monthly payment is close to the minimum.
           </p>
 
           <p>
@@ -71,7 +100,10 @@ export default function PayOffCreditCardDebtFasterPage() {
               <tbody>
                 <tr>
                   <td>Balance</td>
-                  <td>The larger the balance, the more principal needs to be repaid.</td>
+                  <td>
+                    The larger the balance, the more principal needs to be
+                    repaid.
+                  </td>
                 </tr>
                 <tr>
                   <td>APR</td>
@@ -79,7 +111,10 @@ export default function PayOffCreditCardDebtFasterPage() {
                 </tr>
                 <tr>
                   <td>Monthly payment</td>
-                  <td>A higher payment usually shortens payoff time and lowers interest.</td>
+                  <td>
+                    A higher payment usually shortens payoff time and lowers
+                    interest.
+                  </td>
                 </tr>
                 <tr>
                   <td>New charges</td>
@@ -87,7 +122,10 @@ export default function PayOffCreditCardDebtFasterPage() {
                 </tr>
                 <tr>
                   <td>Strategy</td>
-                  <td>Snowball and avalanche methods organize which debt to attack first.</td>
+                  <td>
+                    Snowball and avalanche methods organize which debt to attack
+                    first.
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -97,26 +135,26 @@ export default function PayOffCreditCardDebtFasterPage() {
 
           <p>
             Start by writing down the current balance, APR and minimum payment
-            for each card. If you have multiple cards, list them separately. This
-            helps you see which debts are most expensive and which balances may
-            be easiest to eliminate first.
+            for each card. If you have multiple cards, list them separately.
+            This helps you see which debts are most expensive and which balances
+            may be easiest to eliminate first.
           </p>
 
           <p>
-            To estimate your payoff time, use the{' '}
+            To estimate your payoff time, use the{" "}
             <a href="/calculators/credit-card-payoff">
               Credit Card Payoff Calculator
-            </a>{' '}
+            </a>{" "}
             with your balance, APR and planned monthly payment.
           </p>
 
           <h2>Step 2: Pay more than the minimum when possible</h2>
 
           <p>
-            Minimum payments can keep an account current, but they may not reduce
-            the balance quickly. When a payment is small, a larger portion may go
-            toward interest instead of principal. Paying extra can reduce the
-            balance faster and may lower total interest paid.
+            Minimum payments can keep an account current, but they may not
+            reduce the balance quickly. When a payment is small, a larger
+            portion may go toward interest instead of principal. Paying extra
+            can reduce the balance faster and may lower total interest paid.
           </p>
 
           <div className="table-wrap">
@@ -130,19 +168,29 @@ export default function PayOffCreditCardDebtFasterPage() {
               <tbody>
                 <tr>
                   <td>Minimum payment only</td>
-                  <td>Usually the slowest payoff path and often the most expensive.</td>
+                  <td>
+                    Usually the slowest payoff path and often the most
+                    expensive.
+                  </td>
                 </tr>
                 <tr>
                   <td>Fixed monthly payment</td>
-                  <td>Creates a clearer payoff target and can reduce interest.</td>
+                  <td>
+                    Creates a clearer payoff target and can reduce interest.
+                  </td>
                 </tr>
                 <tr>
                   <td>Extra payment after each paycheck</td>
-                  <td>Can reduce the balance faster if applied to principal.</td>
+                  <td>
+                    Can reduce the balance faster if applied to principal.
+                  </td>
                 </tr>
                 <tr>
                   <td>One-time lump sum</td>
-                  <td>May immediately lower future interest if no new debt is added.</td>
+                  <td>
+                    May immediately lower future interest if no new debt is
+                    added.
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -230,20 +278,25 @@ export default function PayOffCreditCardDebtFasterPage() {
             <li>Paying only the minimum without checking payoff time.</li>
             <li>Adding new charges while trying to reduce the balance.</li>
             <li>Ignoring APR differences between multiple cards.</li>
-            <li>Using a balance transfer without a plan for the promotional period.</li>
-            <li>Forgetting to keep an emergency buffer for necessary expenses.</li>
+            <li>
+              Using a balance transfer without a plan for the promotional
+              period.
+            </li>
+            <li>
+              Forgetting to keep an emergency buffer for necessary expenses.
+            </li>
           </ul>
 
           <h2>Helpful calculators</h2>
 
           <p>
-            Start with the{' '}
+            Start with the{" "}
             <a href="/calculators/credit-card-payoff">
               Credit Card Payoff Calculator
-            </a>{' '}
+            </a>{" "}
             to estimate payoff time for one credit card. For a broader plan, use
             the <a href="/calculators/debt-payoff">Debt Payoff Calculator</a>.
-            To understand borrowing cost, compare rates with the{' '}
+            To understand borrowing cost, compare rates with the{" "}
             <a href="/calculators/apr">APR Calculator</a>.
           </p>
 
@@ -282,27 +335,28 @@ export default function PayOffCreditCardDebtFasterPage() {
 
           <p>
             This article provides educational information only. It is not
-            financial, legal, credit, debt, tax or investment advice. Real payoff
-            results can vary based on card terms, fees, APR changes, payment
-            timing, credit profile and personal spending habits.
+            financial, legal, credit, debt, tax or investment advice. Real
+            payoff results can vary based on card terms, fees, APR changes,
+            payment timing, credit profile and personal spending habits.
           </p>
+          <AboutArticle metadata={articleMetadata} />
         </article>
 
         <RelatedCalculators
           title="Related debt tools"
           tools={[
             {
-              title: 'Credit Card Payoff Calculator',
-              href: '/calculators/credit-card-payoff',
+              title: "Credit Card Payoff Calculator",
+              href: "/calculators/credit-card-payoff",
             },
             {
-              title: 'Debt Payoff Calculator',
-              href: '/calculators/debt-payoff',
+              title: "Debt Payoff Calculator",
+              href: "/calculators/debt-payoff",
             },
-            { title: 'APR Calculator', href: '/calculators/apr' },
-            { title: 'Loan Calculator', href: '/calculators/loan' },
-            { title: 'Savings Calculator', href: '/calculators/savings' },
-            { title: 'All Financial Calculators', href: '/calculators' },
+            { title: "APR Calculator", href: "/calculators/apr" },
+            { title: "Loan Calculator", href: "/calculators/loan" },
+            { title: "Savings Calculator", href: "/calculators/savings" },
+            { title: "All Financial Calculators", href: "/calculators" },
           ]}
         />
       </div>

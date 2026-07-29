@@ -1,22 +1,47 @@
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import BlogPostingSchema from '../../../components/BlogPostingSchema';
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import BlogPostingSchema from "../../../components/BlogPostingSchema";
 
+import { AboutArticle, ArticleHero } from "../../../components/article";
+import {
+  editorialReviewDesk,
+  editorialTeam,
+} from "../../../lib/content/authors";
+import type { ArticleMetadata } from "../../../lib/content/article-metadata";
 export const metadata = {
-  title: '$30 an Hour Is How Much a Year? | Monthly, Weekly & Take-Home Pay',
+  title: "$30 an Hour Is How Much a Year? | Monthly, Weekly & Take-Home Pay",
   description:
-    'See how much $30 an hour is per year, month, week and biweekly paycheck before taxes, plus factors that affect take-home pay.',
+    "See how much $30 an hour is per year, month, week and biweekly paycheck before taxes, plus factors that affect take-home pay.",
   openGraph: {
-    title: '$30 an Hour Is How Much a Year? | Monthly, Weekly & Take-Home Pay',
-    description: 'See how much $30 an hour is per year, month, week and biweekly paycheck before taxes, plus factors that affect take-home pay.',
-    url: '/blog/30-an-hour-is-how-much-a-year',
-    type: 'article',
-    siteName: 'FinanceCalcHub',
+    title: "$30 an Hour Is How Much a Year? | Monthly, Weekly & Take-Home Pay",
+    description:
+      "See how much $30 an hour is per year, month, week and biweekly paycheck before taxes, plus factors that affect take-home pay.",
+    url: "/blog/30-an-hour-is-how-much-a-year",
+    type: "article",
+    siteName: "FinanceCalcHub",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: '$30 an Hour Is How Much a Year? | Monthly, Weekly & Take-Home Pay',
-    description: 'See how much $30 an hour is per year, month, week and biweekly paycheck before taxes, plus factors that affect take-home pay.',
+    card: "summary_large_image",
+    title: "$30 an Hour Is How Much a Year? | Monthly, Weekly & Take-Home Pay",
+    description:
+      "See how much $30 an hour is per year, month, week and biweekly paycheck before taxes, plus factors that affect take-home pay.",
+  },
+};
+
+const articleMetadata: ArticleMetadata = {
+  title: "$30 an Hour Is How Much a Year?",
+  description:
+    "See how much $30 an hour is per year, month, week and biweekly paycheck before taxes, plus factors that affect take-home pay.",
+  category: "Hourly wage guide",
+  readingTime: "6 min read",
+  difficulty: "Beginner",
+  datePublished: "2026-06-16",
+  dateModified: "2026-07-28",
+  author: editorialTeam,
+  reviewer: editorialReviewDesk,
+  relatedCalculator: {
+    title: "$30 an Hour Calculator",
+    href: "/hourly-wage/30",
   },
 };
 
@@ -29,25 +54,29 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
           description="See how much $30 an hour is per year, month, week and biweekly paycheck before taxes, plus factors that affect take-home pay."
           path="/blog/30-an-hour-is-how-much-a-year"
           articleSection="Hourly Wage Guides"
+          datePublished={articleMetadata.datePublished}
+          dateModified={articleMetadata.dateModified}
+          authorName={articleMetadata.author.name}
+          authorUrl={articleMetadata.author.href}
+          reviewerName={articleMetadata.reviewer?.name}
+          reviewerUrl={articleMetadata.reviewer?.href}
         />
 
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/blog' },
-            { label: '$30 an Hour Is How Much a Year?' },
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: "$30 an Hour Is How Much a Year?" },
           ]}
         />
 
         <article className="content-box">
-          <p className="eyebrow">Hourly wage guide</p>
-
-          <h1>$30 an Hour Is How Much a Year?</h1>
+          <ArticleHero metadata={articleMetadata} />
 
           <p>
             If you earn $30 an hour, your annual income depends on your work
             schedule. A common full-time estimate uses 40 hours per week and 52
-            weeks per year. With that assumption, $30 an hour equals{' '}
+            weeks per year. With that assumption, $30 an hour equals{" "}
             <strong>$62,400 per year before taxes</strong>.
           </p>
 
@@ -59,11 +88,11 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
           </p>
 
           <p>
-            For a quick estimate, use the{' '}
-            <a href="/hourly-wage/30">$30 an Hour Calculator</a>, the{' '}
+            For a quick estimate, use the{" "}
+            <a href="/hourly-wage/30">$30 an Hour Calculator</a>, the{" "}
             <a href="/calculators/hourly-paycheck">
               Hourly Paycheck Calculator
-            </a>{' '}
+            </a>{" "}
             or the <a href="/calculators/paycheck">Paycheck Calculator</a>.
           </p>
 
@@ -182,7 +211,7 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
           <p>
             Overtime rules can change the result. Some workers may earn a higher
             rate after a certain number of hours, while others may be exempt or
-            paid under a different structure. Use the{' '}
+            paid under a different structure. Use the{" "}
             <a href="/calculators/overtime">Overtime Calculator</a> for a
             separate overtime estimate.
           </p>
@@ -190,9 +219,9 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
           <h2>$30 an hour per month</h2>
 
           <p>
-            At a full-time schedule, $30 an hour is about $5,200 per month before
-            taxes. That number is useful for high-level planning, but your real
-            monthly cash flow depends on your pay schedule.
+            At a full-time schedule, $30 an hour is about $5,200 per month
+            before taxes. That number is useful for high-level planning, but
+            your real monthly cash flow depends on your pay schedule.
           </p>
 
           <p>
@@ -233,14 +262,14 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
           <p>
             There is no single after-tax answer because take-home pay depends on
             your filing status, state, local taxes, W-4 settings, benefits and
-            deductions. Two people earning the same $30 hourly wage can take home
-            different amounts.
+            deductions. Two people earning the same $30 hourly wage can take
+            home different amounts.
           </p>
 
           <p>
-            The most important distinction is gross pay versus net pay. Gross pay
-            is what you earn before deductions. Net pay is what reaches your bank
-            account after payroll deductions are removed.
+            The most important distinction is gross pay versus net pay. Gross
+            pay is what you earn before deductions. Net pay is what reaches your
+            bank account after payroll deductions are removed.
           </p>
 
           <div className="table-wrap">
@@ -254,11 +283,17 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
               <tbody>
                 <tr>
                   <td>Federal income tax</td>
-                  <td>Reduces paycheck based on taxable income and withholding settings.</td>
+                  <td>
+                    Reduces paycheck based on taxable income and withholding
+                    settings.
+                  </td>
                 </tr>
                 <tr>
                   <td>Payroll taxes</td>
-                  <td>Social Security and Medicare are commonly withheld from wages.</td>
+                  <td>
+                    Social Security and Medicare are commonly withheld from
+                    wages.
+                  </td>
                 </tr>
                 <tr>
                   <td>State or local tax</td>
@@ -270,18 +305,21 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
                 </tr>
                 <tr>
                   <td>401(k), HSA or FSA</td>
-                  <td>Voluntary contributions can reduce take-home pay while supporting savings goals.</td>
+                  <td>
+                    Voluntary contributions can reduce take-home pay while
+                    supporting savings goals.
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <p>
-            To estimate take-home pay more carefully, try the{' '}
+            To estimate take-home pay more carefully, try the{" "}
             <a href="/calculators/hourly-paycheck">
               Hourly Paycheck Calculator
-            </a>{' '}
-            or compare state pages in our{' '}
+            </a>{" "}
+            or compare state pages in our{" "}
             <a href="/paycheck-calculator">Paycheck Calculators by State</a>.
           </p>
 
@@ -296,25 +334,25 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
 
           <p>
             A practical way to judge the wage is to compare estimated net pay
-            with your real monthly expenses. Include rent or mortgage, utilities,
-            transportation, groceries, insurance, debt payments, emergency
-            savings and retirement contributions.
+            with your real monthly expenses. Include rent or mortgage,
+            utilities, transportation, groceries, insurance, debt payments,
+            emergency savings and retirement contributions.
           </p>
 
           <h2>Budgeting with a $30 hourly wage</h2>
 
           <p>
             Budgeting from gross pay can make income look larger than it really
-            is. For day-to-day planning, use net pay. That is the money available
-            for bills, food, savings and discretionary spending after payroll
-            deductions.
+            is. For day-to-day planning, use net pay. That is the money
+            available for bills, food, savings and discretionary spending after
+            payroll deductions.
           </p>
 
           <p>
             A simple workflow is to estimate gross pay first, estimate after-tax
-            pay second, then compare take-home pay with fixed expenses and goals.
-            This helps avoid building a budget around money that will never reach
-            your checking account.
+            pay second, then compare take-home pay with fixed expenses and
+            goals. This helps avoid building a budget around money that will
+            never reach your checking account.
           </p>
 
           <h2>How $30 an hour compares with common salary figures</h2>
@@ -377,8 +415,8 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
           <p>
             It can also be misleading if you compare one job offer with another
             without considering benefits. A job with a lower hourly wage but
-            stronger health insurance, retirement match or paid time off may have
-            a different total value than the wage alone suggests.
+            stronger health insurance, retirement match or paid time off may
+            have a different total value than the wage alone suggests.
           </p>
 
           <h2>Step-by-step: estimate your real pay</h2>
@@ -388,7 +426,9 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
             <li>Estimate average hours per week.</li>
             <li>Multiply by 52 weeks or your expected working weeks.</li>
             <li>Estimate taxes and payroll deductions.</li>
-            <li>Subtract benefits, retirement contributions and other deductions.</li>
+            <li>
+              Subtract benefits, retirement contributions and other deductions.
+            </li>
             <li>Use the final take-home estimate for budgeting.</li>
           </ol>
 
@@ -420,7 +460,9 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
             before taxes and deductions.
           </p>
 
-          <h3>Can two people earning $30 an hour take home different amounts?</h3>
+          <h3>
+            Can two people earning $30 an hour take home different amounts?
+          </h3>
           <p>
             Yes. Filing status, state, local tax rules, benefits, retirement
             contributions and payroll settings can all change net pay.
@@ -455,41 +497,42 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
           </p>
 
           <p>
-            Start with the{' '}
-            <a href="/hourly-wage/30">$30 an Hour Calculator</a>, then use the{' '}
+            Start with the <a href="/hourly-wage/30">$30 an Hour Calculator</a>,
+            then use the{" "}
             <a href="/calculators/hourly-paycheck">
               Hourly Paycheck Calculator
-            </a>{' '}
+            </a>{" "}
             to estimate paycheck amounts after taxes and deductions.
           </p>
+          <AboutArticle metadata={articleMetadata} />
         </article>
 
         <RelatedCalculators
           title="Related hourly and paycheck tools"
           tools={[
             {
-              title: '$30 an Hour Calculator',
-              href: '/hourly-wage/30',
+              title: "$30 an Hour Calculator",
+              href: "/hourly-wage/30",
             },
             {
-              title: '$25 an Hour Calculator',
-              href: '/hourly-wage/25',
+              title: "$25 an Hour Calculator",
+              href: "/hourly-wage/25",
             },
             {
-              title: 'Hourly Wage Calculators',
-              href: '/hourly-wage',
+              title: "Hourly Wage Calculators",
+              href: "/hourly-wage",
             },
             {
-              title: 'Hourly Paycheck Calculator',
-              href: '/calculators/hourly-paycheck',
+              title: "Hourly Paycheck Calculator",
+              href: "/calculators/hourly-paycheck",
             },
             {
-              title: 'Salary After Tax Calculators',
-              href: '/salary-after-tax',
+              title: "Salary After Tax Calculators",
+              href: "/salary-after-tax",
             },
             {
-              title: 'Paycheck Calculator',
-              href: '/calculators/paycheck',
+              title: "Paycheck Calculator",
+              href: "/calculators/paycheck",
             },
           ]}
         />

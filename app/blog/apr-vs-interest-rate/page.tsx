@@ -1,22 +1,47 @@
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import BlogPostingSchema from '../../../components/BlogPostingSchema';
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import BlogPostingSchema from "../../../components/BlogPostingSchema";
 
+import { AboutArticle, ArticleHero } from "../../../components/article";
+import {
+  editorialReviewDesk,
+  editorialTeam,
+} from "../../../lib/content/authors";
+import type { ArticleMetadata } from "../../../lib/content/article-metadata";
 export const metadata = {
-  title: 'APR vs Interest Rate: What Borrowers Should Know | FinanceCalcHub',
+  title: "APR vs Interest Rate: What Borrowers Should Know | FinanceCalcHub",
   description:
-    'Learn the difference between APR and interest rate, why APR can be higher, and how to compare loans, credit cards, auto loans and mortgages more clearly.',
+    "Learn the difference between APR and interest rate, why APR can be higher, and how to compare loans, credit cards, auto loans and mortgages more clearly.",
   openGraph: {
-    title: 'APR vs Interest Rate: What Borrowers Should Know | FinanceCalcHub',
-    description: 'Learn the difference between APR and interest rate, why APR can be higher, and how to compare loans, credit cards, auto loans and mortgages more clearly.',
-    url: '/blog/apr-vs-interest-rate',
-    type: 'article',
-    siteName: 'FinanceCalcHub',
+    title: "APR vs Interest Rate: What Borrowers Should Know | FinanceCalcHub",
+    description:
+      "Learn the difference between APR and interest rate, why APR can be higher, and how to compare loans, credit cards, auto loans and mortgages more clearly.",
+    url: "/blog/apr-vs-interest-rate",
+    type: "article",
+    siteName: "FinanceCalcHub",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'APR vs Interest Rate: What Borrowers Should Know | FinanceCalcHub',
-    description: 'Learn the difference between APR and interest rate, why APR can be higher, and how to compare loans, credit cards, auto loans and mortgages more clearly.',
+    card: "summary_large_image",
+    title: "APR vs Interest Rate: What Borrowers Should Know | FinanceCalcHub",
+    description:
+      "Learn the difference between APR and interest rate, why APR can be higher, and how to compare loans, credit cards, auto loans and mortgages more clearly.",
+  },
+};
+
+const articleMetadata: ArticleMetadata = {
+  title: "APR vs Interest Rate: What Borrowers Should Know",
+  description:
+    "Learn the difference between APR and interest rate, why APR can be higher, and how to compare loans, credit cards, auto loans and mortgages more clearly.",
+  category: "Loan guide",
+  readingTime: "6 min read",
+  difficulty: "Beginner",
+  datePublished: "2026-06-05",
+  dateModified: "2026-07-28",
+  author: editorialTeam,
+  reviewer: editorialReviewDesk,
+  relatedCalculator: {
+    title: "APR Calculator",
+    href: "/calculators/apr",
   },
 };
 
@@ -29,20 +54,24 @@ export default function AprVsInterestRatePage() {
           description="Learn the difference between APR and interest rate, why APR can be higher, and how to compare loans, credit cards, auto loans and mortgages more clearly."
           path="/blog/apr-vs-interest-rate"
           articleSection="Loan Guides"
+          datePublished={articleMetadata.datePublished}
+          dateModified={articleMetadata.dateModified}
+          authorName={articleMetadata.author.name}
+          authorUrl={articleMetadata.author.href}
+          reviewerName={articleMetadata.reviewer?.name}
+          reviewerUrl={articleMetadata.reviewer?.href}
         />
 
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/blog' },
-            { label: 'APR vs Interest Rate' },
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: "APR vs Interest Rate" },
           ]}
         />
 
         <article className="content-box">
-          <p className="eyebrow">Loan guide</p>
-
-          <h1>APR vs Interest Rate: What Borrowers Should Know</h1>
+          <ArticleHero metadata={articleMetadata} />
 
           <p>
             APR and interest rate are two of the most common borrowing terms,
@@ -186,15 +215,15 @@ export default function AprVsInterestRatePage() {
           <p>
             Imagine two loans with the same principal, same interest rate and
             same repayment term. If one loan requires a larger origination fee,
-            that loan can cost more even though the interest rate looks the same.
-            APR is intended to make that difference easier to see.
+            that loan can cost more even though the interest rate looks the
+            same. APR is intended to make that difference easier to see.
           </p>
 
           <p>
             A calculator can help you test this kind of scenario. Try changing
-            the fees, interest rate and loan term in the{' '}
-            <a href="/calculators/apr">APR Calculator</a> and compare the
-            result with the <a href="/calculators/loan">Loan Calculator</a>.
+            the fees, interest rate and loan term in the{" "}
+            <a href="/calculators/apr">APR Calculator</a> and compare the result
+            with the <a href="/calculators/loan">Loan Calculator</a>.
           </p>
 
           <h2>When APR is especially useful</h2>
@@ -209,23 +238,27 @@ export default function AprVsInterestRatePage() {
           <ul>
             <li>Comparing two mortgage quotes with different closing costs.</li>
             <li>Comparing personal loans with different origination fees.</li>
-            <li>Comparing auto loan offers from a dealer, bank or credit union.</li>
-            <li>Understanding the cost of a refinance before replacing a loan.</li>
+            <li>
+              Comparing auto loan offers from a dealer, bank or credit union.
+            </li>
+            <li>
+              Understanding the cost of a refinance before replacing a loan.
+            </li>
           </ul>
 
           <h2>When APR can be misleading</h2>
 
           <p>
             APR is useful, but it is not perfect. It can be less helpful if you
-            are comparing loans with different terms, different payment schedules
-            or different assumptions. For example, a longer loan term may have a
-            lower monthly payment but still produce more total interest over
-            time.
+            are comparing loans with different terms, different payment
+            schedules or different assumptions. For example, a longer loan term
+            may have a lower monthly payment but still produce more total
+            interest over time.
           </p>
 
           <p>
-            APR also may not capture every real-life cost. Late fees,
-            optional products, changing balances, prepayment behavior and future
+            APR also may not capture every real-life cost. Late fees, optional
+            products, changing balances, prepayment behavior and future
             refinancing decisions can all affect what you actually pay.
           </p>
 
@@ -242,10 +275,10 @@ export default function AprVsInterestRatePage() {
 
           <p>
             For payoff planning, the most important inputs are the balance, APR
-            and monthly payment. The{' '}
+            and monthly payment. The{" "}
             <a href="/calculators/credit-card-payoff">
               Credit Card Payoff Calculator
-            </a>{' '}
+            </a>{" "}
             can estimate a payoff timeline using those inputs.
           </p>
 
@@ -260,9 +293,9 @@ export default function AprVsInterestRatePage() {
           </p>
 
           <p>
-            For home loan scenarios, use the{' '}
-            <a href="/calculators/mortgage">Mortgage Calculator</a>,{' '}
-            <a href="/calculators/amortization">Amortization Calculator</a> and{' '}
+            For home loan scenarios, use the{" "}
+            <a href="/calculators/mortgage">Mortgage Calculator</a>,{" "}
+            <a href="/calculators/amortization">Amortization Calculator</a> and{" "}
             <a href="/calculators/refinance">Refinance Calculator</a> together
             to compare payment, payoff schedule and break-even timing.
           </p>
@@ -288,7 +321,9 @@ export default function AprVsInterestRatePage() {
             <li>Compare monthly payment, not just the rate.</li>
             <li>Compare total repayment over the same time period.</li>
             <li>Consider your time horizon, especially for mortgages.</li>
-            <li>Use calculators to test best-case and conservative scenarios.</li>
+            <li>
+              Use calculators to test best-case and conservative scenarios.
+            </li>
           </ol>
 
           <h2>APR vs interest rate FAQ</h2>
@@ -296,15 +331,17 @@ export default function AprVsInterestRatePage() {
           <h3>Is APR the same as interest rate?</h3>
           <p>
             No. They can be the same in some cases, but they often differ. The
-            interest rate focuses on the cost of borrowing the balance, while APR
-            may include certain fees and charges expressed as an annualized cost.
+            interest rate focuses on the cost of borrowing the balance, while
+            APR may include certain fees and charges expressed as an annualized
+            cost.
           </p>
 
           <h3>Should I choose the loan with the lowest APR?</h3>
           <p>
             The lowest APR is a strong comparison point, but it should not be
-            the only factor. Monthly payment, total repayment, fees, flexibility,
-            prepayment rules and your expected time with the loan also matter.
+            the only factor. Monthly payment, total repayment, fees,
+            flexibility, prepayment rules and your expected time with the loan
+            also matter.
           </p>
 
           <h3>Why is my APR higher than my interest rate?</h3>
@@ -326,7 +363,8 @@ export default function AprVsInterestRatePage() {
           <p>
             Yes, especially when you carry a balance. For credit cards, the APR
             helps estimate how expensive revolving debt can become. Your actual
-            cost depends on balances, payment timing, new charges and card terms.
+            cost depends on balances, payment timing, new charges and card
+            terms.
           </p>
 
           <h2>Important limitations</h2>
@@ -341,29 +379,30 @@ export default function AprVsInterestRatePage() {
 
           <p>
             FinanceCalcHub calculators use simplified assumptions to make common
-            scenarios easier to understand. Read our{' '}
-            <a href="/methodology">methodology</a> and{' '}
+            scenarios easier to understand. Read our{" "}
+            <a href="/methodology">methodology</a> and{" "}
             <a href="/disclaimer">disclaimer</a> for more context.
           </p>
+          <AboutArticle metadata={articleMetadata} />
         </article>
 
         <RelatedCalculators
           title="Related loan tools"
           tools={[
-            { title: 'APR Calculator', href: '/calculators/apr' },
-            { title: 'Loan Calculator', href: '/calculators/loan' },
-            { title: 'Car Loan Calculator', href: '/calculators/car-loan' },
+            { title: "APR Calculator", href: "/calculators/apr" },
+            { title: "Loan Calculator", href: "/calculators/loan" },
+            { title: "Car Loan Calculator", href: "/calculators/car-loan" },
             {
-              title: 'Debt Payoff Calculator',
-              href: '/calculators/debt-payoff',
+              title: "Debt Payoff Calculator",
+              href: "/calculators/debt-payoff",
             },
             {
-              title: 'Credit Card Payoff Calculator',
-              href: '/calculators/credit-card-payoff',
+              title: "Credit Card Payoff Calculator",
+              href: "/calculators/credit-card-payoff",
             },
             {
-              title: 'Amortization Calculator',
-              href: '/calculators/amortization',
+              title: "Amortization Calculator",
+              href: "/calculators/amortization",
             },
           ]}
         />

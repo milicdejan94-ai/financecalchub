@@ -1,22 +1,47 @@
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import BlogPostingSchema from '../../../components/BlogPostingSchema';
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import BlogPostingSchema from "../../../components/BlogPostingSchema";
 
+import { AboutArticle, ArticleHero } from "../../../components/article";
+import {
+  editorialReviewDesk,
+  editorialTeam,
+} from "../../../lib/content/authors";
+import type { ArticleMetadata } from "../../../lib/content/article-metadata";
 export const metadata = {
-  title: 'Gross Pay vs Net Pay: What Is the Difference? | FinanceCalcHub',
+  title: "Gross Pay vs Net Pay: What Is the Difference? | FinanceCalcHub",
   description:
-    'Understand gross pay vs net pay, common paycheck deductions, take-home pay examples and how to estimate your real monthly budget.',
+    "Understand gross pay vs net pay, common paycheck deductions, take-home pay examples and how to estimate your real monthly budget.",
   openGraph: {
-    title: 'Gross Pay vs Net Pay: What Is the Difference? | FinanceCalcHub',
-    description: 'Understand gross pay vs net pay, common paycheck deductions, take-home pay examples and how to estimate your real monthly budget.',
-    url: '/blog/gross-pay-vs-net-pay',
-    type: 'article',
-    siteName: 'FinanceCalcHub',
+    title: "Gross Pay vs Net Pay: What Is the Difference? | FinanceCalcHub",
+    description:
+      "Understand gross pay vs net pay, common paycheck deductions, take-home pay examples and how to estimate your real monthly budget.",
+    url: "/blog/gross-pay-vs-net-pay",
+    type: "article",
+    siteName: "FinanceCalcHub",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Gross Pay vs Net Pay: What Is the Difference? | FinanceCalcHub',
-    description: 'Understand gross pay vs net pay, common paycheck deductions, take-home pay examples and how to estimate your real monthly budget.',
+    card: "summary_large_image",
+    title: "Gross Pay vs Net Pay: What Is the Difference? | FinanceCalcHub",
+    description:
+      "Understand gross pay vs net pay, common paycheck deductions, take-home pay examples and how to estimate your real monthly budget.",
+  },
+};
+
+const articleMetadata: ArticleMetadata = {
+  title: "Gross Pay vs Net Pay: What Is the Difference?",
+  description:
+    "Understand gross pay vs net pay, common paycheck deductions, take-home pay examples and how to estimate your real monthly budget.",
+  category: "Paycheck guide",
+  readingTime: "6 min read",
+  difficulty: "Beginner",
+  datePublished: "2026-06-05",
+  dateModified: "2026-07-28",
+  author: editorialTeam,
+  reviewer: editorialReviewDesk,
+  relatedCalculator: {
+    title: "Paycheck Calculator",
+    href: "/calculators/paycheck",
   },
 };
 
@@ -29,20 +54,24 @@ export default function GrossPayVsNetPayPage() {
           description="Understand gross pay vs net pay, common paycheck deductions, take-home pay examples and how to estimate your real monthly budget."
           path="/blog/gross-pay-vs-net-pay"
           articleSection="Paycheck Guides"
+          datePublished={articleMetadata.datePublished}
+          dateModified={articleMetadata.dateModified}
+          authorName={articleMetadata.author.name}
+          authorUrl={articleMetadata.author.href}
+          reviewerName={articleMetadata.reviewer?.name}
+          reviewerUrl={articleMetadata.reviewer?.href}
         />
 
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/blog' },
-            { label: 'Gross Pay vs Net Pay' },
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: "Gross Pay vs Net Pay" },
           ]}
         />
 
         <article className="content-box">
-          <p className="eyebrow">Paycheck guide</p>
-
-          <h1>Gross Pay vs Net Pay: What Is the Difference?</h1>
+          <ArticleHero metadata={articleMetadata} />
 
           <p>
             Gross pay and net pay are two basic paycheck terms, but they affect
@@ -82,8 +111,12 @@ export default function GrossPayVsNetPayPage() {
                 </tr>
                 <tr>
                   <td>Taxable income</td>
-                  <td>Income used to calculate certain taxes after adjustments.</td>
-                  <td>Can be lower than gross pay when pre-tax deductions apply.</td>
+                  <td>
+                    Income used to calculate certain taxes after adjustments.
+                  </td>
+                  <td>
+                    Can be lower than gross pay when pre-tax deductions apply.
+                  </td>
                 </tr>
                 <tr>
                   <td>Paycheck deductions</td>
@@ -97,18 +130,19 @@ export default function GrossPayVsNetPayPage() {
           <h2>What is gross pay?</h2>
 
           <p>
-            Gross pay is the total amount earned before taxes and deductions. For
-            a salaried employee, gross pay usually starts with the annual salary
-            stated in the job offer or employment agreement. For an hourly
-            worker, gross pay is usually calculated by multiplying hours worked
-            by hourly rate, plus any overtime, bonuses or other taxable wages.
+            Gross pay is the total amount earned before taxes and deductions.
+            For a salaried employee, gross pay usually starts with the annual
+            salary stated in the job offer or employment agreement. For an
+            hourly worker, gross pay is usually calculated by multiplying hours
+            worked by hourly rate, plus any overtime, bonuses or other taxable
+            wages.
           </p>
 
           <p>
-            For example, an employee earning $25 per hour and working 40 hours in
-            a week has $1,000 of weekly gross pay before payroll taxes and other
-            deductions. A salaried worker earning $70,000 per year has gross pay
-            of about $5,833 per month before deductions.
+            For example, an employee earning $25 per hour and working 40 hours
+            in a week has $1,000 of weekly gross pay before payroll taxes and
+            other deductions. A salaried worker earning $70,000 per year has
+            gross pay of about $5,833 per month before deductions.
           </p>
 
           <h2>What is net pay?</h2>
@@ -209,18 +243,18 @@ export default function GrossPayVsNetPayPage() {
 
           <p>
             This is especially important when deciding how much rent or mortgage
-            payment you can afford. A payment that looks manageable against gross
-            income can feel much tighter against actual take-home pay.
+            payment you can afford. A payment that looks manageable against
+            gross income can feel much tighter against actual take-home pay.
           </p>
 
           <h2>Pre-tax vs after-tax deductions</h2>
 
           <p>
-            Some deductions may happen before certain taxes are calculated. These
-            are often called pre-tax deductions. Examples can include some
+            Some deductions may happen before certain taxes are calculated.
+            These are often called pre-tax deductions. Examples can include some
             retirement contributions, health insurance premiums, HSA
-            contributions or FSA contributions, depending on the plan and payroll
-            setup.
+            contributions or FSA contributions, depending on the plan and
+            payroll setup.
           </p>
 
           <p>
@@ -241,10 +275,11 @@ export default function GrossPayVsNetPayPage() {
           </p>
 
           <p>
-            When building a budget, start with take-home pay, then subtract fixed
-            costs such as housing, utilities, insurance, minimum debt payments,
-            transportation and savings goals. This gives a clearer view of the
-            money available for food, personal spending and emergencies.
+            When building a budget, start with take-home pay, then subtract
+            fixed costs such as housing, utilities, insurance, minimum debt
+            payments, transportation and savings goals. This gives a clearer
+            view of the money available for food, personal spending and
+            emergencies.
           </p>
 
           <h2>How to estimate net pay</h2>
@@ -257,18 +292,28 @@ export default function GrossPayVsNetPayPage() {
 
           <ol>
             <li>Start with your annual salary or hourly wage.</li>
-            <li>Choose your pay frequency: weekly, biweekly, semimonthly or monthly.</li>
+            <li>
+              Choose your pay frequency: weekly, biweekly, semimonthly or
+              monthly.
+            </li>
             <li>Estimate federal income tax withholding.</li>
             <li>Add Social Security and Medicare payroll taxes.</li>
             <li>Add state and local income taxes if they apply.</li>
-            <li>Subtract benefits, retirement contributions and other deductions.</li>
-            <li>Compare the result with your actual pay stub when available.</li>
+            <li>
+              Subtract benefits, retirement contributions and other deductions.
+            </li>
+            <li>
+              Compare the result with your actual pay stub when available.
+            </li>
           </ol>
 
           <p>
-            You can use our <a href="/calculators/paycheck">Paycheck Calculator</a>{' '}
-            for a general salary estimate, or the{' '}
-            <a href="/calculators/hourly-paycheck">Hourly Paycheck Calculator</a>{' '}
+            You can use our{" "}
+            <a href="/calculators/paycheck">Paycheck Calculator</a> for a
+            general salary estimate, or the{" "}
+            <a href="/calculators/hourly-paycheck">
+              Hourly Paycheck Calculator
+            </a>{" "}
             if your income is based on hourly work.
           </p>
 
@@ -305,11 +350,13 @@ export default function GrossPayVsNetPayPage() {
           <h3>Why is my net pay much lower than my gross pay?</h3>
           <p>
             Net pay can be lower because of income tax, Social Security,
-            Medicare, state tax, insurance premiums, retirement contributions and
-            other payroll deductions.
+            Medicare, state tax, insurance premiums, retirement contributions
+            and other payroll deductions.
           </p>
 
-          <h3>Can two people with the same gross salary have different net pay?</h3>
+          <h3>
+            Can two people with the same gross salary have different net pay?
+          </h3>
           <p>
             Yes. Filing status, state taxes, benefits, retirement contributions,
             deductions, credits and withholding choices can all change net pay.
@@ -323,25 +370,29 @@ export default function GrossPayVsNetPayPage() {
             on filing status, income, state and local taxes, deductions, benefit
             elections, employer payroll settings and current tax rules.
           </p>
+          <AboutArticle metadata={articleMetadata} />
         </article>
 
         <RelatedCalculators
           title="Related paycheck tools"
           tools={[
-            { title: 'Paycheck Calculator', href: '/calculators/paycheck' },
+            { title: "Paycheck Calculator", href: "/calculators/paycheck" },
             {
-              title: 'Hourly Paycheck Calculator',
-              href: '/calculators/hourly-paycheck',
-            },
-            { title: 'Federal Tax Calculator', href: '/calculators/federal-tax' },
-            { title: 'Salary Calculator', href: '/salary-calculator' },
-            {
-              title: 'Paycheck Calculators by State',
-              href: '/paycheck-calculator',
+              title: "Hourly Paycheck Calculator",
+              href: "/calculators/hourly-paycheck",
             },
             {
-              title: 'How to Estimate Take-Home Pay',
-              href: '/blog/how-to-estimate-take-home-pay',
+              title: "Federal Tax Calculator",
+              href: "/calculators/federal-tax",
+            },
+            { title: "Salary Calculator", href: "/salary-calculator" },
+            {
+              title: "Paycheck Calculators by State",
+              href: "/paycheck-calculator",
+            },
+            {
+              title: "How to Estimate Take-Home Pay",
+              href: "/blog/how-to-estimate-take-home-pay",
             },
           ]}
         />

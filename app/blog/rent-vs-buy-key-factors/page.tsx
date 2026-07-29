@@ -1,22 +1,47 @@
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import BlogPostingSchema from '../../../components/BlogPostingSchema';
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import BlogPostingSchema from "../../../components/BlogPostingSchema";
 
+import { AboutArticle, ArticleHero } from "../../../components/article";
+import {
+  editorialReviewDesk,
+  editorialTeam,
+} from "../../../lib/content/authors";
+import type { ArticleMetadata } from "../../../lib/content/article-metadata";
 export const metadata = {
-  title: 'Rent vs Buy: Key Factors to Consider | FinanceCalcHub',
+  title: "Rent vs Buy: Key Factors to Consider | FinanceCalcHub",
   description:
-    'Compare renting and buying a home using key factors such as monthly cost, upfront cash, time horizon, maintenance, flexibility and long-term risk.',
+    "Compare renting and buying a home using key factors such as monthly cost, upfront cash, time horizon, maintenance, flexibility and long-term risk.",
   openGraph: {
-    title: 'Rent vs Buy: Key Factors to Consider | FinanceCalcHub',
-    description: 'Compare renting and buying a home using key factors such as monthly cost, upfront cash, time horizon, maintenance, flexibility and long-term risk.',
-    url: '/blog/rent-vs-buy-key-factors',
-    type: 'article',
-    siteName: 'FinanceCalcHub',
+    title: "Rent vs Buy: Key Factors to Consider | FinanceCalcHub",
+    description:
+      "Compare renting and buying a home using key factors such as monthly cost, upfront cash, time horizon, maintenance, flexibility and long-term risk.",
+    url: "/blog/rent-vs-buy-key-factors",
+    type: "article",
+    siteName: "FinanceCalcHub",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Rent vs Buy: Key Factors to Consider | FinanceCalcHub',
-    description: 'Compare renting and buying a home using key factors such as monthly cost, upfront cash, time horizon, maintenance, flexibility and long-term risk.',
+    card: "summary_large_image",
+    title: "Rent vs Buy: Key Factors to Consider | FinanceCalcHub",
+    description:
+      "Compare renting and buying a home using key factors such as monthly cost, upfront cash, time horizon, maintenance, flexibility and long-term risk.",
+  },
+};
+
+const articleMetadata: ArticleMetadata = {
+  title: "Rent vs Buy: Key Factors to Consider",
+  description:
+    "Compare renting and buying a home using key factors such as monthly cost, upfront cash, time horizon, maintenance, flexibility and long-term risk.",
+  category: "Home buying guide",
+  readingTime: "8 min read",
+  difficulty: "Beginner",
+  datePublished: "2026-06-05",
+  dateModified: "2026-07-28",
+  author: editorialTeam,
+  reviewer: editorialReviewDesk,
+  relatedCalculator: {
+    title: "Rent vs Buy Calculator",
+    href: "/calculators/rent-vs-buy",
   },
 };
 
@@ -29,34 +54,38 @@ export default function RentVsBuyKeyFactorsPage() {
           description="Compare renting and buying a home using key factors such as monthly cost, upfront cash, time horizon, maintenance, flexibility and long-term risk."
           path="/blog/rent-vs-buy-key-factors"
           articleSection="Housing Guides"
+          datePublished={articleMetadata.datePublished}
+          dateModified={articleMetadata.dateModified}
+          authorName={articleMetadata.author.name}
+          authorUrl={articleMetadata.author.href}
+          reviewerName={articleMetadata.reviewer?.name}
+          reviewerUrl={articleMetadata.reviewer?.href}
         />
 
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/blog' },
-            { label: 'Rent vs Buy Key Factors' },
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: "Rent vs Buy Key Factors" },
           ]}
         />
 
         <article className="content-box">
-          <p className="eyebrow">Home buying guide</p>
-
-          <h1>Rent vs Buy: Key Factors to Consider</h1>
+          <ArticleHero metadata={articleMetadata} />
 
           <p>
             Deciding whether to rent or buy is not only a question of which
             monthly payment is lower. The better choice depends on your local
             market, how long you expect to stay, available cash, maintenance
-            responsibility, flexibility, taxes, insurance, closing costs and your
-            comfort with long-term financial risk.
+            responsibility, flexibility, taxes, insurance, closing costs and
+            your comfort with long-term financial risk.
           </p>
 
           <p>
             This guide walks through the major factors that can change the rent
-            vs buy decision. For a personalized estimate, use the{' '}
+            vs buy decision. For a personalized estimate, use the{" "}
             <a href="/calculators/rent-vs-buy">Rent vs Buy Calculator</a> and
-            compare it with the{' '}
+            compare it with the{" "}
             <a href="/calculators/mortgage-affordability">
               Mortgage Affordability Calculator
             </a>
@@ -84,13 +113,19 @@ export default function RentVsBuyKeyFactorsPage() {
               <tbody>
                 <tr>
                   <td>Upfront cash</td>
-                  <td>Usually deposit, first month&apos;s rent and moving costs</td>
-                  <td>Down payment, closing costs, inspections and moving costs</td>
+                  <td>
+                    Usually deposit, first month&apos;s rent and moving costs
+                  </td>
+                  <td>
+                    Down payment, closing costs, inspections and moving costs
+                  </td>
                 </tr>
                 <tr>
                   <td>Monthly cost</td>
                   <td>Rent plus utilities and renters insurance</td>
-                  <td>Mortgage, taxes, insurance, HOA, repairs and maintenance</td>
+                  <td>
+                    Mortgage, taxes, insurance, HOA, repairs and maintenance
+                  </td>
                 </tr>
                 <tr>
                   <td>Flexibility</td>
@@ -157,7 +192,9 @@ export default function RentVsBuyKeyFactorsPage() {
                 </tr>
                 <tr>
                   <td>PMI</td>
-                  <td>May apply when the down payment is below certain thresholds</td>
+                  <td>
+                    May apply when the down payment is below certain thresholds
+                  </td>
                 </tr>
                 <tr>
                   <td>HOA fees</td>
@@ -198,8 +235,8 @@ export default function RentVsBuyKeyFactorsPage() {
 
           <p>
             Renting may be better when your job, family situation or preferred
-            location could change soon. Flexibility has real value, even if it is
-            not always visible in a simple monthly payment comparison.
+            location could change soon. Flexibility has real value, even if it
+            is not always visible in a simple monthly payment comparison.
           </p>
 
           <h2>Example rent vs buy scenario</h2>
@@ -234,8 +271,8 @@ export default function RentVsBuyKeyFactorsPage() {
             Buying may be more practical if you plan to stay for several years,
             have stable income, have enough savings after the down payment, are
             comfortable with maintenance and want more control over your living
-            situation. Buying can also create the possibility of building equity,
-            although home values are not guaranteed to rise.
+            situation. Buying can also create the possibility of building
+            equity, although home values are not guaranteed to rise.
           </p>
 
           <h2>Questions to ask before deciding</h2>
@@ -252,14 +289,14 @@ export default function RentVsBuyKeyFactorsPage() {
           <h2>Use calculators to compare scenarios</h2>
 
           <p>
-            Start with the{' '}
+            Start with the{" "}
             <a href="/calculators/rent-vs-buy">Rent vs Buy Calculator</a> to
-            compare renting and owning over a selected time period. Then use the{' '}
-            <a href="/calculators/mortgage">Mortgage Calculator</a>,{' '}
-            <a href="/calculators/down-payment">Down Payment Calculator</a> and{' '}
+            compare renting and owning over a selected time period. Then use the{" "}
+            <a href="/calculators/mortgage">Mortgage Calculator</a>,{" "}
+            <a href="/calculators/down-payment">Down Payment Calculator</a> and{" "}
             <a href="/calculators/mortgage-affordability">
               Mortgage Affordability Calculator
-            </a>{' '}
+            </a>{" "}
             to review the buying side in more detail.
           </p>
 
@@ -283,8 +320,8 @@ export default function RentVsBuyKeyFactorsPage() {
           <p>
             There is no universal number. A longer time horizon can help because
             it gives more time to spread out buying and selling costs, but the
-            answer depends on home price, rent, mortgage rate, market changes and
-            transaction costs.
+            answer depends on home price, rent, mortgage rate, market changes
+            and transaction costs.
           </p>
 
           <h3>What cost do buyers often forget?</h3>
@@ -303,28 +340,29 @@ export default function RentVsBuyKeyFactorsPage() {
             lender terms, tax situation, repair costs, investment alternatives
             and personal plans.
           </p>
+          <AboutArticle metadata={articleMetadata} />
         </article>
 
         <RelatedCalculators
           title="Related home calculators"
           tools={[
             {
-              title: 'Rent vs Buy Calculator',
-              href: '/calculators/rent-vs-buy',
+              title: "Rent vs Buy Calculator",
+              href: "/calculators/rent-vs-buy",
             },
             {
-              title: 'Mortgage Affordability Calculator',
-              href: '/calculators/mortgage-affordability',
+              title: "Mortgage Affordability Calculator",
+              href: "/calculators/mortgage-affordability",
             },
-            { title: 'Mortgage Calculator', href: '/calculators/mortgage' },
+            { title: "Mortgage Calculator", href: "/calculators/mortgage" },
             {
-              title: 'Down Payment Calculator',
-              href: '/calculators/down-payment',
+              title: "Down Payment Calculator",
+              href: "/calculators/down-payment",
             },
-            { title: 'Refinance Calculator', href: '/calculators/refinance' },
+            { title: "Refinance Calculator", href: "/calculators/refinance" },
             {
-              title: 'All Financial Calculators',
-              href: '/calculators',
+              title: "All Financial Calculators",
+              href: "/calculators",
             },
           ]}
         />

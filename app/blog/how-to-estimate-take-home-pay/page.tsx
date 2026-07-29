@@ -1,22 +1,47 @@
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import BlogPostingSchema from '../../../components/BlogPostingSchema';
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import BlogPostingSchema from "../../../components/BlogPostingSchema";
 
+import { AboutArticle, ArticleHero } from "../../../components/article";
+import {
+  editorialReviewDesk,
+  editorialTeam,
+} from "../../../lib/content/authors";
+import type { ArticleMetadata } from "../../../lib/content/article-metadata";
 export const metadata = {
-  title: 'How to Estimate Your Take-Home Pay | FinanceCalcHub',
+  title: "How to Estimate Your Take-Home Pay | FinanceCalcHub",
   description:
-    'Learn how to estimate take-home pay from gross income, payroll taxes, federal tax, state tax, benefits and paycheck deductions.',
+    "Learn how to estimate take-home pay from gross income, payroll taxes, federal tax, state tax, benefits and paycheck deductions.",
   openGraph: {
-    title: 'How to Estimate Your Take-Home Pay | FinanceCalcHub',
-    description: 'Learn how to estimate take-home pay from gross income, payroll taxes, federal tax, state tax, benefits and paycheck deductions.',
-    url: '/blog/how-to-estimate-take-home-pay',
-    type: 'article',
-    siteName: 'FinanceCalcHub',
+    title: "How to Estimate Your Take-Home Pay | FinanceCalcHub",
+    description:
+      "Learn how to estimate take-home pay from gross income, payroll taxes, federal tax, state tax, benefits and paycheck deductions.",
+    url: "/blog/how-to-estimate-take-home-pay",
+    type: "article",
+    siteName: "FinanceCalcHub",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'How to Estimate Your Take-Home Pay | FinanceCalcHub',
-    description: 'Learn how to estimate take-home pay from gross income, payroll taxes, federal tax, state tax, benefits and paycheck deductions.',
+    card: "summary_large_image",
+    title: "How to Estimate Your Take-Home Pay | FinanceCalcHub",
+    description:
+      "Learn how to estimate take-home pay from gross income, payroll taxes, federal tax, state tax, benefits and paycheck deductions.",
+  },
+};
+
+const articleMetadata: ArticleMetadata = {
+  title: "How to Estimate Your Take-Home Pay",
+  description:
+    "Learn how to estimate take-home pay from gross income, payroll taxes, federal tax, state tax, benefits and paycheck deductions.",
+  category: "Paycheck guide",
+  readingTime: "8 min read",
+  difficulty: "Beginner",
+  datePublished: "2026-06-05",
+  dateModified: "2026-07-28",
+  author: editorialTeam,
+  reviewer: editorialReviewDesk,
+  relatedCalculator: {
+    title: "Paycheck Calculator",
+    href: "/calculators/paycheck",
   },
 };
 
@@ -29,26 +54,30 @@ export default function TakeHomePayArticle() {
           description="Learn how to estimate take-home pay from gross income, payroll taxes, federal tax, state tax, benefits and paycheck deductions."
           path="/blog/how-to-estimate-take-home-pay"
           articleSection="Paycheck Guides"
+          datePublished={articleMetadata.datePublished}
+          dateModified={articleMetadata.dateModified}
+          authorName={articleMetadata.author.name}
+          authorUrl={articleMetadata.author.href}
+          reviewerName={articleMetadata.reviewer?.name}
+          reviewerUrl={articleMetadata.reviewer?.href}
         />
 
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/blog' },
-            { label: 'How to Estimate Your Take-Home Pay' },
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: "How to Estimate Your Take-Home Pay" },
           ]}
         />
 
         <article className="content-box">
-          <p className="eyebrow">Paycheck guide</p>
-
-          <h1>How to Estimate Your Take-Home Pay</h1>
+          <ArticleHero metadata={articleMetadata} />
 
           <p>
             Take-home pay is the amount that actually reaches your bank account
-            after taxes and paycheck deductions. It is also called net pay. Gross
-            salary or gross hourly wages can be useful for comparing jobs, but
-            take-home pay is usually the number you need for rent, bills,
+            after taxes and paycheck deductions. It is also called net pay.
+            Gross salary or gross hourly wages can be useful for comparing jobs,
+            but take-home pay is usually the number you need for rent, bills,
             savings, debt payments and everyday budgeting.
           </p>
 
@@ -57,16 +86,15 @@ export default function TakeHomePayArticle() {
             starting with gross pay, subtracting payroll taxes, estimating
             federal and state income tax, and accounting for benefits and other
             deductions. The examples are simplified and educational only. For a
-            quick estimate, use the <a href="/calculators/paycheck">Paycheck Calculator</a> or
-            compare estimates by state with the{' '}
+            quick estimate, use the{" "}
+            <a href="/calculators/paycheck">Paycheck Calculator</a> or compare
+            estimates by state with the{" "}
             <a href="/paycheck-calculator">state paycheck calculators</a>.
           </p>
 
           <h2>Quick take-home pay formula</h2>
 
-          <p>
-            A simple way to think about take-home pay is:
-          </p>
+          <p>A simple way to think about take-home pay is:</p>
 
           <div className="table-wrap">
             <table className="data-table">
@@ -77,19 +105,31 @@ export default function TakeHomePayArticle() {
                 </tr>
                 <tr>
                   <td>Start with gross pay</td>
-                  <td>Your salary, hourly pay, bonus or other taxable wages before deductions.</td>
+                  <td>
+                    Your salary, hourly pay, bonus or other taxable wages before
+                    deductions.
+                  </td>
                 </tr>
                 <tr>
                   <td>Subtract pre-tax deductions</td>
-                  <td>Examples may include some retirement, health insurance, HSA or FSA contributions.</td>
+                  <td>
+                    Examples may include some retirement, health insurance, HSA
+                    or FSA contributions.
+                  </td>
                 </tr>
                 <tr>
                   <td>Estimate taxes</td>
-                  <td>Federal income tax, Social Security, Medicare, state tax and possible local tax.</td>
+                  <td>
+                    Federal income tax, Social Security, Medicare, state tax and
+                    possible local tax.
+                  </td>
                 </tr>
                 <tr>
                   <td>Subtract post-tax deductions</td>
-                  <td>Examples may include certain insurance, garnishments or other payroll deductions.</td>
+                  <td>
+                    Examples may include certain insurance, garnishments or
+                    other payroll deductions.
+                  </td>
                 </tr>
                 <tr>
                   <td>Result</td>
@@ -111,8 +151,8 @@ export default function TakeHomePayArticle() {
           <p>
             Gross pay is the amount earned before taxes and deductions. For a
             salaried employee, gross pay usually starts with annual salary. For
-            an hourly employee, gross pay is usually calculated from hourly rate,
-            regular hours, overtime hours and any additional pay.
+            an hourly employee, gross pay is usually calculated from hourly
+            rate, regular hours, overtime hours and any additional pay.
           </p>
 
           <p>
@@ -185,21 +225,24 @@ export default function TakeHomePayArticle() {
             <li>Local income tax, if applicable</li>
             <li>Health, dental or vision insurance premiums</li>
             <li>401(k), 403(b), HSA or FSA contributions</li>
-            <li>Life insurance, disability insurance or other employer deductions</li>
+            <li>
+              Life insurance, disability insurance or other employer deductions
+            </li>
           </ul>
 
           <h2>Federal income tax withholding</h2>
 
           <p>
             Federal income tax withholding is based on payroll settings and the
-            information connected to your W-4. Your actual annual federal tax can
-            differ from the amount withheld during the year, which is why some
-            people receive a refund and others owe tax when filing a return.
+            information connected to your W-4. Your actual annual federal tax
+            can differ from the amount withheld during the year, which is why
+            some people receive a refund and others owe tax when filing a
+            return.
           </p>
 
           <p>
-            A take-home pay estimate should not be treated as a tax return. It is
-            only a planning estimate for paycheck purposes. Filing status,
+            A take-home pay estimate should not be treated as a tax return. It
+            is only a planning estimate for paycheck purposes. Filing status,
             dependents, credits, pre-tax deductions and other income can all
             affect the final result.
           </p>
@@ -208,9 +251,9 @@ export default function TakeHomePayArticle() {
 
           <p>
             Most employees have payroll taxes withheld for Social Security and
-            Medicare. These are separate from regular federal income tax. Payroll
-            taxes are one reason net pay is lower than gross pay even before
-            state income tax or benefit deductions are considered.
+            Medicare. These are separate from regular federal income tax.
+            Payroll taxes are one reason net pay is lower than gross pay even
+            before state income tax or benefit deductions are considered.
           </p>
 
           <p>
@@ -232,7 +275,7 @@ export default function TakeHomePayArticle() {
           <p>
             This is why the same salary can feel different in California, Texas,
             New York, Florida, Illinois, New Jersey or another state. To compare
-            estimates by location, start with the{' '}
+            estimates by location, start with the{" "}
             <a href="/paycheck-calculator">Paycheck Calculators by State</a>.
           </p>
 
@@ -240,9 +283,9 @@ export default function TakeHomePayArticle() {
 
           <p>
             Some paycheck deductions may reduce taxable income before certain
-            taxes are calculated. Other deductions may be taken after taxes. This
-            distinction matters because two deductions of the same dollar amount
-            may not affect take-home pay in the same way.
+            taxes are calculated. Other deductions may be taken after taxes.
+            This distinction matters because two deductions of the same dollar
+            amount may not affect take-home pay in the same way.
           </p>
 
           <div className="table-wrap">
@@ -258,20 +301,24 @@ export default function TakeHomePayArticle() {
                 <tr>
                   <td>Pre-tax</td>
                   <td>May reduce taxable wages for some tax calculations.</td>
-                  <td>Some retirement, health insurance, HSA or FSA deductions.</td>
+                  <td>
+                    Some retirement, health insurance, HSA or FSA deductions.
+                  </td>
                 </tr>
                 <tr>
                   <td>Post-tax</td>
                   <td>Usually taken after tax withholding is calculated.</td>
-                  <td>Some insurance, wage garnishments or voluntary deductions.</td>
+                  <td>
+                    Some insurance, wage garnishments or voluntary deductions.
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <p>
-            Employer payroll systems and benefit plans can vary, so it is best to
-            review your pay stub or HR benefit documents when you need exact
+            Employer payroll systems and benefit plans can vary, so it is best
+            to review your pay stub or HR benefit documents when you need exact
             answers.
           </p>
 
@@ -281,7 +328,8 @@ export default function TakeHomePayArticle() {
             The same annual salary can produce different paycheck amounts based
             on pay frequency. A worker paid biweekly usually receives 26
             paychecks per year. A worker paid semimonthly usually receives 24
-            paychecks per year. Monthly payroll usually means 12 checks per year.
+            paychecks per year. Monthly payroll usually means 12 checks per
+            year.
           </p>
 
           <div className="table-wrap">
@@ -302,7 +350,9 @@ export default function TakeHomePayArticle() {
                 <tr>
                   <td>Biweekly</td>
                   <td>26</td>
-                  <td>Common schedule; some months may include three paychecks.</td>
+                  <td>
+                    Common schedule; some months may include three paychecks.
+                  </td>
                 </tr>
                 <tr>
                   <td>Semimonthly</td>
@@ -322,13 +372,20 @@ export default function TakeHomePayArticle() {
 
           <ol>
             <li>Start with annual salary or hourly gross pay.</li>
-            <li>Choose your pay frequency: weekly, biweekly, semimonthly or monthly.</li>
-            <li>Estimate pre-tax deductions such as retirement or health benefits.</li>
+            <li>
+              Choose your pay frequency: weekly, biweekly, semimonthly or
+              monthly.
+            </li>
+            <li>
+              Estimate pre-tax deductions such as retirement or health benefits.
+            </li>
             <li>Estimate federal income tax withholding.</li>
             <li>Estimate Social Security and Medicare payroll taxes.</li>
             <li>Add state and local taxes, if they apply.</li>
             <li>Subtract post-tax deductions.</li>
-            <li>Review the estimated net paycheck and compare it with your budget.</li>
+            <li>
+              Review the estimated net paycheck and compare it with your budget.
+            </li>
           </ol>
 
           <p>
@@ -340,10 +397,10 @@ export default function TakeHomePayArticle() {
           <h2>How to use take-home pay for budgeting</h2>
 
           <p>
-            A monthly budget should usually start with net pay, not gross pay. If
-            your gross salary is $70,000, your real monthly spending power is not
-            $5,833 before taxes. It is whatever remains after withholding and
-            deductions.
+            A monthly budget should usually start with net pay, not gross pay.
+            If your gross salary is $70,000, your real monthly spending power is
+            not $5,833 before taxes. It is whatever remains after withholding
+            and deductions.
           </p>
 
           <p>
@@ -358,22 +415,26 @@ export default function TakeHomePayArticle() {
 
           <ul>
             <li>
-              Use the <a href="/calculators/paycheck">Paycheck Calculator</a> for
-              a general salary and paycheck estimate.
+              Use the <a href="/calculators/paycheck">Paycheck Calculator</a>{" "}
+              for a general salary and paycheck estimate.
             </li>
             <li>
-              Use the{' '}
-              <a href="/calculators/hourly-paycheck">Hourly Paycheck Calculator</a>{' '}
+              Use the{" "}
+              <a href="/calculators/hourly-paycheck">
+                Hourly Paycheck Calculator
+              </a>{" "}
               if you are paid by the hour.
             </li>
             <li>
-              Use the <a href="/calculators/federal-tax">Federal Tax Calculator</a>{' '}
-              to estimate federal income tax using the calculator's stated assumptions.
+              Use the{" "}
+              <a href="/calculators/federal-tax">Federal Tax Calculator</a> to
+              estimate federal income tax using the calculator's stated
+              assumptions.
             </li>
             <li>
-              Use <a href="/salary-after-tax/70000">$70,000 after taxes</a> or{' '}
-              <a href="/salary-after-tax/100000">$100,000 after taxes</a> for quick
-              salary examples.
+              Use <a href="/salary-after-tax/70000">$70,000 after taxes</a> or{" "}
+              <a href="/salary-after-tax/100000">$100,000 after taxes</a> for
+              quick salary examples.
             </li>
           </ul>
 
@@ -417,8 +478,8 @@ export default function TakeHomePayArticle() {
           <h2>Important limitations</h2>
 
           <p>
-            This article provides general educational information only. It is not
-            tax, payroll, legal, accounting, investment or financial advice.
+            This article provides general educational information only. It is
+            not tax, payroll, legal, accounting, investment or financial advice.
             FinanceCalcHub calculators use simplified assumptions and may not
             match your employer payroll system, tax return or official
             withholding calculation.
@@ -429,34 +490,35 @@ export default function TakeHomePayArticle() {
             sources, your pay stub, your employer payroll department or a
             qualified professional.
           </p>
+          <AboutArticle metadata={articleMetadata} />
         </article>
 
         <RelatedCalculators
           title="Related paycheck tools"
           tools={[
             {
-              title: 'Paycheck Calculator',
-              href: '/calculators/paycheck',
+              title: "Paycheck Calculator",
+              href: "/calculators/paycheck",
             },
             {
-              title: 'Hourly Paycheck Calculator',
-              href: '/calculators/hourly-paycheck',
+              title: "Hourly Paycheck Calculator",
+              href: "/calculators/hourly-paycheck",
             },
             {
-              title: 'Federal Tax Calculator',
-              href: '/calculators/federal-tax',
+              title: "Federal Tax Calculator",
+              href: "/calculators/federal-tax",
             },
             {
-              title: 'Salary After Tax Calculators',
-              href: '/salary-after-tax',
+              title: "Salary After Tax Calculators",
+              href: "/salary-after-tax",
             },
             {
-              title: 'Paycheck Calculators by State',
-              href: '/paycheck-calculator',
+              title: "Paycheck Calculators by State",
+              href: "/paycheck-calculator",
             },
             {
-              title: 'Methodology',
-              href: '/methodology',
+              title: "Methodology",
+              href: "/methodology",
             },
           ]}
         />
