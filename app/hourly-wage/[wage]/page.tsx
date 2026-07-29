@@ -1,13 +1,21 @@
-import { notFound } from 'next/navigation';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import { hourlyWages } from '../../../lib/hourlyWages';
+import { notFound } from "next/navigation";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import { hourlyWages } from "../../../lib/hourlyWages";
 import {
   calculateFederalIncomeTaxFromGross,
   calculateMedicareTax,
   calculateSocialSecurityTax,
   TAX_YEAR,
-} from '../../../lib/tax2026';
+} from "../../../lib/tax2026";
+import {
+  CalculatorStructuredData,
+  CalculatorTrustPanel,
+} from "../../../components/calculator";
+import {
+  CALCULATOR_LAST_REVIEWED,
+  taxCalculatorSources,
+} from "../../../lib/calculator-trust";
 
 type PageProps = {
   params: {
@@ -16,17 +24,17 @@ type PageProps = {
 };
 
 function formatCurrency(value: number) {
-  return value.toLocaleString('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  return value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
     maximumFractionDigits: 2,
   });
 }
 
 function formatWholeCurrency(value: number) {
-  return value.toLocaleString('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  return value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
     maximumFractionDigits: 0,
   });
 }
@@ -50,10 +58,10 @@ export function generateMetadata({ params }: PageProps) {
     openGraph: {
       title: `$${wage} an Hour Is How Much a Year?`,
       description: `$${wage}/hour is about ${formatWholeCurrency(
-        annualSalary
+        annualSalary,
       )} per year before taxes at 40 hours per week.`,
       url: `/hourly-wage/${wage}`,
-      type: 'article',
+      type: "article",
     },
   };
 }
@@ -81,17 +89,18 @@ export default function HourlyWagePage({ params }: PageProps) {
   const weeklyWithOvertime = weeklyGross + overtimeRate * overtimeHours;
   const annualWithOvertime = weeklyWithOvertime * weeksPerYear;
 
-  const filingStatus = 'single' as const;
+  const filingStatus = "single" as const;
   const estimatedStateTaxRate = 0.04;
 
-  const federalCalculation =
-    calculateFederalIncomeTaxFromGross(annualGross, filingStatus);
+  const federalCalculation = calculateFederalIncomeTaxFromGross(
+    annualGross,
+    filingStatus,
+  );
 
   const federalTax = federalCalculation.federalTax;
   const socialSecurity = calculateSocialSecurityTax(annualGross);
 
-  const medicareCalculation =
-    calculateMedicareTax(annualGross, filingStatus);
+  const medicareCalculation = calculateMedicareTax(annualGross, filingStatus);
 
   const medicare = medicareCalculation.totalMedicare;
   const estimatedStateTax = annualGross * estimatedStateTaxRate;
@@ -111,8 +120,8 @@ export default function HourlyWagePage({ params }: PageProps) {
       <div className="container">
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Hourly Wage', href: '/hourly-wage' },
+            { label: "Home", href: "/" },
+            { label: "Hourly Wage", href: "/hourly-wage" },
             { label: `$${wage} an Hour` },
           ]}
         />
@@ -123,10 +132,12 @@ export default function HourlyWagePage({ params }: PageProps) {
           <h1>${wage} an Hour Is How Much a Year?</h1>
 
           <p>
-            At a full-time schedule of {hoursPerWeek} hours per week and{' '}
-            {weeksPerYear} weeks per year, ${wage} an hour is about{' '}
-            <strong>{formatWholeCurrency(annualGross)} per year before taxes</strong>.
-            This page breaks that hourly wage into annual, monthly, biweekly,
+            At a full-time schedule of {hoursPerWeek} hours per week and{" "}
+            {weeksPerYear} weeks per year, ${wage} an hour is about{" "}
+            <strong>
+              {formatWholeCurrency(annualGross)} per year before taxes
+            </strong>
+            . This page breaks that hourly wage into annual, monthly, biweekly,
             weekly and daily estimates.
           </p>
 
@@ -143,7 +154,7 @@ export default function HourlyWagePage({ params }: PageProps) {
 
             <p>
               Assumption: {hoursPerWeek} hours per week and {weeksPerYear} weeks
-              per year, or {hourlyToSalaryHours.toLocaleString('en-US')} working
+              per year, or {hourlyToSalaryHours.toLocaleString("en-US")} working
               hours per year.
             </p>
 
@@ -222,13 +233,13 @@ export default function HourlyWagePage({ params }: PageProps) {
           </p>
 
           <p>
-            For ${wage} an hour at {hoursPerWeek} hours per week and{' '}
+            For ${wage} an hour at {hoursPerWeek} hours per week and{" "}
             {weeksPerYear} weeks per year:
           </p>
 
           <p>
             <strong>
-              ${wage} × {hoursPerWeek} × {weeksPerYear} ={' '}
+              ${wage} × {hoursPerWeek} × {weeksPerYear} ={" "}
               {formatWholeCurrency(salaryEquivalent)} per year before taxes
             </strong>
           </p>
@@ -284,18 +295,18 @@ export default function HourlyWagePage({ params }: PageProps) {
           <h2>How much is ${wage} an hour per month?</h2>
 
           <p>
-            At a full-time schedule, ${wage} an hour is about{' '}
+            At a full-time schedule, ${wage} an hour is about{" "}
             {formatCurrency(monthlyGross)} per month before taxes. Under the
             {` ${TAX_YEAR} `}single-filer and 4% illustrative state-tax
-            assumptions used here, estimated monthly take-home pay is about{' '}
+            assumptions used here, estimated monthly take-home pay is about{" "}
             {formatCurrency(monthlyAfterTax)}.
           </p>
 
           <p>
-            Monthly budgeting should usually be based on take-home pay, not gross
-            pay. Rent, mortgage payments, car payments, groceries, insurance,
-            debt payments and savings goals are paid from the amount that reaches
-            your bank account.
+            Monthly budgeting should usually be based on take-home pay, not
+            gross pay. Rent, mortgage payments, car payments, groceries,
+            insurance, debt payments and savings goals are paid from the amount
+            that reaches your bank account.
           </p>
 
           <h2>How much is ${wage} an hour biweekly?</h2>
@@ -304,7 +315,7 @@ export default function HourlyWagePage({ params }: PageProps) {
             If you are paid every two weeks, ${wage} an hour at 40 hours per
             week is about {formatCurrency(biweeklyGross)} before taxes per
             paycheck. Under the {TAX_YEAR} assumptions used on this page, the
-            estimated biweekly take-home amount is about{' '}
+            estimated biweekly take-home amount is about{" "}
             {formatCurrency(biweeklyAfterTax)}.
           </p>
 
@@ -320,9 +331,8 @@ export default function HourlyWagePage({ params }: PageProps) {
             This page uses {TAX_YEAR} progressive federal income-tax brackets
             for a single filer, Social Security, Medicare and an illustrative 4%
             state income-tax assumption. Based on those assumptions, estimated
-            annual after-tax pay is{' '}
-            {formatCurrency(annualAfterTax)}, with an estimated effective tax
-            rate of {effectiveTaxRate.toFixed(1)}%.
+            annual after-tax pay is {formatCurrency(annualAfterTax)}, with an
+            estimated effective tax rate of {effectiveTaxRate.toFixed(1)}%.
           </p>
 
           <div className="table-wrap">
@@ -400,22 +410,30 @@ export default function HourlyWagePage({ params }: PageProps) {
           <h2>Helpful next steps</h2>
 
           <p>
-            Start with this hourly wage estimate, then use the{' '}
-            <a href="/calculators/hourly-paycheck">Hourly Paycheck Calculator</a>{' '}
+            Start with this hourly wage estimate, then use the{" "}
+            <a href="/calculators/hourly-paycheck">
+              Hourly Paycheck Calculator
+            </a>{" "}
             for a more flexible paycheck estimate. You can also compare salary
-            equivalents with the{' '}
-            <a href="/calculators/salary-to-hourly">Salary to Hourly Calculator</a>{' '}
-            or review salary examples in the{' '}
+            equivalents with the{" "}
+            <a href="/calculators/salary-to-hourly">
+              Salary to Hourly Calculator
+            </a>{" "}
+            or review salary examples in the{" "}
             <a href="/salary-calculator">Salary Calculator Directory</a>.
           </p>
 
           <h2>Frequently asked questions</h2>
 
-          <h3>Is ${wage} an hour exactly {formatWholeCurrency(annualGross)} per year?</h3>
+          <h3>
+            Is ${wage} an hour exactly {formatWholeCurrency(annualGross)} per
+            year?
+          </h3>
           <p>
-            It is exactly that amount only under the 40-hour, 52-week assumption.
-            If you work fewer hours, take unpaid time off, work seasonal hours or
-            work overtime, your actual annual pay will be different.
+            It is exactly that amount only under the 40-hour, 52-week
+            assumption. If you work fewer hours, take unpaid time off, work
+            seasonal hours or work overtime, your actual annual pay will be
+            different.
           </p>
 
           <h3>Should I budget from gross pay or after-tax pay?</h3>
@@ -428,8 +446,8 @@ export default function HourlyWagePage({ params }: PageProps) {
           <h3>Does this include benefits or retirement deductions?</h3>
           <p>
             No. The after-tax estimate is simplified and does not include health
-            insurance, 401(k) contributions, HSA or FSA contributions, union dues
-            or other employer-specific deductions.
+            insurance, 401(k) contributions, HSA or FSA contributions, union
+            dues or other employer-specific deductions.
           </p>
 
           <h3>How do I compare ${wage} an hour with a salary offer?</h3>
@@ -446,37 +464,56 @@ export default function HourlyWagePage({ params }: PageProps) {
             calculation assumes a single filer, the {TAX_YEAR} federal standard
             deduction and tax brackets, federal payroll taxes and a 4%
             illustrative state income-tax rate. It does not include local tax,
-            tax credits, itemized deductions or employer-specific deductions.
-            It is not tax, payroll, legal, financial or investment advice.
+            tax credits, itemized deductions or employer-specific deductions. It
+            is not tax, payroll, legal, financial or investment advice.
           </p>
         </article>
+
+        <CalculatorStructuredData
+          dateModified={CALCULATOR_LAST_REVIEWED}
+          description={`Convert ${formatCurrency(wage)} per hour into annual, monthly, biweekly and weekly pay with simplified ${TAX_YEAR} after-tax estimates.`}
+          name={`${formatCurrency(wage)} an Hour Calculator`}
+          path={`/hourly-wage/${wage}`}
+        />
+
+        <CalculatorTrustPanel
+          assumptions={[
+            "The full-time example uses 40 hours per week and 52 weeks per year.",
+            `After-tax estimates use ${TAX_YEAR} federal rules for a single filer.`,
+            "Social Security, Medicare and a 4% illustrative state income-tax rate are included.",
+            "Unpaid time off, variable hours, benefits and employer deductions are not fully modeled.",
+          ]}
+          calculationNote="Hourly pay is annualized from the selected work schedule. The after-tax example then applies simplified federal income-tax, Social Security, Medicare and illustrative state-tax assumptions."
+          lastReviewed={CALCULATOR_LAST_REVIEWED}
+          sources={taxCalculatorSources}
+        />
 
         <RelatedCalculators
           title="Related salary and paycheck tools"
           tools={[
             {
-              title: 'Hourly Paycheck Calculator',
-              href: '/calculators/hourly-paycheck',
+              title: "Hourly Paycheck Calculator",
+              href: "/calculators/hourly-paycheck",
             },
             {
-              title: 'Salary To Hourly Calculator',
-              href: '/calculators/salary-to-hourly',
+              title: "Salary To Hourly Calculator",
+              href: "/calculators/salary-to-hourly",
             },
             {
-              title: 'Paycheck Calculator',
-              href: '/calculators/paycheck',
+              title: "Paycheck Calculator",
+              href: "/calculators/paycheck",
             },
             {
-              title: 'Salary Calculator',
-              href: '/salary-calculator',
+              title: "Salary Calculator",
+              href: "/salary-calculator",
             },
             {
-              title: 'Salary After Tax Calculators',
-              href: '/salary-after-tax',
+              title: "Salary After Tax Calculators",
+              href: "/salary-after-tax",
             },
             {
-              title: 'Paycheck Calculators by State',
-              href: '/paycheck-calculator',
+              title: "Paycheck Calculators by State",
+              href: "/paycheck-calculator",
             },
           ]}
         />

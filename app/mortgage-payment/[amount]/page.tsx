@@ -1,6 +1,14 @@
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import { mortgageAmounts } from '../../../lib/mortgageAmounts';
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import { mortgageAmounts } from "../../../lib/mortgageAmounts";
+import {
+  CalculatorStructuredData,
+  CalculatorTrustPanel,
+} from "../../../components/calculator";
+import {
+  CALCULATOR_LAST_REVIEWED,
+  mortgageCalculatorSources,
+} from "../../../lib/calculator-trust";
 
 type PageProps = {
   params: {
@@ -17,27 +25,30 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: PageProps) {
   const amount = Number(params.amount);
   const formattedAmount = Number.isFinite(amount)
-    ? amount.toLocaleString('en-US')
-    : 'Mortgage';
+    ? amount.toLocaleString("en-US")
+    : "Mortgage";
 
   return {
     title: `$${formattedAmount} Mortgage Payment Calculator | Monthly Payment Estimate`,
     description: `Estimate the monthly payment on a $${formattedAmount} mortgage, including principal, interest, property taxes, homeowners insurance, maintenance and common affordability considerations.`,
+    alternates: {
+      canonical: `/mortgage-payment/${amount}`,
+    },
   };
 }
 
 function formatCurrency(value: number) {
-  return value.toLocaleString('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  return value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
     maximumFractionDigits: 0,
   });
 }
 
 function formatCurrencyWithCents(value: number) {
-  return value.toLocaleString('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  return value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
@@ -46,7 +57,7 @@ function formatCurrencyWithCents(value: number) {
 function calculatePrincipalAndInterest(
   loanAmount: number,
   annualRate: number,
-  termYears: number
+  termYears: number,
 ) {
   const monthlyRate = annualRate / 100 / 12;
   const numberOfPayments = termYears * 12;
@@ -71,9 +82,9 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
         <div className="container">
           <Breadcrumbs
             items={[
-              { label: 'Home', href: '/' },
-              { label: 'Mortgage Payment', href: '/mortgage-payment' },
-              { label: `$${amount.toLocaleString('en-US')} Mortgage` },
+              { label: "Home", href: "/" },
+              { label: "Mortgage Payment", href: "/mortgage-payment" },
+              { label: `$${amount.toLocaleString("en-US")} Mortgage` },
             ]}
           />
 
@@ -100,25 +111,25 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
   const principalAndInterest = calculatePrincipalAndInterest(
     amount,
     interestRate,
-    loanTermYears
+    loanTermYears,
   );
 
   const lowerRatePayment = calculatePrincipalAndInterest(
     amount,
     lowerRate,
-    loanTermYears
+    loanTermYears,
   );
 
   const higherRatePayment = calculatePrincipalAndInterest(
     amount,
     higherRate,
-    loanTermYears
+    loanTermYears,
   );
 
   const shorterTermPayment = calculatePrincipalAndInterest(
     amount,
     interestRate,
-    shorterLoanTermYears
+    shorterLoanTermYears,
   );
 
   const estimatedHomePrice = amount;
@@ -143,16 +154,16 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
       <div className="container">
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Mortgage Payment', href: '/mortgage-payment' },
-            { label: `$${amount.toLocaleString('en-US')} Mortgage Payment` },
+            { label: "Home", href: "/" },
+            { label: "Mortgage Payment", href: "/mortgage-payment" },
+            { label: `$${amount.toLocaleString("en-US")} Mortgage Payment` },
           ]}
         />
 
         <article className="content-box">
           <p className="eyebrow">Mortgage payment calculator</p>
 
-          <h1>${amount.toLocaleString('en-US')} Mortgage Payment Calculator</h1>
+          <h1>${amount.toLocaleString("en-US")} Mortgage Payment Calculator</h1>
 
           <p>
             Estimate the monthly payment on a {formatCurrency(amount)} mortgage
@@ -163,9 +174,9 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
 
           <p>
             For a custom scenario with your own home price, down payment, loan
-            term, tax rate and insurance assumptions, use the{' '}
+            term, tax rate and insurance assumptions, use the{" "}
             <a href="/calculators/mortgage">Mortgage Calculator</a> or compare
-            affordability with the{' '}
+            affordability with the{" "}
             <a href="/calculators/mortgage-affordability">
               Mortgage Affordability Calculator
             </a>
@@ -179,21 +190,23 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
           <p>Mortgage amount: {formatCurrency(amount)}</p>
 
           <div className="result">
-            Estimated total monthly payment:{' '}
+            Estimated total monthly payment:{" "}
             {formatCurrencyWithCents(estimatedMonthlyPayment)}
           </div>
 
           <div className="result">
-            Principal and interest: {formatCurrencyWithCents(principalAndInterest)}
+            Principal and interest:{" "}
+            {formatCurrencyWithCents(principalAndInterest)}
           </div>
 
           <div className="result">
-            Estimated monthly property tax:{' '}
+            Estimated monthly property tax:{" "}
             {formatCurrencyWithCents(monthlyPropertyTax)}
           </div>
 
           <div className="result">
-            Estimated monthly insurance: {formatCurrencyWithCents(monthlyInsurance)}
+            Estimated monthly insurance:{" "}
+            {formatCurrencyWithCents(monthlyInsurance)}
           </div>
 
           <div className="result">
@@ -213,11 +226,11 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
           </h2>
 
           <p>
-            Under the simplified assumptions on this page, a{' '}
+            Under the simplified assumptions on this page, a{" "}
             {formatCurrency(amount)} mortgage may have an estimated monthly cost
             of {formatCurrencyWithCents(estimatedMonthlyPayment)} when
-            principal, interest, estimated property tax, homeowners insurance and
-            a maintenance buffer are included.
+            principal, interest, estimated property tax, homeowners insurance
+            and a maintenance buffer are included.
           </p>
 
           <div className="table-wrap">
@@ -273,7 +286,8 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
 
           <p>
             Interest rate can change the principal and interest payment
-            significantly. The examples below use the same {formatCurrency(amount)}
+            significantly. The examples below use the same{" "}
+            {formatCurrency(amount)}
             mortgage amount with a 30-year term and show principal and interest
             only.
           </p>
@@ -322,7 +336,7 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
           </p>
 
           <p>
-            On this page, principal and interest are estimated using a{' '}
+            On this page, principal and interest are estimated using a{" "}
             {loanTermYears}-year loan and an assumed {interestRate.toFixed(2)}%
             interest rate. A different rate, loan term or loan type could change
             the result.
@@ -353,15 +367,15 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
                 <tr>
                   <td>Homeowners insurance</td>
                   <td>
-                    Depends on location, coverage, deductible, claims history and
-                    property risk.
+                    Depends on location, coverage, deductible, claims history
+                    and property risk.
                   </td>
                 </tr>
                 <tr>
                   <td>PMI</td>
                   <td>
-                    May apply on some conventional loans when the down payment is
-                    below 20%.
+                    May apply on some conventional loans when the down payment
+                    is below 20%.
                   </td>
                 </tr>
                 <tr>
@@ -426,7 +440,9 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
 
           <ul>
             <li>Compare principal and interest at several interest rates.</li>
-            <li>Add realistic property taxes for the area where you may buy.</li>
+            <li>
+              Add realistic property taxes for the area where you may buy.
+            </li>
             <li>Estimate homeowners insurance before making an offer.</li>
             <li>Include PMI if your down payment may be below 20%.</li>
             <li>Leave room for repairs, maintenance and unexpected costs.</li>
@@ -438,8 +454,8 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
             Does this {formatCurrency(amount)} mortgage estimate include taxes?
           </h3>
           <p>
-            Yes, this page includes a simplified property tax estimate. Your real
-            property tax bill may be higher or lower depending on location,
+            Yes, this page includes a simplified property tax estimate. Your
+            real property tax bill may be higher or lower depending on location,
             assessed value, exemptions and local tax rules.
           </p>
 
@@ -452,16 +468,17 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
 
           <h3>Does this estimate include PMI?</h3>
           <p>
-            PMI is shown as zero in this simple template. Some borrowers may need
-            PMI depending on loan type and down payment. Use the full mortgage
-            calculator for more detailed scenarios.
+            PMI is shown as zero in this simple template. Some borrowers may
+            need PMI depending on loan type and down payment. Use the full
+            mortgage calculator for more detailed scenarios.
           </p>
 
           <h3>Why is my lender quote different?</h3>
           <p>
             A lender quote may include a different interest rate, loan term,
             escrow setup, property tax estimate, insurance quote, PMI, fees or
-            discount points. This page is only a simplified educational estimate.
+            discount points. This page is only a simplified educational
+            estimate.
           </p>
 
           <h3>Should I budget from principal and interest only?</h3>
@@ -475,10 +492,10 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
 
           <p>
             This page provides simplified educational estimates only. It is not
-            mortgage, financial, tax, legal or investment advice. Actual mortgage
-            payments can vary based on lender, credit score, loan program,
-            property location, taxes, insurance, PMI, HOA fees, escrow setup and
-            closing terms.
+            mortgage, financial, tax, legal or investment advice. Actual
+            mortgage payments can vary based on lender, credit score, loan
+            program, property location, taxes, insurance, PMI, HOA fees, escrow
+            setup and closing terms.
           </p>
 
           <p>
@@ -490,43 +507,63 @@ export default function MortgagePaymentAmountPage({ params }: PageProps) {
           <h2>Related next steps</h2>
 
           <p>
-            For a more detailed estimate, use the{' '}
+            For a more detailed estimate, use the{" "}
             <a href="/calculators/mortgage">Mortgage Calculator</a>. To test how
-            much house may fit your income and debts, use the{' '}
+            much house may fit your income and debts, use the{" "}
             <a href="/calculators/mortgage-affordability">
               Mortgage Affordability Calculator
             </a>
-            . To compare renting with buying, use the{' '}
+            . To compare renting with buying, use the{" "}
             <a href="/calculators/rent-vs-buy">Rent vs Buy Calculator</a>.
           </p>
         </article>
+
+        <CalculatorStructuredData
+          dateModified={CALCULATOR_LAST_REVIEWED}
+          description={`Estimate the monthly cost of a ${formatCurrency(amount)} mortgage using stated rate, term, tax, insurance and maintenance assumptions.`}
+          name={`${formatCurrency(amount)} Mortgage Payment Calculator`}
+          path={`/mortgage-payment/${amount}`}
+        />
+
+        <CalculatorTrustPanel
+          assumptions={[
+            `The example uses a ${interestRate.toFixed(2)}% fixed interest rate and a ${loanTermYears}-year term.`,
+            `Property tax is estimated at ${propertyTaxRate.toFixed(1)}% annually.`,
+            `Homeowners insurance is estimated at ${formatCurrency(annualInsurance)} per year.`,
+            `PMI and HOA are ${formatCurrencyWithCents(monthlyPmi)} unless a custom calculator scenario adds them.`,
+            `A ${formatCurrencyWithCents(monthlyMaintenance)} monthly maintenance buffer is included.`,
+          ]}
+          calculationNote="Principal and interest use the standard fixed-rate amortization formula. The broader monthly estimate adds the stated property-tax, insurance and maintenance assumptions; it is not a lender quote."
+          lastReviewed={CALCULATOR_LAST_REVIEWED}
+          sources={mortgageCalculatorSources}
+        />
 
         <RelatedCalculators
           title="Related mortgage tools"
           tools={[
             {
-              title: 'Mortgage Calculator',
-              href: '/calculators/mortgage',
+              title: "Mortgage Calculator",
+              href: "/calculators/mortgage",
             },
             {
-              title: 'Mortgage Affordability Calculator',
-              href: '/calculators/mortgage-affordability',
+              title: "Mortgage Affordability Calculator",
+              href: "/calculators/mortgage-affordability",
             },
             {
-              title: 'Rent vs Buy Calculator',
-              href: '/calculators/rent-vs-buy',
+              title: "Rent vs Buy Calculator",
+              href: "/calculators/rent-vs-buy",
             },
             {
-              title: 'Down Payment Calculator',
-              href: '/calculators/down-payment',
+              title: "Down Payment Calculator",
+              href: "/calculators/down-payment",
             },
             {
-              title: 'Amortization Calculator',
-              href: '/calculators/amortization',
+              title: "Amortization Calculator",
+              href: "/calculators/amortization",
             },
             {
-              title: 'Mortgage Payment by Amount',
-              href: '/mortgage-payment',
+              title: "Mortgage Payment by Amount",
+              href: "/mortgage-payment",
             },
           ]}
         />

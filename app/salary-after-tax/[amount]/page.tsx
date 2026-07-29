@@ -1,13 +1,21 @@
-import { notFound } from 'next/navigation';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import { salaryAmounts } from '../../../lib/salaryAmounts';
+import { notFound } from "next/navigation";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import { salaryAmounts } from "../../../lib/salaryAmounts";
 import {
   calculateFederalIncomeTaxFromGross,
   calculateMedicareTax,
   calculateSocialSecurityTax,
   TAX_YEAR,
-} from '../../../lib/tax2026';
+} from "../../../lib/tax2026";
+import {
+  CalculatorStructuredData,
+  CalculatorTrustPanel,
+} from "../../../components/calculator";
+import {
+  CALCULATOR_LAST_REVIEWED,
+  taxCalculatorSources,
+} from "../../../lib/calculator-trust";
 
 type PageProps = {
   params: {
@@ -16,16 +24,16 @@ type PageProps = {
 };
 
 const formatMoney = (value: number) =>
-  value.toLocaleString('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
     maximumFractionDigits: 2,
   });
 
 const formatWholeMoney = (value: number) =>
-  value.toLocaleString('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
     maximumFractionDigits: 0,
   });
 
@@ -37,7 +45,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: PageProps) {
   const amount = Number(params.amount);
-  const formattedAmount = amount.toLocaleString('en-US');
+  const formattedAmount = amount.toLocaleString("en-US");
 
   return {
     title: `$${formattedAmount} After Tax Calculator | Salary After Taxes`,
@@ -45,6 +53,9 @@ export function generateMetadata({ params }: PageProps) {
     robots: {
       index: true,
       follow: true,
+    },
+    alternates: {
+      canonical: `/salary-after-tax/${amount}`,
     },
   };
 }
@@ -56,25 +67,25 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
     notFound();
   }
 
-  const filingStatus = 'single' as const;
+  const filingStatus = "single" as const;
   const estimatedStateTaxRate = 0.04;
   const estimatedBenefitsRate = 0.03;
   const estimatedRetirementRate = 0.05;
 
-  const federalCalculation =
-    calculateFederalIncomeTaxFromGross(amount, filingStatus);
+  const federalCalculation = calculateFederalIncomeTaxFromGross(
+    amount,
+    filingStatus,
+  );
 
   const federalTax = federalCalculation.federalTax;
   const socialSecurity = calculateSocialSecurityTax(amount);
 
-  const medicareCalculation =
-    calculateMedicareTax(amount, filingStatus);
+  const medicareCalculation = calculateMedicareTax(amount, filingStatus);
 
   const medicare = medicareCalculation.totalMedicare;
   const estimatedStateTax = amount * estimatedStateTaxRate;
   const estimatedBenefits = amount * estimatedBenefitsRate;
-  const estimatedRetirementContribution =
-    amount * estimatedRetirementRate;
+  const estimatedRetirementContribution = amount * estimatedRetirementRate;
 
   const totalEstimatedTaxes =
     federalTax + socialSecurity + medicare + estimatedStateTax;
@@ -106,8 +117,8 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
       <div className="container">
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Salary After Tax', href: '/salary-after-tax' },
+            { label: "Home", href: "/" },
+            { label: "Salary After Tax", href: "/salary-after-tax" },
             { label: `${formatWholeMoney(amount)} After Tax` },
           ]}
         />
@@ -149,8 +160,7 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
           </div>
 
           <div className="result">
-            Estimated biweekly after-tax pay:{' '}
-            {formatMoney(biweeklyAfterTax)}
+            Estimated biweekly after-tax pay: {formatMoney(biweeklyAfterTax)}
           </div>
 
           <div className="result">
@@ -167,11 +177,10 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
 
           <p>
             Based on the {TAX_YEAR} single-filer assumptions used on this page,
-            a{' '}
-            {formatWholeMoney(amount)} annual salary may result in estimated
+            a {formatWholeMoney(amount)} annual salary may result in estimated
             after-tax income of {formatMoney(annualAfterTax)} per year. That is
-            about {formatMoney(monthlyAfterTax)} per month,{' '}
-            {formatMoney(biweeklyAfterTax)} every two weeks or{' '}
+            about {formatMoney(monthlyAfterTax)} per month,{" "}
+            {formatMoney(biweeklyAfterTax)} every two weeks or{" "}
             {formatMoney(weeklyAfterTax)} per week.
           </p>
 
@@ -311,24 +320,24 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
 
           <p>
             The sample deduction line assumes estimated health and benefit
-            deductions plus retirement contributions. It is included only to show
-            how additional paycheck deductions can change spendable take-home
-            pay.
+            deductions plus retirement contributions. It is included only to
+            show how additional paycheck deductions can change spendable
+            take-home pay.
           </p>
 
           <h2>Gross pay before taxes</h2>
 
           <p>
-            Before taxes, a {formatWholeMoney(amount)} salary is about{' '}
-            {formatMoney(monthlyGross)} per month,{' '}
-            {formatMoney(semiMonthlyGross)} per semi-monthly paycheck,{' '}
-            {formatMoney(biweeklyGross)} per biweekly paycheck or{' '}
+            Before taxes, a {formatWholeMoney(amount)} salary is about{" "}
+            {formatMoney(monthlyGross)} per month,{" "}
+            {formatMoney(semiMonthlyGross)} per semi-monthly paycheck,{" "}
+            {formatMoney(biweeklyGross)} per biweekly paycheck or{" "}
             {formatMoney(weeklyGross)} per week.
           </p>
 
           <p>
             If you divide {formatWholeMoney(amount)} by 2,080 full-time work
-            hours, the estimated hourly equivalent is about{' '}
+            hours, the estimated hourly equivalent is about{" "}
             {formatMoney(hourlyEquivalent)} before taxes.
           </p>
 
@@ -337,38 +346,46 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
           <p>
             Actual after-tax pay depends on filing status, federal tax brackets,
             state and local taxes, W-4 settings, credits, deductions, retirement
-            contributions, health insurance, employer benefits and payroll rules.
-            Two workers with the same salary can have different take-home pay.
+            contributions, health insurance, employer benefits and payroll
+            rules. Two workers with the same salary can have different take-home
+            pay.
           </p>
 
           <ul>
             <li>State and local taxes can vary by location.</li>
-            <li>Benefits and retirement contributions can lower each paycheck.</li>
+            <li>
+              Benefits and retirement contributions can lower each paycheck.
+            </li>
             <li>Bonuses and overtime may be withheld differently.</li>
             <li>Tax credits and deductions can change final tax owed.</li>
-            <li>W-4 settings can change payroll withholding during the year.</li>
+            <li>
+              W-4 settings can change payroll withholding during the year.
+            </li>
           </ul>
 
           <h2>How to use this estimate</h2>
 
           <p>
-            Use this salary after tax estimate as a starting point for budgeting,
-            comparing job offers, planning rent or mortgage payments, setting
-            savings goals and estimating debt payoff. For a more flexible
-            estimate, use the <a href="/calculators/paycheck">Paycheck Calculator</a>{' '}
-            or compare state-specific results with the{' '}
+            Use this salary after tax estimate as a starting point for
+            budgeting, comparing job offers, planning rent or mortgage payments,
+            setting savings goals and estimating debt payoff. For a more
+            flexible estimate, use the{" "}
+            <a href="/calculators/paycheck">Paycheck Calculator</a> or compare
+            state-specific results with the{" "}
             <a href="/paycheck-calculator">Paycheck Calculators by State</a>.
           </p>
 
           <h2>Frequently asked questions</h2>
 
-          <h3>Is this the exact take-home pay for {formatWholeMoney(amount)}?</h3>
+          <h3>
+            Is this the exact take-home pay for {formatWholeMoney(amount)}?
+          </h3>
           <p>
             No. It is an educational estimate based on a single filer, the
-            {` ${TAX_YEAR} `}federal standard deduction and tax brackets, federal
-            payroll taxes and a 4% illustrative state income-tax rate. Exact
-            take-home pay depends on withholding, credits, deductions, benefits
-            and your location.
+            {` ${TAX_YEAR} `}federal standard deduction and tax brackets,
+            federal payroll taxes and a 4% illustrative state income-tax rate.
+            Exact take-home pay depends on withholding, credits, deductions,
+            benefits and your location.
           </p>
 
           <h3>Does after-tax pay include health insurance?</h3>
@@ -392,11 +409,13 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
             money that actually reaches your bank account.
           </p>
 
-          <h3>Can a lower salary have higher take-home pay in another state?</h3>
+          <h3>
+            Can a lower salary have higher take-home pay in another state?
+          </h3>
           <p>
             It can happen. State taxes, local taxes, benefits, housing costs and
-            deductions can make two jobs with different salaries feel closer than
-            the gross numbers suggest.
+            deductions can make two jobs with different salaries feel closer
+            than the gross numbers suggest.
           </p>
 
           <h2>Important limitations</h2>
@@ -406,43 +425,62 @@ export default function SalaryAfterTaxPage({ params }: PageProps) {
             calculation assumes a single filer, the {TAX_YEAR} federal standard
             deduction and tax brackets, federal payroll taxes and a 4%
             illustrative state income-tax rate. The sample deduction comparison
-            additionally assumes 3% for benefits and 5% for retirement. It is not
-            tax, legal, payroll, accounting, financial or investment advice.
+            additionally assumes 3% for benefits and 5% for retirement. It is
+            not tax, legal, payroll, accounting, financial or investment advice.
           </p>
 
           <p>
-            You can review our <a href="/methodology">methodology</a> and{' '}
+            You can review our <a href="/methodology">methodology</a> and{" "}
             <a href="/disclaimer">disclaimer</a> for more details about how to
             interpret calculator results.
           </p>
         </article>
 
+        <CalculatorStructuredData
+          dateModified={CALCULATOR_LAST_REVIEWED}
+          description={`Estimate after-tax pay for a ${formatWholeMoney(amount)} annual salary using simplified ${TAX_YEAR} federal and payroll tax assumptions.`}
+          name={`${formatWholeMoney(amount)} Salary After Tax Calculator`}
+          path={`/salary-after-tax/${amount}`}
+        />
+
+        <CalculatorTrustPanel
+          assumptions={[
+            `The main estimate uses ${TAX_YEAR} federal rules for a single filer.`,
+            "Social Security and Medicare payroll taxes are included.",
+            "A 4% state income-tax rate is illustrative rather than state-specific.",
+            "The optional comparison uses sample benefit and retirement deductions.",
+          ]}
+          calculationNote="Gross annual salary is reduced by an estimated standard deduction, progressive federal income tax, employee Social Security and Medicare taxes, and the stated illustrative state-tax assumption."
+          lastReviewed={CALCULATOR_LAST_REVIEWED}
+          sources={taxCalculatorSources}
+        />
+
         <RelatedCalculators
           title="Related salary and paycheck tools"
           tools={[
             {
-              title: 'Paycheck Calculator',
-              href: '/calculators/paycheck',
+              title: "Paycheck Calculator",
+              href: "/calculators/paycheck",
             },
             {
-              title: 'Federal Tax Calculator',
-              href: '/calculators/federal-tax',
+              title: "Federal Tax Calculator",
+              href: "/calculators/federal-tax",
             },
             {
               title: `${formatWholeMoney(amount)} Salary Calculator`,
               href: `/salary-calculator/${amount}`,
             },
             {
-              title: 'Salary Calculator Directory',
-              href: '/salary-calculator',
+              title: "Salary Calculator Directory",
+              href: "/salary-calculator",
             },
             {
-              title: 'Paycheck Calculators by State',
-              href: '/paycheck-calculator',
+              title: "Paycheck Calculators by State",
+              href: "/paycheck-calculator",
             },
             {
-              title: '401(k) Calculator',
-              href: '/calculators/401k',
+              title: "401(k) Calculator",
+              href: "/calculators/401k",
             },
           ]}
         />
