@@ -14,6 +14,8 @@ const story = {
   breadcrumbLabel: "The IRS Said He Owed $20,000",
   category: "IRS",
   categoryLabel: "Tax Story",
+  datePublished: "2026-07-07",
+  dateModified: "2026-07-28",
   quickFacts: [
     {
       label: "Claimed IRS balance",

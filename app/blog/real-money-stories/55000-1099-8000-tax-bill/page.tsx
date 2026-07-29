@@ -14,6 +14,8 @@ const story = {
   breadcrumbLabel: "$55,000 1099 Income and an $8,000 Tax Bill",
   category: "Tax",
   categoryLabel: "Self-Employment Tax Story",
+  datePublished: "2026-07-10",
+  dateModified: "2026-07-28",
   officialSources: [
     {
       title: "Self-employment tax",

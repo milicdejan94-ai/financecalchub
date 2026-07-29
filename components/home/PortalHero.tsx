@@ -1,6 +1,10 @@
 import Link from "next/link";
 
+import { homepageHeroStory } from "../../lib/content/catalog";
+
 export default function PortalHero() {
+  const featuredStory = homepageHeroStory;
+
   return (
     <section className="portal-hero">
       <div className="container portal-hero-grid">
@@ -44,20 +48,30 @@ export default function PortalHero() {
         <aside className="portal-hero-feature">
           <p className="portal-feature-label">Featured story</p>
 
-          <h2>
-            She Made About $55,000 as a 1099 Contractor — Then She Saw an $8,000
-            Tax Bill
-          </h2>
+          {featuredStory ? (
+            <>
+              <h2>{featuredStory.title}</h2>
 
-          <p>
-            A contractor expected a much smaller tax bill. Her experience raises
-            important questions about self-employment tax, estimated payments
-            and planning for 1099 income.
-          </p>
+              <p>{featuredStory.description}</p>
 
-          <Link href="/blog/real-money-stories/55000-1099-8000-tax-bill">
-            Read the full story →
-          </Link>
+              <Link href={featuredStory.href}>
+                Read the full story · {featuredStory.readTime} →
+              </Link>
+            </>
+          ) : (
+            <>
+              <h2>Explore real financial situations and practical answers.</h2>
+
+              <p>
+                Read educational stories about taxes, payroll, income reporting
+                and other everyday money problems.
+              </p>
+
+              <Link href="/blog/real-money-stories">
+                Browse Real Money Stories →
+              </Link>
+            </>
+          )}
 
           <div className="portal-feature-disclaimer">
             Personal experiences are presented as claims. Broader explanations

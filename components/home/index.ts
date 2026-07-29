@@ -5,3 +5,4 @@ export { default as MoneyTopics } from "./MoneyTopics";
 export { default as HousingSpotlight } from "./HousingSpotlight";
 export { default as SupportingCalculators } from "./SupportingCalculators";
 export { default as EditorialTrust } from "./EditorialTrust";
+export { default as ContentDiscovery } from "./ContentDiscovery";

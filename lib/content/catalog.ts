@@ -5,6 +5,10 @@ export type ContentItem = {
   category: string;
   contentType: "story" | "guide";
   readTime: string;
+  datePublished: string;
+  dateModified: string;
+  editorsPick?: boolean;
+  hero?: boolean;
   featured?: boolean;
   homepage?: boolean;
   priority: number;
@@ -20,6 +24,9 @@ export const realMoneyStories: ContentItem[] = [
     category: "Tax filing",
     contentType: "story",
     readTime: "8 min read",
+    datePublished: "2026-07-10",
+    dateModified: "2026-07-28",
+    editorsPick: true,
     featured: true,
     homepage: true,
     priority: 100,
@@ -33,6 +40,9 @@ export const realMoneyStories: ContentItem[] = [
     category: "Incorrect W-2",
     contentType: "story",
     readTime: "7 min read",
+    datePublished: "2026-07-10",
+    dateModified: "2026-07-28",
+    editorsPick: true,
     homepage: true,
     priority: 95,
   },
@@ -45,6 +55,8 @@ export const realMoneyStories: ContentItem[] = [
     category: "Payroll and state tax",
     contentType: "story",
     readTime: "8 min read",
+    datePublished: "2026-07-10",
+    dateModified: "2026-07-28",
     homepage: true,
     priority: 90,
   },
@@ -56,6 +68,8 @@ export const realMoneyStories: ContentItem[] = [
     category: "Amended tax return",
     contentType: "story",
     readTime: "6 min read",
+    datePublished: "2026-07-10",
+    dateModified: "2026-07-28",
     homepage: true,
     priority: 85,
   },
@@ -68,6 +82,8 @@ export const realMoneyStories: ContentItem[] = [
     category: "Income reporting",
     contentType: "story",
     readTime: "8 min read",
+    datePublished: "2026-07-07",
+    dateModified: "2026-07-28",
     homepage: true,
     priority: 80,
   },
@@ -80,6 +96,10 @@ export const realMoneyStories: ContentItem[] = [
     category: "Self-employment tax",
     contentType: "story",
     readTime: "7 min read",
+    datePublished: "2026-07-10",
+    dateModified: "2026-07-28",
+    editorsPick: true,
+    hero: true,
     priority: 75,
   },
   {
@@ -91,6 +111,8 @@ export const realMoneyStories: ContentItem[] = [
     category: "IRS notice",
     contentType: "story",
     readTime: "7 min read",
+    datePublished: "2026-07-07",
+    dateModified: "2026-07-28",
     priority: 70,
   },
 ];
@@ -104,6 +126,9 @@ export const financialGuides: ContentItem[] = [
     category: "Taxes",
     contentType: "guide",
     readTime: "7 min read",
+    datePublished: "2026-06-08",
+    dateModified: "2026-07-28",
+    editorsPick: true,
     featured: true,
     homepage: true,
     priority: 100,
@@ -116,6 +141,9 @@ export const financialGuides: ContentItem[] = [
     category: "Income",
     contentType: "guide",
     readTime: "6 min read",
+    datePublished: "2026-06-08",
+    dateModified: "2026-07-28",
+    editorsPick: true,
     featured: true,
     homepage: true,
     priority: 95,
@@ -128,6 +156,9 @@ export const financialGuides: ContentItem[] = [
     category: "Housing",
     contentType: "guide",
     readTime: "7 min read",
+    datePublished: "2026-06-08",
+    dateModified: "2026-07-28",
+    editorsPick: true,
     featured: true,
     homepage: true,
     priority: 90,
@@ -140,6 +171,8 @@ export const financialGuides: ContentItem[] = [
     category: "Salary After Tax",
     contentType: "guide",
     readTime: "7 min read",
+    datePublished: "2026-06-16",
+    dateModified: "2026-07-28",
     priority: 85,
   },
   {
@@ -150,6 +183,8 @@ export const financialGuides: ContentItem[] = [
     category: "Hourly Wage",
     contentType: "guide",
     readTime: "6 min read",
+    datePublished: "2026-06-16",
+    dateModified: "2026-07-28",
     priority: 80,
   },
   {
@@ -160,6 +195,8 @@ export const financialGuides: ContentItem[] = [
     category: "Mortgage",
     contentType: "guide",
     readTime: "7 min read",
+    datePublished: "2026-06-16",
+    dateModified: "2026-07-28",
     priority: 75,
   },
   {
@@ -170,6 +207,8 @@ export const financialGuides: ContentItem[] = [
     category: "Paycheck",
     contentType: "guide",
     readTime: "6 min read",
+    datePublished: "2026-06-05",
+    dateModified: "2026-07-28",
     priority: 70,
   },
   {
@@ -180,6 +219,8 @@ export const financialGuides: ContentItem[] = [
     category: "Paycheck",
     contentType: "guide",
     readTime: "8 min read",
+    datePublished: "2026-06-05",
+    dateModified: "2026-07-28",
     priority: 65,
   },
   {
@@ -190,6 +231,8 @@ export const financialGuides: ContentItem[] = [
     category: "Loans",
     contentType: "guide",
     readTime: "6 min read",
+    datePublished: "2026-06-05",
+    dateModified: "2026-07-28",
     priority: 60,
   },
   {
@@ -200,6 +243,8 @@ export const financialGuides: ContentItem[] = [
     category: "Mortgage",
     contentType: "guide",
     readTime: "8 min read",
+    datePublished: "2026-06-05",
+    dateModified: "2026-07-28",
     priority: 55,
   },
   {
@@ -210,6 +255,8 @@ export const financialGuides: ContentItem[] = [
     category: "Mortgage",
     contentType: "guide",
     readTime: "8 min read",
+    datePublished: "2026-06-05",
+    dateModified: "2026-07-28",
     priority: 50,
   },
   {
@@ -220,6 +267,9 @@ export const financialGuides: ContentItem[] = [
     category: "Debt",
     contentType: "guide",
     readTime: "7 min read",
+    datePublished: "2026-06-05",
+    dateModified: "2026-07-28",
+    editorsPick: true,
     priority: 45,
   },
   {
@@ -230,6 +280,8 @@ export const financialGuides: ContentItem[] = [
     category: "Home Buying",
     contentType: "guide",
     readTime: "8 min read",
+    datePublished: "2026-06-05",
+    dateModified: "2026-07-28",
     priority: 40,
   },
   {
@@ -240,20 +292,63 @@ export const financialGuides: ContentItem[] = [
     category: "Retirement",
     contentType: "guide",
     readTime: "7 min read",
+    datePublished: "2026-06-05",
+    dateModified: "2026-07-28",
+    editorsPick: true,
     priority: 35,
   },
 ];
 
-export const allBlogContent = [...realMoneyStories, ...financialGuides].sort(
-  (a, b) => b.priority - a.priority,
+export function sortByPriority(items: readonly ContentItem[]): ContentItem[] {
+  return [...items].sort((a, b) => b.priority - a.priority);
+}
+
+export function sortByLatest(items: readonly ContentItem[]): ContentItem[] {
+  return [...items].sort(
+    (a, b) =>
+      b.datePublished.localeCompare(a.datePublished) || b.priority - a.priority,
+  );
+}
+
+export function sortByUpdated(items: readonly ContentItem[]): ContentItem[] {
+  return [...items].sort(
+    (a, b) =>
+      b.dateModified.localeCompare(a.dateModified) || b.priority - a.priority,
+  );
+}
+
+export function getEditorsPicks(
+  items: readonly ContentItem[],
+  limit = 4,
+): ContentItem[] {
+  return sortByPriority(items.filter((item) => item.editorsPick)).slice(
+    0,
+    limit,
+  );
+}
+
+export const allBlogContent = sortByLatest([
+  ...realMoneyStories,
+  ...financialGuides,
+]);
+
+export const homepageHeroStory =
+  sortByPriority(realMoneyStories.filter((item) => item.hero))[0] ??
+  sortByPriority(realMoneyStories.filter((item) => item.featured))[0];
+
+export const homepageStories = sortByPriority(
+  realMoneyStories.filter((item) => item.homepage),
+).slice(0, 5);
+
+export const homepageGuides = sortByPriority(
+  financialGuides.filter((item) => item.homepage),
+).slice(0, 3);
+
+export const homepageRecentlyUpdated = sortByUpdated(allBlogContent).slice(
+  0,
+  4,
 );
 
-export const homepageStories = realMoneyStories
-  .filter((item) => item.homepage)
-  .sort((a, b) => b.priority - a.priority)
-  .slice(0, 5);
+export const homepageLatestArticles = sortByLatest(allBlogContent).slice(0, 4);
 
-export const homepageGuides = financialGuides
-  .filter((item) => item.homepage)
-  .sort((a, b) => b.priority - a.priority)
-  .slice(0, 3);
+export const homepageEditorsPicks = getEditorsPicks(allBlogContent, 4);

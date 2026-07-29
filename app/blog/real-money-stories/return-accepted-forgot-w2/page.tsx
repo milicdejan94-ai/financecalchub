@@ -13,6 +13,8 @@ const story = {
   breadcrumbLabel: "Return Accepted, W-2 Left Out",
   category: "Tax",
   categoryLabel: "Tax Story",
+  datePublished: "2026-07-10",
+  dateModified: "2026-07-28",
   officialSources: [
     {
       title: "If you don't get a W-2 or your W-2 is wrong",

@@ -14,6 +14,8 @@ const story = {
   breadcrumbLabel: "Employer Reported $30,000 More Income",
   category: "Tax",
   categoryLabel: "Tax Story",
+  datePublished: "2026-07-07",
+  dateModified: "2026-07-28",
   officialSources: [
     {
       title: "Notice of underreported income",

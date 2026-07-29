@@ -14,6 +14,8 @@ const story = {
   breadcrumbLabel: "Wrong W-2, Employer Not Correcting It",
   category: "Tax",
   categoryLabel: "W-2 Tax Story",
+  datePublished: "2026-07-10",
+  dateModified: "2026-07-28",
   officialSources: [
     {
       title: "If you don't get a W-2 or your W-2 is wrong",

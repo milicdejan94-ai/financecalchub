@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import {
+  ContentDiscovery,
   EditorialTrust,
   EducationalExplainers,
   FeaturedStories,
@@ -67,6 +68,7 @@ export default function HomePage() {
       <PortalHero />
       <FeaturedStories />
       <EducationalExplainers />
+      <ContentDiscovery />
       <MoneyTopics />
       <HousingSpotlight />
       <SupportingCalculators />
