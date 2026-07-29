@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
-export default function AuthorsPage() {
-  redirect("/editorial-team");
+export default function AuthorsRedirectPage() {
+  permanentRedirect("/editorial-team");
 }

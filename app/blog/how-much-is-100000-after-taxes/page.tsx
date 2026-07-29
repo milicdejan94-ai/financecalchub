@@ -155,8 +155,8 @@ const articleMetadata: ArticleMetadata = {
   author: editorialTeam,
   reviewer: editorialReviewDesk,
   relatedCalculator: {
-    title: "$100,000 After Tax Calculator",
-    href: "/salary-after-tax/100000",
+    title: "Paycheck Calculator",
+    href: "/calculators/paycheck",
   },
 };
 
@@ -221,9 +221,8 @@ export default function HowMuchIs100000AfterTaxesPage() {
           </p>
 
           <p>
-            For a personalized estimate, start with the{" "}
-            <a href="/salary-after-tax/100000">$100,000 after tax calculator</a>{" "}
-            or the <a href="/calculators/paycheck">paycheck calculator</a>.
+            For a personalized estimate, enter $100,000 and your assumptions in
+            the <a href="/calculators/paycheck">paycheck calculator</a>.
           </p>
 
           <h2>Estimated take-home pay breakdown</h2>
@@ -525,10 +524,9 @@ export default function HowMuchIs100000AfterTaxesPage() {
 
           <p>
             Start with the{" "}
-            <a href="/salary-after-tax/100000">$100,000 after tax calculator</a>
-            , then compare the result with the{" "}
-            <a href="/calculators/paycheck">paycheck calculator</a> and your
-            state-specific paycheck page.
+            <a href="/calculators/paycheck">paycheck calculator</a>, then review
+            the <a href="/paycheck-calculator">Paycheck Taxes by State Guide</a>{" "}
+            for state and local-tax considerations.
           </p>
           <AboutArticle metadata={articleMetadata} />
         </article>
@@ -536,10 +534,6 @@ export default function HowMuchIs100000AfterTaxesPage() {
         <RelatedCalculators
           title="Related calculators and guides"
           tools={[
-            {
-              title: "$100,000 After Tax Calculator",
-              href: "/salary-after-tax/100000",
-            },
             {
               title: "Salary After Tax Calculators",
               href: "/salary-after-tax",

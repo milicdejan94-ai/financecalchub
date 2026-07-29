@@ -42,8 +42,8 @@ const articleMetadata: ArticleMetadata = {
   author: editorialTeam,
   reviewer: editorialReviewDesk,
   relatedCalculator: {
-    title: "$400,000 Mortgage Payment Calculator",
-    href: "/mortgage-payment/400000",
+    title: "Mortgage Calculator",
+    href: "/calculators/mortgage",
   },
 };
 
@@ -90,13 +90,9 @@ export default function FourHundredThousandMortgagePaymentPage() {
           </p>
 
           <p>
-            Use our{" "}
-            <a href="/mortgage-payment/400000">
-              $400,000 mortgage payment calculator
-            </a>{" "}
-            for a quick amount-based estimate, or use the full{" "}
-            <a href="/calculators/mortgage">mortgage calculator</a> to change
-            rate, term, taxes and insurance assumptions.
+            Use the <a href="/calculators/mortgage">mortgage calculator</a> and
+            enter a $400,000 loan scenario to change the rate, term, taxes and
+            insurance assumptions.
           </p>
 
           <h2>Quick answer: $400,000 mortgage payment examples</h2>
@@ -380,13 +376,9 @@ export default function FourHundredThousandMortgagePaymentPage() {
           <h2>Helpful calculators for a $400,000 mortgage</h2>
 
           <p>
-            Start with the{" "}
-            <a href="/mortgage-payment/400000">
-              $400,000 mortgage payment calculator
-            </a>{" "}
-            for a fast estimate. Then use the{" "}
-            <a href="/calculators/mortgage">mortgage calculator</a> to adjust
-            taxes, insurance and term assumptions. The{" "}
+            Use the <a href="/calculators/mortgage">mortgage calculator</a> to
+            test a $400,000 loan and adjust taxes, insurance, rate and term
+            assumptions. The{" "}
             <a href="/calculators/down-payment">down payment calculator</a> can
             help compare upfront cash scenarios, while the{" "}
             <a href="/calculators/rent-vs-buy">rent vs buy calculator</a> can
@@ -463,14 +455,6 @@ export default function FourHundredThousandMortgagePaymentPage() {
         <RelatedCalculators
           title="Related mortgage calculators"
           tools={[
-            {
-              title: "$400,000 Mortgage Payment Calculator",
-              href: "/mortgage-payment/400000",
-            },
-            {
-              title: "$300,000 Mortgage Payment Calculator",
-              href: "/mortgage-payment/300000",
-            },
             {
               title: "Mortgage Payment by Amount",
               href: "/mortgage-payment",

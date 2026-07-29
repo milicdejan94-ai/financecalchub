@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import Breadcrumbs from '../../../components/Breadcrumbs';
+import { useState } from "react";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import Breadcrumbs from "../../../components/Breadcrumbs";
 
 export default function MortgageCalculatorPage() {
   const [homePrice, setHomePrice] = useState(400000);
@@ -47,38 +47,41 @@ export default function MortgageCalculatorPage() {
 
   const annualHousingCost = totalMonthlyPayment * 12;
   const totalPrincipalAndInterest = principalAndInterest * totalPayments;
-  const estimatedTotalInterest = Math.max(totalPrincipalAndInterest - loanAmount, 0);
+  const estimatedTotalInterest = Math.max(
+    totalPrincipalAndInterest - loanAmount,
+    0,
+  );
 
   const paymentRows = [
     {
-      label: 'Principal and interest',
+      label: "Principal and interest",
       value: principalAndInterest,
-      note: 'Estimated loan payment based on loan amount, interest rate and term.',
+      note: "Estimated loan payment based on loan amount, interest rate and term.",
     },
     {
-      label: 'Property tax',
+      label: "Property tax",
       value: monthlyPropertyTax,
-      note: 'Estimated monthly property tax based on the annual percentage entered.',
+      note: "Estimated monthly property tax based on the annual percentage entered.",
     },
     {
-      label: 'Homeowners insurance',
+      label: "Homeowners insurance",
       value: monthlyInsurance,
-      note: 'Estimated monthly insurance based on the annual insurance amount entered.',
+      note: "Estimated monthly insurance based on the annual insurance amount entered.",
     },
     {
-      label: 'PMI',
+      label: "PMI",
       value: monthlyPmi,
-      note: 'Optional monthly private mortgage insurance estimate.',
+      note: "Optional monthly private mortgage insurance estimate.",
     },
     {
-      label: 'HOA fee',
+      label: "HOA fee",
       value: monthlyHoa,
-      note: 'Optional monthly homeowners association or condo fee.',
+      note: "Optional monthly homeowners association or condo fee.",
     },
     {
-      label: 'Maintenance buffer',
+      label: "Maintenance buffer",
       value: monthlyMaintenance,
-      note: 'Optional planning buffer for repairs and maintenance.',
+      note: "Optional planning buffer for repairs and maintenance.",
     },
   ];
 
@@ -87,9 +90,9 @@ export default function MortgageCalculatorPage() {
       <div className="container">
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Calculators', href: '/calculators' },
-            { label: 'Mortgage Calculator' },
+            { label: "Home", href: "/" },
+            { label: "Calculators", href: "/calculators" },
+            { label: "Mortgage Calculator" },
           ]}
         />
 
@@ -241,7 +244,9 @@ export default function MortgageCalculatorPage() {
                     <strong>${totalMonthlyPayment.toFixed(2)}</strong>
                   </td>
                   <td>
-                    <strong>Estimated monthly housing cost using the inputs above.</strong>
+                    <strong>
+                      Estimated monthly housing cost using the inputs above.
+                    </strong>
                   </td>
                 </tr>
               </tbody>
@@ -311,19 +316,20 @@ export default function MortgageCalculatorPage() {
 
           <p>
             Property tax and homeowners insurance can significantly change the
-            monthly cost of a home. These costs vary by location, property value,
-            coverage level and local tax rules. Many mortgage payments include
-            these costs through escrow, but the exact setup depends on the
-            lender and loan.
+            monthly cost of a home. These costs vary by location, property
+            value, coverage level and local tax rules. Many mortgage payments
+            include these costs through escrow, but the exact setup depends on
+            the lender and loan.
           </p>
 
           <h3>What is PMI?</h3>
 
           <p>
             PMI, or private mortgage insurance, may apply when a buyer makes a
-            smaller down payment on a conventional mortgage. This calculator lets
-            you enter a monthly PMI estimate manually because real PMI costs can
-            vary by lender, credit profile, loan type and down payment size.
+            smaller down payment on a conventional mortgage. This calculator
+            lets you enter a monthly PMI estimate manually because real PMI
+            costs can vary by lender, credit profile, loan type and down payment
+            size.
           </p>
 
           <h3>Why HOA fees and maintenance are included</h3>
@@ -341,8 +347,8 @@ export default function MortgageCalculatorPage() {
             For example, a $400,000 home with an $80,000 down payment creates a
             $320,000 loan before closing costs. If the loan uses a 30-year term
             at 6.5%, the principal and interest amount is only one part of the
-            monthly cost. Property taxes, insurance, PMI, HOA fees and upkeep can
-            raise the total monthly housing cost.
+            monthly cost. Property taxes, insurance, PMI, HOA fees and upkeep
+            can raise the total monthly housing cost.
           </p>
         </div>
 
@@ -399,20 +405,21 @@ export default function MortgageCalculatorPage() {
           <h2>Important limitations</h2>
 
           <p>
-            This calculator is for educational planning only. It is not mortgage,
-            financial, tax, insurance, lending or legal advice. It does not
-            determine loan approval, interest rate eligibility, underwriting
-            outcome or home affordability.
+            This calculator is for educational planning only. It is not
+            mortgage, financial, tax, insurance, lending or legal advice. It
+            does not determine loan approval, interest rate eligibility,
+            underwriting outcome or home affordability.
           </p>
 
           <p>
             Before buying a home or applying for a mortgage, review your numbers
-            with a mortgage lender, tax professional, insurance provider or other
-            qualified professional who can evaluate your specific situation.
+            with a mortgage lender, tax professional, insurance provider or
+            other qualified professional who can evaluate your specific
+            situation.
           </p>
 
           <p>
-            You can also review our <a href="/methodology">Methodology</a> and{' '}
+            You can also review our <a href="/methodology">Methodology</a> and{" "}
             <a href="/disclaimer">Disclaimer</a> pages for more information
             about how FinanceCalcHub estimates should be used.
           </p>
@@ -422,36 +429,36 @@ export default function MortgageCalculatorPage() {
           title="Related mortgage calculators"
           tools={[
             {
-              title: 'Mortgage Affordability Calculator',
-              href: '/calculators/mortgage-affordability',
+              title: "Mortgage Affordability Calculator",
+              href: "/calculators/mortgage-affordability",
             },
             {
-              title: 'Refinance Calculator',
-              href: '/calculators/refinance',
+              title: "Refinance Calculator",
+              href: "/calculators/refinance",
             },
             {
-              title: 'Rent vs Buy Calculator',
-              href: '/calculators/rent-vs-buy',
+              title: "Rent vs Buy Calculator",
+              href: "/calculators/rent-vs-buy",
             },
             {
-              title: 'Down Payment Calculator',
-              href: '/calculators/down-payment',
+              title: "Down Payment Calculator",
+              href: "/calculators/down-payment",
             },
             {
-              title: 'Amortization Calculator',
-              href: '/calculators/amortization',
+              title: "Amortization Calculator",
+              href: "/calculators/amortization",
             },
             {
-              title: 'Extra Mortgage Payment Calculator',
-              href: '/calculators/extra-mortgage-payment',
+              title: "Extra Mortgage Payment Calculator",
+              href: "/calculators/extra-mortgage-payment",
             },
             {
-              title: '$300,000 Mortgage Payment',
-              href: '/mortgage-payment/300000',
+              title: "$300,000 Mortgage Payment",
+              href: "/blog/300000-mortgage-payment",
             },
             {
-              title: 'All Financial Calculators',
-              href: '/calculators',
+              title: "All Financial Calculators",
+              href: "/calculators",
             },
           ]}
         />

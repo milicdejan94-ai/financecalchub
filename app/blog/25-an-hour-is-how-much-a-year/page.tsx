@@ -40,8 +40,8 @@ const articleMetadata: ArticleMetadata = {
   author: editorialTeam,
   reviewer: editorialReviewDesk,
   relatedCalculator: {
-    title: "$25 an Hour Calculator",
-    href: "/hourly-wage/25",
+    title: "Hourly Paycheck Calculator",
+    href: "/calculators/hourly-paycheck",
   },
 };
 
@@ -89,12 +89,12 @@ export default function TwentyFiveAnHourPage() {
           </p>
 
           <p>
-            You can also compare the numbers in our{" "}
-            <a href="/hourly-wage/25">$25 an Hour Calculator</a>,{" "}
+            Enter your own wage and schedule in the{" "}
             <a href="/calculators/hourly-paycheck">
               Hourly Paycheck Calculator
-            </a>{" "}
-            and <a href="/calculators/paycheck">Paycheck Calculator</a>.
+            </a>
+            , then compare the result with the{" "}
+            <a href="/calculators/paycheck">Paycheck Calculator</a>.
           </p>
 
           <h2>Quick answer: $25 an hour before taxes</h2>
@@ -429,8 +429,11 @@ export default function TwentyFiveAnHourPage() {
           <h2>Helpful calculators</h2>
 
           <p>
-            Start with the <a href="/hourly-wage/25">$25 an Hour Calculator</a>.
-            Then compare your wage with the{" "}
+            Use the{" "}
+            <a href="/calculators/hourly-paycheck">
+              Hourly Paycheck Calculator
+            </a>{" "}
+            to enter your own rate. Then compare your wage with the{" "}
             <a href="/hourly-wage">Hourly Wage Calculators</a>,{" "}
             <a href="/salary-calculator">Salary Calculator</a>,{" "}
             <a href="/salary-after-tax">Salary After Tax Calculators</a>,{" "}
@@ -456,10 +459,6 @@ export default function TwentyFiveAnHourPage() {
         <RelatedCalculators
           title="Related hourly and paycheck tools"
           tools={[
-            {
-              title: "$25 an Hour Calculator",
-              href: "/hourly-wage/25",
-            },
             {
               title: "Hourly Wage Calculators",
               href: "/hourly-wage",

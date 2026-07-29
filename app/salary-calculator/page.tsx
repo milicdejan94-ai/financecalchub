@@ -1,122 +1,237 @@
-import { salaryAmounts } from '../../lib/salaryAmounts';
-import RelatedCalculators from '../../components/RelatedCalculators';
-import Breadcrumbs from '../../components/Breadcrumbs';
+import Breadcrumbs from "../../components/Breadcrumbs";
+import RelatedCalculators from "../../components/RelatedCalculators";
 
 export const metadata = {
-  title: 'Salary Calculator | Estimate Take-Home Pay by Income',
+  title: "Salary Calculator Guide",
   description:
-    'Free salary calculator pages for common US annual salaries. Estimate monthly, biweekly and weekly take-home pay.',
+    "Break an annual salary into monthly, biweekly, weekly and hourly amounts, then compare taxes, benefits and total compensation.",
+  alternates: {
+    canonical: "/salary-calculator",
+  },
 };
 
-export default function SalaryCalculatorIndexPage() {
+export default function SalaryCalculatorGuidePage() {
   return (
     <section className="section">
       <div className="container">
         <Breadcrumbs
-  items={[
-    { label: 'Home', href: '/' },
-    { label: 'Salary Calculator' },
-  ]}
-/>
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Salary Calculator Guide" },
+          ]}
+        />
+
         <div className="section-heading">
-          <p className="eyebrow">Salary calculator</p>
-
-          <h1>Salary Calculator by Income</h1>
-
+          <p className="eyebrow">Salary and compensation</p>
+          <h1>Salary Calculator Guide</h1>
           <p>
-            Choose a common annual salary to estimate monthly, biweekly and
-            weekly take-home pay. These pages use simplified tax assumptions for
-            educational estimates.
+            Break an annual salary into useful pay periods, estimate an hourly
+            equivalent and compare the full value of a job offer instead of
+            relying on one headline number.
           </p>
         </div>
 
-        <div className="content-box">
-          <h2>Popular salary estimates</h2>
-
+        <div className="calculator-box">
+          <h2>Estimate a salary and paycheck</h2>
           <p>
-            Select a salary amount below to see estimated take-home pay,
-            approximate hourly equivalent and gross pay breakdown.
+            Use the paycheck calculator for taxes and take-home pay, or use the
+            salary-to-hourly tool to compare annual compensation with an hourly
+            schedule.
+          </p>
+          <p>
+            <a className="button" href="/calculators/paycheck">
+              Open the Paycheck Calculator
+            </a>
+          </p>
+        </div>
+
+        <article className="content-box" style={{ marginTop: 34 }}>
+          <h2>How annual salary converts into pay periods</h2>
+          <p>
+            Payroll schedules divide the same annual gross salary in different
+            ways. A monthly schedule uses 12 periods, semi-monthly uses 24,
+            biweekly commonly uses 26 and weekly uses 52. The result is gross
+            pay before taxes and deductions.
           </p>
 
-          <div className="grid">
-            {salaryAmounts.map((amount) => (
-              <a
-                className="card"
-                href={`/salary-calculator/${amount}`}
-                key={amount}
-              >
-                <h3>${amount.toLocaleString('en-US')} Salary Calculator</h3>
-
-                <p>
-                  Estimate take-home pay for a $
-                  {amount.toLocaleString('en-US')} annual salary.
-                </p>
-
-                <span>Open calculator →</span>
-              </a>
-            ))}
+          <div className="table-wrap">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Pay schedule</th>
+                  <th>Typical periods per year</th>
+                  <th>Calculation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Monthly</td>
+                  <td>12</td>
+                  <td>Annual salary ÷ 12</td>
+                </tr>
+                <tr>
+                  <td>Semi-monthly</td>
+                  <td>24</td>
+                  <td>Annual salary ÷ 24</td>
+                </tr>
+                <tr>
+                  <td>Biweekly</td>
+                  <td>26</td>
+                  <td>Annual salary ÷ 26</td>
+                </tr>
+                <tr>
+                  <td>Weekly</td>
+                  <td>52</td>
+                  <td>Annual salary ÷ 52</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
 
-        <div className="content-box" style={{ marginTop: 34 }}>
-          <h2>How salary calculator pages work</h2>
-
+          <h2>Estimating an hourly equivalent</h2>
           <p>
-            These salary calculator pages estimate take-home pay by subtracting
-            simplified federal tax, Social Security, Medicare and estimated state
-            tax assumptions from annual gross salary.
+            A common comparison divides annual salary by 2,080 hours, based on
+            40 hours per week and 52 weeks per year. That shortcut is useful for
+            standardized comparisons, but it may not represent the
+            employee&apos;s real workload.
+          </p>
+          <p>
+            A salaried employee working 45 or 50 hours per week has a lower
+            effective hourly rate than the 2,080-hour shortcut suggests. Paid
+            vacation and holidays, on the other hand, can improve the value of a
+            salary package compared with an hourly role without paid leave.
           </p>
 
-          <h3>Monthly, biweekly and weekly estimates</h3>
-
+          <h2>Gross salary does not equal spendable income</h2>
           <p>
-            Each salary page shows estimated monthly, biweekly and weekly
-            take-home pay so users can compare common payroll schedules.
+            Taxes and payroll deductions can materially reduce each paycheck.
+            Federal income tax, Social Security and Medicare are only part of
+            the picture. State and local tax, health insurance, retirement
+            contributions, flexible spending accounts and other deductions can
+            change the deposited amount.
+          </p>
+          <p>
+            Withholding is also not necessarily the same as final tax liability.
+            A paycheck calculator estimates cash flow during the year; a tax
+            return reconciles income, withholding, deductions and credits under
+            applicable rules.
           </p>
 
-          <h3>Hourly equivalent</h3>
-
+          <h2>Compare total compensation, not salary alone</h2>
           <p>
-            Salary pages also show an estimated hourly equivalent based on 2,080
-            working hours per year, which is commonly used for a 40-hour workweek
-            over 52 weeks.
+            Two offers with the same salary can have very different value.
+            Review employer retirement contributions, health-insurance costs,
+            paid leave, bonuses, equity, commissions, remote-work flexibility,
+            commuting expenses and required travel.
           </p>
 
-          <h3>Important note</h3>
+          <div className="table-wrap">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Compensation item</th>
+                  <th>Question to ask</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Health benefits</td>
+                  <td>
+                    What is the employee premium, deductible and coverage?
+                  </td>
+                </tr>
+                <tr>
+                  <td>Retirement</td>
+                  <td>
+                    Is there a match, vesting schedule or contribution limit?
+                  </td>
+                </tr>
+                <tr>
+                  <td>Paid leave</td>
+                  <td>
+                    How many paid days are included and when do they accrue?
+                  </td>
+                </tr>
+                <tr>
+                  <td>Variable pay</td>
+                  <td>
+                    Is the bonus guaranteed, discretionary or performance-based?
+                  </td>
+                </tr>
+                <tr>
+                  <td>Work costs</td>
+                  <td>
+                    What commuting, equipment, travel or licensing costs apply?
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
+          <h2>Use take-home pay for the household budget</h2>
           <p>
-            These calculators are simplified educational tools. Actual take-home
-            pay may vary based on filing status, state taxes, deductions,
-            retirement contributions, insurance and other payroll details.
+            Gross salary is helpful for comparing compensation, but recurring
+            expenses are paid from net income. Build a budget from conservative
+            take-home pay, then account for irregular costs such as annual
+            insurance, repairs, medical expenses and travel.
           </p>
-        </div>
+
+          <h2>Useful salary guides</h2>
+          <div className="grid">
+            <a className="card" href="/blog/how-much-is-70000-after-taxes">
+              <h3>$70,000 after taxes</h3>
+              <p>
+                See a detailed educational example with federal and payroll-tax
+                assumptions.
+              </p>
+              <span>Read the guide →</span>
+            </a>
+            <a className="card" href="/blog/how-much-is-100000-after-taxes">
+              <h3>$100,000 after taxes</h3>
+              <p>
+                Review how tax brackets, payroll taxes and deductions can affect
+                take-home pay.
+              </p>
+              <span>Read the guide →</span>
+            </a>
+          </div>
+
+          <h2>Important limitations</h2>
+          <p>
+            Salary calculations on FinanceCalcHub are educational estimates.
+            Actual payroll depends on filing status, withholding elections,
+            state and local rules, benefits, deductions and employer payroll
+            practices. Verify important decisions with official resources,
+            payroll records or a qualified professional.
+          </p>
+        </article>
 
         <RelatedCalculators
-          title="Related paycheck and salary tools"
+          title="Related salary tools"
           tools={[
             {
-              title: 'Paycheck Calculator',
-              href: '/calculators/paycheck',
+              title: "Paycheck Calculator",
+              href: "/calculators/paycheck",
             },
             {
-              title: 'Hourly Paycheck Calculator',
-              href: '/calculators/hourly-paycheck',
+              title: "Salary to Hourly Calculator",
+              href: "/calculators/salary-to-hourly",
             },
             {
-              title: 'Salary To Hourly Calculator',
-              href: '/calculators/salary-to-hourly',
+              title: "Hourly Paycheck Calculator",
+              href: "/calculators/hourly-paycheck",
             },
             {
-              title: 'Overtime Calculator',
-              href: '/calculators/overtime',
+              title: "Overtime Calculator",
+              href: "/calculators/overtime",
             },
             {
-              title: 'Paycheck Calculators by State',
-              href: '/paycheck-calculator',
+              title: "Federal Tax Calculator",
+              href: "/calculators/federal-tax",
             },
             {
-              title: 'All Financial Calculators',
-              href: '/calculators',
+              title: "Salary After Tax Guide",
+              href: "/salary-after-tax",
             },
           ]}
         />

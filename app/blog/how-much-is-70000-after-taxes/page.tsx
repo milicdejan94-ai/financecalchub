@@ -40,8 +40,8 @@ const articleMetadata: ArticleMetadata = {
   author: editorialTeam,
   reviewer: editorialReviewDesk,
   relatedCalculator: {
-    title: "$70,000 After Tax Calculator",
-    href: "/salary-after-tax/70000",
+    title: "Paycheck Calculator",
+    href: "/calculators/paycheck",
   },
   sourceOrganizations: ["IRS", "Social Security Administration"],
 };
@@ -170,9 +170,7 @@ export default function HowMuchIs70000AfterTaxesPage() {
           </p>
 
           <p>
-            For a faster estimate, use the{" "}
-            <a href="/salary-after-tax/70000">$70,000 after tax calculator</a>{" "}
-            or compare more details in the{" "}
+            Enter $70,000 and your filing assumptions in the{" "}
             <a href="/calculators/paycheck">paycheck calculator</a>.
           </p>
 
@@ -407,10 +405,8 @@ export default function HowMuchIs70000AfterTaxesPage() {
           </p>
 
           <p>
-            Use the{" "}
-            <a href="/salary-after-tax/70000">$70,000 after tax calculator</a>,
-            the <a href="/calculators/paycheck">paycheck calculator</a> or the{" "}
-            <a href="/calculators/federal-tax">federal tax calculator</a> to
+            Use the <a href="/calculators/paycheck">paycheck calculator</a> or
+            the <a href="/calculators/federal-tax">federal tax calculator</a> to
             test different assumptions.
           </p>
 
@@ -495,10 +491,9 @@ export default function HowMuchIs70000AfterTaxesPage() {
 
           <p>
             Start with the{" "}
-            <a href="/salary-after-tax/70000">$70,000 after tax calculator</a>{" "}
-            and compare it with the{" "}
-            <a href="/paycheck-calculator">state paycheck calculators</a> for a
-            more practical planning view.
+            <a href="/calculators/paycheck">paycheck calculator</a> and review
+            the <a href="/paycheck-calculator">Paycheck Taxes by State Guide</a>{" "}
+            for state and local-tax considerations.
           </p>
           <AboutArticle metadata={articleMetadata} />
         </article>
@@ -506,10 +501,6 @@ export default function HowMuchIs70000AfterTaxesPage() {
         <RelatedCalculators
           title="Related salary and paycheck tools"
           tools={[
-            {
-              title: "$70,000 After Tax Calculator",
-              href: "/salary-after-tax/70000",
-            },
             {
               title: "Salary After Tax Calculators",
               href: "/salary-after-tax",
@@ -523,8 +514,8 @@ export default function HowMuchIs70000AfterTaxesPage() {
               href: "/calculators/federal-tax",
             },
             {
-              title: "$70,000 Salary Calculator",
-              href: "/salary-calculator/70000",
+              title: "Salary Calculator Guide",
+              href: "/salary-calculator",
             },
             {
               title: "Paycheck Calculators by State",

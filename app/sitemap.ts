@@ -1,12 +1,9 @@
 import type { MetadataRoute } from "next";
-import { mortgageAmounts } from "../lib/mortgageAmounts";
-import { hourlyWages } from "../lib/hourlyWages";
-import { salaryAmounts } from "../lib/salaryAmounts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.financecalchub.com";
 
-  const staticRoutes = [
+  const routes = [
     "",
     "/blog",
     "/blog/real-money-stories",
@@ -17,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/real-money-stories/taxed-in-wrong-state-payroll-problem",
     "/blog/real-money-stories/employer-reported-30000-more-income",
     "/blog/real-money-stories/irs-said-he-owed-20000-high-school",
+
     "/calculators",
     "/paycheck-calculator",
     "/salary-calculator",
@@ -85,27 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/blog/rent-vs-buy-key-factors",
   ];
 
-  const mortgagePaymentRoutes = mortgageAmounts.map(
-    (amount) => `/mortgage-payment/${amount}`,
-  );
-
-  const hourlyWageRoutes = hourlyWages.map((wage) => `/hourly-wage/${wage}`);
-
-  const salaryCalculatorRoutes = salaryAmounts.map(
-    (amount) => `/salary-calculator/${amount}`,
-  );
-
-  const salaryAfterTaxRoutes = salaryAmounts.map(
-    (amount) => `/salary-after-tax/${amount}`,
-  );
-
-  return [
-    ...staticRoutes,
-    ...mortgagePaymentRoutes,
-    ...hourlyWageRoutes,
-    ...salaryCalculatorRoutes,
-    ...salaryAfterTaxRoutes,
-  ].map((route) => ({
+  return routes.map((route) => ({
     url: `${baseUrl}${route}`,
   }));
 }

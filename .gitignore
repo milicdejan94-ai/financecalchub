@@ -7,3 +7,6 @@ out
 .env.production
 .DS_Store
 npm-debug.log
+
+# Local SEO and AdSense audit output
+audit-reports/

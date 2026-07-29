@@ -1,190 +1,189 @@
-import Breadcrumbs from '../../components/Breadcrumbs';
+import Breadcrumbs from "../../components/Breadcrumbs";
 
 const calculatorGroups = [
   {
-    category: 'Paycheck & Salary Calculators',
+    category: "Paycheck & Salary Calculators",
     description:
-      'Estimate take-home pay, hourly wages, overtime pay, salary after taxes and salary conversions.',
+      "Estimate take-home pay, hourly wages, overtime pay, salary after taxes and salary conversions.",
     tools: [
       {
-        title: 'Paycheck Calculator',
+        title: "Paycheck Calculator",
         description:
-          'Estimate take-home pay after federal tax, Social Security, Medicare and state tax.',
-        href: '/calculators/paycheck',
+          "Estimate take-home pay after federal tax, Social Security, Medicare and state tax.",
+        href: "/calculators/paycheck",
       },
       {
-        title: 'Federal Tax Calculator',
+        title: "Federal Tax Calculator",
         description:
-          'Estimate US federal income tax based on income, filing status and standard deduction assumptions.',
-        href: '/calculators/federal-tax',
+          "Estimate US federal income tax based on income, filing status and standard deduction assumptions.",
+        href: "/calculators/federal-tax",
       },
       {
-        title: 'Salary After Tax Calculators',
+        title: "Salary After Tax Guide",
         description:
-          'Estimate after-tax income for common US salary amounts like $50k, $70k and $100k.',
-        href: '/salary-after-tax',
+          "Understand how taxes and deductions affect take-home pay, with detailed $70,000 and $100,000 examples.",
+        href: "/salary-after-tax",
       },
       {
-        title: 'Hourly Wage to Salary Calculators',
+        title: "Hourly Wage to Salary Guide",
         description:
-          'Convert hourly wages like $20, $25 or $30 per hour into yearly, monthly and paycheck estimates.',
-        href: '/hourly-wage',
+          "Learn how to convert hourly pay into weekly, monthly and annual income, with detailed $25 and $30 examples.",
+        href: "/hourly-wage",
       },
       {
-        title: 'Hourly Paycheck Calculator',
+        title: "Hourly Paycheck Calculator",
         description:
-          'Estimate weekly, biweekly and monthly take-home pay from hourly wages.',
-        href: '/calculators/hourly-paycheck',
+          "Estimate weekly, biweekly and monthly take-home pay from hourly wages.",
+        href: "/calculators/hourly-paycheck",
       },
       {
-        title: 'Overtime Calculator',
+        title: "Overtime Calculator",
         description:
-          'Estimate overtime pay using hourly wage, overtime hours and overtime rate.',
-        href: '/calculators/overtime',
+          "Estimate overtime pay using hourly wage, overtime hours and overtime rate.",
+        href: "/calculators/overtime",
       },
       {
-        title: 'Salary To Hourly Calculator',
-        description: 'Convert annual salary into estimated hourly wage.',
-        href: '/calculators/salary-to-hourly',
+        title: "Salary To Hourly Calculator",
+        description: "Convert annual salary into estimated hourly wage.",
+        href: "/calculators/salary-to-hourly",
       },
       {
-        title: 'Salary Calculator by Income',
+        title: "Salary Calculator Guide",
         description:
-          'Estimate take-home pay for common annual salary amounts.',
-        href: '/salary-calculator',
+          "Understand salary, pay frequency, hourly equivalents and take-home-pay planning.",
+        href: "/salary-calculator",
       },
       {
-        title: 'Paycheck Calculators by State',
-        description: 'Estimate take-home pay by US state.',
-        href: '/paycheck-calculator',
+        title: "Paycheck Taxes by State Guide",
+        description:
+          "Understand how state, local and multi-state tax rules can affect take-home pay.",
+        href: "/paycheck-calculator",
       },
     ],
   },
   {
-    category: 'Mortgage & Home Calculators',
+    category: "Mortgage & Home Calculators",
     description:
-      'Estimate home payments, refinance savings, affordability and mortgage payoff scenarios.',
+      "Estimate home payments, refinance savings, affordability and mortgage payoff scenarios.",
     tools: [
       {
-        title: 'Mortgage Calculator',
+        title: "Mortgage Calculator",
         description:
-          'Estimate monthly mortgage payments including principal, interest, taxes and insurance.',
-        href: '/calculators/mortgage',
+          "Estimate monthly mortgage payments including principal, interest, taxes and insurance.",
+        href: "/calculators/mortgage",
       },
       {
-        title: 'Mortgage Payment by Amount',
+        title: "Mortgage Payment Guide",
         description:
-          'Estimate monthly payments for common mortgage amounts like $300k, $400k, $500k and more.',
-        href: '/mortgage-payment',
+          "Understand mortgage payment components and compare detailed $300,000 and $400,000 examples.",
+        href: "/mortgage-payment",
       },
       {
-        title: 'Mortgage Affordability Calculator',
+        title: "Mortgage Affordability Calculator",
         description:
-          'Estimate how much house you may be able to afford based on income, debt and housing costs.',
-        href: '/calculators/mortgage-affordability',
+          "Estimate how much house you may be able to afford based on income, debt and housing costs.",
+        href: "/calculators/mortgage-affordability",
       },
       {
-        title: 'Refinance Calculator',
+        title: "Refinance Calculator",
         description:
-          'Estimate refinance savings, new payment and break-even time.',
-        href: '/calculators/refinance',
+          "Estimate refinance savings, new payment and break-even time.",
+        href: "/calculators/refinance",
       },
       {
-        title: 'Rent vs Buy Calculator',
-        description:
-          'Compare estimated renting costs with home buying costs.',
-        href: '/calculators/rent-vs-buy',
+        title: "Rent vs Buy Calculator",
+        description: "Compare estimated renting costs with home buying costs.",
+        href: "/calculators/rent-vs-buy",
       },
       {
-        title: 'Down Payment Calculator',
+        title: "Down Payment Calculator",
         description:
-          'Estimate down payment amount, loan amount and common down payment options.',
-        href: '/calculators/down-payment',
+          "Estimate down payment amount, loan amount and common down payment options.",
+        href: "/calculators/down-payment",
       },
       {
-        title: 'Amortization Calculator',
+        title: "Amortization Calculator",
         description:
-          'Estimate monthly payment, total interest and yearly amortization schedule.',
-        href: '/calculators/amortization',
+          "Estimate monthly payment, total interest and yearly amortization schedule.",
+        href: "/calculators/amortization",
       },
       {
-        title: 'Extra Mortgage Payment Calculator',
+        title: "Extra Mortgage Payment Calculator",
         description:
-          'Estimate interest savings and payoff time from extra mortgage payments.',
-        href: '/calculators/extra-mortgage-payment',
+          "Estimate interest savings and payoff time from extra mortgage payments.",
+        href: "/calculators/extra-mortgage-payment",
       },
     ],
   },
   {
-    category: 'Loan & Debt Calculators',
+    category: "Loan & Debt Calculators",
     description:
-      'Estimate loan payments, auto loan costs, APR, credit card payoff and debt repayment.',
+      "Estimate loan payments, auto loan costs, APR, credit card payoff and debt repayment.",
     tools: [
       {
-        title: 'Loan Calculator',
+        title: "Loan Calculator",
         description:
-          'Estimate monthly loan payment, total interest and total repayment.',
-        href: '/calculators/loan',
+          "Estimate monthly loan payment, total interest and total repayment.",
+        href: "/calculators/loan",
       },
       {
-        title: 'Car Loan Calculator',
+        title: "Car Loan Calculator",
         description:
-          'Estimate monthly auto loan payments based on vehicle price, down payment, rate and term.',
-        href: '/calculators/car-loan',
+          "Estimate monthly auto loan payments based on vehicle price, down payment, rate and term.",
+        href: "/calculators/car-loan",
       },
       {
-        title: 'APR Calculator',
+        title: "APR Calculator",
         description:
-          'Estimate annual percentage rate using loan amount, fees and term.',
-        href: '/calculators/apr',
+          "Estimate annual percentage rate using loan amount, fees and term.",
+        href: "/calculators/apr",
       },
       {
-        title: 'Debt Payoff Calculator',
-        description: 'Estimate how long it may take to pay off debt.',
-        href: '/calculators/debt-payoff',
+        title: "Debt Payoff Calculator",
+        description: "Estimate how long it may take to pay off debt.",
+        href: "/calculators/debt-payoff",
       },
       {
-        title: 'Credit Card Payoff Calculator',
-        description:
-          'Estimate credit card payoff time and interest paid.',
-        href: '/calculators/credit-card-payoff',
+        title: "Credit Card Payoff Calculator",
+        description: "Estimate credit card payoff time and interest paid.",
+        href: "/calculators/credit-card-payoff",
       },
     ],
   },
   {
-    category: 'Savings & Retirement Calculators',
+    category: "Savings & Retirement Calculators",
     description:
-      'Estimate long-term savings, retirement growth, 401k contributions and compound interest.',
+      "Estimate long-term savings, retirement growth, 401k contributions and compound interest.",
     tools: [
       {
-        title: 'Retirement Calculator',
+        title: "Retirement Calculator",
         description:
-          'Estimate future retirement savings based on age, savings, contributions and return.',
-        href: '/calculators/retirement',
+          "Estimate future retirement savings based on age, savings, contributions and return.",
+        href: "/calculators/retirement",
       },
       {
-        title: '401k Calculator',
+        title: "401k Calculator",
         description:
-          'Estimate future 401k savings using salary, contribution rate, employer match and return.',
-        href: '/calculators/401k',
+          "Estimate future 401k savings using salary, contribution rate, employer match and return.",
+        href: "/calculators/401k",
       },
       {
-        title: 'Compound Interest Calculator',
+        title: "Compound Interest Calculator",
         description:
-          'Estimate investment growth with compound interest and monthly contributions.',
-        href: '/calculators/compound-interest',
+          "Estimate investment growth with compound interest and monthly contributions.",
+        href: "/calculators/compound-interest",
       },
       {
-        title: 'Investment Return Calculator',
+        title: "Investment Return Calculator",
         description:
-          'Estimate future investment value based on contributions, return rate and time.',
-        href: '/calculators/investment-return',
+          "Estimate future investment value based on contributions, return rate and time.",
+        href: "/calculators/investment-return",
       },
       {
-        title: 'Savings Calculator',
+        title: "Savings Calculator",
         description:
-          'Estimate future savings with monthly deposits and interest.',
-        href: '/calculators/savings',
+          "Estimate future savings with monthly deposits and interest.",
+        href: "/calculators/savings",
       },
     ],
   },
@@ -192,47 +191,47 @@ const calculatorGroups = [
 
 const popularCalculatorGuides = [
   {
-    title: '$70,000 After Tax Calculator',
+    title: "$70,000 After Tax Calculator",
     description:
-      'Estimate annual, monthly, biweekly and weekly after-tax pay for a $70,000 salary.',
-    href: '/salary-after-tax/70000',
+      "Estimate annual, monthly, biweekly and weekly after-tax pay for a $70,000 salary.",
+    href: "/blog/how-much-is-70000-after-taxes",
   },
   {
-    title: '$100,000 After Tax Calculator',
+    title: "$100,000 After Tax Calculator",
     description:
-      'Estimate how much a $100,000 salary may be after federal tax, payroll taxes and estimated state tax.',
-    href: '/salary-after-tax/100000',
+      "Estimate how much a $100,000 salary may be after federal tax, payroll taxes and estimated state tax.",
+    href: "/blog/how-much-is-100000-after-taxes",
   },
   {
-    title: '$25 an Hour Is How Much a Year?',
+    title: "$25 an Hour Is How Much a Year?",
     description:
-      'Convert $25 per hour into estimated yearly, monthly, weekly and after-tax pay.',
-    href: '/hourly-wage/25',
+      "Convert $25 per hour into estimated yearly, monthly, weekly and after-tax pay.",
+    href: "/blog/25-an-hour-is-how-much-a-year",
   },
   {
-    title: '$30 an Hour Is How Much a Year?',
+    title: "$30 an Hour Is How Much a Year?",
     description:
-      'Estimate how much $30 per hour may be per year, month, week and paycheck.',
-    href: '/hourly-wage/30',
+      "Estimate how much $30 per hour may be per year, month, week and paycheck.",
+    href: "/blog/30-an-hour-is-how-much-a-year",
   },
   {
-    title: '$300,000 Mortgage Payment',
+    title: "$300,000 Mortgage Payment",
     description:
-      'Estimate the monthly payment on a $300,000 mortgage including taxes and insurance assumptions.',
-    href: '/mortgage-payment/300000',
+      "Estimate the monthly payment on a $300,000 mortgage including taxes and insurance assumptions.",
+    href: "/blog/300000-mortgage-payment",
   },
   {
-    title: '$400,000 Mortgage Payment',
+    title: "$400,000 Mortgage Payment",
     description:
-      'Estimate the monthly payment on a $400,000 mortgage with common home buying cost assumptions.',
-    href: '/mortgage-payment/400000',
+      "Estimate the monthly payment on a $400,000 mortgage with common home buying cost assumptions.",
+    href: "/blog/400000-mortgage-payment",
   },
 ];
 
 export const metadata = {
-  title: 'Financial Calculators | Free US Money Tools',
+  title: "Financial Calculators | Free US Money Tools",
   description:
-    'Browse free US financial calculators for paychecks, salary after taxes, hourly wages, mortgage payments, loans, debt, savings and retirement planning.',
+    "Browse free US financial calculators for paychecks, salary after taxes, hourly wages, mortgage payments, loans, debt, savings and retirement planning.",
 };
 
 export default function CalculatorsPage() {
@@ -240,10 +239,7 @@ export default function CalculatorsPage() {
     <section className="section">
       <div className="container">
         <Breadcrumbs
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'Calculators' },
-          ]}
+          items={[{ label: "Home", href: "/" }, { label: "Calculators" }]}
         />
 
         <div className="section-heading">
@@ -253,22 +249,22 @@ export default function CalculatorsPage() {
 
           <p>
             Browse free calculators for US paychecks, salary after taxes, hourly
-            wages, mortgage payments, loans, debt payoff, savings, retirement and
-            long-term financial planning.
+            wages, mortgage payments, loans, debt payoff, savings, retirement
+            and long-term financial planning.
           </p>
         </div>
 
         <div className="content-box">
-          <h2>Popular calculator directories</h2>
+          <h2>Popular planning guides</h2>
 
           <p>
-            Start with one of these calculator directories for common salary,
-            hourly wage and mortgage payment questions.
+            Start with one of these guides for common salary, hourly wage and
+            mortgage payment questions.
           </p>
 
           <div className="grid">
             <a className="card" href="/salary-after-tax">
-              <h3>Salary After Tax Calculators</h3>
+              <h3>Salary After Tax Guide</h3>
               <p>
                 Estimate after-tax income for common US salary amounts including
                 $50k, $70k, $100k and more.
@@ -277,21 +273,21 @@ export default function CalculatorsPage() {
             </a>
 
             <a className="card" href="/hourly-wage">
-              <h3>Hourly Wage to Salary Calculators</h3>
+              <h3>Hourly Wage to Salary Guide</h3>
               <p>
                 Convert hourly wages into annual, monthly, weekly and paycheck
                 estimates.
               </p>
-              <span>Browse hourly wage calculators →</span>
+              <span>Open hourly wage guide →</span>
             </a>
 
             <a className="card" href="/mortgage-payment">
-              <h3>Mortgage Payment by Amount</h3>
+              <h3>Mortgage Payment Guide</h3>
               <p>
-                Estimate monthly payments for common mortgage amounts like $300k,
-                $400k and $500k.
+                Understand payment components and compare detailed $300,000 and
+                $400,000 examples.
               </p>
-              <span>Browse mortgage payment calculators →</span>
+              <span>Open mortgage payment guide →</span>
             </a>
           </div>
         </div>
@@ -332,7 +328,7 @@ export default function CalculatorsPage() {
                 <a className="card" href={tool.href} key={tool.href}>
                   <h3>{tool.title}</h3>
                   <p>{tool.description}</p>
-                  <span>Open calculator →</span>
+                  <span>Read guide →</span>
                 </a>
               ))}
             </div>
@@ -344,8 +340,8 @@ export default function CalculatorsPage() {
 
           <p>
             FinanceCalcHub calculators are designed for quick educational
-            estimates. You can use them to compare paycheck amounts, salary after
-            tax estimates, mortgage payments, loan payments, debt payoff
+            estimates. You can use them to compare paycheck amounts, salary
+            after tax estimates, mortgage payments, loan payments, debt payoff
             timelines, savings growth and retirement scenarios.
           </p>
 
@@ -355,17 +351,18 @@ export default function CalculatorsPage() {
             If you want to understand income, start with paycheck, salary after
             tax or hourly wage tools. If you are planning to buy a home, start
             with the mortgage calculator, mortgage affordability calculator or
-            mortgage payment by amount pages. If you are managing debt, start
-            with debt payoff or credit card payoff calculators.
+            mortgage payment guide. If you are managing debt, start with debt
+            payoff or credit card payoff calculators.
           </p>
 
           <h3>Important note</h3>
 
           <p>
-            These calculators provide simplified educational estimates only. They
-            are not tax, legal, payroll, mortgage, financial or investment
+            These calculators provide simplified educational estimates only.
+            They are not tax, legal, payroll, mortgage, financial or investment
             advice. Actual results may vary based on your location, lender,
-            employer, tax situation, deductions, fees and other personal factors.
+            employer, tax situation, deductions, fees and other personal
+            factors.
           </p>
         </div>
       </div>

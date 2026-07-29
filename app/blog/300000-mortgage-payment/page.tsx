@@ -40,8 +40,8 @@ const articleMetadata: ArticleMetadata = {
   author: editorialTeam,
   reviewer: editorialReviewDesk,
   relatedCalculator: {
-    title: "$300,000 Mortgage Payment Calculator",
-    href: "/mortgage-payment/300000",
+    title: "Mortgage Calculator",
+    href: "/calculators/mortgage",
   },
 };
 
@@ -82,13 +82,9 @@ export default function ThreeHundredThousandMortgagePaymentPage() {
           </p>
 
           <p>
-            For a quick estimate, use the{" "}
-            <a href="/mortgage-payment/300000">
-              $300,000 Mortgage Payment Calculator
-            </a>
-            . For a more detailed scenario with taxes, insurance and down
-            payment assumptions, use the{" "}
-            <a href="/calculators/mortgage">Mortgage Calculator</a>.
+            Use the <a href="/calculators/mortgage">Mortgage Calculator</a> and
+            enter a $300,000 loan scenario. You can then adjust the rate, term,
+            taxes, insurance and down-payment assumptions.
           </p>
 
           <h2>Quick answer</h2>
@@ -435,11 +431,7 @@ export default function ThreeHundredThousandMortgagePaymentPage() {
             The monthly payment on a $300,000 mortgage depends heavily on the
             interest rate and loan term, but the full housing cost should also
             include taxes, insurance, PMI, HOA fees, maintenance and repairs.
-            Start with the{" "}
-            <a href="/mortgage-payment/300000">
-              $300,000 Mortgage Payment Calculator
-            </a>
-            , then compare a full scenario in the{" "}
+            Test a full $300,000 loan scenario in the{" "}
             <a href="/calculators/mortgage">Mortgage Calculator</a>.
           </p>
           <AboutArticle metadata={articleMetadata} />
@@ -448,10 +440,6 @@ export default function ThreeHundredThousandMortgagePaymentPage() {
         <RelatedCalculators
           title="Related mortgage tools"
           tools={[
-            {
-              title: "$300,000 Mortgage Payment Calculator",
-              href: "/mortgage-payment/300000",
-            },
             {
               title: "Mortgage Payment Calculators by Amount",
               href: "/mortgage-payment",

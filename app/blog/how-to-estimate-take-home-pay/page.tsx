@@ -432,9 +432,15 @@ export default function TakeHomePayArticle() {
               assumptions.
             </li>
             <li>
-              Use <a href="/salary-after-tax/70000">$70,000 after taxes</a> or{" "}
-              <a href="/salary-after-tax/100000">$100,000 after taxes</a> for
-              quick salary examples.
+              Use{" "}
+              <a href="/blog/how-much-is-70000-after-taxes">
+                $70,000 after taxes
+              </a>{" "}
+              or{" "}
+              <a href="/blog/how-much-is-100000-after-taxes">
+                $100,000 after taxes
+              </a>{" "}
+              for detailed salary examples.
             </li>
           </ul>
 

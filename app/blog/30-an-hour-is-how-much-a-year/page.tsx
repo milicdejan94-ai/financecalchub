@@ -40,8 +40,8 @@ const articleMetadata: ArticleMetadata = {
   author: editorialTeam,
   reviewer: editorialReviewDesk,
   relatedCalculator: {
-    title: "$30 an Hour Calculator",
-    href: "/hourly-wage/30",
+    title: "Hourly Paycheck Calculator",
+    href: "/calculators/hourly-paycheck",
   },
 };
 
@@ -88,12 +88,12 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
           </p>
 
           <p>
-            For a quick estimate, use the{" "}
-            <a href="/hourly-wage/30">$30 an Hour Calculator</a>, the{" "}
+            Enter $30 and your work schedule in the{" "}
             <a href="/calculators/hourly-paycheck">
               Hourly Paycheck Calculator
-            </a>{" "}
-            or the <a href="/calculators/paycheck">Paycheck Calculator</a>.
+            </a>
+            , or compare annual salary in the{" "}
+            <a href="/calculators/paycheck">Paycheck Calculator</a>.
           </p>
 
           <h2>Quick answer: $30 an hour full-time</h2>
@@ -387,7 +387,9 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
                   <td>$30 an hour full-time</td>
                   <td>$62,400</td>
                   <td>
-                    <a href="/hourly-wage/30">$30 an hour calculator</a>
+                    <a href="/calculators/hourly-paycheck">
+                      Hourly paycheck calculator
+                    </a>
                   </td>
                 </tr>
                 <tr>
@@ -497,8 +499,7 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
           </p>
 
           <p>
-            Start with the <a href="/hourly-wage/30">$30 an Hour Calculator</a>,
-            then use the{" "}
+            Enter $30 in the{" "}
             <a href="/calculators/hourly-paycheck">
               Hourly Paycheck Calculator
             </a>{" "}
@@ -510,14 +511,6 @@ export default function ThirtyAnHourIsHowMuchAYearPage() {
         <RelatedCalculators
           title="Related hourly and paycheck tools"
           tools={[
-            {
-              title: "$30 an Hour Calculator",
-              href: "/hourly-wage/30",
-            },
-            {
-              title: "$25 an Hour Calculator",
-              href: "/hourly-wage/25",
-            },
             {
               title: "Hourly Wage Calculators",
               href: "/hourly-wage",

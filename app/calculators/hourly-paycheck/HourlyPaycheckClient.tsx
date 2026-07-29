@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import RelatedCalculators from '../../../components/RelatedCalculators';
+import { useState } from "react";
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import RelatedCalculators from "../../../components/RelatedCalculators";
 import {
   calculateFederalIncomeTaxFromGross,
   calculateMedicareTax,
   calculateSocialSecurityTax,
   type FilingStatus,
-} from '../../../lib/tax2026';
+} from "../../../lib/tax2026";
 
 function formatCurrency(value: number) {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
     maximumFractionDigits: 2,
   }).format(Number.isFinite(value) ? value : 0);
 }
@@ -26,26 +26,25 @@ export default function HourlyPaycheckClient() {
   const [hourlyRate, setHourlyRate] = useState(25);
   const [hoursPerWeek, setHoursPerWeek] = useState(40);
   const [stateTax, setStateTax] = useState(4);
-  const [filingStatus, setFilingStatus] =
-    useState<FilingStatus>('single');
+  const [filingStatus, setFilingStatus] = useState<FilingStatus>("single");
 
   const annualGross = Math.max(hourlyRate, 0) * Math.max(hoursPerWeek, 0) * 52;
   const weeklyGross = annualGross / 52;
   const biweeklyGross = annualGross / 26;
   const monthlyGross = annualGross / 12;
 
-  const federalCalculation =
-    calculateFederalIncomeTaxFromGross(annualGross, filingStatus);
+  const federalCalculation = calculateFederalIncomeTaxFromGross(
+    annualGross,
+    filingStatus,
+  );
 
   const federalTax = federalCalculation.federalTax;
   const socialSecurity = calculateSocialSecurityTax(annualGross);
 
-  const medicareCalculation =
-    calculateMedicareTax(annualGross, filingStatus);
+  const medicareCalculation = calculateMedicareTax(annualGross, filingStatus);
 
   const medicare = medicareCalculation.totalMedicare;
-  const stateTaxAmount =
-    annualGross * (Math.max(stateTax, 0) / 100);
+  const stateTaxAmount = annualGross * (Math.max(stateTax, 0) / 100);
   const totalEstimatedTaxes =
     federalTax + socialSecurity + medicare + stateTaxAmount;
 
@@ -53,16 +52,17 @@ export default function HourlyPaycheckClient() {
   const monthlyTakeHome = annualTakeHome / 12;
   const biweeklyTakeHome = annualTakeHome / 26;
   const weeklyTakeHome = annualTakeHome / 52;
-  const effectiveTaxRate = annualGross > 0 ? (totalEstimatedTaxes / annualGross) * 100 : 0;
+  const effectiveTaxRate =
+    annualGross > 0 ? (totalEstimatedTaxes / annualGross) * 100 : 0;
 
   return (
     <section className="section">
       <div className="container">
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Calculators', href: '/calculators' },
-            { label: 'Hourly Paycheck Calculator' },
+            { label: "Home", href: "/" },
+            { label: "Calculators", href: "/calculators" },
+            { label: "Hourly Paycheck Calculator" },
           ]}
         />
 
@@ -109,9 +109,7 @@ export default function HourlyPaycheckClient() {
             <label>Filing status</label>
             <select
               value={filingStatus}
-              onChange={(e) =>
-                setFilingStatus(e.target.value as FilingStatus)
-              }
+              onChange={(e) => setFilingStatus(e.target.value as FilingStatus)}
             >
               <option value="single">Single</option>
               <option value="married">Married filing jointly</option>
@@ -195,9 +193,10 @@ export default function HourlyPaycheckClient() {
 
           <p>
             The calculator uses simplified percentages to show how payroll taxes
-            and estimated income taxes can reduce gross pay. Real withholding may
-            be different because employers use your Form W-4, pay frequency,
-            benefits, retirement contributions, filing status and local tax rules.
+            and estimated income taxes can reduce gross pay. Real withholding
+            may be different because employers use your Form W-4, pay frequency,
+            benefits, retirement contributions, filing status and local tax
+            rules.
           </p>
 
           <div className="table-wrap">
@@ -234,7 +233,8 @@ export default function HourlyPaycheckClient() {
           <p>
             Hourly pay starts with a simple gross pay calculation: hourly wage
             multiplied by hours worked per week. The calculator then annualizes
-            that number by multiplying by 52 weeks and subtracts estimated taxes.
+            that number by multiplying by 52 weeks and subtracts estimated
+            taxes.
           </p>
 
           <h3>What affects hourly take-home pay?</h3>
@@ -257,10 +257,11 @@ export default function HourlyPaycheckClient() {
           <h3>Example</h3>
 
           <p>
-            At {formatCurrency(hourlyRate)} per hour and {hoursPerWeek} hours per
-            week, estimated annual gross pay is {formatCurrency(annualGross)}.
-            After the simplified tax assumptions in this calculator, estimated
-            annual take-home pay is {formatCurrency(annualTakeHome)}, or about{' '}
+            At {formatCurrency(hourlyRate)} per hour and {hoursPerWeek} hours
+            per week, estimated annual gross pay is{" "}
+            {formatCurrency(annualGross)}. After the simplified tax assumptions
+            in this calculator, estimated annual take-home pay is{" "}
+            {formatCurrency(annualTakeHome)}, or about{" "}
             {formatCurrency(biweeklyTakeHome)} every two weeks.
           </p>
         </div>
@@ -270,9 +271,9 @@ export default function HourlyPaycheckClient() {
 
           <h3>Is this an exact paycheck calculator?</h3>
           <p>
-            No. It gives a simplified estimate. Exact payroll withholding depends
-            on your employer, W-4 elections, deductions, benefits, local taxes and
-            pay schedule.
+            No. It gives a simplified estimate. Exact payroll withholding
+            depends on your employer, W-4 elections, deductions, benefits, local
+            taxes and pay schedule.
           </p>
 
           <h3>Does this include overtime?</h3>
@@ -300,10 +301,11 @@ export default function HourlyPaycheckClient() {
           <h2>Important limitations</h2>
 
           <p>
-            This calculator is for educational estimates only. It does not apply
-            official tax brackets, wage-base limits, employer-specific payroll
-            rules or local taxes. It is not tax, payroll, legal or financial
-            advice.
+            This calculator uses FinanceCalcHub's stated 2026 federal bracket,
+            Social Security wage-base and Medicare assumptions. It does not
+            reproduce every employer withholding method, credit, deduction,
+            state bracket or local tax. It is not tax, payroll, legal or
+            financial advice.
           </p>
         </div>
 
@@ -311,28 +313,28 @@ export default function HourlyPaycheckClient() {
           title="Related paycheck and wage calculators"
           tools={[
             {
-              title: 'Paycheck Calculator',
-              href: '/calculators/paycheck',
+              title: "Paycheck Calculator",
+              href: "/calculators/paycheck",
             },
             {
-              title: 'Overtime Calculator',
-              href: '/calculators/overtime',
+              title: "Overtime Calculator",
+              href: "/calculators/overtime",
             },
             {
-              title: 'Salary To Hourly Calculator',
-              href: '/calculators/salary-to-hourly',
+              title: "Salary To Hourly Calculator",
+              href: "/calculators/salary-to-hourly",
             },
             {
-              title: 'Paycheck Calculators by State',
-              href: '/paycheck-calculator',
+              title: "Paycheck Taxes by State Guide",
+              href: "/paycheck-calculator",
             },
             {
-              title: '$50,000 Salary Calculator',
-              href: '/salary-calculator/50000',
+              title: "Salary Calculator Guide",
+              href: "/salary-calculator",
             },
             {
-              title: 'Methodology',
-              href: '/methodology',
+              title: "Methodology",
+              href: "/methodology",
             },
           ]}
         />
