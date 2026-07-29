@@ -1,13 +1,13 @@
-import { notFound } from 'next/navigation';
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import Breadcrumbs from '../../../components/Breadcrumbs';
-import { salaryAmounts } from '../../../lib/salaryAmounts';
+import { notFound } from "next/navigation";
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import Breadcrumbs from "../../../components/Breadcrumbs";
+import { salaryAmounts } from "../../../lib/salaryAmounts";
 import {
   calculateFederalIncomeTaxFromGross,
   calculateMedicareTax,
   calculateSocialSecurityTax,
   TAX_YEAR,
-} from '../../../lib/tax2026';
+} from "../../../lib/tax2026";
 
 type PageProps = {
   params: {
@@ -16,17 +16,17 @@ type PageProps = {
 };
 
 function formatCurrency(value: number) {
-  return value.toLocaleString('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  return value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
     maximumFractionDigits: 0,
   });
 }
 
 function formatCurrencyWithCents(value: number) {
-  return value.toLocaleString('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  return value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   });
@@ -41,19 +41,22 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: PageProps) {
   const amount = Number(params.amount);
   const formattedAmount = Number.isFinite(amount)
-    ? amount.toLocaleString('en-US')
-    : 'Salary';
+    ? amount.toLocaleString("en-US")
+    : "Salary";
 
   return {
     title: Number.isFinite(amount)
       ? `$${formattedAmount} Salary Calculator | Monthly, Biweekly & Weekly Pay`
-      : 'Salary Calculator | Monthly, Biweekly & Weekly Pay',
+      : "Salary Calculator | Monthly, Biweekly & Weekly Pay",
     description: Number.isFinite(amount)
       ? `Estimate monthly, biweekly and weekly pay for a $${formattedAmount} annual salary using 2026 federal tax rules, payroll taxes and an illustrative state tax assumption.`
-      : 'Estimate salary take-home pay, gross pay breakdowns and hourly equivalent pay.',
+      : "Estimate salary take-home pay, gross pay breakdowns and hourly equivalent pay.",
     robots: {
       index: true,
       follow: true,
+    },
+    alternates: {
+      canonical: `/salary-calculator/${amount}`,
     },
   };
 }
@@ -65,17 +68,18 @@ export default function SalaryAmountPage({ params }: PageProps) {
     notFound();
   }
 
-  const filingStatus = 'single' as const;
+  const filingStatus = "single" as const;
   const estimatedStateTaxRate = 0.04;
 
-  const federalCalculation =
-    calculateFederalIncomeTaxFromGross(amount, filingStatus);
+  const federalCalculation = calculateFederalIncomeTaxFromGross(
+    amount,
+    filingStatus,
+  );
 
   const federalTax = federalCalculation.federalTax;
   const socialSecurity = calculateSocialSecurityTax(amount);
 
-  const medicareCalculation =
-    calculateMedicareTax(amount, filingStatus);
+  const medicareCalculation = calculateMedicareTax(amount, filingStatus);
 
   const medicare = medicareCalculation.totalMedicare;
   const estimatedStateTax = amount * estimatedStateTaxRate;
@@ -103,8 +107,8 @@ export default function SalaryAmountPage({ params }: PageProps) {
       <div className="container">
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Salary Calculator', href: '/salary-calculator' },
+            { label: "Home", href: "/" },
+            { label: "Salary Calculator", href: "/salary-calculator" },
             { label: `${formatCurrency(amount)} Salary Calculator` },
           ]}
         />
@@ -115,18 +119,18 @@ export default function SalaryAmountPage({ params }: PageProps) {
           <h1>{formatCurrency(amount)} Salary Calculator</h1>
 
           <p>
-            Use this {formatCurrency(amount)} salary calculator to estimate gross
-            pay, take-home pay, common paycheck amounts and hourly equivalent pay.
-            The calculation uses {TAX_YEAR} federal income-tax rules for a single
-            filer, federal payroll taxes and an illustrative 4% state income-tax
-            rate.
+            Use this {formatCurrency(amount)} salary calculator to estimate
+            gross pay, take-home pay, common paycheck amounts and hourly
+            equivalent pay. The calculation uses {TAX_YEAR} federal income-tax
+            rules for a single filer, federal payroll taxes and an illustrative
+            4% state income-tax rate.
           </p>
 
           <p>
-            A salary can look different depending on whether you are paid weekly,
-            biweekly, semi-monthly or monthly. It can also look very different
-            after federal income tax, payroll taxes, state tax, benefits and
-            retirement contributions are withheld.
+            A salary can look different depending on whether you are paid
+            weekly, biweekly, semi-monthly or monthly. It can also look very
+            different after federal income tax, payroll taxes, state tax,
+            benefits and retirement contributions are withheld.
           </p>
         </article>
 
@@ -145,7 +149,8 @@ export default function SalaryAmountPage({ params }: PageProps) {
           </div>
 
           <div className="result">
-            Estimated annual take-home pay: {formatCurrencyWithCents(annualTakeHome)}
+            Estimated annual take-home pay:{" "}
+            {formatCurrencyWithCents(annualTakeHome)}
           </div>
 
           <div className="result">
@@ -161,7 +166,8 @@ export default function SalaryAmountPage({ params }: PageProps) {
           </div>
 
           <div className="result">
-            Estimated hourly equivalent: {formatCurrencyWithCents(hourlyEquivalent)}
+            Estimated hourly equivalent:{" "}
+            {formatCurrencyWithCents(hourlyEquivalent)}
           </div>
         </div>
 
@@ -171,8 +177,8 @@ export default function SalaryAmountPage({ params }: PageProps) {
           <p>
             The table below converts a {formatCurrency(amount)} annual salary
             into common gross pay periods before taxes and payroll deductions.
-            Gross pay is useful for comparing jobs, while net pay is usually more
-            useful for budgeting.
+            Gross pay is useful for comparing jobs, while net pay is usually
+            more useful for budgeting.
           </p>
 
           <div className="table-wrap">
@@ -274,9 +280,9 @@ export default function SalaryAmountPage({ params }: PageProps) {
 
           <p>
             Under these {TAX_YEAR} single-filer and illustrative state-tax
-            assumptions, the estimated effective tax rate is about{' '}
-            {effectiveEstimatedRate.toFixed(1)}%. Your real effective rate may be
-            higher or lower.
+            assumptions, the estimated effective tax rate is about{" "}
+            {effectiveEstimatedRate.toFixed(1)}%. Your real effective rate may
+            be higher or lower.
           </p>
 
           <h2>Monthly, biweekly and weekly take-home pay</h2>
@@ -320,8 +326,8 @@ export default function SalaryAmountPage({ params }: PageProps) {
 
           <p>
             A common full-time estimate uses 2,080 work hours per year, based on
-            40 hours per week and 52 weeks per year. Using that assumption, a{' '}
-            {formatCurrency(amount)} annual salary is about{' '}
+            40 hours per week and 52 weeks per year. Using that assumption, a{" "}
+            {formatCurrency(amount)} annual salary is about{" "}
             {formatCurrencyWithCents(hourlyEquivalent)} per hour before taxes.
           </p>
 
@@ -354,16 +360,19 @@ export default function SalaryAmountPage({ params }: PageProps) {
 
           <p>
             Start with the gross pay breakdown, then compare the estimated
-            take-home pay with your real monthly expenses. For a deeper estimate,
-            use the <a href="/calculators/paycheck">Paycheck Calculator</a>,{' '}
-            <a href="/calculators/hourly-paycheck">Hourly Paycheck Calculator</a>{' '}
+            take-home pay with your real monthly expenses. For a deeper
+            estimate, use the{" "}
+            <a href="/calculators/paycheck">Paycheck Calculator</a>,{" "}
+            <a href="/calculators/hourly-paycheck">
+              Hourly Paycheck Calculator
+            </a>{" "}
             or <a href="/paycheck-calculator">Paycheck Calculators by State</a>.
           </p>
 
           <p>
             You can also compare this salary with other preset income pages in
             the <a href="/salary-calculator">Salary Calculator Directory</a> or
-            review after-tax estimates in the{' '}
+            review after-tax estimates in the{" "}
             <a href="/salary-after-tax">Salary After Tax Calculators</a>.
           </p>
 
@@ -391,7 +400,9 @@ export default function SalaryAmountPage({ params }: PageProps) {
             money that actually reaches the bank account.
           </p>
 
-          <h3>Why does biweekly pay not equal exactly two monthly paychecks?</h3>
+          <h3>
+            Why does biweekly pay not equal exactly two monthly paychecks?
+          </h3>
           <p>
             Biweekly payroll has 26 paychecks per year. That means most months
             have two paychecks, while a few months may have three paychecks.
@@ -401,11 +412,12 @@ export default function SalaryAmountPage({ params }: PageProps) {
 
           <p>
             This calculator provides educational estimates only. The calculation
-            assumes a single filer, the {TAX_YEAR} federal standard deduction and
-            progressive tax brackets, federal payroll taxes and a 4% illustrative
-            state income-tax rate. It does not include local taxes, tax credits,
-            itemized deductions, benefits or employer-specific withholding. It is
-            not tax, payroll, legal, investment or financial advice.
+            assumes a single filer, the {TAX_YEAR} federal standard deduction
+            and progressive tax brackets, federal payroll taxes and a 4%
+            illustrative state income-tax rate. It does not include local taxes,
+            tax credits, itemized deductions, benefits or employer-specific
+            withholding. It is not tax, payroll, legal, investment or financial
+            advice.
           </p>
         </article>
 
@@ -413,28 +425,28 @@ export default function SalaryAmountPage({ params }: PageProps) {
           title="More salary and paycheck tools"
           tools={[
             {
-              title: 'Paycheck Calculator',
-              href: '/calculators/paycheck',
+              title: "Paycheck Calculator",
+              href: "/calculators/paycheck",
             },
             {
-              title: 'Hourly Paycheck Calculator',
-              href: '/calculators/hourly-paycheck',
+              title: "Hourly Paycheck Calculator",
+              href: "/calculators/hourly-paycheck",
             },
             {
-              title: 'Salary To Hourly Calculator',
-              href: '/calculators/salary-to-hourly',
+              title: "Salary To Hourly Calculator",
+              href: "/calculators/salary-to-hourly",
             },
             {
-              title: 'Federal Tax Calculator',
-              href: '/calculators/federal-tax',
+              title: "Federal Tax Calculator",
+              href: "/calculators/federal-tax",
             },
             {
-              title: 'Salary Calculator Directory',
-              href: '/salary-calculator',
+              title: "Salary Calculator Directory",
+              href: "/salary-calculator",
             },
             {
-              title: 'Salary After Tax Calculators',
-              href: '/salary-after-tax',
+              title: "Salary After Tax Calculators",
+              href: "/salary-after-tax",
             },
           ]}
         />

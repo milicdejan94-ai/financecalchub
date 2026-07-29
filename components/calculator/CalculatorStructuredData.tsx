@@ -5,7 +5,7 @@ type CalculatorStructuredDataProps = {
   dateModified: string;
 };
 
-const SITE_URL = "https://financecalchub.com";
+const SITE_URL = "https://www.financecalchub.com";
 
 export default function CalculatorStructuredData({
   name,

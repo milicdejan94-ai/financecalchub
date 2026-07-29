@@ -1,95 +1,95 @@
-import RelatedCalculators from '../../../components/RelatedCalculators';
-import Breadcrumbs from '../../../components/Breadcrumbs';
+import RelatedCalculators from "../../../components/RelatedCalculators";
+import Breadcrumbs from "../../../components/Breadcrumbs";
 
 export const metadata = {
-  title: 'How to Start Investing in Stocks for Beginners | FinanceCalcHub',
+  title: "How to Start Investing in Stocks for Beginners | FinanceCalcHub",
   description:
-    'Learn how to start investing in stocks, ETFs and index funds. A simple step-by-step beginner guide to brokerage accounts, risk, diversification, taxes and long-term investing.',
+    "Learn how to start investing in stocks, ETFs and index funds. A simple step-by-step beginner guide to brokerage accounts, risk, diversification, taxes and long-term investing.",
 };
 
 const steps = [
   {
-    title: 'Learn what investing means',
-    text: 'Understand the basic difference between saving money and investing money for long-term growth.',
+    title: "Learn what investing means",
+    text: "Understand the basic difference between saving money and investing money for long-term growth.",
   },
   {
-    title: 'Build an emergency fund',
-    text: 'Keep money available for unexpected expenses before putting money into the stock market.',
+    title: "Build an emergency fund",
+    text: "Keep money available for unexpected expenses before putting money into the stock market.",
   },
   {
-    title: 'Understand stocks, ETFs and index funds',
-    text: 'Learn the difference between buying one company and buying a diversified basket of investments.',
+    title: "Understand stocks, ETFs and index funds",
+    text: "Learn the difference between buying one company and buying a diversified basket of investments.",
   },
   {
-    title: 'Learn about risk',
-    text: 'Stock prices can rise and fall. Beginners should understand that investing always includes risk.',
+    title: "Learn about risk",
+    text: "Stock prices can rise and fall. Beginners should understand that investing always includes risk.",
   },
   {
-    title: 'Choose an account type',
-    text: 'Compare taxable brokerage accounts, Roth IRAs, traditional IRAs and employer retirement plans.',
+    title: "Choose an account type",
+    text: "Compare taxable brokerage accounts, Roth IRAs, traditional IRAs and employer retirement plans.",
   },
   {
-    title: 'Open a brokerage account',
-    text: 'A brokerage account allows you to buy and sell stocks, ETFs, mutual funds and other investments.',
+    title: "Open a brokerage account",
+    text: "A brokerage account allows you to buy and sell stocks, ETFs, mutual funds and other investments.",
   },
 ];
 
 const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
   mainEntity: [
     {
-      '@type': 'Question',
-      name: 'How can a beginner start investing in stocks?',
+      "@type": "Question",
+      name: "How can a beginner start investing in stocks?",
       acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'A beginner can start by learning the basics, building an emergency fund, understanding stocks and ETFs, choosing an account type, opening a brokerage account and starting with a simple long-term strategy.',
+        "@type": "Answer",
+        text: "A beginner can start by learning the basics, building an emergency fund, understanding stocks and ETFs, choosing an account type, opening a brokerage account and starting with a simple long-term strategy.",
       },
     },
     {
-      '@type': 'Question',
-      name: 'Do you need a lot of money to start investing?',
+      "@type": "Question",
+      name: "Do you need a lot of money to start investing?",
       acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. Many beginners start with small amounts. The important part is understanding risk, avoiding high-interest debt and building a consistent long-term habit.',
+        "@type": "Answer",
+        text: "No. Many beginners start with small amounts. The important part is understanding risk, avoiding high-interest debt and building a consistent long-term habit.",
       },
     },
     {
-      '@type': 'Question',
-      name: 'Are ETFs better than individual stocks for beginners?',
+      "@type": "Question",
+      name: "Are ETFs better than individual stocks for beginners?",
       acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Many beginners learn about ETFs and index funds first because they can provide diversification across many companies. Individual stocks may carry more company-specific risk.',
+        "@type": "Answer",
+        text: "Many beginners learn about ETFs and index funds first because they can provide diversification across many companies. Individual stocks may carry more company-specific risk.",
       },
     },
     {
-      '@type': 'Question',
-      name: 'Is this investing guide financial advice?',
+      "@type": "Question",
+      name: "Is this investing guide financial advice?",
       acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. This guide is for educational purposes only and is not financial, investment, tax or legal advice.',
+        "@type": "Answer",
+        text: "No. This guide is for educational purposes only and is not financial, investment, tax or legal advice.",
       },
     },
   ],
 };
 
 const articleSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: 'How to Start Investing in Stocks: A Beginner Step-by-Step Guide',
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "How to Start Investing in Stocks: A Beginner Step-by-Step Guide",
   description:
-    'A beginner-friendly guide to stocks, ETFs, brokerage accounts, risk, taxes and long-term investing.',
+    "A beginner-friendly guide to stocks, ETFs, brokerage accounts, risk, taxes and long-term investing.",
   author: {
-    '@type': 'Organization',
-    name: 'FinanceCalcHub',
+    "@type": "Organization",
+    name: "FinanceCalcHub",
   },
   publisher: {
-    '@type': 'Organization',
-    name: 'FinanceCalcHub',
+    "@type": "Organization",
+    name: "FinanceCalcHub",
   },
   mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': 'https://financecalchub.com/investing/beginner-guide',
+    "@type": "WebPage",
+    "@id": "https://www.financecalchub.com/investing/beginner-guide",
   },
 };
 
@@ -108,8 +108,8 @@ export default function InvestingBeginnerGuidePage() {
       <div className="container">
         <Breadcrumbs
           items={[
-            { label: 'Home', href: '/' },
-            { label: 'Investing for Beginners' },
+            { label: "Home", href: "/" },
+            { label: "Investing for Beginners" },
           ]}
         />
 
@@ -160,9 +160,9 @@ export default function InvestingBeginnerGuidePage() {
 
           <p>
             Many beginners learn about diversified ETFs or index funds before
-            buying individual stocks. A diversified fund can hold many companies,
-            while an individual stock depends much more on the performance of
-            one company.
+            buying individual stocks. A diversified fund can hold many
+            companies, while an individual stock depends much more on the
+            performance of one company.
           </p>
 
           <h2>1. Understand what investing actually means</h2>
@@ -229,10 +229,10 @@ export default function InvestingBeginnerGuidePage() {
 
           <p>
             Diversification means spreading your money across different
-            investments. Instead of owning only one stock, a diversified investor
-            may own many companies, industries or asset types. Diversification
-            does not remove all risk, but it can reduce the impact if one
-            company performs badly.
+            investments. Instead of owning only one stock, a diversified
+            investor may own many companies, industries or asset types.
+            Diversification does not remove all risk, but it can reduce the
+            impact if one company performs badly.
           </p>
 
           <h2>5. Choose the right type of account</h2>
@@ -256,8 +256,8 @@ export default function InvestingBeginnerGuidePage() {
           <p>
             A brokerage account allows you to buy and sell investments such as
             stocks, ETFs and mutual funds. Many brokers now offer online
-            accounts with no minimum balance and commission-free trading for many
-            stocks and ETFs.
+            accounts with no minimum balance and commission-free trading for
+            many stocks and ETFs.
           </p>
 
           <p>
@@ -292,8 +292,8 @@ export default function InvestingBeginnerGuidePage() {
           <p>
             For many new investors, learning about broad market ETFs, index
             funds, dollar-cost averaging and long-term investing is usually a
-            better first step than trying to guess which individual stock will go
-            up next.
+            better first step than trying to guess which individual stock will
+            go up next.
           </p>
 
           <h2>9. Understand taxes on investments</h2>
@@ -315,10 +315,10 @@ export default function InvestingBeginnerGuidePage() {
 
           <p>
             Beginners often make mistakes because they feel pressure to act
-            quickly. Common mistakes include investing without an emergency fund,
-            buying a stock only because someone online mentioned it, putting too
-            much money into one company, panic selling during market drops,
-            ignoring taxes and expecting fast profits.
+            quickly. Common mistakes include investing without an emergency
+            fund, buying a stock only because someone online mentioned it,
+            putting too much money into one company, panic selling during market
+            drops, ignoring taxes and expecting fast profits.
           </p>
 
           <p>
@@ -511,28 +511,28 @@ export default function InvestingBeginnerGuidePage() {
           title="Related finance tools"
           tools={[
             {
-  title: 'Investment Return Calculator',
-  href: '/calculators/investment-return',
-},
-            {
-              title: 'Compound Interest Calculator',
-              href: '/calculators/compound-interest',
+              title: "Investment Return Calculator",
+              href: "/calculators/investment-return",
             },
             {
-              title: '401(k) Calculator',
-              href: '/calculators/401k',
+              title: "Compound Interest Calculator",
+              href: "/calculators/compound-interest",
             },
             {
-              title: 'Retirement Calculator',
-              href: '/calculators/retirement',
+              title: "401(k) Calculator",
+              href: "/calculators/401k",
             },
             {
-              title: 'Savings Calculator',
-              href: '/calculators/savings',
+              title: "Retirement Calculator",
+              href: "/calculators/retirement",
             },
             {
-              title: 'Paycheck Calculator',
-              href: '/calculators/paycheck',
+              title: "Savings Calculator",
+              href: "/calculators/savings",
+            },
+            {
+              title: "Paycheck Calculator",
+              href: "/calculators/paycheck",
             },
           ]}
         />
