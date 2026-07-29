@@ -1,10 +1,11 @@
-import Breadcrumbs from '../../components/Breadcrumbs';
-import RelatedCalculators from '../../components/RelatedCalculators';
+import Breadcrumbs from "../../components/Breadcrumbs";
+import RelatedCalculators from "../../components/RelatedCalculators";
 
+import { EditorialResources } from "../../components/editorial";
 export const metadata = {
-  title: 'Contact FinanceCalcHub | Questions, Feedback and Corrections',
+  title: "Contact FinanceCalcHub | Questions, Feedback and Corrections",
   description:
-    'Contact FinanceCalcHub for questions, suggestions, corrections, broken links or feedback about our free financial calculators and personal finance guides.',
+    "Contact FinanceCalcHub for questions, suggestions, corrections, broken links or feedback about our free financial calculators and personal finance guides.",
 };
 
 export default function ContactPage() {
@@ -12,10 +13,7 @@ export default function ContactPage() {
     <section className="section">
       <div className="container">
         <Breadcrumbs
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'Contact' },
-          ]}
+          items={[{ label: "Home", href: "/" }, { label: "Contact" }]}
         />
 
         <div className="content-box">
@@ -99,22 +97,22 @@ export default function ContactPage() {
           <p>
             If you need advice about your specific financial situation, please
             contact a qualified professional such as a tax advisor, financial
-            planner, mortgage lender, attorney, accountant, payroll specialist or
-            insurance professional.
+            planner, mortgage lender, attorney, accountant, payroll specialist
+            or insurance professional.
           </p>
 
           <h2>Useful pages</h2>
 
           <p>
-            You may also want to review our{' '}
-            <a href="/methodology">Methodology</a> page,{' '}
-            <a href="/about">About</a> page and{' '}
+            You may also want to review our{" "}
+            <a href="/methodology">Methodology</a> page,{" "}
+            <a href="/about">About</a> page and{" "}
             <a href="/disclaimer">Disclaimer</a> page to understand how
             calculator results are created and what limitations apply.
           </p>
 
           <p>
-            For privacy-related information, please review our{' '}
+            For privacy-related information, please review our{" "}
             <a href="/privacy-policy">Privacy Policy</a>.
           </p>
 
@@ -156,40 +154,42 @@ export default function ContactPage() {
           </p>
         </div>
 
+        <EditorialResources />
+
         <RelatedCalculators
           title="Popular pages"
           tools={[
             {
-              title: 'All Financial Calculators',
-              href: '/calculators',
+              title: "All Financial Calculators",
+              href: "/calculators",
             },
             {
-              title: 'About FinanceCalcHub',
-              href: '/about',
+              title: "About FinanceCalcHub",
+              href: "/about",
             },
             {
-              title: 'Methodology',
-              href: '/methodology',
+              title: "Methodology",
+              href: "/methodology",
             },
             {
-              title: 'Disclaimer',
-              href: '/disclaimer',
+              title: "Disclaimer",
+              href: "/disclaimer",
             },
             {
-              title: 'Salary After Tax Calculators',
-              href: '/salary-after-tax',
+              title: "Salary After Tax Calculators",
+              href: "/salary-after-tax",
             },
             {
-              title: 'Hourly Wage to Salary Calculators',
-              href: '/hourly-wage',
+              title: "Hourly Wage to Salary Calculators",
+              href: "/hourly-wage",
             },
             {
-              title: 'Mortgage Payment by Amount',
-              href: '/mortgage-payment',
+              title: "Mortgage Payment by Amount",
+              href: "/mortgage-payment",
             },
             {
-              title: 'Investing for Beginners',
-              href: '/investing',
+              title: "Investing for Beginners",
+              href: "/investing",
             },
           ]}
         />

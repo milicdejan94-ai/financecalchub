@@ -1,10 +1,11 @@
-import RelatedCalculators from '../../components/RelatedCalculators';
-import Breadcrumbs from '../../components/Breadcrumbs';
+import RelatedCalculators from "../../components/RelatedCalculators";
+import Breadcrumbs from "../../components/Breadcrumbs";
 
+import { EditorialResources } from "../../components/editorial";
 export const metadata = {
-  title: 'About FinanceCalcHub | Free US Financial Calculators',
+  title: "About FinanceCalcHub | Free US Financial Calculators",
   description:
-    'Learn about FinanceCalcHub, a free US financial calculator website built to help users estimate paychecks, taxes, hourly wages, mortgage payments, loans, savings, investing and retirement planning.',
+    "Learn about FinanceCalcHub, a free US financial calculator website built to help users estimate paychecks, taxes, hourly wages, mortgage payments, loans, savings, investing and retirement planning.",
 };
 
 export default function AboutPage() {
@@ -12,10 +13,7 @@ export default function AboutPage() {
     <section className="section">
       <div className="container">
         <Breadcrumbs
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'About' },
-          ]}
+          items={[{ label: "Home", href: "/" }, { label: "About" }]}
         />
 
         <div className="content-box">
@@ -69,9 +67,7 @@ export default function AboutPage() {
               </a>
             </li>
             <li>
-              <a href="/hourly-wage">
-                Hourly wage to salary calculators
-              </a>
+              <a href="/hourly-wage">Hourly wage to salary calculators</a>
             </li>
             <li>
               <a href="/salary-calculator">
@@ -204,8 +200,8 @@ export default function AboutPage() {
           </p>
 
           <p>
-            Practical explanations may be supported with official sources such as
-            the IRS, Social Security Administration or other government and
+            Practical explanations may be supported with official sources such
+            as the IRS, Social Security Administration or other government and
             primary-source resources where appropriate.
           </p>
 
@@ -219,12 +215,12 @@ export default function AboutPage() {
           </p>
 
           <p>
-            More information about our standards is available in the{' '}
+            More information about our standards is available in the{" "}
             <a href="/editorial-policy">Editorial Policy</a>.
           </p>
 
           <p>
-            Possible errors or source concerns can be reported to{' '}
+            Possible errors or source concerns can be reported to{" "}
             <strong>contact@financecalchub.com</strong>.
           </p>
 
@@ -249,26 +245,26 @@ export default function AboutPage() {
           </p>
 
           <p>
-            Actual results may vary depending on tax rules, state and local laws,
-            lender requirements, credit profile, fees, insurance, deductions,
-            investment returns, payroll settings, employer benefits and other
-            personal factors.
+            Actual results may vary depending on tax rules, state and local
+            laws, lender requirements, credit profile, fees, insurance,
+            deductions, investment returns, payroll settings, employer benefits
+            and other personal factors.
           </p>
 
           <h2>How calculator results are created</h2>
 
           <p>
             Calculator results are based on user inputs and simplified financial
-            assumptions. Some calculators use common default values to make quick
-            estimates easier, while others allow users to change inputs such as
-            income, tax rate, interest rate, loan term, down payment,
+            assumptions. Some calculators use common default values to make
+            quick estimates easier, while others allow users to change inputs
+            such as income, tax rate, interest rate, loan term, down payment,
             contribution amount, expected return or savings goal.
           </p>
 
           <p>
             Because every financial situation is different, calculator results
             should be treated as estimates rather than exact numbers. You can
-            read more about our calculation approach on the{' '}
+            read more about our calculation approach on the{" "}
             <a href="/methodology">Methodology</a> page.
           </p>
 
@@ -277,8 +273,8 @@ export default function AboutPage() {
           <p>
             FinanceCalcHub is organized around common financial questions and
             related calculators. We add supporting guides, internal links and
-            explanation sections so users can understand not only the result, but
-            also the main factors behind the estimate.
+            explanation sections so users can understand not only the result,
+            but also the main factors behind the estimate.
           </p>
 
           <p>
@@ -302,7 +298,7 @@ export default function AboutPage() {
 
           <p>
             If you notice an issue, outdated assumption, confusing result or
-            broken link, you can contact us at{' '}
+            broken link, you can contact us at{" "}
             <strong>contact@financecalchub.com</strong>.
           </p>
 
@@ -321,40 +317,42 @@ export default function AboutPage() {
           </p>
         </div>
 
+        <EditorialResources />
+
         <RelatedCalculators
           title="Explore FinanceCalcHub"
           tools={[
             {
-              title: 'All Financial Calculators',
-              href: '/calculators',
+              title: "All Financial Calculators",
+              href: "/calculators",
             },
             {
-              title: 'Methodology',
-              href: '/methodology',
+              title: "Methodology",
+              href: "/methodology",
             },
             {
-              title: 'Disclaimer',
-              href: '/disclaimer',
+              title: "Disclaimer",
+              href: "/disclaimer",
             },
             {
-              title: 'Contact',
-              href: '/contact',
+              title: "Contact",
+              href: "/contact",
             },
             {
-              title: 'Investing for Beginners',
-              href: '/investing',
+              title: "Investing for Beginners",
+              href: "/investing",
             },
             {
-              title: 'Salary After Tax Calculators',
-              href: '/salary-after-tax',
+              title: "Salary After Tax Calculators",
+              href: "/salary-after-tax",
             },
             {
-              title: 'Hourly Wage to Salary Calculators',
-              href: '/hourly-wage',
+              title: "Hourly Wage to Salary Calculators",
+              href: "/hourly-wage",
             },
             {
-              title: 'Mortgage Payment by Amount',
-              href: '/mortgage-payment',
+              title: "Mortgage Payment by Amount",
+              href: "/mortgage-payment",
             },
           ]}
         />

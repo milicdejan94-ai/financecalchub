@@ -48,8 +48,11 @@ export default function EditorialTrust() {
         </div>
 
         <div className="portal-policy-links">
-          <Link href="/methodology">Methodology</Link>
+          <Link href="/editorial-team">Editorial Team</Link>
           <Link href="/editorial-policy">Editorial Policy</Link>
+          <Link href="/fact-checking">Fact-Checking</Link>
+          <Link href="/sources-policy">Sources Policy</Link>
+          <Link href="/methodology">Methodology</Link>
           <Link href="/about">About FinanceCalcHub</Link>
           <Link href="/disclaimer">Disclaimer</Link>
         </div>

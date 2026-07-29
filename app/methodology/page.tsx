@@ -1,11 +1,12 @@
-import type { Metadata } from 'next';
-import Breadcrumbs from '../../components/Breadcrumbs';
-import RelatedCalculators from '../../components/RelatedCalculators';
+import type { Metadata } from "next";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import RelatedCalculators from "../../components/RelatedCalculators";
 
+import { EditorialResources } from "../../components/editorial";
 export const metadata: Metadata = {
-  title: 'Methodology | How FinanceCalcHub Calculators Work',
+  title: "Methodology | How FinanceCalcHub Calculators Work",
   description:
-    'Learn how FinanceCalcHub calculators work, what assumptions they use, how estimates are calculated, and why results are educational estimates only.',
+    "Learn how FinanceCalcHub calculators work, what assumptions they use, how estimates are calculated, and why results are educational estimates only.",
 };
 
 export default function MethodologyPage() {
@@ -13,10 +14,7 @@ export default function MethodologyPage() {
     <section className="section">
       <div className="container">
         <Breadcrumbs
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'Methodology' },
-          ]}
+          items={[{ label: "Home", href: "/" }, { label: "Methodology" }]}
         />
 
         <p className="eyebrow">Calculator methodology</p>
@@ -32,10 +30,10 @@ export default function MethodologyPage() {
         </p>
 
         <p>
-          This page explains how our calculators are intended to work, what types
-          of assumptions may be used, why results can differ from real-world
-          outcomes, and when users should verify numbers with a qualified
-          professional or official source.
+          This page explains how our calculators are intended to work, what
+          types of assumptions may be used, why results can differ from
+          real-world outcomes, and when users should verify numbers with a
+          qualified professional or official source.
         </p>
 
         <div className="content-box" style={{ marginTop: 34 }}>
@@ -78,8 +76,8 @@ export default function MethodologyPage() {
           <p>
             Calculator inputs are provided by the user or by example assumptions
             shown on the page. Default values are used only to make quick
-            estimates easier. Users should adjust inputs when they know their own
-            numbers.
+            estimates easier. Users should adjust inputs when they know their
+            own numbers.
           </p>
 
           <p>
@@ -113,9 +111,9 @@ export default function MethodologyPage() {
           <h2>Salary after tax calculators</h2>
 
           <p>
-            Salary after tax pages estimate how much common annual salary amounts
-            may be after estimated federal income tax, Social Security, Medicare
-            and estimated state income tax.
+            Salary after tax pages estimate how much common annual salary
+            amounts may be after estimated federal income tax, Social Security,
+            Medicare and estimated state income tax.
           </p>
 
           <p>
@@ -150,9 +148,10 @@ export default function MethodologyPage() {
           <h2>Mortgage calculators</h2>
 
           <p>
-            Mortgage calculators estimate monthly housing costs using inputs such
-            as home price, down payment, interest rate, loan term, property tax,
-            homeowners insurance, PMI, HOA fees and maintenance assumptions.
+            Mortgage calculators estimate monthly housing costs using inputs
+            such as home price, down payment, interest rate, loan term, property
+            tax, homeowners insurance, PMI, HOA fees and maintenance
+            assumptions.
           </p>
 
           <p>
@@ -171,10 +170,10 @@ export default function MethodologyPage() {
           </p>
 
           <p>
-            These estimates may include simplified assumptions for interest rate,
-            loan term, property tax, homeowners insurance and maintenance. Users
-            should adjust assumptions in the full mortgage calculator or verify
-            numbers with a lender for a more specific estimate.
+            These estimates may include simplified assumptions for interest
+            rate, loan term, property tax, homeowners insurance and maintenance.
+            Users should adjust assumptions in the full mortgage calculator or
+            verify numbers with a lender for a more specific estimate.
           </p>
 
           <h2>Loan and debt payoff calculators</h2>
@@ -272,12 +271,12 @@ export default function MethodologyPage() {
           </p>
 
           <p>
-            Readers can report possible errors by emailing{' '}
+            Readers can report possible errors by emailing{" "}
             <strong>contact@financecalchub.com</strong>.
           </p>
 
           <p>
-            Additional editorial standards are explained in the{' '}
+            Additional editorial standards are explained in the{" "}
             <a href="/editorial-policy">Editorial Policy</a>.
           </p>
 
@@ -286,8 +285,8 @@ export default function MethodologyPage() {
           <p>
             Different calculators may use different assumptions, rounding
             methods, tax estimates, rate assumptions and cost categories.
-            FinanceCalcHub focuses on simple, easy-to-understand estimates rather
-            than exact professional calculations.
+            FinanceCalcHub focuses on simple, easy-to-understand estimates
+            rather than exact professional calculations.
           </p>
 
           <p>
@@ -326,45 +325,47 @@ export default function MethodologyPage() {
 
           <p>
             If you notice an error, outdated assumption, confusing result or
-            broken link, please contact us at{' '}
+            broken link, please contact us at{" "}
             <strong>contact@financecalchub.com</strong> so we can review it.
           </p>
         </div>
+
+        <EditorialResources />
 
         <RelatedCalculators
           title="Explore calculator categories"
           tools={[
             {
-              title: 'All Financial Calculators',
-              href: '/calculators',
+              title: "All Financial Calculators",
+              href: "/calculators",
             },
             {
-              title: 'Paycheck Calculator',
-              href: '/calculators/paycheck',
+              title: "Paycheck Calculator",
+              href: "/calculators/paycheck",
             },
             {
-              title: 'Federal Tax Calculator',
-              href: '/calculators/federal-tax',
+              title: "Federal Tax Calculator",
+              href: "/calculators/federal-tax",
             },
             {
-              title: 'Salary After Tax Calculators',
-              href: '/salary-after-tax',
+              title: "Salary After Tax Calculators",
+              href: "/salary-after-tax",
             },
             {
-              title: 'Mortgage Calculator',
-              href: '/calculators/mortgage',
+              title: "Mortgage Calculator",
+              href: "/calculators/mortgage",
             },
             {
-              title: 'Debt Payoff Calculator',
-              href: '/calculators/debt-payoff',
+              title: "Debt Payoff Calculator",
+              href: "/calculators/debt-payoff",
             },
             {
-              title: 'Investing for Beginners',
-              href: '/investing',
+              title: "Investing for Beginners",
+              href: "/investing",
             },
             {
-              title: 'Disclaimer',
-              href: '/disclaimer',
+              title: "Disclaimer",
+              href: "/disclaimer",
             },
           ]}
         />

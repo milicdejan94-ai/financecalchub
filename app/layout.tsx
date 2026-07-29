@@ -144,6 +144,9 @@ export default function RootLayout({
                 <a href="/about">About</a>
                 <a href="/methodology">Methodology</a>
                 <a href="/editorial-policy">Editorial Policy</a>
+                <a href="/editorial-team">Editorial Team</a>
+                <a href="/fact-checking">Fact-Checking</a>
+                <a href="/sources-policy">Sources Policy</a>
                 <a href="/contact">Contact</a>
                 <a href="/privacy-policy">Privacy Policy</a>
                 <a href="/terms">Terms</a>

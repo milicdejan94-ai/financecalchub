@@ -12,7 +12,7 @@ export const editorialTeam: EditorialProfile = {
   role: "Financial education content team",
   description:
     "The FinanceCalcHub Editorial Team creates educational guides, calculator explanations and practical money content for U.S. readers.",
-  href: "/about",
+  href: "/editorial-team",
 };
 
 export const editorialReviewDesk: EditorialProfile = {
@@ -21,7 +21,7 @@ export const editorialReviewDesk: EditorialProfile = {
   role: "Editorial accuracy and clarity review",
   description:
     "FinanceCalcHub content is reviewed for clarity, internal consistency, source attribution and alignment with the site's editorial standards.",
-  href: "/editorial-policy",
+  href: "/fact-checking",
 };
 
 export const editorialProfiles = {

@@ -1,10 +1,11 @@
-import Breadcrumbs from '../../components/Breadcrumbs';
-import RelatedCalculators from '../../components/RelatedCalculators';
+import Breadcrumbs from "../../components/Breadcrumbs";
+import RelatedCalculators from "../../components/RelatedCalculators";
 
+import { EditorialResources } from "../../components/editorial";
 export const metadata = {
-  title: 'Disclaimer | FinanceCalcHub',
+  title: "Disclaimer | FinanceCalcHub",
   description:
-    'Disclaimer for FinanceCalcHub calculators, salary after tax estimates, hourly wage conversions, mortgage payment estimates, investing education, personal finance guides and informational tools.',
+    "Disclaimer for FinanceCalcHub calculators, salary after tax estimates, hourly wage conversions, mortgage payment estimates, investing education, personal finance guides and informational tools.",
 };
 
 export default function DisclaimerPage() {
@@ -12,10 +13,7 @@ export default function DisclaimerPage() {
     <section className="section">
       <div className="container">
         <Breadcrumbs
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'Disclaimer' },
-          ]}
+          items={[{ label: "Home", href: "/" }, { label: "Disclaimer" }]}
         />
 
         <div className="content-box">
@@ -65,19 +63,19 @@ export default function DisclaimerPage() {
           </p>
 
           <p>
-            FinanceCalcHub calculators are intended to provide a helpful starting
-            point for understanding numbers. They do not guarantee exact results,
-            eligibility, approval, savings, tax outcomes, investment returns or
-            future financial performance.
+            FinanceCalcHub calculators are intended to provide a helpful
+            starting point for understanding numbers. They do not guarantee
+            exact results, eligibility, approval, savings, tax outcomes,
+            investment returns or future financial performance.
           </p>
 
           <h2>No guarantee of accuracy or completeness</h2>
 
           <p>
-            We make reasonable efforts to provide useful educational information,
-            but we do not guarantee that all calculators, formulas, assumptions,
-            articles, examples or results are accurate, complete, current or
-            suitable for your specific situation.
+            We make reasonable efforts to provide useful educational
+            information, but we do not guarantee that all calculators, formulas,
+            assumptions, articles, examples or results are accurate, complete,
+            current or suitable for your specific situation.
           </p>
 
           <p>
@@ -126,9 +124,9 @@ export default function DisclaimerPage() {
             Mortgage, affordability, refinance, rent vs buy, down payment,
             amortization and mortgage payment by amount calculators are
             simplified estimates. Actual payments and approval decisions may
-            depend on lender rules, credit history, escrow requirements, property
-            taxes, homeowners insurance, PMI, HOA fees, lender fees, closing
-            costs, loan type and other factors.
+            depend on lender rules, credit history, escrow requirements,
+            property taxes, homeowners insurance, PMI, HOA fees, lender fees,
+            closing costs, loan type and other factors.
           </p>
 
           <p>
@@ -183,8 +181,8 @@ export default function DisclaimerPage() {
           <p>
             Investing involves risk, including possible loss of principal.
             Before making investment decisions, consider your financial
-            situation, goals, risk tolerance, time horizon, taxes and whether you
-            should consult a qualified financial professional.
+            situation, goals, risk tolerance, time horizon, taxes and whether
+            you should consult a qualified financial professional.
           </p>
 
           <h2>Real Money Stories and public accounts</h2>
@@ -196,21 +194,22 @@ export default function DisclaimerPage() {
           </p>
 
           <p>
-            Personal statements in a public account are not automatically treated
-            as independently verified facts. FinanceCalcHub may not have access
-            to the person's private tax records, payroll records, bank records,
-            IRS account or other supporting documents unless explicitly stated.
+            Personal statements in a public account are not automatically
+            treated as independently verified facts. FinanceCalcHub may not have
+            access to the person's private tax records, payroll records, bank
+            records, IRS account or other supporting documents unless explicitly
+            stated.
           </p>
 
           <p>
             Practical explanations in Real Money Stories may reference official
             sources, but the article does not provide individualized tax, legal,
-            accounting or financial advice for the person in the story or for the
-            reader.
+            accounting or financial advice for the person in the story or for
+            the reader.
           </p>
 
           <p>
-            More information is available in our{' '}
+            More information is available in our{" "}
             <a href="/editorial-policy">Editorial Policy</a>.
           </p>
 
@@ -225,9 +224,9 @@ export default function DisclaimerPage() {
 
           <p>
             Before making major decisions, consider speaking with a tax
-            professional, financial planner, mortgage lender, payroll specialist,
-            attorney, insurance professional or other qualified advisor who can
-            review your specific situation.
+            professional, financial planner, mortgage lender, payroll
+            specialist, attorney, insurance professional or other qualified
+            advisor who can review your specific situation.
           </p>
 
           <h2>External links, advertising and third-party content</h2>
@@ -247,65 +246,67 @@ export default function DisclaimerPage() {
           <h2>Use at your own risk</h2>
 
           <p>
-            By using FinanceCalcHub, you understand that you use the calculators,
-            tools, articles and content at your own risk. FinanceCalcHub is not
-            liable for losses, damages, errors, omissions or decisions made based
-            on the information provided on this website.
+            By using FinanceCalcHub, you understand that you use the
+            calculators, tools, articles and content at your own risk.
+            FinanceCalcHub is not liable for losses, damages, errors, omissions
+            or decisions made based on the information provided on this website.
           </p>
 
           <h2>Related policy pages</h2>
 
           <p>
-            For more information about how our calculators work, visit the{' '}
+            For more information about how our calculators work, visit the{" "}
             <a href="/methodology">Methodology</a> page. For information about
-            data and privacy, visit the{' '}
+            data and privacy, visit the{" "}
             <a href="/privacy-policy">Privacy Policy</a>.
           </p>
 
           <h2>Contact</h2>
 
           <p>
-            If you have questions about this disclaimer or notice an issue with a
-            calculator, article or link, contact us at{' '}
-            <strong>contact@financecalchub.com</strong> or visit the{' '}
+            If you have questions about this disclaimer or notice an issue with
+            a calculator, article or link, contact us at{" "}
+            <strong>contact@financecalchub.com</strong> or visit the{" "}
             <a href="/contact">Contact</a> page.
           </p>
         </div>
+
+        <EditorialResources />
 
         <RelatedCalculators
           title="Helpful pages"
           tools={[
             {
-              title: 'Methodology',
-              href: '/methodology',
+              title: "Methodology",
+              href: "/methodology",
             },
             {
-              title: 'Privacy Policy',
-              href: '/privacy-policy',
+              title: "Privacy Policy",
+              href: "/privacy-policy",
             },
             {
-              title: 'Contact',
-              href: '/contact',
+              title: "Contact",
+              href: "/contact",
             },
             {
-              title: 'About FinanceCalcHub',
-              href: '/about',
+              title: "About FinanceCalcHub",
+              href: "/about",
             },
             {
-              title: 'All Financial Calculators',
-              href: '/calculators',
+              title: "All Financial Calculators",
+              href: "/calculators",
             },
             {
-              title: 'Investing for Beginners',
-              href: '/investing',
+              title: "Investing for Beginners",
+              href: "/investing",
             },
             {
-              title: 'Salary After Tax Calculators',
-              href: '/salary-after-tax',
+              title: "Salary After Tax Calculators",
+              href: "/salary-after-tax",
             },
             {
-              title: 'Personal Finance Blog',
-              href: '/blog',
+              title: "Personal Finance Blog",
+              href: "/blog",
             },
           ]}
         />

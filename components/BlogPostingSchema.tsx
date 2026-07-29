@@ -28,7 +28,7 @@ export default function BlogPostingSchema({
   dateModified,
   articleSection,
   authorName = "FinanceCalcHub Editorial Team",
-  authorUrl = "/about",
+  authorUrl = "/editorial-team",
   reviewerName,
   reviewerUrl,
 }: BlogPostingSchemaProps) {

@@ -1,11 +1,12 @@
-import type { Metadata } from 'next';
-import Breadcrumbs from '../../components/Breadcrumbs';
-import RelatedCalculators from '../../components/RelatedCalculators';
+import type { Metadata } from "next";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import RelatedCalculators from "../../components/RelatedCalculators";
 
+import { EditorialResources } from "../../components/editorial";
 export const metadata: Metadata = {
-  title: 'Editorial Policy | FinanceCalcHub',
+  title: "Editorial Policy | FinanceCalcHub",
   description:
-    'Learn how FinanceCalcHub researches, writes, reviews and corrects financial calculators, educational guides and Real Money Stories.',
+    "Learn how FinanceCalcHub researches, writes, reviews and corrects financial calculators, educational guides and Real Money Stories.",
 };
 
 export default function EditorialPolicyPage() {
@@ -13,10 +14,7 @@ export default function EditorialPolicyPage() {
     <section className="section">
       <div className="container">
         <Breadcrumbs
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'Editorial Policy' },
-          ]}
+          items={[{ label: "Home", href: "/" }, { label: "Editorial Policy" }]}
         />
 
         <article className="content-box">
@@ -73,15 +71,15 @@ export default function EditorialPolicyPage() {
           </p>
 
           <p>
-            A publicly shared story is not automatically treated as independently
-            verified fact.
+            A publicly shared story is not automatically treated as
+            independently verified fact.
           </p>
 
           <p>
-            When an article describes what a person said happened, FinanceCalcHub
-            uses language such as “the taxpayer said,” “according to the public
-            account” or similar wording to distinguish the person's claims from
-            independently confirmed facts.
+            When an article describes what a person said happened,
+            FinanceCalcHub uses language such as “the taxpayer said,” “according
+            to the public account” or similar wording to distinguish the
+            person's claims from independently confirmed facts.
           </p>
 
           <p>
@@ -132,8 +130,8 @@ export default function EditorialPolicyPage() {
 
           <p>
             Secondary sources may provide context, but important procedural or
-            factual claims should be checked against stronger primary or official
-            sources when practical.
+            factual claims should be checked against stronger primary or
+            official sources when practical.
           </p>
 
           <h2>Calculator content</h2>
@@ -151,7 +149,7 @@ export default function EditorialPolicyPage() {
           </p>
 
           <p>
-            More information about calculator assumptions is available on the{' '}
+            More information about calculator assumptions is available on the{" "}
             <a href="/methodology">Methodology</a> page.
           </p>
 
@@ -178,7 +176,7 @@ export default function EditorialPolicyPage() {
           </p>
 
           <p>
-            Readers can report possible errors by emailing{' '}
+            Readers can report possible errors by emailing{" "}
             <strong>contact@financecalchub.com</strong>.
           </p>
 
@@ -197,9 +195,7 @@ export default function EditorialPolicyPage() {
 
           <h2>Advertising and editorial independence</h2>
 
-          <p>
-            FinanceCalcHub may display advertising.
-          </p>
+          <p>FinanceCalcHub may display advertising.</p>
 
           <p>
             Advertising does not determine the conclusions of our educational
@@ -215,9 +211,7 @@ export default function EditorialPolicyPage() {
 
           <h2>No professional advice</h2>
 
-          <p>
-            FinanceCalcHub content is educational and informational only.
-          </p>
+          <p>FinanceCalcHub content is educational and informational only.</p>
 
           <p>
             Articles, calculators and Real Money Stories do not create a
@@ -229,37 +223,39 @@ export default function EditorialPolicyPage() {
           <h2>Contact</h2>
 
           <p>
-            For corrections, source concerns or editorial feedback, contact{' '}
+            For corrections, source concerns or editorial feedback, contact{" "}
             <strong>contact@financecalchub.com</strong>.
           </p>
         </article>
+
+        <EditorialResources />
 
         <RelatedCalculators
           title="Editorial and trust information"
           tools={[
             {
-              title: 'About FinanceCalcHub',
-              href: '/about',
+              title: "About FinanceCalcHub",
+              href: "/about",
             },
             {
-              title: 'Methodology',
-              href: '/methodology',
+              title: "Methodology",
+              href: "/methodology",
             },
             {
-              title: 'Real Money Stories',
-              href: '/blog/real-money-stories',
+              title: "Real Money Stories",
+              href: "/blog/real-money-stories",
             },
             {
-              title: 'Contact',
-              href: '/contact',
+              title: "Contact",
+              href: "/contact",
             },
             {
-              title: 'Disclaimer',
-              href: '/disclaimer',
+              title: "Disclaimer",
+              href: "/disclaimer",
             },
             {
-              title: 'Privacy Policy',
-              href: '/privacy-policy',
+              title: "Privacy Policy",
+              href: "/privacy-policy",
             },
           ]}
         />
