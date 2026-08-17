@@ -176,25 +176,16 @@ export default function SalaryCalculatorGuidePage() {
             insurance, repairs, medical expenses and travel.
           </p>
 
-          <h2>Useful salary guides</h2>
-          <div className="grid">
-            <a className="card" href="/blog/how-much-is-70000-after-taxes">
-              <h3>$70,000 after taxes</h3>
-              <p>
-                See a detailed educational example with federal and payroll-tax
-                assumptions.
-              </p>
-              <span>Read the guide →</span>
+          <h2>Useful salary example</h2>
+          <p>
+            For a side-by-side worked example of $70,000 and $100,000 salaries,
+            including gross pay periods and broad take-home planning ranges,
+            read{" "}
+            <a href="/blog/how-to-estimate-take-home-pay">
+              How to Estimate Your Take-Home Pay
             </a>
-            <a className="card" href="/blog/how-much-is-100000-after-taxes">
-              <h3>$100,000 after taxes</h3>
-              <p>
-                Review how tax brackets, payroll taxes and deductions can affect
-                take-home pay.
-              </p>
-              <span>Read the guide →</span>
-            </a>
-          </div>
+            .
+          </p>
 
           <h2>Important limitations</h2>
           <p>

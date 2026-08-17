@@ -21,13 +21,13 @@ const calculatorGroups = [
       {
         title: "Salary After Tax Guide",
         description:
-          "Understand how taxes and deductions affect take-home pay, with detailed $70,000 and $100,000 examples.",
+          "Understand how taxes and deductions affect take-home pay, with linked worked examples and transparent assumptions.",
         href: "/salary-after-tax",
       },
       {
         title: "Hourly Wage to Salary Guide",
         description:
-          "Learn how to convert hourly pay into weekly, monthly and annual income, with detailed $25 and $30 examples.",
+          "Learn how to convert hourly pay into weekly, monthly and annual income with side-by-side worked examples.",
         href: "/hourly-wage",
       },
       {
@@ -75,7 +75,7 @@ const calculatorGroups = [
       {
         title: "Mortgage Payment Guide",
         description:
-          "Understand mortgage payment components and compare detailed $300,000 and $400,000 examples.",
+          "Understand mortgage payment components and compare loan amounts under consistent assumptions.",
         href: "/mortgage-payment",
       },
       {
@@ -191,40 +191,22 @@ const calculatorGroups = [
 
 const popularCalculatorGuides = [
   {
-    title: "$70,000 After Tax Calculator",
+    title: "Take-Home Pay Worked Examples",
     description:
-      "Estimate annual, monthly, biweekly and weekly after-tax pay for a $70,000 salary.",
-    href: "/blog/how-much-is-70000-after-taxes",
+      "Compare $70,000 and $100,000 salary examples, gross pay periods and broad take-home planning ranges in one guide.",
+    href: "/blog/how-to-estimate-take-home-pay",
   },
   {
-    title: "$100,000 After Tax Calculator",
+    title: "Hourly Wage Worked Examples",
     description:
-      "Estimate how much a $100,000 salary may be after federal tax, payroll taxes and estimated state tax.",
-    href: "/blog/how-much-is-100000-after-taxes",
+      "Compare $25 and $30 hourly wages across daily, weekly, biweekly, monthly and annual gross pay.",
+    href: "/hourly-wage",
   },
   {
-    title: "$25 an Hour Is How Much a Year?",
+    title: "Mortgage Payment Worked Examples",
     description:
-      "Convert $25 per hour into estimated yearly, monthly, weekly and after-tax pay.",
-    href: "/blog/25-an-hour-is-how-much-a-year",
-  },
-  {
-    title: "$30 an Hour Is How Much a Year?",
-    description:
-      "Estimate how much $30 per hour may be per year, month, week and paycheck.",
-    href: "/blog/30-an-hour-is-how-much-a-year",
-  },
-  {
-    title: "$300,000 Mortgage Payment",
-    description:
-      "Estimate the monthly payment on a $300,000 mortgage including taxes and insurance assumptions.",
-    href: "/blog/300000-mortgage-payment",
-  },
-  {
-    title: "$400,000 Mortgage Payment",
-    description:
-      "Estimate the monthly payment on a $400,000 mortgage with common home buying cost assumptions.",
-    href: "/blog/400000-mortgage-payment",
+      "Compare $300,000 and $400,000 mortgage examples at multiple rates while keeping taxes and insurance in context.",
+    href: "/blog/mortgage-payment-basics",
   },
 ];
 
@@ -266,8 +248,8 @@ export default function CalculatorsPage() {
             <a className="card" href="/salary-after-tax">
               <h3>Salary After Tax Guide</h3>
               <p>
-                Estimate after-tax income for common US salary amounts including
-                $50k, $70k, $100k and more.
+                Understand take-home pay using transparent assumptions and
+                worked salary examples.
               </p>
               <span>Browse salary after tax calculators →</span>
             </a>
@@ -284,8 +266,8 @@ export default function CalculatorsPage() {
             <a className="card" href="/mortgage-payment">
               <h3>Mortgage Payment Guide</h3>
               <p>
-                Understand payment components and compare detailed $300,000 and
-                $400,000 examples.
+                Understand payment components and compare loan scenarios under
+                consistent assumptions.
               </p>
               <span>Open mortgage payment guide →</span>
             </a>

@@ -36,7 +36,7 @@ const articleMetadata: ArticleMetadata = {
   readingTime: "8 min read",
   difficulty: "Beginner",
   datePublished: "2026-06-05",
-  dateModified: "2026-07-28",
+  dateModified: "2026-08-17",
   author: editorialTeam,
   reviewer: editorialReviewDesk,
   relatedCalculator: {
@@ -208,6 +208,87 @@ export default function TakeHomePayArticle() {
             These are gross figures before tax. Actual take-home pay will depend
             on filing status, tax withholding, state tax, benefits, retirement
             contributions and other deductions.
+          </p>
+
+          <h2>Worked salary examples: $70,000 and $100,000</h2>
+
+          <p>
+            Salary examples are most useful when they are shown side by side
+            under clearly stated assumptions instead of being presented as a
+            universal after-tax answer. The ranges below preserve the planning
+            examples from our earlier salary-specific guides.
+          </p>
+
+          <div className="table-wrap">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Salary example</th>
+                  <th>Gross monthly pay</th>
+                  <th>Illustrative annual take-home range</th>
+                  <th>Illustrative monthly range</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>$70,000</td>
+                  <td>About $5,833</td>
+                  <td>About $50,000 to $56,000</td>
+                  <td>About $4,167 to $4,667</td>
+                </tr>
+                <tr>
+                  <td>$100,000</td>
+                  <td>About $8,333</td>
+                  <td>About $72,000 to $82,000</td>
+                  <td>About $6,000 to $6,833</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            These are broad educational planning ranges, not tax-return or
+            payroll guarantees. Filing status, taxable income, W-4 elections,
+            state and local taxes, credits, health benefits and retirement
+            contributions can move the result materially. Two workers with the
+            same salary can therefore receive different net pay.
+          </p>
+
+          <h3>How pay frequency changes the gross starting point</h3>
+
+          <div className="table-wrap">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Annual salary</th>
+                  <th>Monthly gross</th>
+                  <th>Biweekly gross</th>
+                  <th>Weekly gross</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>$70,000</td>
+                  <td>$5,833.33</td>
+                  <td>$2,692.31</td>
+                  <td>$1,346.15</td>
+                </tr>
+                <tr>
+                  <td>$100,000</td>
+                  <td>$8,333.33</td>
+                  <td>$3,846.15</td>
+                  <td>$1,923.08</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            For a personalized result, enter your own salary, filing status, pay
+            frequency and deductions in the{" "}
+            <a href="/calculators/paycheck">Paycheck Calculator</a>. For
+            location-specific considerations, review the{" "}
+            <a href="/paycheck-calculator">Paycheck Taxes by State Guide</a>.
           </p>
 
           <h2>Main items that reduce take-home pay</h2>
@@ -430,17 +511,6 @@ export default function TakeHomePayArticle() {
               <a href="/calculators/federal-tax">Federal Tax Calculator</a> to
               estimate federal income tax using the calculator's stated
               assumptions.
-            </li>
-            <li>
-              Use{" "}
-              <a href="/blog/how-much-is-70000-after-taxes">
-                $70,000 after taxes
-              </a>{" "}
-              or{" "}
-              <a href="/blog/how-much-is-100000-after-taxes">
-                $100,000 after taxes
-              </a>{" "}
-              for detailed salary examples.
             </li>
           </ul>
 

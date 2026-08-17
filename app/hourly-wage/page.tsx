@@ -123,26 +123,115 @@ export default function HourlyWageGuidePage() {
             worker is legally entitled to overtime.
           </p>
 
-          <h2>Detailed hourly-pay examples</h2>
-          <div className="grid">
-            <a className="card" href="/blog/25-an-hour-is-how-much-a-year">
-              <h3>$25 an hour</h3>
-              <p>
-                Review annual, monthly, biweekly and weekly examples with clear
-                assumptions.
-              </p>
-              <span>Read the guide →</span>
-            </a>
+          <h2>Worked examples: $25 and $30 an hour</h2>
+          <p>
+            Instead of treating each wage as a separate calculator page, the
+            table below compares two common hourly rates using the same
+            assumptions. This makes it easier to see what changes when the wage
+            changes and what stays dependent on your schedule.
+          </p>
 
-            <a className="card" href="/blog/30-an-hour-is-how-much-a-year">
-              <h3>$30 an hour</h3>
-              <p>
-                Compare gross income, work schedules and simplified take-home
-                considerations.
-              </p>
-              <span>Read the guide →</span>
-            </a>
+          <div className="table-wrap">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Gross-pay measure</th>
+                  <th>$25/hour</th>
+                  <th>$30/hour</th>
+                  <th>Assumption</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Daily</td>
+                  <td>$200</td>
+                  <td>$240</td>
+                  <td>8 paid hours</td>
+                </tr>
+                <tr>
+                  <td>Weekly</td>
+                  <td>$1,000</td>
+                  <td>$1,200</td>
+                  <td>40 paid hours</td>
+                </tr>
+                <tr>
+                  <td>Biweekly</td>
+                  <td>$2,000</td>
+                  <td>$2,400</td>
+                  <td>80 paid hours</td>
+                </tr>
+                <tr>
+                  <td>Average monthly</td>
+                  <td>About $4,333</td>
+                  <td>About $5,200</td>
+                  <td>Annual gross ÷ 12</td>
+                </tr>
+                <tr>
+                  <td>Annual</td>
+                  <td>$52,000</td>
+                  <td>$62,400</td>
+                  <td>40 hours × 52 weeks</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+
+          <h3>How weekly hours change the annual result</h3>
+          <p>
+            The familiar $52,000 and $62,400 annual figures assume a steady
+            40-hour schedule for all 52 weeks. Part-time schedules, unpaid time
+            off and variable hours can materially change the result.
+          </p>
+
+          <div className="table-wrap">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Hours per week</th>
+                  <th>$25/hour annual gross</th>
+                  <th>$30/hour annual gross</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>20</td>
+                  <td>$26,000</td>
+                  <td>$31,200</td>
+                </tr>
+                <tr>
+                  <td>30</td>
+                  <td>$39,000</td>
+                  <td>$46,800</td>
+                </tr>
+                <tr>
+                  <td>35</td>
+                  <td>$45,500</td>
+                  <td>$54,600</td>
+                </tr>
+                <tr>
+                  <td>40</td>
+                  <td>$52,000</td>
+                  <td>$62,400</td>
+                </tr>
+                <tr>
+                  <td>45</td>
+                  <td>$58,500 before any overtime premium</td>
+                  <td>$70,200 before any overtime premium</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            These are gross-pay comparisons, not promised take-home amounts.
+            Federal withholding, payroll taxes, state or local tax, benefits,
+            retirement contributions and overtime treatment can all change the
+            paycheck that reaches your bank account. Use the{" "}
+            <a href="/calculators/hourly-paycheck">
+              Hourly Paycheck Calculator
+            </a>{" "}
+            when you want to enter your own rate and schedule.
+          </p>
 
           <h2>How to compare an hourly job with a salary offer</h2>
           <ol>

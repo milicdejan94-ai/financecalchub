@@ -139,25 +139,18 @@ export default function SalaryAfterTaxGuidePage() {
             flow.
           </p>
 
-          <h2>Detailed take-home-pay examples</h2>
-          <div className="grid">
-            <a className="card" href="/blog/how-much-is-70000-after-taxes">
-              <h3>How much is $70,000 after taxes?</h3>
-              <p>
-                Review a detailed example using disclosed federal, payroll and
-                illustrative state-tax assumptions.
-              </p>
-              <span>Read the guide →</span>
+          <h2>Worked take-home-pay examples</h2>
+          <p>
+            The main take-home-pay guide now compares $70,000 and $100,000
+            salaries in one place, alongside gross-pay breakdowns, planning
+            ranges and the assumptions that can change a real paycheck.
+          </p>
+          <p>
+            <a href="/blog/how-to-estimate-take-home-pay">
+              Compare the $70,000 and $100,000 worked examples
             </a>
-            <a className="card" href="/blog/how-much-is-100000-after-taxes">
-              <h3>How much is $100,000 after taxes?</h3>
-              <p>
-                See how progressive tax brackets and payroll taxes affect a
-                higher salary example.
-              </p>
-              <span>Read the guide →</span>
-            </a>
-          </div>
+            .
+          </p>
 
           <h2>A practical way to use an estimate</h2>
           <ol>

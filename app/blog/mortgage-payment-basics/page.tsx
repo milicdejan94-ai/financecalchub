@@ -36,7 +36,7 @@ const articleMetadata: ArticleMetadata = {
   readingTime: "8 min read",
   difficulty: "Beginner",
   datePublished: "2026-06-05",
-  dateModified: "2026-07-28",
+  dateModified: "2026-08-17",
   author: editorialTeam,
   reviewer: editorialReviewDesk,
   relatedCalculator: {
@@ -268,6 +268,75 @@ export default function MortgageBasicsArticle() {
               </tbody>
             </table>
           </div>
+
+          <h2>Worked examples: $300,000 and $400,000 mortgages</h2>
+
+          <p>
+            The same interest-rate change has a larger dollar effect on a larger
+            loan balance. The following examples compare $300,000 and $400,000
+            loans using the same 30-year fixed-rate assumptions. They show
+            principal and interest only, before taxes, insurance, PMI, HOA fees,
+            maintenance or closing costs.
+          </p>
+
+          <div className="table-wrap">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Interest rate</th>
+                  <th>$300,000 loan</th>
+                  <th>$400,000 loan</th>
+                  <th>Difference</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>6%</td>
+                  <td>About $1,799/month</td>
+                  <td>About $2,398/month</td>
+                  <td>About $599/month</td>
+                </tr>
+                <tr>
+                  <td>7%</td>
+                  <td>About $1,996/month</td>
+                  <td>About $2,661/month</td>
+                  <td>About $665/month</td>
+                </tr>
+                <tr>
+                  <td>8%</td>
+                  <td>About $2,201/month</td>
+                  <td>About $2,935/month</td>
+                  <td>About $734/month</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            Shortening the term can raise the required monthly payment while
+            reducing the repayment period. At a simplified 6% rate, the earlier
+            examples were about $2,532 per month for a $300,000 15-year loan and
+            about $3,376 per month for a $400,000 15-year loan, before property
+            costs.
+          </p>
+
+          <h3>Why the full housing payment can be much higher</h3>
+          <p>
+            A principal-and-interest example is only a starting point. Property
+            taxes, homeowners insurance, mortgage insurance and HOA fees can add
+            hundreds of dollars per month. Maintenance and repairs should also
+            be planned even when they are not collected by the lender.
+          </p>
+
+          <p>
+            Use the <a href="/calculators/mortgage">Mortgage Calculator</a> to
+            test your own loan balance, rate and term, then add realistic local
+            tax and insurance estimates. Use the{" "}
+            <a href="/calculators/mortgage-affordability">
+              Mortgage Affordability Calculator
+            </a>{" "}
+            to compare the full housing cost with income and existing debts.
+          </p>
 
           <h2>Interest rate and loan term</h2>
 

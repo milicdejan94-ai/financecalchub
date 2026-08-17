@@ -453,8 +453,8 @@ export default function MortgageCalculatorPage() {
               href: "/calculators/extra-mortgage-payment",
             },
             {
-              title: "$300,000 Mortgage Payment",
-              href: "/blog/300000-mortgage-payment",
+              title: "Mortgage Payment Basics & Worked Examples",
+              href: "/blog/mortgage-payment-basics",
             },
             {
               title: "All Financial Calculators",

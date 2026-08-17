@@ -141,32 +141,19 @@ export default function MortgagePaymentGuidePage() {
             should also be planned separately unless they are financed.
           </p>
 
-          <h2>Examples for common planning questions</h2>
+          <h2>Compare common loan amounts without duplicate pages</h2>
           <p>
-            Detailed examples are useful when they explain the assumptions
-            behind the number rather than presenting a payment as a universal
-            quote.
+            Our mortgage-payment basics guide now compares $300,000 and $400,000
+            loan examples under the same 6%, 7% and 8% rate assumptions. Keeping
+            the examples together makes the differences easier to compare and
+            keeps the assumptions visible.
           </p>
-
-          <div className="grid">
-            <a className="card" href="/blog/300000-mortgage-payment">
-              <h3>$300,000 mortgage payment example</h3>
-              <p>
-                Review a detailed example covering principal, interest, taxes
-                and insurance assumptions.
-              </p>
-              <span>Read the guide →</span>
+          <p>
+            <a href="/blog/mortgage-payment-basics">
+              Compare the $300,000 and $400,000 worked mortgage examples
             </a>
-
-            <a className="card" href="/blog/400000-mortgage-payment">
-              <h3>$400,000 mortgage payment example</h3>
-              <p>
-                See how rate, term and housing costs can change a larger-loan
-                scenario.
-              </p>
-              <span>Read the guide →</span>
-            </a>
-          </div>
+            .
+          </p>
 
           <h2>A better mortgage-planning workflow</h2>
           <ol>

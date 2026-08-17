@@ -60,14 +60,6 @@ const categoryGroups = [
         href: "/blog/how-to-estimate-take-home-pay",
       },
       { title: "Gross Pay vs Net Pay", href: "/blog/gross-pay-vs-net-pay" },
-      {
-        title: "$25 an Hour Is How Much a Year?",
-        href: "/blog/25-an-hour-is-how-much-a-year",
-      },
-      {
-        title: "$30 an Hour Is How Much a Year?",
-        href: "/blog/30-an-hour-is-how-much-a-year",
-      },
     ],
   },
   {
@@ -82,10 +74,6 @@ const categoryGroups = [
       {
         title: "How Much House Can I Afford?",
         href: "/blog/how-much-house-can-i-afford",
-      },
-      {
-        title: "$300,000 Mortgage Payment",
-        href: "/blog/300000-mortgage-payment",
       },
       {
         title: "Rent vs Buy Key Factors",
