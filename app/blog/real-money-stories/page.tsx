@@ -45,10 +45,11 @@ export default function RealMoneyStoriesPage() {
           </p>
 
           <p>
-            Some stories are based on publicly shared experiences.
-            FinanceCalcHub does not independently verify every claim made by the
-            original individual. Identifying details are omitted, and each story
-            clearly explains its source and editorial context.
+            Some articles are based on a single publicly shared individual
+            account. Others are clearly labeled educational case studies that
+            combine recurring themes from multiple public discussions.
+            FinanceCalcHub does not independently verify every private claim,
+            and each article explains its source and editorial context.
           </p>
 
           <p>
@@ -120,9 +121,11 @@ export default function RealMoneyStoriesPage() {
 
           <p>
             FinanceCalcHub does not present anonymous internet stories as
-            independently verified facts. When an article is based on a publicly
-            shared experience, the story is described as the individual's own
-            account.
+            independently verified facts. When an article is based on one
+            publicly shared experience, it is described as the individual's own
+            account. When multiple public discussions are combined to explain a
+            recurring issue, the page is labeled as an educational case study
+            rather than presented as one person's story.
           </p>
 
           <p>

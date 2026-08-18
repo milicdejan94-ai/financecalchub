@@ -47,16 +47,15 @@ export const realMoneyStories: ContentItem[] = [
     priority: 95,
   },
   {
-    title:
-      "She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem",
+    title: "Taxed in the Wrong State? An Educational Payroll Case Study",
     description:
-      "A payroll-location problem created questions about withholding, state returns and W-2 information.",
+      "An educational case study about recurring wrong-state payroll problems, withholding, work locations and W-2 records.",
     href: "/blog/real-money-stories/taxed-in-wrong-state-payroll-problem",
-    category: "Payroll and state tax",
+    category: "Educational case study",
     contentType: "story",
     readTime: "8 min read",
     datePublished: "2026-07-10",
-    dateModified: "2026-07-28",
+    dateModified: "2026-08-17",
     homepage: true,
     priority: 90,
   },

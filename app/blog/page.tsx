@@ -30,8 +30,7 @@ const categoryGroups = [
         href: "/blog/real-money-stories/return-accepted-forgot-w2",
       },
       {
-        title:
-          "She Was Taxed in the Wrong State — Then Payroll Said It Couldn't Fix the Problem",
+        title: "Taxed in the Wrong State? An Educational Payroll Case Study",
         href: "/blog/real-money-stories/taxed-in-wrong-state-payroll-problem",
       },
       {
